@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style data-emotion="css-global" data-s="">
+		@font-face {
+			font-family: "Nanum Myeongjo";
+			font-weight: normal;
+			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Noto Sans Light";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-Light.otf");
+		}
+
+		@font-face {
+			font-family: "Noto Sans DemiLight";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+		}
+	</style>
+	<link rel="shortcut icon" href="../static/images/glowritersFavicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/css/post-details/post-details.css" />
+	<link rel="stylesheet" href="/css/main/header.css" data-whatIsThis="헤더CSS임포트" />
+	<title>게시물 상세페이지</title>
+</head>
+
+<body>
+	<div>
+		<div th:replace="~{/main/header :: fragment-header1}">헤더파일 가져오는곳</div>
+		<div th:replace="~{/main/header :: fragment-header2}">헤더파일 가져오는곳</div>
+		<div class="wrap-view-article">
+
+			<div class="wrap-cover">
+				<div class="cover-item">
+					<div class="cover-image"></div>
+					<div class="cover-inner"></div>
+					<div class="cover-cell">
+						<h1 class="cover-title">사막 위를 달리는 전사</h1>
+						<p class="cover-sub-title">'進'에 대한 단상</p>
+					</div>
+					<div class="wrap-article-info" t-area="Writer">
+						<span class="ico-by">by</span>
+						<span class="text-author">
+							<a class="text-author" href="#" data-tiara-action-name="글뷰 > 커버 > 작가명 클릭"
+								data-tiara-layer="cover profile">김수빈</a>
+						</span>
+						<span class="ico-dot"></span>
+						<span class="date">May 01. 2024</span>
+					</div>
+				</div>
+			</div>
+			<div class="body-frame">
+				<div class="wrap-body">
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="1"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="2"
+						data-shown="true">
+						<br />
+					</p>
+					<blockquote class="top-content top-content-sub"
+						data-app='{"type":"quotation","kind":"quote","data":[{"type":"text","data":[{"type":"text","text":"반복에 반복, 매번 같은 질문을 던진다."}]},{"type":"br"},{"type":"text","data":[{"type":"text","text":"그리고 매번 같은 답이다."}]},{"type":"br"},{"type":"text","data":[{"type":"text","text":"너무 지긋지긋해."}]}]}'
+						data-block-index="3" data-shown="true">
+						<span>반복에 반복, 매번 같은 질문을 던진다.</span><br />
+						<span>그리고 매번 같은 답이다.</span><br />
+						<span>너무 지긋지긋해.</span>
+					</blockquote>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="4"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="5"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"text","data":[{"type":"text","text":"      히어로물을 좋아한다. \u0027최애\u0027라고 표현하는 인물은 보통 마블 출신의 남자 캐릭터다. 근육질 몸매에 잘생긴 외모는 늘 실망이 없다. 거기에 화려한 입담까지 얹는다면? 더 말해 무엇할까. 혹여 이것이 요즘 문제되는 외모지상주의 같은 개념으로 매도될 수도 있겠다. 하지만 취향이니 존중해 줄 밖에."}]}]}'
+						data-block-index="6" data-shown="true">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;히어로물을 좋아한다.
+							'최애'라고 표현하는 인물은 보통 마블 출신의 남자 캐릭터다.
+							근육질 몸매에 잘생긴 외모는 늘 실망이 없다. 거기에 화려한
+							입담까지 얹는다면? 더 말해 무엇할까. 혹여 이것이 요즘 문제되는
+							외모지상주의 같은 개념으로 매도될 수도 있겠다. 하지만 취향이니
+							존중해 줄 밖에.
+						</span>
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="7"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="8"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"text","data":[{"type":"text","text":"      반면 여성은 도무지 이 매력적인 주인공의 말을 듣지 않는다. 하지 말라고 경고한 무수히 많은 일을 하고 쓸데없는 호기심과 공명심에 사로잡혀 있다. 모든 일에 앞장서고 싶어 하나 마무리는 늘 위기의 한가운데다. 함께 영화를 보는 친구에게 \u0027또 시작\u0027이라고 성을 내면 차분하게 대답해 온다. \u0027그래야 영화가 진행된다\u0027고. 맞다. 그리고 그런 여성을 사랑해 마지않는 히어로의 땀방울에 나는 숨을 삼킨다. "}]}]}'
+						data-block-index="9" data-shown="true">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 반면 여성은 도무지 이
+							매력적인 주인공의 말을 듣지 않는다. 하지 말라고 경고한 무수히
+							많은 일을 하고 쓸데없는 호기심과 공명심에 사로잡혀 있다. 모든
+							일에 앞장서고 싶어 하나 마무리는 늘 위기의 한가운데다. 함께
+							영화를 보는 친구에게 '또 시작'이라고 성을 내면 차분하게 대답해
+							온다. '그래야 영화가 진행된다'고. 맞다. 그리고 그런 여성을
+							사랑해 마지않는 히어로의 땀방울에 나는 숨을 삼킨다.
+						</span>
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="10"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="11"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"text","data":[{"type":"text","text":"      비난받아도 변명할 여지가"}]},{"type":"text","style":{"font-family":"Noto Sans DemiLight"},"data":[{"type":"text","text":" 없는 생각이다. 그러나 누구도 그간의 서사물 대다수가 그런 모습이었음을 부정할 수 없을 테다. 몇 년 전부터 매체를 통해 유행처럼 투영되는 PC주의(Political Correctness 정치적 올바름)가 이의 반증이다. 차별을 없애자는 움직임 자체가 차별이 있음을 자인하는 모양이니까. 이 역시 많은 문제점을 야기하고 있음에도 남성에서 여성으로, 백인에서 유색인종으로 서사는 변해갔다."}]}]}'
+						data-block-index="12" data-shown="true">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 비난받아도 변명할 여지가
+						</span>
+						<span style="font-family: Noto Sans DemiLight">&nbsp;없는 생각이다. 그러나 누구도 그간의 서사물 대다수가 그런
+							모습이었음을 부정할 수 없을 테다. 몇 년 전부터 매체를 통해
+							유행처럼 투영되는 PC주의(Political Correctness 정치적 올바름)가
+							이의 반증이다. 차별을 없애자는 움직임 자체가 차별이 있음을
+							자인하는 모양이니까. 이 역시 많은 문제점을 야기하고 있음에도
+							남성에서 여성으로, 백인에서 유색인종으로 서사는 변해갔다.</span>
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="13"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="14"
+						data-shown="true">
+						<br />
+					</p>
+					<div class="item-img"
+						data-app='{"type":"img","align":"outer-full","mobileAlign":"full","url":"http://t1.daumcdn.net/brunch/service/user/9lxq/image/73JHGX8vWG10Gf6Vdp6wmt4ShYM.jpg","caption":"영화 \u003c올드 가드(The Old Guard)\u003e,  각자의 이야기를 품은 그들은 서로이지만 자신이다.","width":"1111","height":"625"}'
+						data-block-index="15" data-shown="true">
+						<div class="wrap-outer-full">
+							<div class="wrap-img-float">
+								<img src="/images/blank-image.png" alt="" />
+								<span class="text-caption">영화 <올드 가드(The Old Guard)>, &nbsp;각자의 이야기를 품은
+										그들은 서로이지만 자신이다.</span>
+							</div>
+						</div>
+					</div>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="16"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="17"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"text","data":[{"type":"text","text":"      가슴이 뛴다. 샤를리즈 테론의 눈빛을 보는 순간 관자놀이가 간지럽다. \u003c매드맥스:분노의 질주\u003e에서의 반삭이 이제 숏커트다. 그는 \u0027스키타이의 안드로마케\u0027이지만 \u0027넌 앤디라고 불러\u0027라는 쿨내 나는 한 마디를 남기고 사막을 달린다. 어디로 향하는 것일까. 흔해 빠진 배신과 역경, 그리고 극복 -사람들이 대개 인생이라 부르는 것- 은 캐릭터들을 나아가게 한다. 죽지 않는 몸으로 반복에 반복, 끊임없이 되풀이하면서 계속해 성장한다. 그야말로 진취적이다. "}]}]}'
+						data-block-index="18" data-shown="true">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 가슴이 뛴다. 샤를리즈
+							테론의 눈빛을 보는 순간 관자놀이가 간지럽다. <매드맥스:분노의 질주>에서의 반삭이 이제 숏커트다. 그는 '스키타이의
+								안드로마케'이지만 '넌 앤디라고 불러'라는 쿨내 나는 한 마디를
+								남기고 사막을 달린다. 어디로 향하는 것일까. 흔해 빠진 배신과
+								역경, 그리고 극복 -사람들이 대개 인생이라 부르는 것- 은
+								캐릭터들을 나아가게 한다. 죽지 않는 몸으로 반복에 반복, 끊임없이
+								되풀이하면서 계속해 성장한다. 그야말로 진취적이다.
+						</span>
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="19"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="20"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"text","style":{"font-family":"Noto Sans DemiLight"},"data":[{"type":"text","text":"      진(進 나아갈 진)은 辶(쉬엄쉬엄 갈 착)과 隹(새 추)가 합쳐진 글자다. 새가 간다는 의미이므로 새가 날아간다고 이해하는 것이 옳을 법하다. 그렇게 본다면 이 글자는 앞으로 나아간다는 의미일 게다. 왜냐하면 새가 뒤로 난다는 이야기는 들어본 적이 없기 때문이다. 뒤가 없이 그저 앞으로 나아간다. 날갯짓이 멈추면 추락이다. 목숨을 건, 어쩌면 악에 받친 몸부림에 \u0027힘쓰다\u0027는 뜻도 더해 본다."}]}]}'
+						data-block-index="21" data-shown="true">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 진(進 나아갈 진)은
+							辶(쉬엄쉬엄 갈 착)과 隹(새 추)가 합쳐진 글자다. 새가 간다는
+							의미이므로 새가 날아간다고 이해하는 것이 옳을 법하다. 그렇게
+							본다면 이 글자는 앞으로 나아간다는 의미일 게다. 왜냐하면 새가
+							뒤로 난다는 이야기는 들어본 적이 없기 때문이다. 뒤가 없이 그저
+							앞으로 나아간다. 날갯짓이 멈추면 추락이다. 목숨을 건, 어쩌면
+							악에 받친 몸부림에 '힘쓰다'는 뜻도 더해 본다.
+						</span>
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="22"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="23"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"text","style":{"font-family":"Noto Sans DemiLight"},"data":[{"type":"text","text":"      삶을 향해 나아가는 힘은 어디에서 얻을 수 있나. 어떤 이들은 사랑에서, 또 다른 이들은 명예에서, 어느 누군가는 돈에서 얻을 수 있다. 어느 것이 그르다, 옳다를 논할 수는 없다. 떠밀리듯 살아왔던 누군가에게는 그저 모든 것이 부러울 지도 모른다. 하지만 그 누군가에게도 등을 떠민 무언가는 있었다. 그리고 이유가 무엇이든 살아내기로 마음먹었다면 \"달라질 것은 없다. 늘 그랬듯 여기서 살아\"낸다."}]}]}'
+						data-block-index="24" data-shown="true">
+						<span style="font-family: Noto Sans DemiLight">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 삶을 향해 나아가는 힘은
+							어디에서 얻을 수 있나. 어떤 이들은 사랑에서, 또 다른 이들은
+							명예에서, 어느 누군가는 돈에서 얻을 수 있다. 어느 것이 그르다,
+							옳다를 논할 수는 없다. 떠밀리듯 살아왔던 누군가에게는 그저 모든
+							것이 부러울 지도 모른다. 하지만 그 누군가에게도 등을 떠민
+							무언가는 있었다. 그리고 이유가 무엇이든 살아내기로 마음먹었다면
+							"달라질 것은 없다. 늘 그랬듯 여기서 살아"낸다.
+						</span>
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="25"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="26"
+						data-shown="true">
+						<br />
+					</p>
+					<blockquote class="top-content top-content-sub"
+						data-app='{"type":"quotation","kind":"quote","data":[{"type":"text","data":[{"type":"text","text":"반복에 반복, 매번 같은 질문을 던진다."}]},{"type":"br"},{"type":"text","data":[{"type":"text","text":"그리고 매번 같은 답이다."}]},{"type":"br"},{"type":"text","data":[{"type":"text","text":"너무 지긋지긋해."}]}]}'
+						data-block-index="27" data-shown="true">
+						<span>그럼 일하러 갈까?</span>
+					</blockquote>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="28"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="29"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="30"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="31"
+						data-shown="true">
+						<br />
+					</p>
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"text","data":[{"type":"text","text":"      꽤 오랜 시간 내 삶은 멈춘 듯했다. 설명하지 못할 많은 일들이 있었고 나는 날갯짓을 잊었다. 언뜻 바람이 불었다. 누군가 손을 내밀었고, 나는 잡았다. 걷기부터 시작했다. 술이 아닌 카페인을 핑계로 속내를 고백하는 시간은 신선했다. 바람인지 손인지 시간인지 모를 게 자꾸만 나를 잡아끌고, 또 잡아끈다. 귓가로 바람이 스쳐간다. 그렇게 나는 결혼을 했고, 아이를 낳았다. 주말이다. 내 품 안에 햇살이 한 움큼 내린다."}]}]}'
+						data-block-index="32" data-shown="true">
+						<span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 꽤 오랜 시간 내 삶은 멈춘
+							듯했다. 설명하지 못할 많은 일들이 있었고 나는 날갯짓을 잊었다.
+							언뜻 바람이 불었다. 누군가 손을 내밀었고, 나는 잡았다. 걷기부터
+							시작했다. 술이 아닌 카페인을 핑계로 속내를 고백하는 시간은
+							신선했다. 바람인지 손인지 시간인지 모를 게 자꾸만 나를 잡아끌고,
+							또 잡아끈다. 귓가로 바람이 스쳐간다. 그렇게 나는 결혼을 했고,
+							아이를 낳았다. 주말이다. 내 품 안에 햇살이 한 움큼 내린다.
+						</span>
+					</p>
+				</div>
+				<div class="wrap-body-info">
+					<div class="info-keyword">
+						<div class="wrap-keyword" data-ctr-referrer="true">
+							<strong class="screen-out">keyword</strong>
+							<ul class="list-keyword">
+								<li class="keyword">
+									<a class="link-keyword" href="#" data-ctr-click="keyword_click"
+										data-ctr-referrer="true" data-tiara-action-name="글뷰 > 본문 하단 > 키워드 클릭"
+										data-tiara-layer="bottom more_contents keyword">영화</a>
+								</li>
+								<li class="keyword">
+									<a class="link-keyword" href="#" data-ctr-click="keyword_click"
+										data-ctr-referrer="true" data-tiara-action-name="글뷰 > 본문 하단 > 키워드 클릭"
+										data-tiara-layer="bottom more_contents keyword">에세이</a>
+								</li>
+								<li class="keyword">
+									<a class="link-keyword" href="#" data-ctr-click="keyword_click"
+										data-ctr-referrer="true" data-tiara-action-name="글뷰 > 본문 하단 > 키워드 클릭"
+										data-tiara-layer="bottom more_contents keyword">교양</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="info-state">
+							<span class="wrap-comment-btn">
+								<button class="btn-like" data-tiara-action-kind="Like"
+									data-tiara-action-name="글뷰 > 본문 하단 > 라이킷 버튼 클릭" data-tiara-custom="liketype=like"
+									data-tiara-layer="bottom article_likeit" type="button">
+									<svg class="like-icon" fill="none" height="22" viewBox="0 0 22 22" width="22"
+										xmlns="http://www.w3.org/2000/svg">
+										<path clip-rule="evenodd" class="dislike"
+											d="M12.9397 4.06506C14.7712 2.25761 17.7183 2.26734 19.5378 4.08686C21.3658 5.91492 21.3658 8.87878 19.5378 10.7068L11.3233 18.9213L10.9711 19.2735L10.6175 18.9227L7.42892 15.7588L8.13327 15.049L8.16621 15.0817L14.4742 8.77364L15.1813 9.48075L8.87607 15.786L10.9683 17.8621L18.8307 9.99973C20.2682 8.5622 20.2682 6.2315 18.8307 4.79397C17.3998 3.36315 15.0824 3.35549 13.6422 4.77683L11.6756 6.71759L11.6758 6.71781L11.3223 7.07136L5.39602 12.9976L5.04247 13.3511L4.68892 12.9976L2.46658 10.7753C0.634838 8.94351 0.634836 5.97366 2.46658 4.14192C4.29833 2.31017 7.26817 2.31017 9.09992 4.14192L10.9685 6.01046L12.9397 4.06506ZM3.17369 4.84903C1.73247 6.29025 1.73247 8.62693 3.17369 10.0681L5.04247 11.9369L10.2616 6.71781L8.39281 4.84903C6.95159 3.4078 4.61491 3.40781 3.17369 4.84903Z"
+											fill="#333333" fill-rule="evenodd"></path>
+										<path clip-rule="evenodd" class="like"
+											d="M18.6113 3.88736C16.8601 2.13 14.0208 2.13 12.2695 3.88736L10.4466 5.71668L10.4454 5.71543L10.4464 5.71435L8.67957 3.94131C6.92723 2.18284 4.08612 2.18284 2.33379 3.94131C0.581446 5.69978 0.581447 8.55082 2.33379 10.3093L3.39969 11.3789L3.3994 11.3792L4.10404 12.0863L4.11223 12.0781L7.06978 15.046L7.06866 15.0471L7.77331 15.7542L7.77442 15.7531L10.4516 18.4396L18.6113 10.2513C20.3626 8.49396 20.3626 5.64471 18.6113 3.88736ZM7.77442 15.7531L14.1221 9.38318L13.4175 8.67608L7.06978 15.046L7.77442 15.7531ZM3.39969 11.3789L9.74439 5.01202L10.4454 5.71543L4.10065 12.0823L3.39969 11.3789ZM4.11223 12.0781L4.10979 12.0757L10.4466 5.71668L10.449 5.71912L4.11223 12.0781Z"
+											fill="#666666" fill-rule="evenodd">
+										</path>
+									</svg>
+									<span class="num-like">27</span>
+								</button>
+								<button class="btn-comment" data-tiara-action-name="글뷰 > 본문 하단 > 댓글 리스트 버튼 클릭"
+									data-tiara-click_url="https://brunch.co.kr/@kohong/25" data-tiara-copy="댓글"
+									data-tiara-layer="bottom comment" type="button">
+									<span class="brunch icon-cheer"></span>
+									<span class="comment-txt">댓글<span class="num-comment">0</span></span>
+								</button>
+							</span>
+						</div>
+						<!-- 여기서 부터 작업 -->
+						<div class="info-comment" style="display: block">
+							<div class="comment-head">
+								<strong class="tit-comment">댓글
+									<span class="txt-num">0</span>
+								</strong>
+							</div>
+							<div class="comment-content">
+								<!-- 댓글이 없을때 보이는 화면 -->
+								<div class="comment-none">
+									<span class="ico-brunch ico-brunch-cheer"></span>
+									<strong class="tit-none">작성된 댓글이 없습니다.</strong>
+									<span class="txt-none">작가에게 첫 번째 댓글을 남겨주세요!</span>
+								</div>
+
+								<!-- 댓글이 있을때 뷰
+                ul태그에 하나씩 담아서 가져옴 -->
+								<ul class="comment-list">
+									<li class="animation-up">
+										<div class="comment">
+											<!-- href는 블로거페이지 -->
+											<a class="link-profile" href="/@@ffhk">
+												<img class="img-thumb" alt="명랑한 JM이미지" height="32px"
+													src="//img1.daumcdn.net/thumb/C64x64.fjpg/?fname=http://k.kakaocdn.net/dn/BPh5T/btrWRQ6ZoEW/YT5ChPQcahVCXBmM86HpZK/img_640x640.jpg"
+													width="32px">
+											</a>
+											<div class="cont-info">
+												<div class="info-append">
+													<div class="tit-userid">
+														<!-- 블로거페이지 마찬가지 -->
+														<a class="link-userid" href="/@@ffhk">명랑한 JM</a>
+													</div>
+													<span class="txt-time">May 30. 2024</span>
+												</div>
+												<p class="desc-comment">
+													거저되는건 없더라
+													<br>
+													세상사진리다
+												</p>
+												<div class="comment-setting">
+													<button class="btn-setting" type="button">
+														<span class="ico-brunch-pc ico-more-cheer">설정</span>
+													</button>
+													<div class="wrap-comment-menu">
+														<button class="btn-set" type="button">신고</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+
+
+
+
+
+							</div>
+							<!-- 댓글이 없을때는 이것이 보여야함 -->
+							<div class="comment-write-wrap">
+								<div class="comment-write">
+									<div class="box-area">
+										<div class="link-profile">
+											<img src="/images/blank-image.png" alt="내 프로필 이미지" class="img-thumb"
+												height="32px" width="32px" />
+											<strong class="txt-profile">은 종</strong>
+										</div>
+										<div class="editor-wrap">
+											<div class="editor" contenteditable spellcheck="false"></div>
+											<div class="editor-placeholder">댓글을 입력하세요.</div>
+											<ul class="mention-layer" style="left: 20px"></ul>
+										</div>
+										<div class="editor-footer">
+											<div class="wrap-util">
+												<button class="btn-sticker">
+													<svg></svg>
+												</button>
+											</div>
+											<div class="wrap-btn">
+												<button class="btn-submit">등록</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrap-author" data-ctr-referrer="true">
+			<div class="inner-author">
+				<div class="author-profile">
+					<strong class="author-name">
+						<a class="link-author-name" href="#" data-tiara-layer="writer_info writer profile"
+							data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭" data-tiara-copy="고홍"
+							data-ctr-click="profile_click" data-ctr-referrer="true">이성훈</a>
+					</strong>
+					<a href="#" class="author-belong">
+						<em class="screen-out">소속</em>
+						<span></span>
+						<em class="screen-out">직업</em>
+						<span>에세이스트</span>
+					</a>
+					<a href="#" class="link-author-image" data-ctr-click="profile_click" data-ctr-referrer="true"
+						data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭" data-tiara-layer="writer_info writer profile"
+						data-tiara-copy="고홍">
+						<img src="/images/blank-image.png" class="img-author" width="100" height="100" /></a>
+				</div>
+				<div class="author-desc">
+					<a href="#" data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭"
+						data-tiara-layer="writer_info writer profile" data-tiara-copy="고홍">
+						<p class="txt-desc">
+							약속하지 않은 만남. 나와 당신을 둘러싼, 그 무엇에 관한 소소한
+							이야기들
+						</p>
+					</a>
+				</div>
+				<div class="wrap-subscription">
+					<a href="#">
+						<span class="info-subscription">
+							<span>구독자</span>
+							<span class="num-subscription">344</span>
+						</span>
+					</a>
+					<span class="wrap-subscription-btn">
+						<button type="button" class="btn-subscription">
+							<span class="txt-default">
+								<img src="/images/ico-plus.png" alt="구독 버튼 아이콘" class="ico-plus" />구독
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="brunch-layer here" style="background-color: rgb(248, 248, 248); display: none;">
+		<div class="brunchLayerWrapper">
+
+			<div class="dimmed-layer"></div>
+			<div class="brunch-layer report-background">
+				<div class="inner-brunch-layer inner-brunch-layer4">
+					<form>
+						<input type="hidden" name="userId" value="">
+						<input type="hidden" name="contentNo" value="">
+
+						<fieldset>
+							<legend class="ir-pm">신고하기 폼</legend>
+							<div class="report-body">
+								<strong class="tit-report">신고하기</strong>
+								<div class="report-choice-1">
+									<input class="radio-input" type="radio" id="check1" name="reasonCode" value="" />
+									<label for="check1" class="lab-comm">
+										<div class="ico-radio"></div>
+										욕설, 비방, 차별, 혐오
+									</label>
+								</div>
+								<div class="report-choice-2">
+									<input class="radio-input" type="radio" id="check2" name="reasonCode" value="" />
+									<label for="check2" class="lab-comm">
+										<div class="ico-radio"></div>
+										홍보, 영리목적
+									</label>
+								</div>
+								<div class="report-choice-2">
+									<input class="radio-input" type="radio" id="check3" name="reasonCode" value="" />
+									<label for="check3" class="lab-comm">
+										<div class="ico-radio"></div>
+										불법 정보
+									</label>
+								</div>
+								<div class="report-choice-2">
+									<input class="radio-input" type="radio" id="check4" name="reasonCode" value="" />
+									<label for="check4" class="lab-comm">
+										<div class="ico-radio"></div>
+										음란, 청소년 유해
+									</label>
+								</div>
+								<div class="report-choice-2">
+									<input class="radio-input" type="radio" id="check5" name="reasonCode" value="" />
+									<label for="check5" class="lab-comm">
+										<div class="ico-radio"></div>
+										개인 정보 노출, 유포, 거래
+									</label>
+								</div>
+								<div class="report-choice-2">
+									<input class="radio-input" type="radio" id="check6" name="reasonCode" value="" />
+									<label for="check6" class="lab-comm">
+										<div class="ico-radio"></div>
+										도배, 스팸
+									</label>
+								</div>
+								<div class="report-choice-3">
+									<input class="radio-input" type="radio" id="check7" name="reasonCode" value="" />
+									<label for="check7" class="lab-comm">
+										<div class="ico-radio"></div>
+										기타
+									</label>
+								</div>
+								<div class="box-txtarea">
+									<label for="fillReason" class="tf-reason">기타 사유를 입력해 주세요 (최대 500자)</label>
+									<textarea class="tf_reason" name="reasonMention" id="fillReason"></textarea>
+								</div>
+								<div class="report-choice-3">
+									<input class="radio-input" type="radio" id="check8" name="reasonCode" value="" />
+									<label for="check8" class="lab-comm">
+										<div class="ico-radio"></div>
+										불법찰영물등 유통 신고
+									</label>
+								</div>
+								<p class="against">
+									불법촬영물등 유통 신고는 전기통신사업법 시행령에 따라, 신고인의
+									개인정보 수집·이용 동의와 신고 사유 등 신고서 제출이 필요합니다.
+									<br />
+									음란, 청소년 유해 사유로 신고하시면, 신고서 제출 없이 더 빠르게
+									조치됩니다.
+								</p>
+								<div class="report-choice-3">
+									<input class="radio-input" type="radio" id="check9" name="reasonCode" value="" />
+									<label for="check9" class="lab-comm">
+										<div class="ico-radio"></div>
+										권리침해신고
+									</label>
+								</div>
+								<p class="against">
+									권리침해 신고는 먼저 침해한 게시물을 신고 후 ‘카카오 권리침해 신고
+									사이트’ 에서 침해 증빙 서류를 다운 받아 내용을 작성하여 고객센터로
+									온라인 접수하면 처리됩니다.
+									<br />
+									<a href="http://www.kakao.com/policy/right" target="_blank"
+										class="link-against">권리침해 절차 안내보기</a>
+								</p>
+								<div class="wrap-btn">
+									<button type="reset" class="btn-close">취소</button>
+									<button type="submit" class="btn-report">신고</button>
+								</div>
+							</div>
+						</fieldset>
+
+
+					</form>
+				</div>
+				<button class="btn-close-2 btnLayerClose">
+					<div class="ico-brunch">닫기</div>
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="/js/post-details/post-details.js"></script>
+<script src="/js/main/header.js" data-whatIsThis="헤더js임포트"></script>
+
+</html>

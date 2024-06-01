@@ -1,0 +1,281 @@
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-family: "Noto Sans DemiLight", "Malgun Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+body {
+    background: #fff;
+    color: #333;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+button, input, select, textarea {
+    vertical-align: middle;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+
+a:-webkit-any-link {
+    /* color: -webkit-link; */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+img[Attributes Style] {
+    width: 42px;
+    aspect-ratio: auto 42 / 42;
+    height: 42px;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+.subscriber-header-wrap {
+    height: 80px;
+    position: absolute;
+    top: 0;
+    transition: background .3s ease-in 0s;
+    width: 100%;
+    z-index: 10000;
+}
+
+.subscriber-header-wrap .subscriber-header-wrapDiv {
+    margin: 30px 30px 0;
+}
+
+.subscriber-header-xbuttonWrap {
+    float: right;
+}
+
+.subscriber-header-wrap .subscriber-header-xbutton {
+    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4_230130.png) no-repeat;
+}
+
+.subscriber-header-wrap .subscriber-header-xbuttonWrapDiv .subscriber-header-xbutton {
+    background-position: -90px 0;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.subscriber-main-wrap {
+    width: 100%;
+}
+
+.subscriber-main-wrap .subscriber-sum-strong {
+    background: url(//t1.daumcdn.net/brunch/static/img/help/mw/bg_underbar.gif) no-repeat 50% 100%;
+    display: block;
+    font-size: 30px;
+    font-weight: normal;
+    padding: 95px 0 35px;
+    text-align: center;
+}
+
+.subscriber-sum-strong .subscriber-sum {
+    color: #804674;
+}
+
+.subscriber-realmain-ul {
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 700px;
+}
+
+.subscriber-realmain-ul li {
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    padding: 30px 0;
+    width: 100%;
+}
+
+.subscriber-realmain-ul .subscriber-realmain-a {
+    background-position: -70px -210px;
+    border-radius: 42px;
+    float: left;
+    height: 42px;
+    position: relative;
+    width: 42px;
+}
+
+.subscriber-realmain-a {
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch8_181106.png) no-repeat;
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+.subscriber-realmain-blogerimg {
+    display: block;
+}
+
+.subscriber-realmain-ul .subscriber-realmain-secondA {
+    float: left;
+    padding-left: 19px;
+    width: 500px;
+}
+
+.subscriber-realmain-blogerName:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.subscriber-realmain-ul .subscriber-realmain-blogerName {
+    display: block;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 22px;
+    padding-top: 1px;
+}
+
+.subscriber-realmain-ul .subscriber-realmain-blogerExplantion {
+    color: #909090;
+    display: block;
+    font-size: 13px;
+    padding-top: 3px;
+    word-break: break-all;
+}
+
+.subscriber-realmain-ul .subscribe-button {
+    float: right;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    margin-top: 5px;
+    width: 80px;
+    border-width: 1px;
+}
+
+.subscribe-button {
+    border-radius: 50px;
+    display: block;
+    background-color: #fff;
+    border: 2px solid #E7BCDE;
+    color: #E7BCDE;
+    filter: alpha(opacity:90);
+    opacity: .9;   
+}
+
+.subscribe-button-letter{
+    padding-top: 1px;
+}
+
+body.modal-open {
+    overflow: hidden; /* 스크롤 숨기기 */
+}
+
+.subscriber-realmain-modalWrap {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: none;
+    height: 283px;
+    left: 50%;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 460px;
+    z-index: 10001;
+}
+
+.subscriber-realmain-modalWrap .modal-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: 100;
+    letter-spacing: -.75px;
+    margin-top: 54px;
+}
+
+.subscriber-realmain-modalWrap .modal-content {
+    color: #959595;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    margin-top: 21px;
+}
+
+.subscriber-realmain-modalWrap .modal-button-wrap {
+    margin-top: 30px;
+    display: flex; /* 버튼을 수평으로 정렬하기 위해 flex 속성 추가 */
+    justify-content: center; /* 버튼을 가운데 정렬하기 위해 추가 */
+    gap: 20px; /* 버튼 사이의 간격 조절 */
+}
+
+.subscriber-realmain-modalWrap button {
+    background-color: #fff;
+    border-radius: 40px;
+    height: 42px;
+    padding: 9px 16px 11px;
+    width: 138px;
+}
+
+.subscriber-realmain-modalWrap .continue-button {
+    border: 1px solid #ddd;
+    color: #959595;
+}
+.continue-button:hover{
+    border: 2px solid #E7BCDE;
+}
+.modal-black {
+    background-color: #000;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: .5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}

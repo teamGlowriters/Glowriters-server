@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style data-emotion="css-global" data-s="">
+		@font-face {
+			font-family: "Nanum Myeongjo";
+			font-weight: normal;
+			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Noto Sans Light";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-Light.otf");
+		}
+
+		@font-face {
+			font-family: "Noto Sans DemiLight";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+		}
+	</style>
+	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/css/main/main.css" />
+	<title>Glowriters</title>
+</head>
+
+<body>
+	<!-- 헤더 시작 부분 -->
+	<div class="header-sidemenu open">
+		<main>
+			<button class="sidemenu-closebtn" type="button">닫기</button>
+			<div class="loginprofile">
+				<div class="logoutservice">
+					<div class="sidemenu-profile-logo logoutservice"></div>
+					<p class="sidemenu-profile-slogan logoutservice">
+						You can make anything
+						<br>
+						by writing
+					</p>
+					<!--           <p class="sidemenu-profile-sloganwriter logoutservice">C.S.Lewis</p> -->
+				</div>
+				<a href="#" class="myprofilelink loginservice">
+					<div class="profile-img">
+						<img class="picture" alt="프로필이미지" src="/images/blank-image.png">
+					</div>
+					<div class="profile-info">
+						<strong class="profile-name">냠냠냠</strong>
+						<p class="profile-id">glowriters.co.kr/해쉬주소</p>
+					</div>
+				</a>
+				<div class="logoutservice">
+					<a href="#" class="profile-logout-a">
+						<button class="profile-logout-btn">글로우라이터스 시작하기</button>
+					</a>
+				</div>
+				<div class="loginservice">
+					<a href="#" class="profile-write">
+						<button class="profile-write-btn">글쓰기</button>
+					</a>
+					<a class="profile-alarm" href="#">
+						알림
+					</a>
+					<span class="alarm-notify">NEW</span>
+				</div>
+			</div>
+			<div class="sidemenu-service this">
+				<ul>
+					<li class="sidemenu-service-now">
+						<a class="now-word" href="#">
+							<span class="bar-left"></span>
+							글로우라이터스 홈
+							<span class="bar-right"></span>
+						</a>
+					</li>
+					<li>
+						<a class="glowNow" href="#">
+							<span class="bar-left"></span>
+							글로우라이터스 나우
+							<span class="bar-right"></span>
+						</a>
+					</li>
+					<li>
+						<a class="glowAnother" href="#">
+							<span class="bar-left"></span>
+							아무거나
+							<span class="bar-right"></span>
+						</a>
+					</li>
+				</ul>
+				<div class="sidemenu-setting this" style="position: absolute"> <!--클래스 2개 사용-->
+					<div class="sidemenu-banner" style="padding-bottom:40px;">
+						<a class="sidemenu-project" href="#">
+							<img style="width:168px"
+								src="//i1.daumcdn.net/thumb/R336x0/?fname=http://t1.daumcdn.net/brunch/static/img/help/pc/top/side_banner_20221221.png"
+								alt="프로젝트 리스트 바로가기">
+						</a>
+					</div>
+					<div class="logoutservice">
+						<a href="#" class="sidemenu-findAccount">
+							계정을 잊어버리셨나요?
+						</a>
+					</div>
+					<div class="bottom-setting-container">
+						<a class="sidemenu-bottom-setting loginservice" href="#">
+							<button type="button">설정</button>
+						</a>
+						<a class="sidemenu-bottom-logoutbtn loginservice" href="#">
+							<button type="button">로그아웃</button>
+						</a>
+					</div>
+
+					<div class="donation_intro loginservice">
+						<span>응원하기를 켤 수 있어요!</span>
+						<i class="mint_rectangle"></i>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<header class="header">
+		<div class="header-top this">
+			<div class="header-top-inner">
+				<div class="top-inner-first">
+					<button class="inner-first-btn" type="button">메뉴</button>
+					<h1 class="inner-first-logo">
+						<a href="#" class="first-logo-img">glow</a>
+					</h1>
+				</div>
+				<div class="top-inner-third">
+					<a href="#" class="inner-third-login loginservice">글쓰기</a>
+					<a href="#" class="inner-third-login logoutservice">로그인</a>
+				</div>
+				<div class="top-inner-second">
+					<div class="inner-second-search">
+						<form action="#" method="get">
+							<input name="q" class="second-search-input" type="text" title="검색어입력"
+								placeholder="검색어를 입력해 주세요" autocomplete="off" value>
+							<input name="profiled" type="hidden" value>
+						</form>
+						<!-- 이 버튼을 누르면 검색 페이지(search)로 이동 -->
+						<button class="second-search-btn" type="button">검색</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- 헤더 끝 부분 -->
+
+
+	<hr class="hide">
+	<main class="content">
+		<div class="content-main">
+			<article class="mArticle">
+				<h2 class="content-body">글로우라이터스본문</h2>
+				<div class="content-intro">
+					<h3 class="intro-firstword">
+						작품이 되는 이야기, 글로우라이터스
+						<span class="glow-logo"></span>
+					</h3>
+					<p class="intro-desc">
+						<span class="desc-part">
+							글로우라이터스에 담긴 아름다운 작품을 감상해 보세요.
+							<br>
+						</span>
+						<span class="desc-part">
+							그리고 다시 꺼내 보세요.
+							<br>
+						</span>
+						<span class="desc-part">
+							<span class="desc-last">서랍 속 간직하고 있는 글과 감성을.</span>
+						</span>
+					</p>
+				</div>
+				<div class="main-slide">
+					<h3 class="screen">EDITOR PIC</h3>
+					<div class="slide-area">
+						<ul class="list-slide" style="width:1000%">
+							<!-- 총 8개 보여줄것 -->
+							<li>
+								<div class="slide-pic1 this">
+									<div class="pic1-item this">
+										<a href="#" class="pic1-link" target="_blank" style="background-image: url(../../staticfiles/images/blank-image.png);
+                      background-color: #90735B;">
+											<span class="pic1-fade this"></span>
+											<div class="pic1-append">
+												<div class="pic1-info">
+													<div class="pic1-inner">
+														<strong class="pic1-title">췌장이 아니라 유방이었어?</strong>
+														<p class="pic1-desc">
+															코로나로 세상이 마비되었던 것만 같던 봄을 지나 계절은 어느덧 여름으로 접어들고 있었다. 제주도에 정착한 후
+															소소하게 시작했던 기업체 강의 일은 소문에 소문을
+															타고 점차 자리를 잡아가고 있었다. 사업을 시작하고 이제 막 손익분기점이 흑자로 돌아서려는 찰나에 하필이면
+															코로나라는 기괴한 바이러스가 창궐하여 다수의 청중을
+															상대로 하는 내 업에 큰 타격을 주었다.
+														</p>
+														<span class="pic1-by this">
+															<span class="pic1-by-logo">by</span>
+															<span class="pic1-by-writer">영끌치유</span>
+														</span>
+													</div>
+												</div>
+											</div>
+											<span class="pic1-release">
+												<span class="pic1-end">
+													<span class="pic1-cnt">응원수</span>
+													<span class="pic1-power">1명이 응원</span>
+												</span>
+											</span>
+										</a>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+					<div class="slide-btn">
+						<!-- 이전슬라이드 버튼은 처음에 숨겨져있고 오른쪽으로 넘기자마자 생김 -->
+						<!-- inline으로 바뀜 -->
+						<a href="#js" class="slide-prev">
+							<span class="slide-btn">이전 슬라이드 보기</span>
+						</a>
+						<a href="#js" class="slide-next">
+							<span class="slide-btn">다음 슬라이드 보기</span>
+						</a>
+					</div>
+				</div>
+				<div class="tags">
+					<h3 class="tags-title">BRUNCH TAGS</h3>
+					<p class="tags-desc">
+						<span class="desc-txt">태그로 분류된 다양한 글 모음</span>
+					</p>
+					<div class="tags-list">
+						<div class="list-home" style="height: 363px;">
+							<!-- left, top모두 120px씩 증가 -->
+							<a class="list-item" href="#" target="_blank" style="left: 120px; top:0px;">
+								<span class="item-txt">지구한바퀴<br>세계여행</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 240px; top:0px;">
+								<span class="item-txt">하<br>세계여행</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 360px; top:0px;">
+								<span class="item-txt">둘<br>세계여행</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 480px; top:0px;">
+								<span class="item-txt">셋<br>세계여행</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 600px; top:0px;">
+								<span class="item-txt">넷<br>세계여행</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 720px; top:0px;">
+								<span class="item-txt">여섯<br>세계여행</span>
+							</a>
+							<!-- top 120px -->
+							<a class="list-item" href="#" target="_blank" style="left: 120px; top:120px;">
+								<span class="item-txt">하나<br>1</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 240px; top:120px;">
+								<span class="item-txt">둘<br>1</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 360px; top:120px;">
+								<span class="item-txt">셋<br>1</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 480px; top:120px;">
+								<span class="item-txt">넷<br>1</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 600px; top:120px;">
+								<span class="item-txt">다섯<br>1</span>
+							</a>
+							<a class="list-item" href="#" target="_blank" style="left: 720px; top:120px;">
+								<span class="item-txt">여섯<br>1</span>
+							</a>
+						</div>
+					</div>
+					<div class="tags-cl"></div>
+				</div>
+				<div class="weekends">
+					<div class="section">
+						<h3 class="weekends-title">요일별 연재</h3>
+						<p class="weekends-desc">오리지널 연재를 만나요</p>
+						<div class="tab-basic">
+							<strong class="tab-screen">요일별 연재 목록</strong>
+							<ul class="list-tab" role="tablist">
+								<!-- 선택된 요일은 li태그의 class가 on으로 바뀜. -->
+								<li>
+									<!-- href="#" 있ㅇㅓ야함 -->
+									<a class="link-tab" aria-controls="pannelDay0" role="tab">
+										월
+									</a>
+								</li>
+								<li>
+									<a class="link-tab" aria-controls="pannelDay1" role="tab">
+										화
+									</a>
+								</li>
+								<li>
+									<a class="link-tab" aria-controls="pannelDay2" role="tab">
+										수
+									</a>
+								</li>
+								<li>
+									<a class="link-tab" aria-controls="pannelDay3" role="tab">
+										목
+									</a>
+								</li>
+								<li>
+									<a class="link-tab" aria-controls="pannelDay4" role="tab">
+										금
+									</a>
+								</li>
+								<li>
+									<a class="link-tab" aria-controls="pannelDay5" role="tab">
+										토
+									</a>
+								</li>
+								<li>
+									<a class="link-tab" aria-controls="pannelDay6" role="tab">
+										일
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="tab-pannel">
+							<div class="rel-serial">
+								<div class="post-filter">
+									<strong class="filter-screen">요일별 연재 목록 필터</strong>
+									<!-- 최신순, 라이킷순만 작성    응원순은 제외 -->
+									<!-- 선택된 버튼은 class명 뒤에 on 이 추가됨 -->
+									<!-- 예로들면 filter-btn on  -->
+									<!-- href는 제거한 상태 -->
+									<a class="filter-btn on" aria-selected="true" type="button">
+										최신순
+									</a>
+									<a class="filter-btn" aria-selected="false" type="button">
+										라이킷순
+									</a>
+								</div>
+							</div>
+							<strong class="pannel-screen">요일별 연재 목록</strong>
+							<ul class="pannel-serial">
+
+								<!-- 게시글들 -->
+								<!-- 총 8개 보여줄것 -->
+								<li class="pannel-item">
+									<a class="item-link" href="#" rel="noreferrer" target="_blank">
+										<div class="item-txt">
+											<span class="item-cate">가슴 시린 러브 레터6</span>
+											<span class="item-title">
+												<strong class="item-info">와 합격!</strong>
+												<span class="item-new">새로운 연재 아이콘</span>
+											</span>
+											<div class="item-explain">
+												<span class="item-by">
+													<span class="item-ico">by</span>
+													작성자
+												</span>
+											</div>
+										</div>
+										<div class="item-img">
+											<img alt="제목 썸네일" height="80" src="/images/blank-image.png" width="80"
+												loading="lazy">
+										</div>
+									</a>
+								</li>
+
+							</ul>
+							<div class="pannel-layer this">
+								<div class="layer-loader this">
+									<div class="layer-dot"></div>
+									<div class="layer-dot"></div>
+									<div class="layer-dot"></div>
+								</div>
+							</div>
+						</div>
+						<a class="pannel-link" href="#" rel="noreferrer">
+							전체 작품 보기
+							<span class="pannel-link-ico"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="writers">
+					<h3 class="writers-title">B R U N C H &nbsp; W R I T E R S</h3>
+					<p class="writers-desc">
+						<span class="writers-info">글로우라이터스 추천 작가</span>
+					</p>
+					<!-- 태그(writer_keyword_wrap)는 제외 -->
+					<div class="writers-wrap">
+						<ul class="writers-list">
+
+							<!-- 작가들 -->
+							<!-- 총 6개 보여줄것 -->
+							<li>
+								<a href="#" target="_blank" class="writers-who">
+									<img src="/images/blank-image.png" width="80" height="80" class="writers-img"
+										alt="writers-name과 동일">
+									<strong class="writers-name">귀리밥</strong>
+									<span class="writers-team">크리에이터</span>
+									<span class="writer-txt" style="height:60px;">
+										아담하고 단단한 이야기를 쓰는 도란 작가입니다.
+									</span>
+								</a>
+								<div class="writer-tags"><!-- 태그 없애서 얘도 없는거로 --></div>
+							</li>
+
+						</ul>
+						<!-- 브런치 작가 지원하기는 작성안함 -->
+					</div>
+				</div>
+
+				<a href="#" class="apply"></a>
+				<div class="recommend">
+					<h3 class="recommend-title">RECOMMENDED ARTCICLES</h3>
+					<p class="recommend-desc">
+						<span class="recommend-txt">갓 구워낸 신작들을 만나봐라</span>
+					</p>
+					<div class="fslide">
+						<!-- DB에 있는 모든 게시글을 가져오면서 width를 늘려나감.-->
+						<!-- width가 추가 되면서 transform: translateX(-960px);의 px값을 변경 -->
+						<ul class="fslide-wrap" style="width: 3000px; transition: -webkit-transform 0.5s ease 0s;">
+
+							<!-- DB에 있는 모든 게시글을 계속 가져옴.-->
+							<!-- 갯수는 정해져있지않음 -->
+							<li>
+								<a href="#" class="fslide-item" target="_blank">
+									<div class="fitem-img">
+										<img src="/images/blank-image.png" width="240" alt="fitem-title과 같은 이름">
+									</div>
+									<strong class="fitem-title">노인 둘이 사는 집은 몇 평이 적당할까</strong>
+									<p class="fitem-desc">
+										나는 인천에 살고 있다. 두 달 만에 서울에 나갔다. 퇴직 전에는 매일 출근하던 곳이었는데 퇴직하고 나니 일이 있어야 나가는 곳이 되었다.
+										서울에서 40년 이상 근무했기에 서울에
+										나가는 일은 늘 설레게 한다. 비 소식이 있었지만, 마음만은 가볍게 집을 나섰다. 오늘은 오랫동안 만나왔던 모임이 있는 날이다. 지난 1월에
+										만나고 두 달 만에 만난다. 나이는
+									</p>
+									<span class="fitem-info">
+										<span class="fitem-by">by</span>
+										&nbsp;작성자
+									</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+					<div class="fslide-btns">
+						<!-- 활성화되면 display: inline -->
+						<a href="#js" class="fslide-prev">
+							<span class="fslide-btn">이전 추천글 보기</span>
+						</a>
+						<a href="#js" class="fslide-next">
+							<span class="fslide-btn">다음 추천글 보기</span>
+						</a>
+					</div>
+					<div class="mask_left"></div>
+					<div class="mask_right"></div>
+					<!-- </div>  얘 왜 있음? -->
+				</div>
+			</article>
+		</div>
+		<a href="#js" class="goto-top on">Top</a>
+	</main>
+	<hr class="hide">
+	<footer class="footer">
+		<div class="footer-inner">
+			<div class="footer-wrap">
+				<div class="footer-quotation">
+					<span class="site-logo"></span>
+					<p class="site-slogan">
+						You can make anything
+						<br>
+						by writing.
+					</p>
+					<p class="site-sloganwriter">C.S.Lewis</p>
+				</div>
+				<ul class="footer-service">
+					<li><a href="#" target="_blank" class="footer-service-link">글로우라이터스 이용안내</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">작가신청</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">작가 지원 프로젝트</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">제휴제안</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">고객센터</a></li>
+				</ul>
+				<ul class="footer-policy">
+					<li><a href=" #" target="_blank" class="footer-service-link">이용약관</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">이전 이용약관</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">카카오 유료서비스 이용약관</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">카카오 개인정보 처리 방침</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">청소년 보호정책</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">운영정책</a></li>
+				</ul>
+				<ul class="footer-sns">
+					<li><a href="#" target="_blank" class="footer-service-link">글로우라이터스 공지사항</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">공식 카카오톡 채널</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">공식 인스타그램</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">공식 페이스북</a></li>
+				</ul>
+			</div>
+			<div class="footer-corp">
+				<!-- 카카오 기능 1 -->
+				<small class="copyright"></small>
+				<ul class="download">
+					<li>
+						<a href="#" target="_blank" class="footer-site-info">
+							<span class="ico-android">안드로이드 앱 다운로드</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" target="_blank" class="footer-site-info">
+							<span class="ico-ios">아이폰 앱 다운로드</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+	</footer>
+	<div class="layer-login" style="display: none;">
+		<h2 class="screen-out">글로우라이터스 로그인</h2>
+		<div class="sign">
+			<div class="item-slide">
+				<div class="top-logo">
+					<a href="#" class="link-glow">
+						<span class="ico-glow"></span>
+						<span class="screen-out">글로우라이터스</span>
+					</a>
+				</div>
+				<div class="cont-slide">
+					<div class="slide-box">
+						<!-- slide-list에 추가로 slide1, slide2, slide3이 붙음 -->
+						<ul class="slide-list">
+							<li class="slide-item slide1">
+								<a href="#" target="_blank" class="link-item">
+									<div class="thum-item">
+										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-01.png"
+											alt="일러스트영역" width="315" height="208">
+									</div>
+									<div class="cont-item">
+										<strong class="tit-info">글로우라이터스 작가로 데뷔하세요</strong>
+										<span class="txt-info">
+											진솔한 에세이부터 업계 전문 지식까지,<br>당신의 이야기를 세상에 선보이세요.
+										</span>
+									</div>
+								</a>
+							</li>
+							<li class="slide-item slide2">
+								<a href="#" target="_blank" class="link-item">
+									<div class="thum-item">
+										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-02.png"
+											alt="일러스트영역" width="315" height="208">
+									</div>
+									<div class="cont-item">
+										<strong class="tit-info">글로우라이터스로 제안받는 새로운 기회</strong>
+										<span class="txt-info">
+											다양한 프로젝트와 파트너를 통해<br>작가님의 작품이 책·강연 등으로 확장됩니다.
+										</span>
+									</div>
+								</a>
+							</li>
+							<li class="slide-item slide3">
+								<a href="#" target="_blank" class="link-item">
+									<div class="thum-item">
+										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-03.png"
+											alt="일러스트영역" width="315" height="208">
+									</div>
+									<div class="cont-item">
+										<strong class="tit-info">글로 만나는 작가의 경험</strong>
+										<span class="txt-info">
+											작가를 구독하고, 새 글을 받아보세요.<br>당신에게 영감을 주는 작품을 추천합니다.
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- 여기부터 -->
+					<div class="paging-box">
+						<button class="btn-prev btn-arrow">
+							<span class="btn-prev-ico">이전</span>
+						</button>
+						<ul class="paging">
+							<li>
+								<button class="btn-paging slide1">
+									<span class="screen-out">1</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn-paging slide2">
+									<span class="screen-out">2</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn-paging slide3">
+									<span class="screen-out">3</span>
+								</button>
+							</li>
+						</ul>
+						<button class="btn-next btn-arrow">
+							<span class="btn-next-ico">다음</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="item-start">
+				<div class="box-start">
+					<strong class="tit-txt">글로우라이터스 시작하기</strong>
+					
+					<a th:href="@{|${kakaoUrl}|}" class="link-start" data-click="클릭시 카카오서버에 인증 요청 전송">
+						<span class="kakao-ico"></span>
+						<span class="txt-item">카카오계정으로 로그인</span>
+					</a>
+
+				</div>
+				<div class="box-search">
+					<strong class="tit-txt">내 글로우라이터스 찾기</strong>
+					<a href="#" target="_blank" title="새창열림" class="link-search">내 글로우라이터스의 카카오 계정을 모르겠어요</a>
+					<a href="#" target="_blank" title="새창열림" class="link-search">페이스북 * 트위터로만 로그인 했었나요?</a>
+					<a href="#" target="_blank" title="새창열림" class="desc-help">로그인 관련 상세 도움말</a>
+				</div>
+			</div>
+			<button class="btn-close">
+				<span class="screen-out">창 닫기</span>
+				<span class="ico-close"></span>
+			</button>
+		</div>
+	</div>
+</body>
+<script src="/js/main/main.js"></script>
+
+</html>

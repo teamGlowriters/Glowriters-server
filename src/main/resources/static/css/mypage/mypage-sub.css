@@ -1,0 +1,497 @@
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+body {
+    background: #fff;
+    color: #333;
+}
+
+label {
+    font-family: "Noto Sans DemiLight";
+}
+
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    -webkit-font-smoothing: antialiased;
+    font-family: "Noto Sans Light";
+    backface-visibility: hidden;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button, input, select, textarea {
+    vertical-align: middle;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+/* h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+} */
+
+/* p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+} */
+
+label {
+    cursor: default;
+}
+
+legend {
+    display: block;
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    unicode-bidi: isolate;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+article {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+h2.body{
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    width: 0;
+}
+
+div.coverimg{
+/*     background-color: #f8f8f8; */
+    min-height: 120px;
+    position: relative;
+}
+
+div.myimg{
+    bottom: -50px;
+    height: 100px;
+    left: 50%;
+    margin-left: 250px;
+    position: absolute;
+    width: 100px;
+    z-index: 5;
+}
+
+img.myimg{
+    border-radius: 100px;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 0;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+span.upload-icon{
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v1_221221.png) no-repeat;
+}
+
+span.upload-icon{
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+span.profile-image{
+    background-position: 0 -210px;
+    bottom: 0;
+    height: 42px;
+    position: absolute;
+    right: -13px;
+    width: 42px;
+}
+
+label.profile-image{
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    cursor: default;
+}
+
+input.profile-image{
+    background: transparent;
+    cursor: pointer;
+    font-size: 0;
+    height: 42px;
+    left: 0;
+    line-height: 0;
+    opacity: .01;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    top: 0;
+    width: 42px;
+    vertical-align: middle;
+}
+
+div.edit-profile{
+    padding-bottom: 76px;
+}
+
+legend.screen-out{
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    width: 0;
+}
+
+div.name{
+    margin-bottom: -4px;
+    margin: 0 auto;
+    width: 700px;
+}
+
+div.head-name{
+    margin-top: 37px;
+    padding-bottom: 13px;
+    border-bottom: 0;
+    color: #959595;
+    font-size: 12px;
+    line-height: 15px;
+    overflow: hidden;
+}
+
+h3.head-name{
+    color: #333;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    margin-right: 10px;
+    padding: 1px 0;
+}
+
+input.head-name{
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+label.name{
+    color: #333;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+}
+
+span.icon-star{
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v1_221221.png) no-repeat;
+}
+
+span.name{
+    background-position: -160px -230px;
+    display: inline-block;
+    height: 6px;
+    margin: -1px 0 0 4px;
+    vertical-align: top;
+    width: 6px;
+}
+
+div.name-box{
+    border-width: 0 0 1px;
+    padding-bottom: 6px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+
+textarea.username{
+    color: #333;
+    font-size: 28px;
+    line-height: 34px;
+    overflow-y: hidden;
+    padding: 0 160px 0 0;
+    resize: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    outline: 0;
+    width: 100%;
+}
+
+p.name-error{
+    display: none;
+    margin: 6px 0 0;
+    clear: both;
+    color: #ff4040;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+div.profile-name-dummy{
+    position: absolute;
+    top: -1000px;
+    width: 700px;
+    color: #333;
+    font-size: 28px;
+    line-height: 34px;
+    overflow-y: hidden;
+    padding: 0 160px 0 0;
+    resize: none;
+    ackground-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    outline: 0;
+}
+
+div.introduce{
+    margin: 0 auto;
+    width: 700px;
+}
+
+/* div.introduce{
+    border-bottom: 0;
+    color: #959595;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 57px;
+    overflow: hidden;
+    padding-bottom: 16px;
+} */
+
+div.introduce-sub{
+    border-bottom: 0;
+    color: #959595;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 57px;
+    overflow: hidden;
+    padding-bottom: 16px;
+}
+
+h3.introduce{
+    color: #333;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    margin-right: 10px;
+    padding: 1px 0;
+}
+
+span.introduce{
+    background-position: -160px -230px;
+    display: inline-block;
+    height: 6px;
+    margin: -1px 0 0 4px;
+    vertical-align: top;
+    width: 6px;
+}
+
+div.introduce-box{
+    background-color: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+textarea.introduce-box{
+    overflow-y: hidden;
+    padding: 15px 20px 13px;
+    resize: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #333;
+    display: block;
+    font-size: 13px;
+    line-height: 24px;
+    margin: 0;
+    outline: 0;
+    width: 100%;
+}
+
+div.info-tip{
+    padding-top: 17px;
+}
+
+span.info-tip{
+    border: 1px solid #E7BCDE;
+    border-radius: 8px;
+    color: #E7BCDE;
+    float: left;
+    font-size: 10px;
+    line-height: 15px;
+    margin: 4px 6px 0 0;
+    padding: 0 4px;
+}
+
+p.txt-tip{
+    color: #959595;
+    font-size: 12px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+p.introduce-error{
+    clear: both;
+    color: #ff4040;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 6px 0 -3px;
+}
+
+div.profile-btn{
+    font-size: 0;
+    margin-bottom: 24px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+button.cancel-btn{
+    margin: 0 4px;
+    padding: 0;
+    width: 80px;
+    border: 1px solid #bbb;
+    border-radius: 20px;
+    color: #666;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    min-width: 80px;
+    text-align: center;
+    vertical-align: top;
+}
+
+button.save-btn{
+    margin: 0 4px;
+    padding: 0;
+    width: 80px;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    min-width: 80px;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid #E7BCDE;
+    border-radius: 20px;
+    color: #E7BCDE;
+}
+
+div.cancel-layer{
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+div.inner-layer{
+    background: #fff;
+    border: 1px solid #ddd;
+    left: 50%;
+    margin: -126px 0 0 -230px;
+    position: absolute;
+    top: 50%;
+    width: 458px;
+}
+
+div.layer-body{
+    padding: 55px 55px 59px;
+}
+
+div.info-report{
+    text-align: center;
+}
+
+strong.report{
+    color: #333;
+    display: block;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: -.75px;
+    line-height: 32px;
+    text-align: center;
+    font-family: "Noto Sans Light";
+}
+
+div.wrap-btn{
+    margin: 0;
+    padding-top: 30px;
+    font-size: 0;
+    text-align: center;
+}
+
+button.btn{
+    color: #959595;
+    padding: 9px 16px 10px;
+    text-align: center;
+    width: 90px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+    font-size: 14
+}
+
+button.ok-btn{
+    margin-left: 12px;
+    border-color: #E7BCDE;
+    color: #E7BCDE;
+    padding: 9px 16px 10px;
+    text-align: center;
+    width: 90px;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 100px;
+    font-size: 14px;
+}

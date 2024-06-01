@@ -1,0 +1,146 @@
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    -webkit-font-smoothing: antialiased;
+    font-family: "Noto Sans Light";
+    backface-visibility: hidden;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+body {
+    background: #fff;
+    color: #333;
+}
+
+article {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+/* img[Attributes Style] {
+    width: 42px;
+    aspect-ratio: auto 42 / 42;
+    height: 42px;
+} */
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+a {
+    color: #333;
+}
+
+a, a:active, a:hover {
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+article.main{
+    padding-bottom: 60px;
+}
+
+ul.list-notice{
+    margin: 0 auto;
+    padding-top: 52px;
+    width: 700px;
+}
+
+li.history-list{
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    padding: 29px 0 30px;
+    width: 100%;
+}
+
+a.notice-icon{
+    background-position: -70px -210px;
+    border-radius: 42px;
+    float: left;
+    height: 42px;
+    position: relative;
+    width: 42px;
+    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_brunch2.png) no-repeat;
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+img.img-thumb{
+    display: block;
+    border: 0;
+    border-radius: 42px;
+    height: 42px;
+    width: 42px;
+}
+
+/* span.frame{
+    border: 0;
+    border-radius: 42px;
+    height: 42px;
+    width: 42px;
+    border: 1px solid #2c2f35;
+    filter: alpha(opacity:10);
+    left: 0;
+    opacity: .1;
+    position: absolute;
+    top: 0;
+} */
+
+a.notice-text{
+    float: left;
+    padding-left: 19px;
+    width: 450px;
+    color: #333;
+}
+
+strong.title-sub{
+    display: block;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 22px;
+    padding-top: 1px;
+}
+
+span.time{
+    color: #959595;
+    float: right;
+    font-size: 13px;
+    margin-right: 1px;
+    margin-top: 12px;
+    text-align: right;
+    width: 100px;
+}

@@ -1,0 +1,360 @@
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-family: "Noto Sans DemiLight", "Malgun Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+
+.category-realmain-contentUl blockquote, .category-realmain-contentUl button, .category-realmain-contentUl code, .category-realmain-contentUl dd, .category-realmain-contentUl div, .category-realmain-contentUl dl, .category-realmain-contentUl dt, .category-realmain-contentUl fieldset, .category-realmain-contentUl form, .category-realmain-contentUl h1, .category-realmain-contentUl h2, .category-realmain-contentUl h3, .category-realmain-contentUl h4, .category-realmain-contentUl h5, .category-realmain-contentUl h6, .category-realmain-contentUl input, .category-realmain-contentUl legend, .category-realmain-contentUl li, .category-realmain-contentUl ol, .category-realmain-contentUl p, .category-realmain-contentUl pre, .category-realmain-contentUl select, .category-realmain-contentUl td, .category-realmain-contentUl textarea, .category-realmain-contentUl th, .category-realmain-contentUl ul {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+body {
+    background: #fff;
+    color: #333;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+
+a:-webkit-any-link {
+    /* color: -webkit-link; */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+}
+
+address, caption, cite, code, dfn, em, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+img[Attributes Style] {
+    width: 120px;
+    aspect-ratio: auto 120 / 120;
+    height: 120px;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.category-main-what {
+    height: 0;
+    position: absolute;
+    width: 0;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.category-main-title {
+    color: #333;
+    font-size: 30px;
+    line-height: 30px;
+    margin: 30px auto;
+    overflow: hidden;
+    padding: 40px 0 0;
+    position: relative;
+    text-align: center;
+    width: 940px;
+}
+
+.category-realmain-wrap {
+    background-color: #fbfbfb;
+    border-top: 1px solid #ddd;
+}
+
+.category-realmain-wrapdiv {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 30px 0 111px;
+    width: 940px;
+}
+
+.category-realmain-what {
+    height: 0;
+    position: absolute;
+    width: 0;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.category-realmain-contentWrap {
+    float: left;
+    overflow: hidden;
+    width: 700px;
+}
+
+.category-realmain-contentWrap li {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    min-height: 180px;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 13px;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-contentA {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-letterWrap {
+    float: left;
+    width: 520px;
+}
+
+.category-realmain-strong:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.category-realmain-contentUl .category-realmain-strong {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-strong {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-subtitleWrap {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    max-height: 42px;
+    overflow: hidden;
+    padding-top: 6px;
+    text-overflow: ellipsis;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-subtitleEm {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: -1px;
+    padding-top: 6px;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-subtitleBar {
+    background-color: #bfbfbf;
+    display: inline-block;
+    height: 11px;
+    margin: 4px 8px 0;
+    vertical-align: top;
+    width: 1px;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-realsubWrap {
+    color: #666;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-explanWrap {
+    color: #959595;
+    display: block;
+    font-size: 12px;
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-explanWrap span {
+    float: left;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-dot {
+    background-color: #aaa;
+    display: inline-block;
+    height: 2px;
+    margin: 8px 6px 0;
+    vertical-align: top;
+    width: 2px;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-time {
+    color: #959595;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-by {
+    color: #bfbfbf;
+    font-family: Georgia;
+    font-size: 12px;
+    font-style: italic;
+    height: 15px;
+    margin-right: 4px;
+    width: 15px;
+}
+
+.category-realmain-contentWrap .category-realmain-contentUl .category-realmain-imgWrap {
+    float: right;
+    overflow: hidden;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 120px;
+}
+
+.category-realmain-contentUl .category-realmain-imgWrap .category-realmain-img {
+    float: left;
+}
+
+.category-realmain-img {
+    display: block;
+}
+
+.category-realmain-popularBlogWrap {
+    background-color: #fff;
+    box-sizing: border-box;
+    float: right;
+    padding: 20px 20px 30px;
+    width: 220px;
+    /* height: 357px; */
+    /* animation: animation_up .5s;
+    transition: opacity .2s ease-out 0s, transform .5s ease-out 0s; */
+}
+
+.category-realmain-popularBlogWrap .category-realmain-popularTitle {
+    color: #666;
+    display: block;
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 13px;
+}
+
+.category-realmain-blogerWrap {
+    margin-top: 13px;
+    max-height: 298px;
+    overflow: hidden;
+    padding: 14px 0 0;
+}
+
+.category-realmain-blogerWrap .category-realmain-blogerA {
+    display: block;
+    padding: 0 0 0 48px;
+    position: relative;
+    margin-bottom: 13px;
+}
+
+.category-realmain-blogerWrap .category-realmain-profileWrap {
+    border-radius: 50%;
+    height: 36px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 36px;
+}
+
+.category-realmain-blogerWrap .category-realmain-profileWrap .category-realmain-profile {
+    display: block;
+    width: 100%;
+}
+
+.category-realmain-blogerWrap .category-realmain-profileLetterWrap {
+    display: table;
+    min-height: 36px;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 132px;
+}
+
+.category-realmain-blogerWrap .category-realmain-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.category-realmain-blogerWrap .category-realmain-profileName {
+    display: block;
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    overflow: hidden;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.category-realmain-blogerWrap .category-realmain-profileUnderWrap {
+    color: #999;
+    font-size: 12px;
+    line-height: 18px;
+    display: block;
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+    overflow: hidden;
+}
+
+.category-realmain-blogerWrap .category-realmain-profileUnderWrap .category-realmain-blogerWiter {
+    float: left;
+}
+
+.category-realmain-blogerWrap .category-realmain-profileUnderWrap .category-realmain-blogerdot {
+    background-color: #959595;
+    border-radius: 1px;
+    float: left;
+    height: 2px;
+    margin: 8px 6px;
+    width: 2px;
+}

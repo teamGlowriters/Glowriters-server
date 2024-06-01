@@ -1,0 +1,234 @@
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-family: "Noto Sans DemiLight", "Malgun Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+
+.main-content-wrap blockquote, .main-content-wrap button, .main-content-wrap code, .main-content-wrap dd, .main-content-wrap div, .main-content-wrap dl, .main-content-wrap dt, .main-content-wrap fieldset, .main-content-wrap form, .main-content-wrap h1, .main-content-wrap h2, .main-content-wrap h3, .main-content-wrap h4, .main-content-wrap h5, .main-content-wrap h6, .main-content-wrap input, .main-content-wrap legend, .main-content-wrap li, .main-content-wrap ol, .main-content-wrap p, .main-content-wrap pre, .main-content-wrap select, .main-content-wrap td, .main-content-wrap textarea, .main-content-wrap th, .main-content-wrap ul {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+body {
+    background: #fff;
+    color: #333;
+}
+
+hr {
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    unicode-bidi: isolate;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+article {
+				margin-top: 100px;
+    display: block;
+    unicode-bidi: isolate;
+}
+
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+
+a, a:active, a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+}
+
+a:-webkit-any-link {
+    /* color: -webkit-link; */
+    cursor: pointer;
+    /* text-decoration: underline; */
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+/* img[Attributes Style] { */
+/*     width: 120px; */
+/*     aspect-ratio: auto 120 / 120; */
+/*     height: 120px; */
+/* } */
+
+fieldset, img {
+    border: 0;
+}
+.hide {
+    display: none;
+}
+
+.main-what {
+    height: 0;
+    position: absolute;
+    width: 0;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.main-content-wrap {
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 700px;
+}
+
+.main-content-wrap li {
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    padding: 25px 0 30px;
+    width: 100%;
+}
+
+.main-content-wrap .content-photo-wrap {
+    background-position: 0 -280px;
+    float: right;
+    height: 120px;
+    margin-left: 40px;
+    margin-top: 5px;
+    position: relative;
+    width: 120px;
+}
+
+.content-photo {
+    display: block;
+}
+
+.main-content-wrap .content-letter-wrap {
+    overflow: hidden;
+}
+
+.main-content-wrap .content-letter-wrapA {
+    display: block;
+}
+
+
+.main-content-wrap .content-letter-strong {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.content-letter-strong:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.main-content-wrap .content-letter-span {
+    color: #666;
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    max-height: 43px;
+    overflow: hidden;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+}
+
+.main-content-wrap .content-subletter-wrap {
+    color: #959595;
+    font-family: "Noto Sans Light";
+    font-size: 12px;
+    overflow: hidden;
+    padding-top: 18px;
+    width: 100%;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-firstA {
+    color: #804674;
+    float: left;
+    padding-right: 5px;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-firstSpan {
+    color: #bfbfbf;
+    float: left;
+    font-family: "Georgia";
+    font-size: 12px;
+    font-style: italic;
+    height: 15px;
+    margin-right: 2px;
+    width: 15px;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-secondA {
+    color: #959595;
+    float: left;
+    font-family: "Noto Sans Light";
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-secondSpan {
+    background-color: #bfbfbf;
+    float: left;
+    height: 2px;
+    margin: 8px 6px 11px;
+    vertical-align: top;
+    width: 2px;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-thirdSpan, .main-content-wrap .content-subletter-wrap span {
+    float: left;
+}
