@@ -1,0 +1,892 @@
+/* 헤더 시작 부분 */
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+button {
+    appearance: auto;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-variant-alternates: ;
+    font-variant-position: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    font-optical-sizing: ;
+    font-kerning: ;
+    font-feature-settings: ;
+    font-variation-settings: ;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+
+blockquote,
+body,
+button,
+code,
+dd,
+div,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+select,
+td,
+textarea,
+th,
+ul {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-family: "Noto Sans DemiLight", "Malgun Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+
+body {
+    background: #fff;
+    color: #333;
+}
+
+button,
+input,
+select,
+textarea {
+    vertical-align: middle;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+body,
+button,
+input,
+select,
+td,
+textarea,
+th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+header {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    unicode-bidi: isolate;
+}
+
+input[type="text" i] {
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+input {
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-variant-alternates: ;
+    font-variant-position: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    font-optical-sizing: ;
+    font-kerning: ;
+    font-feature-settings: ;
+    font-variation-settings: ;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+    margin: 0em;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+a {
+    color: #333;
+}
+
+a,
+a:active,
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+dl,
+li,
+menu,
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+
+fieldset,
+img {
+    border: 0;
+}
+
+article {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+strong {
+    font-weight: bold;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+.header {
+    height: 60px;
+}
+
+.header-top {
+    position: static;
+    float: left;
+}
+
+.header-top {
+    height: 40px;
+}
+
+.header-top {
+    /* height: 80px; */
+    /* position: absolute; */
+    top: 0;
+    transition: background .3s ease-in 0s;
+    width: 100%;
+    z-index: 10000;
+}
+
+.header-top .header-top-inner {
+    margin: 30px 30px 0;
+}
+
+.top-inner-first {
+    float: left;
+}
+
+.header-top.article .inner-first-btn,
+.header-top.article.this .inner-first-btn {
+    border-radius: 0;
+    background-position: 0 0;
+}
+
+.header-top .inner-first-btn {
+    /* background-position: 0 0; */
+    height: 20px;
+    margin-right: 14px;
+    width: 27px;
+}
+
+.inner-first-btn {
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 0;
+}
+
+.header-top .inner-first-btn {
+    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4_230130.png) no-repeat;
+}
+
+.header-top h1 {
+    display: inline-block;
+
+}
+
+.inner-first-logo {
+    float: left;
+}
+
+.header-top h1 .first-logo-img,
+.header-top.article.cover_type_text h1 .first-logo-img,
+.header-top.article.beyond_content h1 .first-logo-img {
+    width: 166px;
+}
+
+.header-top h1 .first-logo-img {
+    background: url(../../images/glowritersLogo.png) no-repeat;
+    display: block;
+    background-position: -16px -82px;
+    height: 40px;
+    margin-top: -6px;
+}
+
+.first-logo-img {
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.top-inner-second {
+    float: right;
+}
+
+.header-top .inner-second-search input {
+    display: none;
+}
+
+.header-top .inner-second-search .second-search-btn {
+    margin: 0 0 0 16px;
+}
+
+.header-top .inner-second-search .second-search-btn {
+    background-position: -30px 0;
+    display: inline-block;
+    height: 22px;
+    /* margin-right: 0; */
+    /* margin-top: 0; */
+    width: 22px;
+}
+
+.header-top .second-search-btn {
+    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4_230130.png) no-repeat;
+}
+
+.second-search-btn {
+    /* height: 0; */
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    /* width: 0; */
+}
+
+.second-search-btn {
+    float: right;
+}
+
+.top-inner-third {
+    float: right;
+}
+
+.header-top .inner-third-login {
+    width: 64px;
+    height: 28px;
+    border: 1px solid #959595;
+    border-radius: 16px;
+    margin-top: -5px;
+    color: #666;
+    font-family: Noto Sans Light, sans-serif;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.inner-third-login {
+    background-color: #fff;
+    /* border: 2px solid #E7BCDE; */
+    /* color: #E7BCDE; */
+    filter: alpha(opacity:90);
+    opacity: .9;
+}
+
+.inner-third-login {
+    float: right;
+}
+
+.top-inner-third .inner-third-login {
+    text-decoration: none;
+    /* 밑줄제거 */
+}
+
+/* 메뉴바버튼과 브런치로고, 시작하기검색하기, 돋보기 아이콘을 다시 정렬하기위한 코드. 
+즉 위의 css를무시하고 아래를 우선순위로 적용될것이다 */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-top .header-top-inner {
+    display: flex;
+    align-items: center;
+    margin: 30px 30px 0;
+    width: 100%;
+}
+
+.top-inner-first {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 0px;
+}
+
+.inner-first-btn {
+    margin-right: 14px;
+}
+
+.inner-first-logo {
+    display: inline-block;
+}
+
+.top-inner-second,
+.top-inner-third {
+    margin-left: 16px;
+
+}
+
+/* 사이드바 */
+.header-sidemenu.open {
+    /* 사이드바 처음세팅은 닫혀있음 */
+    margin-left: -261px;
+}
+
+.header-sidemenu {
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    height: 100%;
+    margin-left: -261px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    transition-duration: .3s;
+    transition-timing-function: ease-in;
+    width: 260px;
+    z-index: 10000;
+}
+
+.header-sidemenu main {
+    clear: both;
+}
+
+.header-sidemenu .sidemenu-closebtn {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+}
+
+.header-sidemenu .sidemenu-closebtn {
+    background-position: -40px 0;
+    /* display: block; */
+    height: 19px;
+    width: 19px;
+}
+
+.header-sidemenu .sidemenu-closebtn {
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_sidebar.png);
+}
+
+.header-sidemenu blockquote,
+.header-sidemenu button,
+.header-sidemenu code,
+.header-sidemenu dd,
+.header-sidemenu div,
+.header-sidemenu dl,
+.header-sidemenu dt,
+.header-sidemenu fieldset,
+.header-sidemenu form,
+.header-sidemenu h1,
+.header-sidemenu h2,
+.header-sidemenu h3,
+.header-sidemenu h4,
+.header-sidemenu h5,
+.header-sidemenu h6,
+.header-sidemenu input,
+.header-sidemenu legend,
+.header-sidemenu li,
+.header-sidemenu ol,
+.header-sidemenu p,
+.header-sidemenu pre,
+.header-sidemenu select,
+.header-sidemenu td,
+.header-sidemenu textarea,
+.header-sidemenu th,
+.header-sidemenu ul {
+    font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
+}
+
+.sidemenu-closebtn {
+    /* height: 0; */
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    /* width: 0; */
+}
+
+.sidemenu-closebtn {
+    float: right;
+}
+
+.header-sidemenu .sidemenu-profile.logout {
+    background: #f8f8f8;
+    height: 251px;
+}
+
+.header-sidemenu .sidemenu-profile {
+    /* background-color: #f6f6f6; */
+    /* height: 239px; */
+    overflow: hidden;
+    position: relative;
+}
+
+.loginprofile .sidemenu-profile-logo {
+    background-image: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v9_230901.png);
+    background-position: -351px 0;
+    height: 48px;
+    margin: 40px auto 12px;
+    width: 49px;
+    display: none;
+}
+
+.header-sidemenu .loginprofile .sidemenu-profile-slogan {
+    color: #666;
+    font-family: "Georgia", sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 16px;
+    text-align: center;
+}
+
+.sidemenu-profile-sloganwriter {
+    border-right: 1px solid #ddd;
+    height: 100%;
+    margin-left: -261px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    transition-duration: .3s;
+    transition-timing-function: ease-in;
+    width: 260px;
+    z-index: 10000;
+
+
+}
+
+.loginprofile .sidemenu-profile-sloganwriter {
+    color: #666;
+    font-family: "Georgia", sans-serif;
+    font-size: 9px;
+    font-style: italic;
+    letter-spacing: .3px;
+    /* margin-top: 5px; */
+    /* margin-bottom:10px; */
+    text-align: center;
+
+    margin-left: 0;
+}
+
+.header-sidemenu .sidemenu-profile .profile-start-btn {
+    margin-left: 0px;
+    margin-top: 22px;
+    vertical-align: baseline;
+    width: 151px;
+}
+
+.header-sidemenu .profile-start-btn {
+    background-color: #fff;
+    border: 1px solid #E7BCDE;
+    border-radius: 16px;
+    color: #E7BCDE;
+    font-size: 13px;
+    height: 32px;
+    /* margin-top: 18px; */
+    /* width: 80px; */
+}
+
+.header-sidemenu .sidemenu-service {
+    border-top: 1px solid #ddd;
+    height: 427px;
+    overflow-y: auto;
+    padding-top: 28px;
+}
+
+.header-sidemenu .sidemenu-service.this {
+    padding-left: 2px;
+}
+
+.header-sidemenu .loginprofile {
+    background-color: #f6f6f6;
+    height: 239px;
+    overflow: hidden;
+    position: relative;
+}
+
+.header-sidemenu .loginprofile .profile-img {
+    margin: 40px auto 0;
+    width: 60px;
+}
+
+.header-sidemenu .picture {
+    background-color: #fff;
+    border-radius: 60px;
+    display: block;
+    height: 60px;
+    width: 60px;
+}
+
+.header-sidemenu .loginprofile .profile-info {
+    margin-left: -2px;
+    padding-top: 12px;
+}
+
+.header-sidemenu .profile-info .profile-name {
+    color: #333;
+    display: inline-block;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    white-space: nowrap;
+    width: 212px;
+}
+
+.header-sidemenu .profile-info .profile-id {
+    color: #959595;
+    display: inline-block;
+    font-family: "Georgia";
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 6.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 212px;
+}
+
+.header-sidemenu .profile-write-btn,
+.header-sidemenu .profile-addautor-btn {
+    background-color: #fff;
+    border: 1px solid #E7BCDE;
+    border-radius: 16px;
+    color: #E7BCDE;
+    font-size: 13px;
+    height: 32px;
+    margin-top: 10px;
+    width: 80px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio:1.5),
+only screen and (min-resolution: 1.5dppx) {
+
+    /* #wrapSideMenu .wrap_side_ico, #wrapSideMenu .wrap_side_service_menu li.hr  */
+    .header-sidemenu .profile-alarm {
+        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_sidebar_rtn.png);
+        background-size: 200px 50px;
+    }
+}
+
+.header-sidemenu .profile-alarm {
+    background-position: -27px -3px;
+}
+
+.header-sidemenu .profile-alarm {
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_sidebar.png);
+    background-repeat: no-repeat;
+    height: 22px;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    width: 22px;
+}
+
+.profile-alarm {
+    /* height: 0; */
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    /* width: 0; */
+}
+
+.header-sidemenu .alarm-notify {
+    background-color: #E7BCDE;
+    border-radius: 2.5px;
+    font-size: 0;
+    height: 5px;
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    width: 5px;
+  
+    
+}
+
+.header-sidemenu .sidemenu-service li.hr {
+    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_sidebar.png) 50% no-repeat;
+    background-position: -52px -5px;
+    display: block;
+    height: 15px;
+    margin: 30px auto 32px;
+    padding: 0;
+    width: 140px;
+}
+
+.sidemenu-service {
+    font-size: 14px;
+}
+
+.header-sidemenu .sidemenu-service li {
+    margin: 0 auto;
+    width: 240px;
+}
+
+.header-sidemenu .sidemenu-service li {
+    height: 13px;
+    line-height: 13px;
+    padding: 12.5px 0;
+}
+
+/* 로그인하고나서 메뉴 마우스 호버*/
+.header-sidemenu .sidemenu-service li a:hover,
+.header-sidemenu .sidemenu-service li.sidemenu-service-now a {
+    color: #E7BCDE;
+}
+.header-sidemenu a:hover {
+    text-decoration: none;
+}
+.header-sidemenu .sidemenu-service li a {
+    display: block;
+    height: 13px;
+    line-height: 14px;
+    position: relative;
+}
+/* 사이드바 메뉴에 마우스올렸을때 밑줄 생기는 부분 */
+.header-sidemenu .sidemenu-service li a:hover span,
+.header-sidemenu .sidemenu-service li.sidemenu-service-now a span {
+    border-bottom: 1px solid #E7BCDE;
+    display: block;
+    position: absolute;
+    top: 6px;
+}
+.header-sidemenu .sidemenu-service li a.now-word span {
+    width: 14px;
+}
+/* 가로선 조절 */
+.header-sidemenu .sidemenu-service li a:hover span.bar-left,
+.header-sidemenu .sidemenu-service li.sidemenu-service-now a span.bar-left {
+    left: 40px;
+}
+.header-sidemenu .sidemenu-service li a:hover span.bar-right,
+.header-sidemenu .sidemenu-service li.sidemenu-service-now a span.bar-right {
+    right: 40px;
+}
+/* 가로선 크기*/
+.header-sidemenu .sidemenu-service li a.glowAnother span {
+    width: 32px;
+}
+.header-sidemenu .sidemenu-service li a.glowNow span {
+    width: 8px;
+}
+.header-sidemenu .sidemenu-service li a.glowPub span {
+    width: 8px;
+}
+
+.header-sidemenu .sidemenu-setting.this {
+    margin-bottom: 37px;
+}
+/* 여기까지 */
+
+/* 로그인하기전 마우스 올릴때 호버 나오게*/
+/*맨위로 나오게해야 마우스 올렸을때 커서가 바뀌고 호버가 되는듯*/
+    
+.header-sidemenu .sidemenu-service .now-word,
+.header-sidemenu .sidemenu-service .glowNow,
+.header-sidemenu .sidemenu-service .glowAnother {
+	z-index: 10000; 
+}
+/* 가로선 조절 */
+/* 가로선위치는 로그인했을때랑 공유함 */
+.header-sidemenu .sidemenu-service-now a:hover {
+    color: #00c6be;
+}
+/* 가로선 길이 */
+.header-sidemenu .sidemenu-service now-word span {
+    width: 14px;
+}
+.header-sidemenu .sidemenu-service glowNow span {
+    width: 8px;
+}
+.header-sidemenu .sidemenu-service glowAnother span {
+    width: 32px;
+}
+
+.header-sidemenu .sidemenu-service-now a:hover span, 
+.header-sidemenu .sidemenu-service-now now-word span {
+    border-bottom: 1px solid #00c6be;
+    display: block;
+    position: absolute;
+    top: 6px;
+}
+
+/* 여기까지 */
+
+.header-sidemenu .sidemenu-setting {
+    bottom: 0;
+    margin: 40px 0 30px;
+    /* position: absolute; */
+    text-align: center;
+    width: 100%;
+}
+
+.sidemenu-setting .sidemenu-findAccount {
+    text-decoration: none;
+}
+
+.sidemenu-setting .sidemenu-findAccount {
+    border-bottom: 1px solid #bbb;
+    color: #959595;
+    font-size: 13px;
+}
+
+.header-sidemenu .sidemenu-profile .profile-logout-btn {
+    margin-left: 0;
+    margin-top: 22px;
+    vertical-align: baseline;
+    width: 151px;
+}
+
+.profile-logout-btn {
+    background-color: #fff;
+    border: 1px solid #E7BCDE;
+    border-radius: 16px;
+    color: #E7BCDE;
+    font-size: 13px;
+    height: 32px;
+    margin-top: 10px;
+    /* text-align: center; */
+}
+
+.header-sidemenu .sidemenu-setting button {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 16px;
+    color: #959595;
+    font-size: 13px;
+    height: 32px;
+    margin: 0 2px;
+    width: 80px;
+}
+
+.bottom-setting-container {
+    display: flex;
+    /* Flexbox 사용 */
+    justify-content: center;
+    /* 좌우로 균일하게 나열 */
+}
+
+.header-sidemenu .donation_intro,
+.header-sidemenu .donation_intro .mint_rectangle {
+    animation: none;
+    visibility: hidden;
+}
+
+/* 헤더 css 끝 부분 */

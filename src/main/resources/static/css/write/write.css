@@ -1,0 +1,922 @@
+::selection {
+    background: #b5d6fd;
+    color: #000;
+}
+
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+.ke_photos blockquote,
+.ke_photos button,
+.ke_photos code,
+.ke_photos dd,
+.ke_photos div,
+.ke_photos dl,
+.ke_photos dt,
+.ke_photos fieldset,
+.ke_photos form,
+.ke_photos h1,
+.ke_photos h2,
+.ke_photos h3,
+.ke_photos h4,
+.ke_photos h5,
+.ke_photos h6,
+.ke_photos input,
+.ke_photos legend,
+.ke_photos li,
+.ke_photos ol,
+.ke_photos p,
+.ke_photos pre,
+.ke_photos select,
+.ke_photos td,
+.ke_photos textarea,
+.ke_photos th,
+.ke_photos ul,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.ke_photos,
+body,
+html {
+    height: 100%;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+blockquote,
+body,
+button,
+code,
+dd,
+div,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+select,
+td,
+textarea,
+th,
+ul {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-family: "Noto Sans DemiLight", "Malgun Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+
+i {
+    font-style: italic;
+}
+
+button,
+input,
+select,
+textarea {
+    vertical-align: middle;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+body {
+    background: #fff;
+    color: #333;
+}
+
+body,
+button,
+input,
+select,
+td,
+textarea,
+th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+body {
+    margin: 0 !important;
+    position: static !important;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+div[Attributes Style] {
+    -webkit-user-modify: read-only;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: normal;
+}
+
+a:-webkit-any-link {
+    /* color: -webkit-link; */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+}
+
+a,
+a:active,
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+img {
+    padding: 0;
+}
+
+[contenteditable],
+[contenteditable]:focus {
+    outline: 0 solid transparent;
+}
+
+.write-wrap-div {
+    min-width: 940px;
+}
+
+.write-wrap-updiv {
+    max-height: none !important;
+    position: relative;
+    height: 450px;
+    border-bottom: 1px solid #eee;
+}
+
+.write-wrap-imgwrap,
+.write-wrap-innerwrap {
+    font-family: "Noto Sans DemiLight";
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.write-wrap-imgwrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+}
+
+.write-wrap-imgwrap img {
+    max-width: 100%;
+    /* 이미지의 최대 너비를 부모 요소에 맞게 설정 */
+    max-height: 100%;
+    /* 이미지의 최대 높이를 부모 요소에 맞게 설정 */
+    width: auto;
+    /* 이미지의 너비를 자동으로 조절 */
+    height: auto;
+    /* 이미지의 높이를 자동으로 조절 */
+    position: absolute;
+    /* 이미지 위치 설정 */
+    top: 50%;
+    /* 상단 여백을 50%로 설정하여 세로 중앙 정렬 */
+    left: 50%;
+    /* 좌측 여백을 50%로 설정하여 가로 중앙 정렬 */
+    transform: translate(-50%, -50%);
+    /* 이미지의 중앙 정렬을 위해 사용 */
+}
+
+.write-wrap-updiv .write-wrap-imgwrap {
+    background-position: 50% 50%;
+    background-size: cover;
+    display: block;
+}
+
+.write-wrap-innerwrap {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    -webkit-transition: height, opacity, .2s;
+}
+
+.write-wrap-updiv .write-wrap-innerwrap {
+    opacity: 0;
+}
+
+.write-title-wrap {
+    position: absolute;
+    right: 50%;
+    width: 700px;
+    z-index: 11;
+}
+
+.write-wrap-updiv .write-title-wrap {
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: left;
+    -webkit-transform: translate(50%, -50px);
+}
+
+.write-title:empty:before {
+    color: #ccc;
+    opacity: 1;
+    /* color: #fff; */
+    content: "제목을 입력하세요";
+    cursor: text;
+    font-family: Nanum Myeongjo;
+    font-size: 38pt;
+    /* opacity: .6; */
+}
+
+.write-title {
+    word-wrap: break-word;
+    font-family: "Nanum Myeongjo";
+    font-size: 34pt;
+    line-height: 40pt;
+    display: inline-block;
+    max-width: 700px;
+    min-width: 100px;
+    font-size: 34pt;
+    margin-left: -3px;
+    visibility: visible;
+}
+
+.write-title-inputWrap {
+    position: relative;
+    margin: 45px 0px 0px;
+}
+
+.title-input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    margin: 0px;
+    font-weight: 100;
+    padding: 15px 60px 15px 0px;
+    line-height: 31px;
+    font-family: Nanum Myeongjo;
+    font-size: 38pt;
+    color: #ccc;
+    /* 입력 안내 텍스트의 색상 */
+    background-color: rgb(255, 255, 255, 0.1);
+}
+
+.title-input:focus {
+    outline: none;
+}
+
+.title-input::placeholder {
+    color: #ccc;
+    /* 입력 안내 텍스트의 색상 */
+}
+
+.title-input:not(:placeholder-shown) {
+    color: black;
+    /* 입력된 텍스트의 색상 */
+}
+
+.content-text-input-wrap {
+    flex: 1 0 auto;
+    cursor: text;
+}
+
+.content-text-input-container {
+    cursor: text;
+    padding: 40px 0px 30vh;
+}
+
+.content-text-input-inner {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 720px;
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.content-text-input-box {
+    position: relative;
+    margin: 10px 0px;
+}
+
+.textarea-container {
+    position: relative;
+}
+
+textarea.content-text-area {
+    overflow-wrap: break-word;
+    transition: background-color 0.1s ease 0s;
+    border: none;
+    margin: 2px -3px;
+    padding: 0px 3px;
+    color: #ccc;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: Nanum Myeongjo;
+    line-height: 28px;
+    min-height: 28px;
+    outline: none;
+    width: 100%;
+    resize: none;
+}
+
+.content-text-area::placeholder {
+    color: #ccc;
+    /* 입력 안내 텍스트의 색상 */
+}
+
+.content-text-area:not(:placeholder-shown) {
+    color: black;
+    /* 입력된 텍스트의 색상 */
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.upper-btn-wrap {
+    display: inline-block;
+    left: 50%;
+    position: absolute;
+    top: 90px;
+    transform: translateX(479px);
+    -webkit-transform: translateX(479px);
+    transition: opacity .22s;
+    -webkit-transition: opacity .22s;
+    z-index: 9999;
+}
+
+.upper-btn-inner {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 41px;
+    z-index: 3;
+}
+
+.upper-btn-div {
+    position: relative;
+    z-index: 1;
+}
+
+button.photoBtn {
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0;
+    border-left: 1px solid #eee;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 39px;
+    -moz-outline: 0;
+    outline: 0;
+    padding: 2px 0;
+    text-align: center;
+    -webkit-transition: background .1s linear;
+    -moz-transition: background .1s linear;
+    -ms-transition: background .1s linear;
+    -o-transition: background .1s linear;
+    width: 42px;
+    z-index: 2;
+}
+
+.upper-btn-wrap .photoBtn {
+    margin-top: 1px;
+    position: relative;
+    z-index: 0;
+    border: none;
+}
+
+.real-btn-icon {
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/btn_editor.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-position: -15px -20px;
+    height: 25px;
+    width: 25px;
+}
+
+i {
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.file-wrap {
+    background: transparent;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.photo-file-input {
+    cursor: pointer;
+    /* height: 41px; */
+    opacity: .01;
+    outline: 0;
+    text-indent: -9999px;
+    width: 41px;
+}
+
+.real-remove-icon {
+    background-repeat: no-repeat;
+    display: none;
+    height: 25px;
+    width: 24px;
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/editor/btn_cover.png);
+    background-position: 3px -250px;
+}
+
+.side-btn-wrap {
+    display: inline-block;
+    position: absolute;
+    transition: opacity .22s;
+    -webkit-transition: opacity .22s;
+    z-index: 9999;
+    left: 50%;
+    /* position: fixed; */
+    margin-top: 150px;
+    -webkit-transform: translateX(479px);
+}
+
+.side-btn-bg {
+    /* background-color: #fff; */
+    border-radius: 2px;
+    height: 340px;
+    left: 3px;
+    opacity: .95;
+    position: absolute;
+    top: -4px;
+    width: 38px;
+}
+
+.side-btn-inner {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 41px;
+}
+
+.dside-btn-wrapdiv {
+    position: relative;
+    z-index: 1;
+}
+
+button.side-btn {
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0;
+    border-left: 1px solid #eee;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 39px;
+    -moz-outline: 0;
+    outline: 0;
+    padding: 2px 0;
+    text-align: center;
+    -webkit-transition: background .1s linear;
+    -moz-transition: background .1s linear;
+    -ms-transition: background .1s linear;
+    -o-transition: background .1s linear;
+    width: 42px;
+    z-index: 2;
+}
+
+.side-btn-wrap .side-btn {
+    margin-top: 1px;
+    border: none;
+}
+
+button.side-btn[data-cmd]:after {
+    content: "";
+    height: 28px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 6px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    z-index: -1;
+}
+
+button.side-btn[data-cmd=insertImage]:after {
+    background: url(//t1.daumcdn.net/brunch/static/img/guide/pc_guide_tip01.png) no-repeat;
+    width: 52px;
+}
+
+.side-img-icon {
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/btn_editor.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
+.side-img-icon {
+    background-position: 1px 2px;
+}
+
+.side-btn-wrap .side-img-icon {
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/editor/btn_side.v2.png);
+}
+
+.side-file-wrap {
+    background: transparent;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.side-file-input {
+    cursor: pointer;
+    /* height: 41px; */
+    opacity: .01;
+    outline: 0;
+    text-indent: -9999px;
+    width: 41px;
+}
+
+.main-wrap {
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    height: 100%;
+    margin-left: -261px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    transition-duration: .3s;
+    transition-timing-function: ease-in;
+    width: 260px;
+    z-index: 10000;
+}
+
+.main-wrap main {
+    clear: both;
+}
+
+.main-wrap .main-photo-wrap {
+    background-color: #f6f6f6;
+    height: 239px;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-wrap .main-photo-wrap .main-photo-div {
+    margin: 40px auto 0;
+    width: 60px;
+}
+
+.main-wrap .real-img {
+    background-color: #fff;
+    border-radius: 60px;
+    display: block;
+    height: 60px;
+    width: 60px;
+}
+
+.content-wrap-div {
+    margin: 0 auto;
+    position: relative;
+    width: 700px;
+}
+
+[contenteditable],
+[contenteditable]:focus {
+    outline: 0 solid transparent;
+}
+
+.write-wrap-div .content-wrap-div {
+    word-wrap: break-word;
+    padding-bottom: 120px;
+    padding-top: 40px;
+}
+
+.real-content {
+    margin: 0 auto;
+    font-size: 11pt;
+    letter-spacing: .8px;
+    line-height: 22pt;
+    min-width: auto;
+    width: auto;
+}
+
+.content-wrap-div .real-content {
+    text-align: left;
+}
+
+.content-wrap-div:first-child {
+    margin-top: -7px;
+}
+
+.side-categorybtn-wrapdiv {
+    position: relative;
+    z-index: 1;
+}
+
+.side-btn-wrap .category-btn {
+    margin-top: 14px;
+    margin-left: 8px;
+    border: none;
+}
+
+.side-category-icon {
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/btn_editor.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
+.side-category-icon {
+    background-position: 1px -124px;
+}
+
+.side-btn-wrap .side-category-icon {
+    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/editor/btn_side.v2.png);
+}
+
+
+.declaration-modal-wrap {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 1300;
+    background-color: rgba(33, 38, 41, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.declaration-modal-container {
+    max-height: 78%;
+    vertical-align: middle;
+    width: 400px;
+    border-radius: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    color: rgb(47, 52, 56);
+    background-color: rgb(255, 255, 255);
+}
+
+.declaration-modal-title-box {
+    padding: 16px 16px 10px;
+    line-height: 0;
+}
+
+.declaration-modal-title {
+    font-size: 20px;
+    line-height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    text-align: center;
+    width: calc(100% - 68px);
+    margin-left: 24px;
+    margin-right: 10px;
+    white-space: pre-line;
+}
+
+.declaration-modal-cancel-btn {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: none;
+    font: inherit;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+}
+
+.cancel-btn-icon {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    color: rgb(47, 52, 56);
+}
+
+.declaration-modal-content {
+    font-size: 16px;
+    font-family: Nanum Myeongjo;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    word-break: break-all;
+    overflow-y: auto;
+}
+
+.declaration-list {
+    display: block;
+}
+
+.declaration-item {
+    padding: 17px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.declaration-label {
+    display: inline-block;
+}
+
+.declaration-input-box {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #E7BCDE;
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    transition: border-color 0.1s ease 0s, background-color 0.1s ease 0s;
+    vertical-align: middle;
+}
+
+.declaration-input-box::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.5, 2, 0.5, 0.5) 0s;
+    background-color: rgb(255, 255, 255);
+}
+
+.declaration-choice {
+    background-color: #E188CE;
+}
+
+.declaration-choice::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    transform: scale(1);
+    transition: transform 0.4s cubic-bezier(0.5, 2, 0.5, 0.5) 0s;
+    background-color: rgb(255, 255, 255);
+}
+
+.declaration-input {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.declaration-text {
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: middle;
+    margin-left: 6px;
+    color: rgb(47, 52, 56);
+}
+
+.declaration-btn-wrap {
+    padding: 9px 16px;
+    line-height: 0;
+}
+
+.declaration-btn-container {
+    padding-top: 1px;
+    padding-bottom: 7px;
+}
+
+.declaration-btn {
+    margin: 0px;
+    border: none;
+    background: none #E188CE;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    font-weight: 700;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+.declaration-btn:hover {
+    background: #E7BCDE;
+}
+
+.open {
+    display: flex;
+}
+
+/*  */

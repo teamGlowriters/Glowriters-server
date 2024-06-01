@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style data-emotion="css-global" data-s="">
+		@font-face {
+			font-family: "Nanum Myeongjo";
+			font-weight: normal;
+			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Noto Sans Light";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-Light.otf");
+		}
+
+		@font-face {
+			font-family: "Noto Sans DemiLight";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+		}
+	</style>
+	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/css/now/now.css" />
+	
+	<link rel="stylesheet" href="/css/main/header.css" data-whatIsThis="헤더CSS임포트" />
+	<title>브런치스토리</title>
+</head>
+
+<body>
+	<div th:replace="~{/main/header :: fragment-header1}">헤더파일 가져오는곳</div>
+	<div th:replace="~{/main/header :: fragment-header2}">헤더파일 가져오는곳</div>
+	<div class="now-wrap">
+		<hr class="hide" />
+		<main class="now-main">
+			<article class="main-article">
+				<h2 class="main-what">브런치 now</h2>
+				<ul class="main-content-wrap">
+					<li class="main-content-wrapli">
+						<a href="#" class="content-photo-wrap">
+							<img src="/images/blank-image.png" width="120" height="120" class="content-photo"
+								alt="이타북스 프로필" />
+						</a>
+						<div class="content-letter-wrap">
+							<a href="#" class="content-letter-wrapA">
+								<strong class="content-letter-strong">3명의 일본인 여자친구를 사귀면서 다른 여자를
+									납치했다</strong>
+								<span class="content-letter-span">
+									<span>세 여자는 모두 비슷한 시기에&nbsp;한 남자를 만나 사귀기
+										시작했다. 일주일에 한두 번 정도 만나서 데이트를 했으며,
+										남자는 자신이 작가 지망생이라 말했다고 한다. 그의 외모는
+										너무 준수했으며, 또 그녀들을 위해서 온 정성을 다했기
+										때문에 세 여자 모두 그와 먼 미래까지 기대하고 있었다.
+										그런데 스물일곱 살의&nbsp;작가 지망생이라던 그 남자는
+										수상한 점이 한두
+									</span>
+								</span>
+							</a>
+							<div class="content-subletter-wrap" style="white-space: nowrap">
+								<a href="#" class="content-subletter-firstA">출판사 이야기</a>
+								<span class="content-subletter-firstSpan">by</span>
+								<a href="#" class="content-subletter-secondA">이타북스</a>
+								<span class="content-subletter-secondSpan"></span>
+								<span class="content-subletter-thirdSpan">방금</span>
+							</div>
+						</div>
+					</li>
+					<li class="main-content-wrapli">
+						<a href="#" class="content-photo-wrap">
+							<img src="/images/blank-image.png" width="120" height="120" class="content-photo"
+								alt="이타북스 프로필" />
+						</a>
+						<div class="content-letter-wrap">
+							<a href="#" class="content-letter-wrapA">
+								<strong class="content-letter-strong">3명의 일본인 여자친구를 사귀면서 다른 여자를
+									납치했다</strong>
+								<span class="content-letter-span">
+									<span>세 여자는 모두 비슷한 시기에&nbsp;한 남자를 만나 사귀기
+										시작했다. 일주일에 한두 번 정도 만나서 데이트를 했으며,
+										남자는 자신이 작가 지망생이라 말했다고 한다. 그의 외모는
+										너무 준수했으며, 또 그녀들을 위해서 온 정성을 다했기
+										때문에 세 여자 모두 그와 먼 미래까지 기대하고 있었다.
+										그런데 스물일곱 살의&nbsp;작가 지망생이라던 그 남자는
+										수상한 점이 한두
+									</span>
+								</span>
+							</a>
+							<div class="content-subletter-wrap" style="white-space: nowrap">
+								<a href="#" class="content-subletter-firstA">출판사 이야기</a>
+								<span class="content-subletter-firstSpan">by</span>
+								<a href="#" class="content-subletter-secondA">이타북스</a>
+								<span class="content-subletter-secondSpan"></span>
+								<span class="content-subletter-thirdSpan">방금</span>
+							</div>
+						</div>
+					</li>
+					<li class="main-content-wrapli">
+						<a href="#" class="content-photo-wrap">
+							<img src="/images/blank-image.png" width="120" height="120" class="content-photo"
+								alt="이타북스 프로필" />
+						</a>
+						<div class="content-letter-wrap">
+							<a href="#" class="content-letter-wrapA">
+								<strong class="content-letter-strong">3명의 일본인 여자친구를 사귀면서 다른 여자를
+									납치했다</strong>
+								<span class="content-letter-span">
+									<span>세 여자는 모두 비슷한 시기에&nbsp;한 남자를 만나 사귀기
+										시작했다. 일주일에 한두 번 정도 만나서 데이트를 했으며,
+										남자는 자신이 작가 지망생이라 말했다고 한다. 그의 외모는
+										너무 준수했으며, 또 그녀들을 위해서 온 정성을 다했기
+										때문에 세 여자 모두 그와 먼 미래까지 기대하고 있었다.
+										그런데 스물일곱 살의&nbsp;작가 지망생이라던 그 남자는
+										수상한 점이 한두
+									</span>
+								</span>
+							</a>
+							<div class="content-subletter-wrap" style="white-space: nowrap">
+								<a href="#" class="content-subletter-firstA">출판사 이야기</a>
+								<span class="content-subletter-firstSpan">by</span>
+								<a href="#" class="content-subletter-secondA">이타북스</a>
+								<span class="content-subletter-secondSpan"></span>
+								<span class="content-subletter-thirdSpan">방금</span>
+							</div>
+						</div>
+					</li>
+					<li class="main-content-wrapli">
+						<a href="#" class="content-photo-wrap">
+							<img src="/images/blank-image.png" width="120" height="120" class="content-photo"
+								alt="이타북스 프로필" />
+						</a>
+						<div class="content-letter-wrap">
+							<a href="#" class="content-letter-wrapA">
+								<strong class="content-letter-strong">3명의 일본인 여자친구를 사귀면서 다른 여자를
+									납치했다</strong>
+								<span class="content-letter-span">
+									<span>세 여자는 모두 비슷한 시기에&nbsp;한 남자를 만나 사귀기
+										시작했다. 일주일에 한두 번 정도 만나서 데이트를 했으며,
+										남자는 자신이 작가 지망생이라 말했다고 한다. 그의 외모는
+										너무 준수했으며, 또 그녀들을 위해서 온 정성을 다했기
+										때문에 세 여자 모두 그와 먼 미래까지 기대하고 있었다.
+										그런데 스물일곱 살의&nbsp;작가 지망생이라던 그 남자는
+										수상한 점이 한두
+									</span>
+								</span>
+							</a>
+							<div class="content-subletter-wrap" style="white-space: nowrap">
+								<a href="#" class="content-subletter-firstA">출판사 이야기</a>
+								<span class="content-subletter-firstSpan">by</span>
+								<a href="#" class="content-subletter-secondA">이타북스</a>
+								<span class="content-subletter-secondSpan"></span>
+								<span class="content-subletter-thirdSpan">방금</span>
+							</div>
+						</div>
+					</li>
+					<li class="main-content-wrapli">
+						<a href="#" class="content-photo-wrap">
+							<img src="/images/blank-image.png" width="120" height="120" class="content-photo"
+								alt="이타북스 프로필" />
+						</a>
+						<div class="content-letter-wrap">
+							<a href="#" class="content-letter-wrapA">
+								<strong class="content-letter-strong">3명의 일본인 여자친구를 사귀면서 다른 여자를
+									납치했다</strong>
+								<span class="content-letter-span">
+									<span>세 여자는 모두 비슷한 시기에&nbsp;한 남자를 만나 사귀기
+										시작했다. 일주일에 한두 번 정도 만나서 데이트를 했으며,
+										남자는 자신이 작가 지망생이라 말했다고 한다. 그의 외모는
+										너무 준수했으며, 또 그녀들을 위해서 온 정성을 다했기
+										때문에 세 여자 모두 그와 먼 미래까지 기대하고 있었다.
+										그런데 스물일곱 살의&nbsp;작가 지망생이라던 그 남자는
+										수상한 점이 한두
+									</span>
+								</span>
+							</a>
+							<div class="content-subletter-wrap" style="white-space: nowrap">
+								<a href="#" class="content-subletter-firstA">출판사 이야기</a>
+								<span class="content-subletter-firstSpan">by</span>
+								<a href="#" class="content-subletter-secondA">이타북스</a>
+								<span class="content-subletter-secondSpan"></span>
+								<span class="content-subletter-thirdSpan">방금</span>
+							</div>
+						</div>
+					</li>
+					<li class="main-content-wrapli">
+						<a href="#" class="content-photo-wrap">
+							<img src="/images/blank-image.png" width="120" height="120" class="content-photo"
+								alt="이타북스 프로필" />
+						</a>
+						<div class="content-letter-wrap">
+							<a href="#" class="content-letter-wrapA">
+								<strong class="content-letter-strong">3명의 일본인 여자친구를 사귀면서 다른 여자를
+									납치했다</strong>
+								<span class="content-letter-span">
+									<span>세 여자는 모두 비슷한 시기에&nbsp;한 남자를 만나 사귀기
+										시작했다. 일주일에 한두 번 정도 만나서 데이트를 했으며,
+										남자는 자신이 작가 지망생이라 말했다고 한다. 그의 외모는
+										너무 준수했으며, 또 그녀들을 위해서 온 정성을 다했기
+										때문에 세 여자 모두 그와 먼 미래까지 기대하고 있었다.
+										그런데 스물일곱 살의&nbsp;작가 지망생이라던 그 남자는
+										수상한 점이 한두
+									</span>
+								</span>
+							</a>
+							<div class="content-subletter-wrap" style="white-space: nowrap">
+								<a href="#" class="content-subletter-firstA">출판사 이야기</a>
+								<span class="content-subletter-firstSpan">by</span>
+								<a href="#" class="content-subletter-secondA">이타북스</a>
+								<span class="content-subletter-secondSpan"></span>
+								<span class="content-subletter-thirdSpan">방금</span>
+							</div>
+						</div>
+					</li>
+					<li class="main-content-wrapli">
+						<a href="#" class="content-photo-wrap">
+							<img src="/images/blank-image.png" width="120" height="120" class="content-photo"
+								alt="이타북스 프로필" />
+						</a>
+						<div class="content-letter-wrap">
+							<a href="#" class="content-letter-wrapA">
+								<strong class="content-letter-strong">3명의 일본인 여자친구를 사귀면서 다른 여자를
+									납치했다</strong>
+								<span class="content-letter-span">
+									<span>세 여자는 모두 비슷한 시기에&nbsp;한 남자를 만나 사귀기
+										시작했다. 일주일에 한두 번 정도 만나서 데이트를 했으며,
+										남자는 자신이 작가 지망생이라 말했다고 한다. 그의 외모는
+										너무 준수했으며, 또 그녀들을 위해서 온 정성을 다했기
+										때문에 세 여자 모두 그와 먼 미래까지 기대하고 있었다.
+										그런데 스물일곱 살의&nbsp;작가 지망생이라던 그 남자는
+										수상한 점이 한두
+									</span>
+								</span>
+							</a>
+							<div class="content-subletter-wrap" style="white-space: nowrap">
+								<a href="#" class="content-subletter-firstA">출판사 이야기</a>
+								<span class="content-subletter-firstSpan">by</span>
+								<a href="#" class="content-subletter-secondA">이타북스</a>
+								<span class="content-subletter-secondSpan"></span>
+								<span class="content-subletter-thirdSpan">방금</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</article>
+		</main>
+	</div>
+</body>
+<script src="/js/now/now.js"></script>
+<script src="/js/main/header.js" data-whatIsThis="헤더js임포트"></script>
+
+</html>

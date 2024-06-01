@@ -1,0 +1,210 @@
+body {
+    background: #fff;
+    color: #333;
+}
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+li {
+    text-align: -webkit-match-parent;
+}
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-family: "Noto Sans DemiLight", "Malgun Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+small {
+    font-size: smaller;
+}
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+a:-webkit-any-link {
+    /* color: -webkit-link; */
+    cursor: pointer;
+    /* text-decoration: underline; */
+}
+a {
+    color: #333;
+}
+/* a, a:active, a:hover {
+    text-decoration: none;
+} */
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+
+
+
+
+
+/* footer 시작 */
+.footer {
+    width: 100%;
+    height: 417px;
+    margin: 0;
+    background-color: #101010;
+}
+
+.footer .footer-inner {
+    position: relative;
+    width: 960px;
+    padding: 39px 0;
+    margin: 0 auto;
+}
+
+.footer .footer-wrap {
+    display: flex;
+    padding-bottom: 45px;
+}
+
+.footer .footer-quotation {
+    overflow: hidden;
+    margin-right: auto;
+    color: #fff;
+}
+
+.site-logo {
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+.site-logo {
+    overflow: hidden;
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v9_230901.png) no-repeat 0 0;
+    text-indent: -9999px;
+}
+
+.footer .site-logo {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    background-position: -320px -112px;
+}
+
+.footer .site-slogan {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 20px;
+}
+
+.footer .site-sloganwriter {
+    margin-top: 7px;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: .55px;
+}
+
+.footer .footer-wrap .footer-service {
+    margin-left: 104px;
+}
+
+.footer .footer-wrap .footer-policy {
+    margin-left: 104px;
+}
+
+.footer .footer-wrap .footer-sns {
+    margin-left: 104px;
+}
+
+.footer .footer-wrap li {
+    line-height: 33px;
+}
+
+.footer .footer-service-link {
+    padding: 0;
+    color: #bfbfbf;
+    font-family: Noto Sans Light, sans-serif;
+    font-size: 13px;
+    letter-spacing: -.25px;
+}
+
+.footer .footer-service-link:hover {
+    color: #fff;
+}
+
+.footer .footer-corp {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 22px;
+    border-top: 1px solid rgb(255 255 255 / .1);
+}
+
+.footer .download {
+    display: flex;
+    margin-right: 5px;
+    margin-left: auto;
+}
+
+.footer .download li {
+    margin-left: 25px;
+}
+
+.ico-android,
+.ico-ios {
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+.ico-android,
+.ico-ios {
+    overflow: hidden;
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v9_230901.png) no-repeat 0 0;
+    text-indent: -9999px;
+}
+
+.footer .ico-android {
+    width: 20px;
+    height: 22px;
+    background-position: -260px -100px;
+}
+
+.footer .ico-ios {
+    width: 18px;
+    height: 22px;
+    background-position: -290px -100px;
+}

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style data-emotion="css-global" data-s="">
+		@font-face {
+			font-family: "Nanum Myeongjo";
+			font-weight: normal;
+			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Noto Sans Light";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-Light.otf");
+		}
+
+		@font-face {
+			font-family: "Noto Sans DemiLight";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+		}
+	</style>
+	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/css/blogger-details/blogger-details.css" />
+	<link rel="stylesheet" href="/css/blogger-details/header.css" data-whatIsThis="blogger디테일전용 특수 헤더CSS임포트" />
+	<title>블로거 상세페이지</title>
+</head>
+
+<body>
+	<div th:replace="~{/main/header :: fragment-header1}">헤더파일 가져오는곳</div>
+	<div th:replace="~{/main/header :: fragment-header2}">헤더파일 가져오는곳</div>
+	<header class="header-head">
+		<h2 class="screen-out">김수빈</h2>
+		<div class="header-image"></div>
+		<div class="profile">
+			<div class="profile-img">
+				<img class="profile-img" src="/images/blank-image.png" alt="프로필 이미지" width="100" height="100" />
+			</div>
+			<div class="profile-desc">
+				<strong class="title">김수빈</strong>
+				<pre class="title">에세이스트</pre>
+				<dl class="blog-count">
+					<dt class="screen-out">브런치 정보</dt>
+					<dd class="follower">
+						<em class="sub">구독자</em>
+						<span class="num-count">3575</span>
+					</dd>
+					<dd class="following">
+						<a href="#" class="link-count">
+							<em class="txt">관심작가</em>
+							<span class="num-count">234</span>
+						</a>
+					</dd>
+				</dl>
+			</div>
+			<div class="profilebtn">
+				<div class="wrap-profilebtn">
+					<!-- <a
+              href="#"
+              class="btn"
+              data-tiara-action-name="작가 프로필 > 제안하기 버튼 클릭"
+              data-tiara-layer="propose"
+              data-tiara-page="common"
+              data-tiara-section="profile"
+              >제안하기</a
+            > -->
+					<span>
+						<button class="follow-button">
+							<span class="follow-button">
+								<!-- <img
+                    class="follow-button"
+                    src="/images/ico-plus.png"
+                    alt="구독 버튼 아이콘"
+                  /> -->
+								구독하기
+							</span>
+						</button>
+					</span>
+					<div class="control">
+						<button class="btn-more" type="button">
+							<span class="btn-more btn-more-v">메뉴 더보기</span>
+						</button>
+						<div class="layer" style="display: none"></div>
+						<div class="layer-action">
+							<div class="inner-action">
+								<button class="btn-ctrl-first" type="button">차단하기</button>
+								<button class="btn-ctrl-second" type="button">
+									신고하기
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="tab-contents">
+			<strong class="screen-out">작가프로필 하위메뉴</strong>
+			<ul class="list-tab">
+				<li class="list-tab">
+					<a href="#" class="list-tab click-tab">
+						<span class="txt-tab">작가소개
+							<em class="new icon-new">new</em>
+						</span>
+					</a>
+				</li>
+				<li class="list-tab">
+					<a href="#" class="list-tab">
+						<span class="txt-tab">글 9 </span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="wrap-contents">
+			<!-- 작가소개 부분 -->
+			<div class="profile-info">
+				<h3 class="screen-out">작가소개</h3>
+				<div class="blogger-intro">
+					<strong class="tit-intro">소개</strong>
+					<p class="intro">
+						약속하지 않은 만남. 나와 당신을 둘러싼, 그 무엇에 관한 소소한
+						이야기들
+					</p>
+					<ul class="list-tag">
+						<li class="list-tag">
+							<a class="link-tag" href="#">에세이</a>
+						</li>
+						<li class="list-tag">
+							<a class="link-tag" href="#">인문교양</a>
+						</li>
+						<li class="list-tag">
+							<a class="link-tag" href="#">여행</a>
+						</li>
+						<li class="list-tag">
+							<a class="link-tag" href="#">에세이스트</a>
+						</li>
+						<li class="list-tag">
+							<a class="link-tag" href="#">프리랜서</a>
+						</li>
+						<li class="list-tag">
+							<a class="link-tag" href="#">회사원</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 글 목록 부분 -->
+			<div class="article-post">
+				<h3 class="screen-out">글 목록</h3>
+				<div class="article-list">
+					<ul class="list-article">
+						<li class="article">
+							<a href="#" class="link-category">
+								<em class="tit-category">어쩌다, 한자 한 자</em>
+							</a>
+							<a href="#" class="link-post" data-tiara-action-kind="ClickContent"
+								data-tiara-action-name="작가 프로필 > 글탭 > 리스트 클릭" data-tiara-id="@@9lxq"
+								data-tiara-layer="articles">
+								<div class="post-title">
+									<strong class="tit-subject">사막 위를 달리는 전사</strong>
+									<div class="post-desc">
+										<div class="wrap-sub-content">
+											<em class="tit-sub">'進'에 대한 단상</em>
+											<span class="ico-bar"></span>
+											<span class="article-content">반복에 반복, 매번 같은 질문을 던진다.그리고 매번 같은
+												답이다.너무 지긋지긋해. 히어로물을 좋아한다.
+												'최애'라고 표현하는 인물은 보통 마블 출신의 남자
+												캐릭터다. 근육질 몸매에 잘생긴 외모는 늘 실망이 없다.
+												거기에 화려한 입담까지 얹는다면? 더 말해 무엇할까.
+												혹여 이것이 요즘 문제되는 외모지상주의 같은 개념으로
+												매도될 수도 있겠다. 하</span>
+										</div>
+									</div>
+									<div class="post-thumb">
+										<img class="img-thumb" src="/images/blank-image.png" alt="이미지정보" height="120px"
+											width="120px" />
+									</div>
+									<span class="post-append">
+										<span class="name">댓글</span>
+										<span class="num-txt">0</span>
+										<span class="ico-dot"></span>
+										<span class="publish-time">May 01. 2024</span>
+									</span>
+								</div>
+							</a>
+						</li>
+						<li class="article">
+							<a href="#" class="link-category">
+								<em class="tit-category">어쩌다, 한자 한 자</em>
+							</a>
+							<a href="#" class="link-post" data-tiara-action-kind="ClickContent"
+								data-tiara-action-name="작가 프로필 > 글탭 > 리스트 클릭" data-tiara-id="@@9lxq"
+								data-tiara-layer="articles">
+								<div class="post-title">
+									<strong class="tit-subject">사막 위를 달리는 전사</strong>
+									<div class="post-desc">
+										<div class="wrap-sub-content">
+											<em class="tit-sub">'進'에 대한 단상</em>
+											<span class="ico-bar"></span>
+											<span class="article-content">반복에 반복, 매번 같은 질문을 던진다.그리고 매번 같은
+												답이다.너무 지긋지긋해. 히어로물을 좋아한다.
+												'최애'라고 표현하는 인물은 보통 마블 출신의 남자
+												캐릭터다. 근육질 몸매에 잘생긴 외모는 늘 실망이 없다.
+												거기에 화려한 입담까지 얹는다면? 더 말해 무엇할까.
+												혹여 이것이 요즘 문제되는 외모지상주의 같은 개념으로
+												매도될 수도 있겠다. 하</span>
+										</div>
+									</div>
+									<div class="post-thumb">
+										<img class="img-thumb" src="/images/blank-image.png" alt="이미지정보" height="120px"
+											width="120px" />
+									</div>
+									<span class="post-append">
+										<span class="name">댓글</span>
+										<span class="num-txt">0</span>
+										<span class="ico-dot"></span>
+										<span class="publish-time">May 01. 2024</span>
+									</span>
+								</div>
+							</a>
+						</li>
+
+
+
+
+						<li class="article">
+							<a href="#" class="link-category">
+								<em class="tit-category">어쩌다, 한자 한 자</em>
+							</a>
+							<a href="#" class="link-post" data-tiara-action-kind="ClickContent"
+								data-tiara-action-name="작가 프로필 > 글탭 > 리스트 클릭" data-tiara-id="@@9lxq"
+								data-tiara-layer="articles">
+								<div class="post-title">
+									<strong class="tit-subject">사막 위를 달리는 전사</strong>
+									<div class="post-desc">
+										<div class="wrap-sub-content">
+											<em class="tit-sub">'進'에 대한 단상</em>
+											<span class="ico-bar"></span>
+											<span class="article-content">
+												반복에 반복, 매번 같은 질문을 던진다.그리고 매번 같은
+												답이다.너무 지긋지긋해. 히어로물을 좋아한다.
+												'최애'라고 표현하는 인물은 보통 마블 출신의 남자
+												캐릭터다. 근육질 몸매에 잘생긴 외모는 늘 실망이 없다.
+												거기에 화려한 입담까지 얹는다면? 더 말해 무엇할까.
+												혹여 이것이 요즘 문제되는 외모지상주의 같은 개념으로
+												매도될 수도 있겠다. 하
+											</span>
+										</div>
+									</div>
+									<div class="post-thumb">
+										<img class="img-thumb" src="/images/blank-image.png" alt="이미지정보" height="120px"
+											width="120px" />
+									</div>
+									<span class="post-append">
+										<span class="name">댓글</span>
+										<span class="num-txt">0</span>
+										<span class="ico-dot"></span>
+										<span class="publish-time">May 01. 2024</span>
+									</span>
+								</div>
+							</a>
+						</li>
+						<li class="article">
+							<a href="#" class="link-category">
+								<em class="tit-category">어쩌다, 한자 한 자</em>
+							</a>
+							<a href="#" class="link-post" data-tiara-action-kind="ClickContent"
+								data-tiara-action-name="작가 프로필 > 글탭 > 리스트 클릭" data-tiara-id="@@9lxq"
+								data-tiara-layer="articles">
+								<div class="post-title">
+									<strong class="tit-subject">사막 위를 달리는 전사</strong>
+									<div class="post-desc">
+										<div class="wrap-sub-content">
+											<em class="tit-sub">'進'에 대한 단상</em>
+											<span class="ico-bar"></span>
+											<span class="article-content">
+												반복에 반복, 매번 같은 질문을 던진다.그리고 매번 같은
+												답이다.너무 지긋지긋해. 히어로물을 좋아한다.
+												'최애'라고 표현하는 인물은 보통 마블 출신의 남자
+												캐릭터다. 근육질 몸매에 잘생긴 외모는 늘 실망이 없다.
+												거기에 화려한 입담까지 얹는다면? 더 말해 무엇할까.
+												혹여 이것이 요즘 문제되는 외모지상주의 같은 개념으로
+												매도될 수도 있겠다. 하
+											</span>
+										</div>
+									</div>
+									<div class="post-thumb">
+										<img class="img-thumb" src="/images/blank-image.png" alt="이미지정보" height="120px"
+											width="120px" />
+									</div>
+									<span class="post-append">
+										<span class="name">댓글</span>
+										<span class="num-txt">0</span>
+										<span class="ico-dot"></span>
+										<span class="publish-time">May 01. 2024</span>
+									</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- 신고하기 모달 -->
+	<div class="background" style="display: none">
+		<div class="inner-report">
+			<form>
+				<input type="hidden" name="userId" value="" />
+				<input type="hidden" name="contentNo" value="" />
+			</form>
+			<fieldset>
+				<legend class="ir-pm">신고하기 폼</legend>
+				<div class="report-body">
+					<strong class="tit-report">신고하기</strong>
+					<div class="report-choice-1">
+						<input class="radio-input" type="radio" id="check1" name="reasonCode" value="" />
+						<label for="check1" class="lab-comm">
+							<div class="ico-radio"></div>
+							욕설, 비방, 차별, 혐오
+						</label>
+					</div>
+					<div class="report-choice-2">
+						<input class="radio-input" type="radio" id="check2" name="reasonCode" value="" />
+						<label for="check2" class="lab-comm">
+							<div class="ico-radio"></div>
+							홍보, 영리목적
+						</label>
+					</div>
+					<div class="report-choice-2">
+						<input class="radio-input" type="radio" id="check3" name="reasonCode" value="" />
+						<label for="check3" class="lab-comm">
+							<div class="ico-radio"></div>
+							불법 정보
+						</label>
+					</div>
+					<div class="report-choice-2">
+						<input class="radio-input" type="radio" id="check4" name="reasonCode" value="" />
+						<label for="check4" class="lab-comm">
+							<div class="ico-radio"></div>
+							음란, 청소년 유해
+						</label>
+					</div>
+					<div class="report-choice-2">
+						<input class="radio-input" type="radio" id="check5" name="reasonCode" value="" />
+						<label for="check5" class="lab-comm">
+							<div class="ico-radio"></div>
+							개인 정보 노출, 유포, 거래
+						</label>
+					</div>
+					<div class="report-choice-2">
+						<input class="radio-input" type="radio" id="check6" name="reasonCode" value="" />
+						<label for="check6" class="lab-comm">
+							<div class="ico-radio"></div>
+							도배, 스팸
+						</label>
+					</div>
+					<div class="report-choice-3">
+						<input class="radio-input" type="radio" id="check7" name="reasonCode" value="" />
+						<label for="check7" class="lab-comm">
+							<div class="ico-radio"></div>
+							기타
+						</label>
+					</div>
+					<div class="box-txtarea">
+						<label for="fillReason" class="tf-reason">기타 사유를 입력해 주세요 (최대 500자)</label>
+						<textarea class="tf_reason" name="reasonMention" id="fillReason"></textarea>
+					</div>
+					<div class="report-choice-3">
+						<input class="radio-input" type="radio" id="check8" name="reasonCode" value="" />
+						<label for="check8" class="lab-comm">
+							<div class="ico-radio"></div>
+							불법찰영물등 유통 신고
+						</label>
+					</div>
+					<p class="against">
+						불법촬영물등 유통 신고는 전기통신사업법 시행령에 따라, 신고인의
+						개인정보 수집·이용 동의와 신고 사유 등 신고서 제출이 필요합니다.
+						<br />
+						음란, 청소년 유해 사유로 신고하시면, 신고서 제출 없이 더 빠르게
+						조치됩니다.
+					</p>
+					<div class="report-choice-3">
+						<input class="radio-input" type="radio" id="check9" name="reasonCode" value="" />
+						<label for="check9" class="lab-comm">
+							<div class="ico-radio"></div>
+							권리침해신고
+						</label>
+					</div>
+					<p class="against">
+						권리침해 신고는 먼저 침해한 게시물을 신고 후 ‘카카오 권리침해 신고
+						사이트’ 에서 침해 증빙 서류를 다운 받아 내용을 작성하여 고객센터로
+						온라인 접수하면 처리됩니다.
+						<br />
+						<a href="http://www.kakao.com/policy/right" target="_blank" class="link-against">권리침해 절차
+							안내보기</a>
+					</p>
+					<div class="wrap-btn">
+						<button type="reset" class="btn-close">취소</button>
+						<button type="submit" class="btn-report">신고</button>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="subscriber-realmain-modalWrap">
+		<div class="modal-title">블로거 구독을 취소하시겠습니까?</div>
+		<div class="modal-content">
+			블로거의 글을 더 이상 구독하지 않고<br />새 글 알림도 받아볼 수
+			없습니다.
+		</div>
+		<div class="modal-button-wrap">
+			<button class="continue-button">계속 구독하기</button>
+			<button class="continue-button">구독 취소하기</button>
+		</div>
+	</div>
+	<div class="modal-black"></div>
+</body>
+<script src="/js/blogger-details/blogger-details.js"></script>
+<script src="/js/main/header.js" data-whatIsThis="헤더js임포트"></script>
+
+</html>
