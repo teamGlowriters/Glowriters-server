@@ -1,10 +1,12 @@
 package com.glowriters.domain;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +29,9 @@ public class Member {
 	private LocalDateTime created_date;
 	private LocalDateTime updated_date;
 	
+	@OneToMany(mappedBy = "member")
+  private List<Post> posts;
+  
 	@PrePersist
   protected void onCreate() {
       created_date = LocalDateTime.now();
