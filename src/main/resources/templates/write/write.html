@@ -2,58 +2,63 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<style data-emotion="css-global" data-s="">
-		@font-face {
-			font-family: "Nanum Myeongjo";
-			font-weight: normal;
-			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
-		}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style data-emotion="css-global" data-s="">
+@font-face {
+	font-family: "Nanum Myeongjo";
+	font-weight: normal;
+	src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+}
 
-		@font-face {
-			font-family: "Noto Sans Light";
-			font-style: normal;
-			font-weight: 300;
-			src: url("/fonts/NotoSansCJKkr-Light.otf");
-		}
+@font-face {
+	font-family: "Noto Sans Light";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-Light.otf");
+}
 
-		@font-face {
-			font-family: "Noto Sans DemiLight";
-			font-style: normal;
-			font-weight: 300;
-			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
-		}
-	</style>
-	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
-	<link rel="stylesheet" href="/css/write/write.css" />
-	<link rel="stylesheet" href="/css/write/header.css" data-whatIsThis="write전용 특수 헤더CSS임포트" />
-	<title>글쓰기</title>
+@font-face {
+	font-family: "Noto Sans DemiLight";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+}
+</style>
+<link rel="shortcut icon" href="/images/glowritersFavicon.png"
+	type="image/x-icon" />
+<link rel="stylesheet" href="/css/write/write.css" />
+<link rel="stylesheet" href="/css/write/header.css"
+	data-whatIsThis="write전용 특수 헤더CSS임포트" />
+<title>글쓰기</title>
 </head>
 
 <body class="write-body">
 	<div th:replace="~{/write/header :: fragment-header1}">헤더파일 가져오는곳</div>
 	<div th:replace="~{/write/header :: fragment-header2}">헤더파일 가져오는곳</div>
-	<div class="write-wrap">
-		<div class="write-wrap-div">
-			<div class="write-wrap-divdiv" style="outline: 0px">
-				<div class="write-wrap-divdivdiv">
-					<div class="write-wrap-updiv">
-						<div class="write-wrap-imgwrap" style="height: 450px; width: 100000px">
-							<img class="upperPhoto" src="" />
-						</div>
-						<div class="write-wrap-innerwrap" style="height: 249.125px"></div>
-						<div class="write-title-wrap">
-							<div class="write-title-inputWrap">
-								<input type="text" placeholder="제목을 입력해주세요." maxlength="80" class="title-input" />
+	<form action="write/write" method="post">
+		<div class="write-wrap">
+			<div class="write-wrap-div">
+				<div class="write-wrap-divdiv" style="outline: 0px">
+					<div class="write-wrap-divdivdiv">
+						<div class="write-wrap-updiv">
+							<div class="write-wrap-imgwrap"
+								style="height: 450px; width: 100000px">
+								<img class="upperPhoto" src="" name="titleImg" />
+							</div>
+							<div class="write-wrap-innerwrap" style="height: 249.125px"></div>
+							<div class="write-title-wrap">
+								<div class="write-title-inputWrap">
+									<input type="text" placeholder="제목을 입력해주세요." maxlength="80"
+										class="title-input" name="titleContent" />
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="content-wrap-div" contenteditable="true">
-					<!-- <p class="real-content"></p> -->
-				</div>
-				<!-- <div class="content-text-input-wrap">
+					<div class="content-wrap-div" contenteditable="true">
+						<!-- <p class="real-content"></p> -->
+					</div>
+					<!-- <div class="content-text-input-wrap">
             <div class="content-text-input-container">
               <div class="content-text-input-inner">
                 <div class="content-text-input-box">
@@ -68,9 +73,10 @@
               </div>
             </div>
           </div> -->
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 	<div class="upper-btn-wrap" style="opacity: 1">
 		<div class="upper-btn-inner">
 			<div class="upper-btn-div">
@@ -114,78 +120,52 @@
 			</div>
 			<div class="declaration-modal-content">
 				<ul class="declaration-list">
-					<li class="declaration-item">
-						<label class="declaration-label">
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box declaration-choice">
-								<input type="radio" class="declaration-input" name="declaration" checked />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+								<input type="radio" class="declaration-input" name="declaration"
+									checked />
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">카테고리</span>
-						</label>
-					</li>
-					<li class="declaration-item">
-						<label class="declaration-label">
+							</div> <span class="declaration-text">카테고리</span>
+					</label></li>
+					<li class="declaration-item"><label class="declaration-label">
 							<div class="declaration-input-box">
 								<input type="radio" class="declaration-input" name="declaration" />
-							</div>
-							<span class="declaration-text">기타</span>
-						</label>
-					</li>
+							</div> <span class="declaration-text">기타</span>
+					</label></li>
 				</ul>
 			</div>
 			<div class="declaration-btn-wrap">

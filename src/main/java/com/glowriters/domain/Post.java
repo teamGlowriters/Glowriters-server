@@ -14,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Post {
+public class Post extends Period{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,14 +23,6 @@ public class Post {
 	private String content;
 	@ManyToOne
   private Member member;
-	private int category_id;
-	private LocalDateTime created_date;
-	private LocalDateTime updated_date;
+	private String category;
 	private int post_status = 1;
-	
-	@PrePersist
-  protected void onCreate() {
-      created_date = LocalDateTime.now();
-      updated_date = LocalDateTime.now();
-  }
 }

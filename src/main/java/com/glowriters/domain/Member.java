@@ -14,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Member {
+public class Member extends Period {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,15 +26,9 @@ public class Member {
 	private int user_status = 1;
 	private String user_profile;
 	private String user_comment = "";
-	private LocalDateTime created_date;
-	private LocalDateTime updated_date;
+	
 	
 	@OneToMany(mappedBy = "member")
   private List<Post> posts;
-  
-	@PrePersist
-  protected void onCreate() {
-      created_date = LocalDateTime.now();
-      updated_date = LocalDateTime.now();
-  }
+ 
 }
