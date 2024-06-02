@@ -1,10 +1,12 @@
 package com.glowriters.domain;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Member {
+public class Member extends Period {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +26,9 @@ public class Member {
 	private int user_status = 1;
 	private String user_profile;
 	private String user_comment = "";
-	private LocalDateTime created_date;
-	private LocalDateTime updated_date;
 	
-	@PrePersist
-  protected void onCreate() {
-      created_date = LocalDateTime.now();
-      updated_date = LocalDateTime.now();
-  }
+	
+	@OneToMany(mappedBy = "member")
+  private List<Post> posts;
+ 
 }
