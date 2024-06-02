@@ -204,7 +204,7 @@ img {
 .write-wrap-updiv {
     max-height: none !important;
     position: relative;
-    height: 450px;
+    height: 280px;
     border-bottom: 1px solid #eee;
 }
 
@@ -664,6 +664,7 @@ button.side-btn[data-cmd=insertImage]:after {
     margin: 0 auto;
     position: relative;
     width: 700px;
+    height: 570px;
 }
 
 [contenteditable],
@@ -673,8 +674,7 @@ button.side-btn[data-cmd=insertImage]:after {
 
 .write-wrap-div .content-wrap-div {
     word-wrap: break-word;
-    padding-bottom: 120px;
-    padding-top: 40px;
+    padding: 40px 20px 120px;
 }
 
 .real-content {
@@ -697,6 +697,7 @@ button.side-btn[data-cmd=insertImage]:after {
 .side-categorybtn-wrapdiv {
     position: relative;
     z-index: 1;
+    margin-top: -184px;
 }
 
 .side-btn-wrap .category-btn {
@@ -920,3 +921,106 @@ button.side-btn[data-cmd=insertImage]:after {
 }
 
 /*  */
+
+/* 본문에 이미지 첨부 style */
+.image-upload-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.image-upload-box {
+    width: 220px;
+    height: 220px;
+    border: 2px dashed #ccc;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.image-upload-box:hover {
+    border-color: #999;
+}
+
+.image-upload-box::before {
+    content: '+';
+    font-size: 50px;
+    color: #ccc;
+}
+
+
+
+
+.image-upload-box:hover::after {
+    content: "이미지 첨부"; /* 말풍선에 표시될 내용 */
+    position: absolute; /* 절대 위치 설정 */
+    bottom: -29px; /* 말풍선이 상위 요소 위에 위치하도록 설정 */
+    left: 50%; /* 말풍선을 가운데 정렬 */
+    transform: translateX(-50%); /* 가운데 정렬을 위한 수평 이동 */
+    padding: 5px 10px; /* 말풍선 내부 여백 설정 */
+    background-color: rgba(0, 0, 0, 0.8); /* 배경색 설정 */
+    color: #fff; /* 글자색 설정 */
+    font-size: 12px; /* 글자 크기 설정 */
+    border-radius: 5px; /* 모서리 둥글게 설정 */
+    z-index: 999; /* 다른 요소 위에 표시하기 위한 z-index 설정 */
+}
+
+.image-upload-box.title {
+    position: relative; /* 상대 위치 설정 */
+}
+
+.image-upload-box.title:hover::after {
+    content: "이미지 첨부(타이틀로 표시됩니다.)"; /* 말풍선에 표시될 내용 */
+    position: absolute; /* 절대 위치 설정 */
+    bottom: -27px; /* 말풍선이 상위 요소 위에 위치하도록 설정 */
+    left: 50%; /* 말풍선을 가운데 정렬 */
+    transform: translateX(-50%); /* 가운데 정렬을 위한 수평 이동 */
+    width: 90%; /* 가로 크기를 내용에 맞게 설정 */
+    height: 26px; /* 말풍선의 높이를 고정으로 설정 */
+    padding: 5px 0px; /* 좌우 여백을 조절하여 말풍선의 좌우 크기 증가 */
+    background-color: rgba(0, 0, 0, 0.8); /* 배경색 설정 */
+    color: #fff; /* 글자색 설정 */
+    font-size: 12px; /* 글자 크기 설정 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    /* display: flex; 
+    align-items: center;  */
+    border-radius: 5px; /* 모서리 둥글게 설정 */
+    z-index: 999; /* 다른 요소 위에 표시하기 위한 z-index 설정 */
+}
+.image-upload-box img{
+    position: absolute;
+}
+
+
+
+
+
+
+
+/* textarea */
+
+textarea {
+    position: absolute;
+    width: 96%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    display: flex;
+    justify-content: center; /* 가운데 정렬을 위한 가로 정렬 */
+    align-items: center; /* 가운데 정렬을 위한 세로 정렬 */
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+

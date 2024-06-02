@@ -1,182 +1,194 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style data-emotion="css-global" data-s="">
-@font-face {
-	font-family: "Nanum Myeongjo";
-	font-weight: normal;
-	src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style data-emotion="css-global" data-s="">
+    @font-face {
+      font-family: "Nanum Myeongjo";
+      font-weight: normal;
+      src: url("../../staticfiles/fonts/NanumMyeongjo.ttf") format("truetype");
+    }
 
-@font-face {
-	font-family: "Noto Sans Light";
-	font-style: normal;
-	font-weight: 300;
-	src: url("/fonts/NotoSansCJKkr-Light.otf");
-}
+    @font-face {
+      font-family: "Noto Sans Light";
+      font-style: normal;
+      font-weight: 300;
+      src: url("../../staticfiles/fonts/NotoSansCJKkr-Light.otf");
+    }
 
-@font-face {
-	font-family: "Noto Sans DemiLight";
-	font-style: normal;
-	font-weight: 300;
-	src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
-}
-</style>
-<link rel="shortcut icon" href="/images/glowritersFavicon.png"
-	type="image/x-icon" />
-<link rel="stylesheet" href="/css/write/write.css" />
-<link rel="stylesheet" href="/css/write/header.css"
-	data-whatIsThis="write전용 특수 헤더CSS임포트" />
-<title>글쓰기</title>
+    @font-face {
+      font-family: "Noto Sans DemiLight";
+      font-style: normal;
+      font-weight: 300;
+      src: url("../../staticfiles/fonts/NotoSansCJKkr-DemiLight.otf");
+    }
+  </style>
+  <link rel="shortcut icon" href="../../staticfiles/images/glowritersFavicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../../staticfiles/css/write/write.css" />
+  <title>글쓰기</title>
 </head>
 
 <body class="write-body">
-	<div th:replace="~{/write/header :: fragment-header1}">헤더파일 가져오는곳</div>
-	<div th:replace="~{/write/header :: fragment-header2}">헤더파일 가져오는곳</div>
-	<form action="write/write" method="post">
-		<div class="write-wrap">
-			<div class="write-wrap-div">
-				<div class="write-wrap-divdiv" style="outline: 0px">
-					<div class="write-wrap-divdivdiv">
-						<div class="write-wrap-updiv">
-							<div class="write-wrap-imgwrap"
-								style="height: 450px; width: 100000px">
-								<img class="upperPhoto" src="" name="titleImg" />
-							</div>
-							<div class="write-wrap-innerwrap" style="height: 249.125px"></div>
-							<div class="write-title-wrap">
-								<div class="write-title-inputWrap">
-									<input type="text" placeholder="제목을 입력해주세요." maxlength="80"
-										class="title-input" name="titleContent" />
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="content-wrap-div" contenteditable="true">
-						<!-- <p class="real-content"></p> -->
-					</div>
-					<!-- <div class="content-text-input-wrap">
-            <div class="content-text-input-container">
-              <div class="content-text-input-inner">
-                <div class="content-text-input-box">
-                  <div class="textarea-container">
-                    <textarea
-                      class="content-text-area"
-                      placeholder="내용을 입력해주세요."
-                      name="content-input"
-                    ></textarea>
-                  </div>
-                </div>
+  <div class="write-wrap">
+    <div class="write-wrap-div">
+      <div class="write-wrap-divdiv" style="outline: 0px">
+        <div class="write-wrap-divdivdiv">
+          <div class="write-wrap-updiv">
+            <div class="write-wrap-imgwrap" style="height: 450px; width: 100000px">
+              <img class="upperPhoto" src="" />
+            </div>
+            <div class="write-wrap-innerwrap" style="height: 249.125px"></div>
+            <div class="write-title-wrap">
+              <div class="write-title-inputWrap">
+                <input type="text" placeholder="제목을 입력해주세요." maxlength="80" class="title-input" />
               </div>
             </div>
-          </div> -->
-				</div>
-			</div>
-		</div>
-	</form>
-	<div class="upper-btn-wrap" style="opacity: 1">
-		<div class="upper-btn-inner">
-			<div class="upper-btn-div">
-				<button type="button" class="photoBtn">
-					<i class="real-btn-icon"></i>
-				</button>
-				<div class="file-wrap">
-					<input class="photo-file-input" type="file" />
-				</div>
-				<button type="button" class="photoBtn">
-					<i class="real-remove-icon"></i>
-				</button>
-			</div>
-		</div>
-	</div>
-	<div class="side-btn-wrap" style="top: 343.4px">
-		<div class="side-btn-bg"></div>
-		<div class="side-btn-inner">
-			<div class="side-btn-wrapdiv">
-				<button type="button" class="side-btn">
-					<i class="side-img-icon"></i>
-				</button>
-				<div class="side-file-wrap">
-					<input class="side-file-input" type="file" multiple="true" />
-				</div>
-			</div>
-			<div class="side-categorybtn-wrapdiv">
-				<button type="button" class="category-btn">
-					<i class="side-category-icon"></i>
-				</button>
-			</div>
-		</div>
-	</div>
-	<div class="declaration-modal-wrap">
-		<div class="declaration-modal-container">
-			<div class="declaration-modal-title-box">
-				<span class="declaration-modal-title">카테고리를 선택해주세요</span>
-				<button type="button" class="declaration-modal-cancel-btn">
-					<span class="cancel-btn-icon"></span>
-				</button>
-			</div>
-			<div class="declaration-modal-content">
-				<ul class="declaration-list">
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box declaration-choice">
-								<input type="radio" class="declaration-input" name="declaration"
-									checked />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">카테고리</span>
-					</label></li>
-					<li class="declaration-item"><label class="declaration-label">
-							<div class="declaration-input-box">
-								<input type="radio" class="declaration-input" name="declaration" />
-							</div> <span class="declaration-text">기타</span>
-					</label></li>
-				</ul>
-			</div>
-			<div class="declaration-btn-wrap">
-				<div class="declaration-btn-container">
-					<button class="declaration-btn">등록하기</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="/js/write/write.js"></script>
+          </div>
+        </div>
+
+
+        <!-- 본문 내용 -->
+        <div class="content-wrap-div">
+          <div class="image-upload-container" name="">
+            <div class="image-upload-box title" name=""></div>
+            <div class="image-upload-box" name=""></div>
+            <div class="image-upload-box" name=""></div>
+          </div>
+          <textarea class="content-wrap-text" name="" placeholder="내용을 입력하세요." autocomplete="false"></textarea>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="upper-btn-wrap" style="opacity: 1">
+    <div class="upper-btn-inner">
+      <div class="upper-btn-div">
+
+        <button type="button" class="photoBtn" style="display:none;" disabled>
+          <i class="real-btn-icon" style="display:none;" disabled></i>
+        </button>
+        <div class="file-wrap">
+          <input class="photo-file-input" type="file" style="display:none;" disabled/>
+        </div>
+        <button type="button" class="photoBtn" style="display:none;" disabled>
+          <i class="real-remove-icon" style="display:none;" disabled></i>
+        </button>
+
+      </div>
+    </div>
+  </div>
+  <div class="side-btn-wrap" style="top: 343.4px">
+    <div class="side-btn-bg"></div>
+    <div class="side-btn-inner">
+      <!-- <div class="side-btn-wrapdiv">
+          <button type="button" class="side-btn">
+            <i class="side-img-icon"></i>
+          </button>
+          <div class="side-file-wrap">
+            <input class="side-file-input" type="file" multiple="true" />
+          </div>
+        </div> -->
+      <div class="side-categorybtn-wrapdiv">
+        <button type="button" class="category-btn">
+          <i class="side-category-icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="declaration-modal-wrap">
+    <div class="declaration-modal-container">
+      <div class="declaration-modal-title-box">
+        <span class="declaration-modal-title">카테고리를 선택해주세요</span>
+        <button type="button" class="declaration-modal-cancel-btn">
+          <span class="cancel-btn-icon"></span>
+        </button>
+      </div>
+      <div class="declaration-modal-content">
+        <ul class="declaration-list">
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box declaration-choice">
+                <input type="radio" class="declaration-input" name="declaration" checked />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">카테고리</span>
+            </label>
+          </li>
+          <li class="declaration-item">
+            <label class="declaration-label">
+              <div class="declaration-input-box">
+                <input type="radio" class="declaration-input" name="declaration" />
+              </div>
+              <span class="declaration-text">기타</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="declaration-btn-wrap">
+        <div class="declaration-btn-container">
+          <button class="declaration-btn">등록하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../staticfiles/js/write/write.js"></script>
 </body>
-<script src="/js/main/header.js" data-whatIsThis="헤더js임포트"></script>
 
 </html>
