@@ -63,6 +63,7 @@ public class WriteController {
 			postfile.setFilepath(multipartFile.getOriginalFilename());
 			postFileSerivce.save(post, postfile);			
 		}
+		
 		return null;
 	}
 }

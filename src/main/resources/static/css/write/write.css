@@ -730,7 +730,7 @@ button.side-btn[data-cmd=insertImage]:after {
     width: 100%;
     height: 100%;
     text-align: center;
-    z-index: 1300;
+    z-index: 10000;
     background-color: rgba(33, 38, 41, 0.5);
     display: none;
     justify-content: center;
@@ -1024,7 +1024,7 @@ input[type="file"] {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 /* 이미지 첨부 박스 스타일 조정 */
@@ -1057,7 +1057,7 @@ input[type="file"] {
     position: absolute;
     top: 0px; /* 버튼을 위로 이동하여 부모 컨테이너의 가장 위에 위치시킵니다. */
     right: 0px; /* 버튼을 오른쪽으로 이동하여 부모 컨테이너의 가장 오른쪽에 위치시킵니다. */
-    z-index: 10000; /* 다른 요소 위에 놓입니다. */
+    z-index: 9999;
     background-color: #ccc; /* 삭제 버튼의 배경색을 지정합니다. */
     color: white; /* 삭제 버튼의 텍스트 색상을 지정합니다. */
     padding: 5px 10px; /* 버튼 내부 여백을 설정합니다. */
