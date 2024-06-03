@@ -20,13 +20,11 @@ public class Post extends Period{
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long post_id;
   private String title;
-  private String content;
+  private String content="";
   private String category;
   private int post_status = 1;
 
-  @ManyToOne
-  @JoinColumn(name = "member_id")
+  @ManyToOne // post 테이블 관점에서 일대다 한명의 멤버가 여러개의 게시물 작성 가능
+  @JoinColumn(name = "member_id") // 어떤 컬럼과 조인할꺼냐?
   private Member member;
-  
-  
 }

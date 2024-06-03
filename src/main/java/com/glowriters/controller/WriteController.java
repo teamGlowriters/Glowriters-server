@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.glowriters.domain.Member;
 import com.glowriters.domain.Post;
@@ -39,29 +41,13 @@ public class WriteController {
 	}
 	
 	@PostMapping("write/write")
-	public String writePost(Post post, HttpServletRequest request) {
+	public String writePost(HttpServletRequest request, @RequestParam("files") MultipartFile[] files, Post post) {
+		for (MultipartFile multipartFile : files) {
+			log.info(multipartFile.getOriginalFilename());
+		}
 		HttpSession session = request.getSession();
-		Long member_id = (Long) session.getAttribute("member_id") + 1;
-		
-		
-		log.info("1  " + member_id);
-
-		
-//		Member member = memberService.findById(member_id);
-//
-//		
-//		post.setMember(member);
-		
-//		postService.save(post);
-		postService.createPost(member_id, post);
-		
-//    log.info(session.getAttribute("member").toString());
-
+		long member_id = (long) session.getAttribute("member_id");
+		postService.save(member_id, post);
 		return null;
 	}
-	
-	
-	
-	
-	
 }
