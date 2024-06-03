@@ -1,13 +1,14 @@
 package com.glowriters.domain;
-import java.time.LocalDateTime;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.PrePersist;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,18 +18,21 @@ import lombok.Setter;
 public class Member extends Period {
 
 	@Id
+	// primary키 자동 섪정
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String member_id;
+	private long member_id;
+	
+	private String member_hashcode;
 	private String member_email;
 	private String member_nickname;
 	// 0: 탈퇴, 1: 회원
 	private int member_status = 1;
 	private String member_profile;
-	private String member_comment = "";
+	private String member_comment="";
 	
-	
-	@OneToMany(mappedBy = "member")
-  private List<Post> posts;
+//  양방향 연결
+//	@OneToMany(mappedBy = "member")
+//	@OneToMany(mappedBy = "Member", cascade = CascadeType.REMOVE)  
+//  private List<Post> posts;
  
 }
