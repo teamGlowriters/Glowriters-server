@@ -2,7 +2,9 @@ package com.glowriters.domain;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
+
 
 public class Period {
 	private LocalDateTime created_date;

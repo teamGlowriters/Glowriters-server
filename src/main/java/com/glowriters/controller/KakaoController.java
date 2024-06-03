@@ -15,6 +15,7 @@ import com.glowriters.service.KakaoService;
 import com.glowriters.service.MemberService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +35,7 @@ public class KakaoController {
 		//카카오로부터 받은 인증코드를 통해 사용자정보를담은 domain객체를 생성(서비스호출)
 		KakaoDTO kakaoInfo = kakaoService.getKakaoInfo(request.getParameter("code"));
 		Member member = new Member();
-		member.setMember_id(String.valueOf(kakaoInfo.getId()));
+		member.setMember_hashcode(String.valueOf(kakaoInfo.getId()));
 		member.setMember_email(kakaoInfo.getEmail());
 		member.setMember_nickname(kakaoInfo.getNickname());
 		member.setMember_profile(kakaoInfo.getProfileImage());
@@ -44,7 +45,7 @@ public class KakaoController {
 		boolean istrue = false;
 		
 		for (Member m : members) {
-			if(m.getMember_id().equals(member.getMember_id())) {
+			if(m.getMember_hashcode().equals(member.getMember_hashcode())) {
 				istrue = true;
 				break;
 			}
@@ -53,6 +54,10 @@ public class KakaoController {
 		if(istrue==false) {
 			memberService.save(member);
 		}
+		
+		//로그인 정보를 세션에 담는다.		
+		HttpSession session = request.getSession();
+		session.setAttribute("member_id", member.getMember_id());
 		
 		return "/main/main";
 	}

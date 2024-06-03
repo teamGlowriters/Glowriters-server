@@ -162,6 +162,7 @@ imageUploadBoxes.forEach((box) => {
             img.style.width = width + 'px';
             img.style.height = height + 'px';
             img.style.objectFit = 'contain';
+            img.setAttribute('name', 'files'); // 이미지 태그에 name 속성 추가
           };
           img.src = reader.result;
           img.style.maxWidth = '100%';
