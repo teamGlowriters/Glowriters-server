@@ -2,35 +2,33 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style data-emotion="css-global" data-s="">
-@font-face {
-	font-family: "Nanum Myeongjo";
-	font-weight: normal;
-	src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
-}
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style data-emotion="css-global" data-s="">
+		@font-face {
+			font-family: "Nanum Myeongjo";
+			font-weight: normal;
+			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+		}
 
-@font-face {
-	font-family: "Noto Sans Light";
-	font-style: normal;
-	font-weight: 300;
-	src: url("/fonts/NotoSansCJKkr-Light.otf");
-}
+		@font-face {
+			font-family: "Noto Sans Light";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-Light.otf");
+		}
 
-@font-face {
-	font-family: "Noto Sans DemiLight";
-	font-style: normal;
-	font-weight: 300;
-	src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
-}
-</style>
-<link rel="shortcut icon" href="/images/glowritersFavicon.png"
-	type="image/x-icon" />
-<link rel="stylesheet" href="/css/write/write.css" />
-<link rel="stylesheet" href="/css/write/header.css"
-	data-whatIsThis="헤더CSS임포트" />
-<title>글쓰기</title>
+		@font-face {
+			font-family: "Noto Sans DemiLight";
+			font-style: normal;
+			font-weight: 300;
+			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+		}
+	</style>
+	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/css/write/write.css" />
+	<link rel="stylesheet" href="/css/write/header.css" data-whatIsThis="헤더CSS임포트" />
+	<title>글쓰기</title>
 </head>
 
 <div th:replace="~{/write/header :: fragment-header1}">헤더파일 가져오는곳</div>
@@ -43,15 +41,14 @@
 				<div class="write-wrap-divdiv" style="outline: 0px">
 					<div class="write-wrap-divdivdiv">
 						<div class="write-wrap-updiv">
-							<div class="write-wrap-imgwrap"
-								style="height: 450px; width: 100000px">
+							<div class="write-wrap-imgwrap" style="height: 450px; width: 100000px">
 								<img class="upperPhoto" src="" />
 							</div>
 							<div class="write-wrap-innerwrap" style="height: 249.125px"></div>
 							<div class="write-title-wrap">
 								<div class="write-title-inputWrap">
-									<input type="text" name="title" placeholder="제목을 입력해주세요."
-										maxlength="80" class="title-input" />
+									<input type="text" name="title" placeholder="제목을 입력해주세요." maxlength="80"
+										class="title-input" />
 								</div>
 							</div>
 						</div>
@@ -64,17 +61,26 @@
 							<!-- 내부에 생성되는 img태그의 name값은 files -->
 							<div class="image-upload-box title">
 								<input type="file" name="files" class="upload-img" />
+								<img src="" class="upload-img-view"/>
+								<div class="image-upload-delete">X</div>
 							</div>
 							<div class="image-upload-box">
 								<input type="file" name="files" class="upload-img" />
+								<img src="" class="upload-img-view"/>
+								<div class="image-upload-delete">X</div>
 							</div>
 							<div class="image-upload-box">
 								<input type="file" name="files" class="upload-img" />
+								<img src="" class="upload-img-view"/>
+								<div class="image-upload-delete">X</div>
 							</div>
 						</div>
-						<textarea class="content-wrap-text" name="content"
-							placeholder="내용을 입력하세요." autocomplete="false"></textarea>
+						<textarea class="content-wrap-text" name="content" placeholder="내용을 입력하세요."
+							autocomplete="false"></textarea>
 					</div>
+
+
+
 
 				</div>
 			</div>
@@ -83,16 +89,13 @@
 			<div class="upper-btn-inner">
 				<div class="upper-btn-div">
 
-					<button type="button" class="photoBtn" style="display: none;"
-						disabled>
+					<button type="button" class="photoBtn" style="display: none;" disabled>
 						<i class="real-btn-icon" style="display: none;" disabled></i>
 					</button>
 					<div class="file-wrap">
-						<input class="photo-file-input" type="file" style="display: none;"
-							disabled />
+						<input class="photo-file-input" type="file" style="display: none;" disabled />
 					</div>
-					<button type="button" class="photoBtn" style="display: none;"
-						disabled>
+					<button type="button" class="photoBtn" style="display: none;" disabled>
 						<i class="real-remove-icon" style="display: none;" disabled></i>
 					</button>
 
@@ -129,82 +132,69 @@
 					<ul class="declaration-list">
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box declaration-choice">
-									<input type="radio" class="declaration-input" name="category"
-										value="여행" checked />
+									<input type="radio" class="declaration-input" name="category" value="여행" checked />
 								</div> <span class="declaration-text">여행</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="그림 웹툰"
-										name="category" />
+									<input type="radio" class="declaration-input" value="그림 웹툰" name="category" />
 								</div> <span class="declaration-text">그림 웹툰</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="사진 촬영"
-										name="category" />
+									<input type="radio" class="declaration-input" value="사진 촬영" name="category" />
 								</div> <span class="declaration-text">사진 촬영</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="IT 트랜드"
-										name="category" />
+									<input type="radio" class="declaration-input" value="IT 트랜드" name="category" />
 								</div> <span class="declaration-text">IT 트랜드</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="경제"
-										name="category" />
+									<input type="radio" class="declaration-input" value="경제" name="category" />
 								</div> <span class="declaration-text">경제</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="영화 리뷰"
-										name="category" />
+									<input type="radio" class="declaration-input" value="영화 리뷰" name="category" />
 								</div> <span class="declaration-text">영화 리뷰</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="뮤직(음악)"
-										name="category" />
+									<input type="radio" class="declaration-input" value="뮤직(음악)" name="category" />
 								</div> <span class="declaration-text">뮤직(음악)</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="요리 레시피"
-										name="category" />
+									<input type="radio" class="declaration-input" value="요리 레시피" name="category" />
 								</div> <span class="declaration-text">요리 레시피</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="건강 운동"
-										name="category" />
+									<input type="radio" class="declaration-input" value="건강 운동" name="category" />
 								</div> <span class="declaration-text">건강 운동</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="문화 예술"
-										name="category" />
+									<input type="radio" class="declaration-input" value="문화 예술" name="category" />
 								</div> <span class="declaration-text">문화 예술</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="사랑 이별"
-										name="category" />
+									<input type="radio" class="declaration-input" value="사랑 이별" name="category" />
 								</div> <span class="declaration-text">사랑 이별</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="반려동물"
-										name="category" />
+									<input type="radio" class="declaration-input" value="반려동물" name="category" />
 								</div> <span class="declaration-text">반려동물</span>
-						</label></li>
+							</label></li>
 						<li class="declaration-item"><label class="declaration-label">
 								<div class="declaration-input-box">
-									<input type="radio" class="declaration-input" value="기타"
-										name="category" />
+									<input type="radio" class="declaration-input" value="기타" name="category" />
 								</div> <span class="declaration-text">기타</span>
-						</label></li>
+							</label></li>
 
 					</ul>
 				</div>
