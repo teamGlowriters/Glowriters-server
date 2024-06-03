@@ -202,3 +202,48 @@ document.querySelectorAll('textarea').forEach(function(textarea) {
 });
 
 
+//
+// input 태그에 변경 사항이 있는 경우 이미지 업로드 미리보기 업데이트
+document.querySelectorAll('.upload-img').forEach(function(input) {
+    input.addEventListener('change', function() {
+        var file = this.files[0]; // 선택된 파일 가져오기
+        var reader = new FileReader(); // 파일 리더 객체 생성
+        var imgView = this.nextElementSibling; // 형제 요소인 img 뷰 가져오기
+
+        reader.onload = function(e) {
+            imgView.src = e.target.result; // 이미지 뷰의 src 속성 업데이트
+        };
+
+        // 이미지가 첨부되어 있는 경우
+        if (file) {
+            reader.readAsDataURL(file); // 선택된 파일을 읽기
+        } else {
+            // 이미지가 첨부되지 않은 경우
+            imgView.src = ""; // 이미지 뷰 초기화
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 모든 image-upload-delete 클래스를 가진 요소를 선택합니다.
+    var deleteButtons = document.querySelectorAll(".image-upload-delete");
+
+    // 각 삭제 버튼에 대해 이벤트 리스너를 추가합니다.
+    deleteButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            // 현재 클릭된 삭제 버튼의 부모 요소를 찾습니다.
+            var parent = this.closest(".image-upload-box");
+            if (parent) {
+                // 부모 요소의 input과 img 요소를 찾아 값을 초기화합니다.
+                var input = parent.querySelector("input[type=file]");
+                var img = parent.querySelector("img");
+                if (input) {
+                    input.value = ""; // input 요소의 값 초기화
+                }
+                if (img) {
+                    img.src = ""; // img 요소의 src 초기화
+                }
+            }
+        });
+    });
+});
