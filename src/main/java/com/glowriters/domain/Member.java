@@ -19,13 +19,13 @@ public class Member extends Period {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String user_id;
-	private String user_email;
-	private String user_nickname;
+	private String member_id;
+	private String member_email;
+	private String member_nickname;
 	// 0: 탈퇴, 1: 회원
-	private int user_status = 1;
-	private String user_profile;
-	private String user_comment = "";
+	private int member_status = 1;
+	private String member_profile;
+	private String member_comment = "";
 	
 	
 	@OneToMany(mappedBy = "member")

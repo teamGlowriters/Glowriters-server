@@ -34,17 +34,17 @@ public class KakaoController {
 		//카카오로부터 받은 인증코드를 통해 사용자정보를담은 domain객체를 생성(서비스호출)
 		KakaoDTO kakaoInfo = kakaoService.getKakaoInfo(request.getParameter("code"));
 		Member member = new Member();
-		member.setUser_id(String.valueOf(kakaoInfo.getId()));
-		member.setUser_email(kakaoInfo.getEmail());
-		member.setUser_nickname(kakaoInfo.getNickname());
-		member.setUser_profile(kakaoInfo.getProfileImage());
+		member.setMember_id(String.valueOf(kakaoInfo.getId()));
+		member.setMember_email(kakaoInfo.getEmail());
+		member.setMember_nickname(kakaoInfo.getNickname());
+		member.setMember_profile(kakaoInfo.getProfileImage());
     		
 	  // member 테이블에 이미 회원으로 존재하는지 알아보기 위한 코드
 		List<Member> members = memberService.findAll();
 		boolean istrue = false;
 		
 		for (Member m : members) {
-			if(m.getUser_id().equals(member.getUser_id())) {
+			if(m.getMember_id().equals(member.getMember_id())) {
 				istrue = true;
 				break;
 			}
