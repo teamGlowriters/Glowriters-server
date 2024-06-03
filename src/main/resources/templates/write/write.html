@@ -8,28 +8,31 @@
     @font-face {
       font-family: "Nanum Myeongjo";
       font-weight: normal;
-      src: url("../../staticfiles/fonts/NanumMyeongjo.ttf") format("truetype");
+      src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
     }
 
     @font-face {
       font-family: "Noto Sans Light";
       font-style: normal;
       font-weight: 300;
-      src: url("../../staticfiles/fonts/NotoSansCJKkr-Light.otf");
+      src: url("/fonts/NotoSansCJKkr-Light.otf");
     }
 
     @font-face {
       font-family: "Noto Sans DemiLight";
       font-style: normal;
       font-weight: 300;
-      src: url("../../staticfiles/fonts/NotoSansCJKkr-DemiLight.otf");
+      src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
     }
   </style>
-  <link rel="shortcut icon" href="../../staticfiles/images/glowritersFavicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="../../staticfiles/css/write/write.css" />
+  <link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/css/write/write.css" />
+  <link rel="stylesheet" href="/css/write/header.css" data-whatIsThis="헤더CSS임포트" />
   <title>글쓰기</title>
 </head>
 
+<div th:replace="~{/write/header :: fragment-header1}">헤더파일 가져오는곳</div>
+<div th:replace="~{/write/header :: fragment-header2}">헤더파일 가져오는곳</div>
 <body class="write-body">
   <div class="write-wrap">
     <div class="write-wrap-div">
@@ -188,7 +191,8 @@
       </div>
     </div>
   </div>
-  <script src="../../staticfiles/js/write/write.js"></script>
+  <script src="/js/write/write.js"></script>
+  <script src="/js/main/header.js" data-whatIsThis="헤더js임포트"></script>
 </body>
 
 </html>

@@ -32,7 +32,7 @@ public class MemberService {
 		
     public void delete(Long id) {
       Member member = memberRepository.findById(id).get();
-      member.setUser_status(0);;
+      member.setMember_status(0);;
       memberRepository.save(member);
     }
 
