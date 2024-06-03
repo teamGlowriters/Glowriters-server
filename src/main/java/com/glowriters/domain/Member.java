@@ -18,10 +18,9 @@ import lombok.Setter;
 public class Member extends Period {
 
 	@Id
-	// primary키 자동 섪정
+	// primary key 자동 설정
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long member_id;
-	
 	private String member_hashcode;
 	private String member_email;
 	private String member_nickname;
@@ -29,10 +28,4 @@ public class Member extends Period {
 	private int member_status = 1;
 	private String member_profile;
 	private String member_comment="";
-	
-//  양방향 연결
-//	@OneToMany(mappedBy = "member")
-//	@OneToMany(mappedBy = "Member", cascade = CascadeType.REMOVE)  
-//  private List<Post> posts;
- 
 }

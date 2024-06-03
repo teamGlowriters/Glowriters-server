@@ -122,59 +122,59 @@ declarationLabels.forEach((item) => {
 });
 
 // 본문에 이미지 첨부
-const imageUploadBoxes = document.querySelectorAll('.image-upload-box');
-
-imageUploadBoxes.forEach((box) => {
-  box.addEventListener('click', () => {
-    // 이미지가 이미 존재하는지 확인
-    const existingImage = box.querySelector('img');
-    if (existingImage) {
-      // 이미지가 이미 존재하면 기존 이미지 제거
-      box.removeChild(existingImage);
-    } else {
-      // 이미지가 비어있을 때만 파일 업로드 처리
-      const fileInput = document.createElement('input');
-      fileInput.type = 'file';
-      fileInput.accept = 'image/*';
-      fileInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-          const img = document.createElement('img');
-          img.onload = () => {
-            const maxWidth = 220;
-            const maxHeight = 220;
-            let width = img.width;
-            let height = img.height;
-
-            if (width > height) {
-              if (width > maxWidth) {
-                height *= maxWidth / width;
-                width = maxWidth;
-              }
-            } else {
-              if (height > maxHeight) {
-                width *= maxHeight / height;
-                height = maxHeight;
-              }
-            }
-
-            img.style.width = width + 'px';
-            img.style.height = height + 'px';
-            img.style.objectFit = 'contain';
-            img.setAttribute('name', 'files'); // 이미지 태그에 name 속성 추가
-          };
-          img.src = reader.result;
-          img.style.maxWidth = '100%';
-          box.innerHTML = ''; // 이미지를 업로드할 박스 내용 비우기
-          box.appendChild(img); // 이미지 업로드 박스에 이미지 추가
-        };
-        reader.readAsDataURL(file);
-      });
-      fileInput.click();
-    }
-  });
-});
+//const imageUploadBoxes = document.querySelectorAll('.image-upload-box');
+//
+//imageUploadBoxes.forEach((box) => {
+//  box.addEventListener('click', () => {
+//    // 이미지가 이미 존재하는지 확인
+//    const existingImage = box.querySelector('img');
+//    if (existingImage) {
+//      // 이미지가 이미 존재하면 기존 이미지 제거
+//      box.removeChild(existingImage);
+//    } else {
+//      // 이미지가 비어있을 때만 파일 업로드 처리
+//      const fileInput = document.createElement('input');
+//      fileInput.type = 'file';
+//      fileInput.accept = 'image/*';
+//      fileInput.addEventListener('change', (event) => {
+//        const file = event.target.files[0];
+//        const reader = new FileReader();
+//        reader.onload = () => {
+//          const img = document.createElement('img');
+//          img.onload = () => {
+//            const maxWidth = 220;
+//            const maxHeight = 220;
+//            let width = img.width;
+//            let height = img.height;
+//
+//            if (width > height) {
+//              if (width > maxWidth) {
+//                height *= maxWidth / width;
+//                width = maxWidth;
+//              }
+//            } else {
+//              if (height > maxHeight) {
+//                width *= maxHeight / height;
+//                height = maxHeight;
+//              }
+//            }
+//
+//            img.style.width = width + 'px';
+//            img.style.height = height + 'px';
+//            img.style.objectFit = 'contain';
+////            img.setAttribute('name', 'files'); // 이미지 태그에 name 속성 추가
+//          };
+//          img.src = reader.result;
+//          img.style.maxWidth = '100%';
+//          box.innerHTML = ''; // 이미지를 업로드할 박스 내용 비우기
+//          box.appendChild(img); // 이미지 업로드 박스에 이미지 추가
+//        };
+//        reader.readAsDataURL(file);
+//      });
+//      fileInput.click();
+//    }
+//  });
+//});
 
 
 

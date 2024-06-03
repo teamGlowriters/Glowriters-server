@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.glowriters.domain.Member;
 import com.glowriters.repository.MemberRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -20,24 +21,34 @@ public class MemberService {
 			this.memberRepository = memberRepository;
 		}
 		
+		@Transactional
 		public Member save(Member member) {
 			return memberRepository.save(member);
 		}
 		
 		public Member findById(Long id) {
 			Member member = memberRepository.findById(id).orElse(null);
-			
 			return member;
+		}
+		
+		public Member findByHashCode(String hashcode) {
+			List<Member> members = memberRepository.findAll();
+			for (Member member : members) {
+				if(member.getMember_hashcode().equals(hashcode)) {
+					return member;
+				}
+			}
+			return null;
 		}
 		
 		public List<Member> findAll() {
 			return memberRepository.findAll();
 		}
 		
+		@Transactional
     public void delete(Long id) {
       Member member = memberRepository.findById(id).get();
       member.setMember_status(0);;
       memberRepository.save(member);
     }
-
 }
