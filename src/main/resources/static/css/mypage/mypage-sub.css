@@ -3,6 +3,7 @@ main {
     unicode-bidi: isolate;
 }
 
+
 body, button, input, select, td, textarea, th {
     font-size: 14px;
     line-height: 1.5;

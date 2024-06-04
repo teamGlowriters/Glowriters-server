@@ -3,6 +3,20 @@ header {
     unicode-bidi: isolate;
 }
 
+a, a:active, a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+}
+
+a:-webkit-any-link {
+    /* color: -webkit-link; */
+    cursor: pointer;
+    /* text-decoration: underline; */
+}
+
 body {
     background: #fff;
     color: #333;
@@ -78,20 +92,6 @@ dt {
 dd {
     display: block;
     unicode-bidi: isolate;
-}
-
-a, a:active, a:hover {
-    text-decoration: none;
-}
-
-a {
-    color: #333;
-}
-
-a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
 }
 
 em {
