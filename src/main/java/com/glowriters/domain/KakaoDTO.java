@@ -21,5 +21,6 @@ public class KakaoDTO {
     private String email;
     private String nickname;
     private String profileImage;
-    
+    String accessToken;
+    String refreshToken;
 }
