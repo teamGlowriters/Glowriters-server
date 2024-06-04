@@ -1,97 +1,81 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style data-emotion="css-global" data-s="">
-      @font-face {
-        font-family: "Nanum Myeongjo";
-        font-weight: normal;
-        src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style data-emotion="css-global" data-s="">
+@font-face {
+	font-family: "Nanum Myeongjo";
+	font-weight: normal;
+	src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+}
 
-      @font-face {
-        font-family: "Noto Sans Light";
-        font-style: normal;
-        font-weight: 300;
-        src: url("/fonts/NotoSansCJKkr-Light.otf");
-      }
+@font-face {
+	font-family: "Noto Sans Light";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-Light.otf");
+}
 
-      @font-face {
-        font-family: "Noto Sans DemiLight";
-        font-style: normal;
-        font-weight: 300;
-        src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
-      }
-    </style>
-    <link
-      rel="shortcut icon"
-      href="/images/glowritersFavicon.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="/css/mypage/mypage.css" />
-    <title>마이페이지</title>
-  </head>
-  <body>
-    <header class="header-head">
-      <h2 class="screen-out">은 종</h2>
-      <div class="header-image"></div>
-      <div class="profile">
-        <div class="profile-img">
-          <img
-            class="profile-img"
-            src="/images/blank-image.png"
-            alt="프로필 이미지"
-            width="100"
-            height="100"
-          />
-        </div>
-        <div class="profile-desc">
-          <strong class="title">은 종</strong>
-          <pre class="title">은 종의 브런치스토리입니다.</pre>
-          <dl class="blog-count">
-            <dt class="screen-out">브런치 정보</dt>
-            <dd class="follower">
-              <em class="sub">구독자</em>
-              <span class="num-count">0</span>
-            </dd>
-            <dd class="following">
-              <a href="#" class="link-count">
-                <em class="txt">관심작가</em>
-                <span class="num-count">1</span>
-              </a>
-            </dd>
-          </dl>
-        </div>
-        <div class="profilebtn">
-          <div class="wrap-profilebtn">
-            <a href="#" class="btn">글쓰기</a>
-            <div class="control">
-              <button class="btn-more" type="button">
-                <span class="btn-more btn-more-v">메뉴 더보기</span>
-              </button>
-              <div class="layer" style="display: none"></div>
-              <div class="layer-action">
-                <div class="inner-action">
-                  <button class="btn-ctrl" type="button">프로필 편집</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="big-img" style="display: none">
-      <div class="viewer-img">
-        <img
-          class="viewer-img"
-          src="/images/blank-image.png"
-          alt="프로필 이미지"
-          data-position='{"top":270,"left":764,"width":100,"height":100}'
-        />
-      </div>
-    </div>
-  </body>
-  <script src="/js/mypage/mypage.js"></script>
+@font-face {
+	font-family: "Noto Sans DemiLight";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+}
+</style>
+<link rel="shortcut icon" href="/images/glowritersFavicon.png"
+	type="image/x-icon" />
+<link rel="stylesheet" href="/css/mypage/mypage.css" />
+<title>마이페이지</title>
+</head>
+<body>
+	<header class="header-head" th:object="${member}">
+		<h2 class="screen-out" th:text="*{getMember_nickname()}"></h2>
+		<div class="header-image"></div>
+		<div class="profile">
+			<div class="profile-img">
+				<img class="profile-img" th:src="*{getMember_profile()}"
+					alt="프로필 이미지" width="100" height="100" />
+			</div>
+			<div class="profile-desc">
+				<strong class="title" th:text="*{getMember_nickname()}"></strong>
+				<pre class="title" th:text="*{getMember_comment()}"></pre>
+				<dl class="blog-count">
+					<dt class="screen-out">브런치 정보</dt>
+					<dd class="follower">
+						<em class="sub">구독자</em> <span class="num-count" th:text="${subscriberCount}"></span>
+					</dd>
+				</dl>
+			</div>
+			<div class="profilebtn">
+				<div class="wrap-profilebtn">
+					<a href="/write/write" class="btn">글쓰기</a>
+					<div class="control">
+						<button class="btn-more" type="button">
+							<span class="btn-more btn-more-v">메뉴 더보기</span>
+						</button>
+						<div class="layer" style="display: none"></div>
+						<div class="layer-action">
+							<div class="inner-action">
+								<a
+									th:href="@{/mypage/mypage-sub/{member_id}(member_id = *{getMember_id()})}">
+									<button class="btn-ctrl" type="button">프로필 편집</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="big-img" style="display: none">
+		<div class="viewer-img">
+			<img class="viewer-img" src="/images/blank-image.png" alt="프로필 이미지"
+				data-position='{"top":270,"left":764,"width":100,"height":100}' />
+		</div>
+	</div>
+</body>
+<script src="/js/mypage/mypage.js"></script>
 </html>
