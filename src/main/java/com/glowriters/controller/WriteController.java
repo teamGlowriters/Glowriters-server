@@ -78,7 +78,7 @@ public class WriteController {
 		SimpleDateFormat df = new SimpleDateFormat("yyMMdd");
 		String now = df.format(date);
 
-		String path = absoluteUploadPath + "\\" + now; // 경로
+		String path = absoluteUploadPath + "/" + now; // 경로
 		File file = new File(path);
 
 		if (!file.exists()) { // 파일이 존재하지 않으면
@@ -104,16 +104,19 @@ public class WriteController {
 			if(!multipartFile.isEmpty()) {
 			// 실제파일명추출:image.jpg
 				String origin = multipartFile.getOriginalFilename(); // 원래파일명:"C:\Users\example\Desktop\image.jpg"
-				String filename = origin.substring(origin.lastIndexOf("\\") + 1); 
+				String filename = origin.substring(origin.lastIndexOf("/") + 1); 
 				// 폴더 생성 - 내가만든 메소드 사용
 				String filepath = makeDir();
 				// 최종 저장 경로( 날짜폴더/uuid_기본파일명 으로 저장)
 				String uuid = UUID.randomUUID().toString();
-				String savename = filepath + "\\" + uuid + "_" + filename;
+				String savename = filepath + "/" + uuid + "_" + filename;
+				
+				SimpleDateFormat df = new SimpleDateFormat("yyMMdd");
+				String now = df.format(new Date());
 				
 				// 1. DB에 저장
 				Postfile postfile = new Postfile();
-				postfile.setFilepath("src/main/resources/" + uploadpath + "\\" + uuid + "_" + filename);
+				postfile.setFilepath("/upload/" + now + "/" + uuid + "_" + filename);
 				postFileSerivce.save(post, postfile);
 				
 

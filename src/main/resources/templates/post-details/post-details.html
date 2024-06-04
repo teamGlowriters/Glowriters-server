@@ -32,7 +32,7 @@
 </head>
 
 <body>
-	<div>
+	<div th:object="${post}">
 		<div th:replace="~{/main/header :: fragment-header1}">헤더파일 가져오는곳</div>
 		<div th:replace="~{/main/header :: fragment-header2}">헤더파일 가져오는곳</div>
 		<div class="wrap-view-article">
@@ -42,7 +42,7 @@
 					<div class="cover-image"></div>
 					<div class="cover-inner"></div>
 					<div class="cover-cell">
-						<h1 class="cover-title">사막 위를 달리는 전사</h1>
+						<h1 class="cover-title" th:text="*{getTitle()}">제목</h1>
 						<p class="cover-sub-title">'進'에 대한 단상</p>
 					</div>
 					<div class="wrap-article-info" t-area="Writer">
