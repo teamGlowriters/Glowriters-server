@@ -12,11 +12,15 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.glowriters.domain.KakaoDTO;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class KakaoService {
 
 	@Value("${kakao.client.id}")
@@ -84,12 +88,12 @@ public class KakaoService {
 			throw new Exception("API call failed");
 		}
 
-		return getUserInfoWithToken(accessToken);
+		return getUserInfoWithToken(accessToken, refreshToken);
 	}
 
 	
 	// 3. 토근을 받아서 kakao domain객체 생성
-	private KakaoDTO getUserInfoWithToken(String accessToken) throws Exception {
+	private KakaoDTO getUserInfoWithToken(String accessToken, String refreshToken) throws Exception {
 		// 헤더 생성
 		HttpHeaders headers = new HttpHeaders();
 		// 엑세스토큰을 담아서 사용자정보를 요청하는 헤더
@@ -114,7 +118,40 @@ public class KakaoService {
 		String nickname = profile.get("nickname").asText();
 		String profileImage = profile.get("profile_image_url").asText(); // 프로필 이미지 URL 가져오기
 
-		return KakaoDTO.builder().id(id).email(email).nickname(nickname).profileImage(profileImage).build();
+		return KakaoDTO.builder()
+				.id(id)
+				.email(email)
+				.nickname(nickname)
+				.profileImage(profileImage)
+				.accessToken(accessToken)
+				.refreshToken(refreshToken)
+				.build();
+	}
+	
+	//로그아웃요청을 보내는 함수
+	public void kakaoDisconnect(String accessToken) throws JsonProcessingException{
+		// HTTP Header 생성
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization", "Bearer " + accessToken);
+    headers.add("Content-type", "application/x-www-form-urlencoded");
+    
+    // HTTP 요청 보내기
+    HttpEntity<MultiValueMap<String, String>> kakaoLogoutRequest = new HttpEntity<>(headers);
+    RestTemplate rt = new RestTemplate();
+    ResponseEntity<String> response = rt.exchange(
+    		"https://kapi.kakao.com/v1/user/logout",
+    		HttpMethod.POST,
+    		kakaoLogoutRequest,
+    		String.class
+    );
+    
+    // 응답받은 responsebody 내용을 꺼냄
+    String responseBody = response.getBody();
+    ObjectMapper objectMapper = new ObjectMapper();
+    JsonNode jsonNode = objectMapper.readTree(responseBody);
+    
+    String member_hashcode = String.valueOf(jsonNode.get("id"));
+    log.info("로그아웃한 회원의 해쉬코드 =  " + member_hashcode);
 	}
 
 }
