@@ -1,5 +1,7 @@
 package com.glowriters.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,5 +36,15 @@ public class PostService {
 		post.setMember(member);
 		// post save 해주면 DB 저장 완료 DB에는 알아서 member_id 컬럼이 들어감
 		return postRepository.save(post);
+	}
+	
+	@Transactional
+	public Post findById(long post_id) {
+		return postRepository.findById(post_id).orElse(null);
+	}
+	
+	@Transactional
+	public List<Post> findAll(){
+		return postRepository.findAll();
 	}
 }

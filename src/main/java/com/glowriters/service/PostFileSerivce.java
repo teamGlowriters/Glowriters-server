@@ -1,5 +1,7 @@
 package com.glowriters.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +25,10 @@ public class PostFileSerivce {
 	public Postfile save(Post post, Postfile postFile) {
 		postFile.setPost(post);
 		return postFileRepository.save(postFile);
+	}
+	
+	@Transactional
+	public List<Postfile> findAll(){
+		return postFileRepository.findAll();
 	}
 }
