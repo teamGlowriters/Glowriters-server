@@ -59,9 +59,14 @@ public class PostService {
 
 	@Transactional
 	public List<Post> findByCategory(String category) {
-		return postRepository.findByCategory(category);
+		return postRepository.findByCategoryOrderByCreatedDateDescJPQL(category);
 	}
-
+	
+	@Transactional
+	public long countPostBymemberId(long member_id) {
+		return postRepository.countBymemberId(member_id);
+	}
+	
 	// 업데이트날짜기준 최근 cnt개의 게시물을 가져오는 함수
 	@Transactional
 	public List<Post> findByRecentCnt(long cnt) {
@@ -76,6 +81,7 @@ public class PostService {
 		String dayOfWeekString = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault());
 		return dayOfWeekString.equalsIgnoreCase(week);
 	}
+	
 	@Transactional
 	public List<Post> findByUpdateDateOfWeek(String week) {
 		List<Post> allPosts = postRepository.findAll();
