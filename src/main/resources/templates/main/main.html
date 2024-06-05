@@ -197,39 +197,34 @@
 								<li>
 									<div class="slide-pic1 this">
 										<div class="pic1-item this">
-										<!-- 1. 게시물링크, 2. 게시물 첫번째이미지(/upload에서부터 시작하는경로) -->
-											<a href="#" th:href="${item.link}" class="pic1-link" target="_blank" 
-											style="background-image: url(/images/blank-image.png); background-color: #90735B;"
-											th:style="||">
+										<!-- 1. 클릭시 상세페이지이동 2. 이미지 -->
+											<a href="#" th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}" 
+											class="pic1-link" target="_blank" 
+											 style="background-color: #90735B;">
+											 <img th:src="${item.getFilepath()}" style="position:relative; margin-bottom:-175px;">
 												<span class="pic1-fade this"></span>
 												<div class="pic1-append">
 													<div class="pic1-info">
 														<div class="pic1-inner">
 														<!-- 3. 제목 -->
-															<strong class="pic1-title">췌장이 아니라 유방이었어?</strong>
+															<strong class="pic1-title" th:text="${item.getTitle()}">제목</strong>
 															<!-- 4. 본문내용 -->
-															<p class="pic1-desc">
-																코로나로 세상이 마비되었던 것만 같던 봄을 지나 계절은 어느덧 여름으로 접어들고 있었다. 제주도에
-																정착한 후
-																소소하게 시작했던 기업체 강의 일은 소문에 소문을
-																타고 점차 자리를 잡아가고 있었다. 사업을 시작하고 이제 막 손익분기점이 흑자로 돌아서려는 찰나에
-																하필이면
-																코로나라는 기괴한 바이러스가 창궐하여 다수의 청중을
-																상대로 하는 내 업에 큰 타격을 주었다.
+															<p class="pic1-desc" th:text="${item.getContent()}">
+																본문내용
 															</p>
 															<span class="pic1-by this">
 																<span class="pic1-by-logo">by</span>
 																<!-- 5. 닉네임 -->
-																<span class="pic1-by-writer">영끌치유</span>
+																<span class="pic1-by-writer" th:text="${item.getMember_nickname()}">작성자</span>
 															</span>
 														</div>
 													</div>
 												</div>
 												<span class="pic1-release">
 													<span class="pic1-end">
-														<span class="pic1-cnt">응원수</span>
+														<span class="pic1-cnt">???</span>
 														<!-- 6. 구독자수 -->
-														<span class="pic1-power">1명이 응원</span>
+														<span class="pic1-power" th:text="|${item.getSubscriberCount()}명의 구독자|">구독자수 </span>
 													</span>
 												</span>
 											</a>
@@ -237,8 +232,6 @@
 									</div>
 								</li>
 							</th:block>
-
-
 
 						</ul>
 					</div>
@@ -309,6 +302,7 @@
 						<div class="tab-basic">
 							<strong class="tab-screen">요일별 연재 목록</strong>
 							<ul class="list-tab" role="tablist">
+							
 								<!-- 선택된 요일은 li태그의 class가 on으로 바뀜. -->
 								<li>
 									<!-- href="#" 있ㅇㅓ야함 -->
@@ -346,6 +340,7 @@
 										일
 									</a>
 								</li>
+								
 							</ul>
 						</div>
 						<div class="tab-pannel">
