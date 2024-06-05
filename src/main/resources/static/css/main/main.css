@@ -1125,15 +1125,14 @@ only screen and (min-resolution: 1.5dppx) {
     content: "";
 }
 
-.pic1-item.this .pic1-link {
+.pic1-item.this .pic1-link img {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
-.slide-pic1 .pic1-item .pic1-link {
-    /* display: block; */
+.slide-pic1 .pic1-item .pic1-link img {
     overflow: hidden;
     width: 100%;
     height: 100%;

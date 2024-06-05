@@ -197,17 +197,19 @@
 								<li>
 									<div class="slide-pic1 this">
 										<div class="pic1-item this">
-										<!-- 1. 클릭시 상세페이지이동 2. 이미지 -->
-											<a href="#" th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}" 
-											class="pic1-link" target="_blank" 
-											 style="background-color: #90735B;">
-											 <img th:src="${item.getFilepath()}" style="position:relative; margin-bottom:-175px;">
+											<!-- 1. 클릭시 상세페이지이동 2. 이미지 -->
+											<a href="#"
+												th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}"
+												class="pic1-link" target="_blank" style="background-color: #90735B;">
+												<img th:src="${item.getFilepath()}"
+													style="position:relative; margin-bottom:-175px;">
 												<span class="pic1-fade this"></span>
 												<div class="pic1-append">
 													<div class="pic1-info">
 														<div class="pic1-inner">
-														<!-- 3. 제목 -->
-															<strong class="pic1-title" th:text="${item.getTitle()}">제목</strong>
+															<!-- 3. 제목 -->
+															<strong class="pic1-title"
+																th:text="${item.getTitle()}">제목</strong>
 															<!-- 4. 본문내용 -->
 															<p class="pic1-desc" th:text="${item.getContent()}">
 																본문내용
@@ -215,7 +217,8 @@
 															<span class="pic1-by this">
 																<span class="pic1-by-logo">by</span>
 																<!-- 5. 닉네임 -->
-																<span class="pic1-by-writer" th:text="${item.getMember_nickname()}">작성자</span>
+																<span class="pic1-by-writer"
+																	th:text="${item.getMember_nickname()}">작성자</span>
 															</span>
 														</div>
 													</div>
@@ -224,7 +227,8 @@
 													<span class="pic1-end">
 														<span class="pic1-cnt">???</span>
 														<!-- 6. 구독자수 -->
-														<span class="pic1-power" th:text="|${item.getSubscriberCount()}명의 구독자|">구독자수 </span>
+														<span class="pic1-power"
+															th:text="|${item.getSubscriberCount()}명의 구독자|">구독자수 </span>
 													</span>
 												</span>
 											</a>
@@ -254,41 +258,53 @@
 					<div class="tags-list">
 						<div class="list-home" style="height: 363px;">
 							<!-- left, top모두 120px씩 증가 -->
-							<a class="list-item" th:href="@{'/category/category/' + 여행}" target="_blank" style="left: 120px; top:0px;">
+							<a class="list-item" th:href="@{'/category/category/' + 여행}" target="_blank"
+								style="left: 120px; top:0px;">
 								<span class="item-txt">여행</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + '그림 웹툰'}" target="_blank" style="left: 240px; top:0px;">
+							<a class="list-item" th:href="@{'/category/category/' + '그림 웹툰'}" target="_blank"
+								style="left: 240px; top:0px;">
 								<span class="item-txt">그림<br>웹툰</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + '사진 촬영'}" target="_blank" style="left: 360px; top:0px;">
+							<a class="list-item" th:href="@{'/category/category/' + '사진 촬영'}" target="_blank"
+								style="left: 360px; top:0px;">
 								<span class="item-txt">사진<br>촬영</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + 'IT 트랜드'}" target="_blank" style="left: 480px; top:0px;">
+							<a class="list-item" th:href="@{'/category/category/' + 'IT 트랜드'}" target="_blank"
+								style="left: 480px; top:0px;">
 								<span class="item-txt">IT<br>트랜드</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + 경제}" target="_blank" style="left: 600px; top:0px;">
+							<a class="list-item" th:href="@{'/category/category/' + 경제}" target="_blank"
+								style="left: 600px; top:0px;">
 								<span class="item-txt">경제</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + '영화 리뷰'}" target="_blank" style="left: 720px; top:0px;">
+							<a class="list-item" th:href="@{'/category/category/' + '영화 리뷰'}" target="_blank"
+								style="left: 720px; top:0px;">
 								<span class="item-txt">영화<br>리뷰</span>
 							</a>
 							<!-- top 120px -->
-							<a class="list-item" th:href="@{'/category/category/' + '뮤직(음악)'}" target="_blank" style="left: 120px; top:120px;">
+							<a class="list-item" th:href="@{'/category/category/' + '뮤직(음악)'}" target="_blank"
+								style="left: 120px; top:120px;">
 								<span class="item-txt">뮤직(음악)</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + '요리 레시피'}" target="_blank" style="left: 240px; top:120px;">
+							<a class="list-item" th:href="@{'/category/category/' + '요리 레시피'}" target="_blank"
+								style="left: 240px; top:120px;">
 								<span class="item-txt">요리<br>레시피</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + '건강 운동'}" target="_blank" style="left: 360px; top:120px;">
+							<a class="list-item" th:href="@{'/category/category/' + '건강 운동'}" target="_blank"
+								style="left: 360px; top:120px;">
 								<span class="item-txt">건강<br>운동</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + '문화 예술'}" target="_blank" style="left: 480px; top:120px;">
+							<a class="list-item" th:href="@{'/category/category/' + '문화 예술'}" target="_blank"
+								style="left: 480px; top:120px;">
 								<span class="item-txt">문화<br>예술</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + '사랑 이별'}" target="_blank" style="left: 600px; top:120px;">
+							<a class="list-item" th:href="@{'/category/category/' + '사랑 이별'}" target="_blank"
+								style="left: 600px; top:120px;">
 								<span class="item-txt">사랑<br>이별</span>
 							</a>
-							<a class="list-item" th:href="@{'/category/category/' + 반려동물}" target="_blank" style="left: 720px; top:120px;">
+							<a class="list-item" th:href="@{'/category/category/' + 반려동물}" target="_blank"
+								style="left: 720px; top:120px;">
 								<span class="item-txt">반려동물</span>
 							</a>
 						</div>
@@ -302,7 +318,7 @@
 						<div class="tab-basic">
 							<strong class="tab-screen">요일별 연재 목록</strong>
 							<ul class="list-tab" role="tablist">
-							
+
 								<!-- 선택된 요일은 li태그의 class가 on으로 바뀜. -->
 								<li>
 									<!-- href="#" 있ㅇㅓ야함 -->
@@ -340,7 +356,7 @@
 										일
 									</a>
 								</li>
-								
+
 							</ul>
 						</div>
 						<div class="tab-pannel">
@@ -413,21 +429,25 @@
 
 							<!-- 작가들 -->
 							<!-- 총 6개 보여줄것 -->
-							<li>
-								<a href="#" target="_blank" class="writers-who">
-									<img src="/images/blank-image.png" width="80" height="80" class="writers-img"
-										alt="writers-name과 동일">
-									<strong class="writers-name">귀리밥</strong>
-									<span class="writers-team">크리에이터</span>
-									<span class="writer-txt" style="height:60px;">
-										아담하고 단단한 이야기를 쓰는 도란 작가입니다.
-									</span>
-								</a>
-								<div class="writer-tags"><!-- 태그 없애서 얘도 없는거로 --></div>
-							</li>
+							<th:block th:each="item : ${writers}">
+								<li>
+								<!-- 1. 상세페이지 이동 -->
+									<a href="#" th:href="@{/blogger-details/blogger-details/{blogger_id}(blogger_id = ${item.get})}" target="_blank" class="writers-who">
+										<!-- 2. 프로필이미지 -->
+										<img src="/images/blank-image.png" th:src="${item.getMember_profile()}" width="80" height="80" class="writers-img"
+											alt="writers-name과 동일" th:alt="${item.get}">
+										<strong class="writers-name">귀리밥</strong>
+										<span class="writers-team">크리에이터</span>
+										<span class="writer-txt" style="height:60px;">
+											아담하고 단단한 이야기를 쓰는 도란 작가입니다.
+										</span>
+									</a>
+									<div class="writer-tags"><!-- 태그 없애서 얘도 없는거로 --></div>
+								</li>
+							</th:block>
+							
 
 						</ul>
-						<!-- 브런치 작가 지원하기는 작성안함 -->
 					</div>
 				</div>
 
