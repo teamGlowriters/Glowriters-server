@@ -13,7 +13,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
 public class Post extends Period{
 	
 	@Id

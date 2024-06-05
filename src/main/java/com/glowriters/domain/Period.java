@@ -12,10 +12,9 @@ import lombok.Setter;
 public class Period {
 	private LocalDateTime created_date;
 	private LocalDateTime updated_date;
-	
-	@PrePersist
-  protected void onCreate() {
-      created_date = LocalDateTime.now();
-      updated_date = LocalDateTime.now();
-  }
+
+	public Period() {
+		this.created_date = LocalDateTime.now();
+		this.updated_date = LocalDateTime.now();
+	}
 }
