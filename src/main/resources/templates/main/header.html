@@ -37,7 +37,7 @@
 			<div class="loginprofile">
 			
 				<div th:if="${isLogin == 'no'}" class="logoutservice" >
-					<div class="sidemenu-profile-logo logoutservice" style="display:block"></div>
+					<img class="sidemenu-profile-logo logoutservice" src="/images/glowriters.png" style="display:block">
 					<p class="sidemenu-profile-slogan logoutservice">
 						You can make anything
 						<br>
@@ -46,12 +46,12 @@
 					<!-- 						<p class="sidemenu-profile-sloganwriter logoutservice">C.S.Lewis</p> -->
 				</div>
 				
-				<a th:if="${isLogin == 'yes'}" href="/mypage/mypage" class="myprofilelink loginservice" >
+				<a th:if="${isLogin == 'yes'}" href="/mypage/mypage" class="myprofilelink loginservice">
 					<div class="profile-img">
-						<img class="picture" alt="프로필이미지" src="/images/blank-image.png">
+						<img class="picture" alt="프로필이미지" src="/images/blank-image.png" th:src="${member_profile}">
 					</div>
 					<div class="profile-info">
-						<strong class="profile-name">냠냠냠</strong>
+						<strong class="profile-name" th:text="${member_nickname}">사용자 닉네임</strong>
 						<p th:text="|glowriters.co.kr/${member_id}|" class="profile-id">glowriters.co.kr/멤버아이디값</p>
 					</div>
 				</a>
@@ -62,47 +62,65 @@
 					</a>
 				</div>
 				
-				<div th:if="${isLogin == 'yes'}" class="loginservice" >
+				<div th:if="${isLogin == 'yes'}" class="loginservice">
 					<a href="/write/write" class="profile-write">
 						<button class="profile-write-btn">글쓰기</button>
 					</a>
 					<a class="profile-alarm" href="/alarm/alarm">
 						알림
 					</a>
+					<!-- 읽지 않은 알람이 있을때 분홍색 -->
 					<span class="alarm-notify">NEW</span>
 				</div>
 				
 			</div>
 			<div class="sidemenu-service this">
 				<ul>
-					<li class="sidemenu-service-now">
-						<a class="now-word" href="/">
+				
+					<li th:if="${isLogin == 'yes'}">
+						<a class="glowMypage" href="/" th:href="@{/mypage/mypage}">
+							<span class="bar-left"></span>
+							마이 페이지
+							<span class="bar-right"></span>
+						</a>
+					</li>
+
+					<li class="selected">
+						<a class="glowHome" href="/" th:href="@{/}">
 							<span class="bar-left"></span>
 							글로우라이터스 홈
 							<span class="bar-right"></span>
 						</a>
 					</li>
 					<li>
-						<a class="glowNow" href="/now/now">
+						<a class="glowNow" href="/" th:href="@{/now/now}">
 							<span class="bar-left"></span>
 							글로우라이터스 나우
 							<span class="bar-right"></span>
 						</a>
 					</li>
 					<li>
-						<a class="glowAnother" href="#">
+						<a class="glowCategory" href="#" th:href="@{/category/category}">
 							<span class="bar-left"></span>
-							아무거나
+							카테고리
 							<span class="bar-right"></span>
 						</a>
 					</li>
+					<li>
+						<a class="glowWrite" href="#" th:href="@{/write/write}"  th:if="${isLogin == 'yes'}">
+							<span class="bar-left"></span>
+							글쓰기
+							<span class="bar-right"></span>
+						</a>
+					</li>
+					
 				</ul>
 				<div class="sidemenu-setting this" style="position: absolute"> <!--클래스 2개 사용-->
 					<div class="sidemenu-banner" style="padding-bottom:40px;">
 						<a class="sidemenu-project" href="#">
-							<img style="width:168px"
-								src="//i1.daumcdn.net/thumb/R336x0/?fname=http://t1.daumcdn.net/brunch/static/img/help/pc/top/side_banner_20221221.png"
-								alt="프로젝트 리스트 바로가기">
+							<img style="width:168px; display:none;"
+								src=""
+								alt="광고">
 						</a>
 					</div>
 					
@@ -112,16 +130,17 @@
 						</a>
 					</div>
 					
-					<div th:if="${isLogin == 'yes'}" class="bottom-setting-container" >
-						<a class="sidemenu-bottom-setting loginservice" href="/mypage/mypage">
+					<div th:if="${isLogin == 'yes'}" class="bottom-setting-container">
+						<a class="sidemenu-bottom-setting loginservice" href="/" th:href="@{/mypage/mypage}">
 							<button type="button">설정</button>
 						</a>
 						<a class="sidemenu-bottom-logoutbtn loginservice" href="/logout">
 							<button type="button">로그아웃</button>
 						</a>
 					</div>
-					<div th:if="${isLogin == 'yes'}" class="donation_intro loginservice" >
-						<span>응원하기를 켤 수 있어요!</span>
+					
+					<div th:if="${isLogin == 'yes'}" class="donation_intro loginservice">
+						<span>화이팅!</span>
 						<i class="mint_rectangle"></i>
 					</div>
 					

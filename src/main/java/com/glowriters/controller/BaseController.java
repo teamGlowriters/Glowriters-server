@@ -18,5 +18,15 @@ public class BaseController {
 	public String setMember_id(HttpSession session) {
 		return String.valueOf(session.getAttribute("member_id"));
 	}
+	
+	@ModelAttribute("member_profile")
+	public String setMember_profile(HttpSession session) {
+		return String.valueOf(session.getAttribute("member_profile"));
+	}
+	
+	@ModelAttribute("member_nickname")
+	public String setMember_nickname(HttpSession session) {
+		return String.valueOf(session.getAttribute("member_nickname"));
+	}
 
 }

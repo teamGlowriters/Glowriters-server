@@ -27,7 +27,7 @@
 	</style>
 	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/main/main.css" />
-	<title>Glowriters</title>
+	<title>메인 페이지</title>
 </head>
 
 <body>
@@ -38,8 +38,8 @@
 			<div class="loginprofile">
 
 				<div th:if="${isLogin == 'no'}" class="logoutservice">
-					<div class="sidemenu-profile-logo logoutservice" style="display:block"></div>
-					<p class="sidemenu-profile-slogan logoutservice">
+					<img class="sidemenu-profile-logo logoutservice" src="/images/glowriters.png" style="display:block">
+					<p class="sidemenu-profile-slogan logoutservice" data-info="소개글">
 						You can make anything
 						<br>
 						by writing
@@ -49,10 +49,10 @@
 
 				<a th:if="${isLogin == 'yes'}" href="/mypage/mypage" class="myprofilelink loginservice">
 					<div class="profile-img">
-						<img class="picture" alt="프로필이미지" src="/images/blank-image.png">
+						<img class="picture" alt="프로필이미지" src="/images/blank-image.png" th:src="${member_profile}">
 					</div>
 					<div class="profile-info">
-						<strong class="profile-name">냠냠냠</strong>
+						<strong class="profile-name" th:text="${member_nickname}">사용자 닉네임</strong>
 						<p th:text="|glowriters.co.kr/${member_id}|" class="profile-id">glowriters.co.kr/멤버아이디값</p>
 					</div>
 				</a>
@@ -71,39 +71,60 @@
 					<a class="profile-alarm" href="/alarm/alarm">
 						알림
 					</a>
+					<!-- 읽지 않은 알람이 있을때 분홍색 -->
 					<span class="alarm-notify">NEW</span>
 				</div>
+				
+				
 			</div>
 			<div class="sidemenu-service this">
 				<ul>
-					<li class="sidemenu-service-now">
-						<a class="now-word" href="/">
+
+					<li th:if="${isLogin == 'yes'}">
+						<a class="glowMypage" href="/" th:href="@{/mypage/mypage}">
+							<span class="bar-left"></span>
+							마이 페이지
+							<span class="bar-right"></span>
+						</a>
+					</li>
+
+					<li class="selected">
+						<a class="glowHome" href="/" th:href="@{/}">
 							<span class="bar-left"></span>
 							글로우라이터스 홈
 							<span class="bar-right"></span>
 						</a>
 					</li>
 					<li>
-						<a class="glowNow" href="/now/now">
+						<a class="glowNow" href="/" th:href="@{/now/now}">
 							<span class="bar-left"></span>
 							글로우라이터스 나우
 							<span class="bar-right"></span>
 						</a>
 					</li>
 					<li>
-						<a class="glowAnother" href="#">
+						<a class="glowCategory" href="#" th:href="@{/category/category}">
 							<span class="bar-left"></span>
-							아무거나
+							카테고리
 							<span class="bar-right"></span>
 						</a>
 					</li>
+					<li>
+						<a class="glowWrite" href="#" th:href="@{/write/write}"  th:if="${isLogin == 'yes'}">
+							<span class="bar-left"></span>
+							글쓰기
+							<span class="bar-right"></span>
+						</a>
+					</li>
+
+
 				</ul>
 				<div class="sidemenu-setting this" style="position: absolute"> <!--클래스 2개 사용-->
 					<div class="sidemenu-banner" style="padding-bottom:40px;">
 						<a class="sidemenu-project" href="#">
-							<img style="width:168px"
-								src="//i1.daumcdn.net/thumb/R336x0/?fname=http://t1.daumcdn.net/brunch/static/img/help/pc/top/side_banner_20221221.png"
-								alt="프로젝트 리스트 바로가기">
+							<img style="width:168px; display:none;"
+								src=""
+								alt="광고">
 						</a>
 					</div>
 
@@ -115,7 +136,7 @@
 					</div>
 
 					<div th:if="${isLogin == 'yes'}" class="bottom-setting-container">
-						<a class="sidemenu-bottom-setting loginservice" href="/mypage/mypage">
+						<a class="sidemenu-bottom-setting loginservice" href="/" th:href="@{/mypage/mypage}">
 							<button type="button">설정</button>
 						</a>
 						<a class="sidemenu-bottom-logoutbtn loginservice" href="/logout">
@@ -124,7 +145,7 @@
 					</div>
 
 					<div th:if="${isLogin == 'yes'}" class="donation_intro loginservice">
-						<span>응원하기를 켤 수 있어요!</span>
+						<span>화이팅!</span>
 						<i class="mint_rectangle"></i>
 					</div>
 
@@ -171,7 +192,9 @@
 				<div class="content-intro">
 					<h3 class="intro-firstword">
 						작품이 되는 이야기, 글로우라이터스
-						<span class="glow-logo"></span>
+<!-- 						<span class="glow-logo"> -->
+<!-- 						</span> -->
+						<img class="glow-logo" src="/images/glowriters.png">
 					</h3>
 					<p class="intro-desc">
 						<span class="desc-part">
@@ -419,33 +442,28 @@
 				</div>
 
 				<div class="writers">
-					<h3 class="writers-title">B R U N C H &nbsp; W R I T E R S</h3>
+					<h3 class="writers-title">G L O W &nbsp; W R I T E R S</h3>
 					<p class="writers-desc">
-						<span class="writers-info">글로우라이터스 추천 작가</span>
+						<span class="writers-info">글로우라이터스 추천 블로거</span>
 					</p>
 					<!-- 태그(writer_keyword_wrap)는 제외 -->
 					<div class="writers-wrap">
 						<ul class="writers-list">
 
-							<!-- 작가들 -->
+							<!-- 블로거들 -->
 							<!-- 총 6개 보여줄것 -->
-							<th:block th:each="item : ${writers}">
-								<li>
-								<!-- 1. 상세페이지 이동 -->
-									<a href="#" th:href="@{/blogger-details/blogger-details/{blogger_id}(blogger_id = ${item.get})}" target="_blank" class="writers-who">
-										<!-- 2. 프로필이미지 -->
-										<img src="/images/blank-image.png" th:src="${item.getMember_profile()}" width="80" height="80" class="writers-img"
-											alt="writers-name과 동일" th:alt="${item.get}">
-										<strong class="writers-name">귀리밥</strong>
-										<span class="writers-team">크리에이터</span>
-										<span class="writer-txt" style="height:60px;">
-											아담하고 단단한 이야기를 쓰는 도란 작가입니다.
-										</span>
-									</a>
-									<div class="writer-tags"><!-- 태그 없애서 얘도 없는거로 --></div>
-								</li>
-							</th:block>
-							
+							<li>
+								<a href="#" target="_blank" class="writers-who">
+									<img src="/images/blank-image.png" width="80" height="80" class="writers-img"
+										alt="writers-name과 동일">
+									<strong class="writers-name">귀리밥</strong>
+									<span class="writers-team">크리에이터</span>
+									<span class="writer-txt" style="height:60px;">
+										아담하고 단단한 이야기를 쓰는 도란 블로거입니다.
+									</span>
+								</a>
+								<div class="writer-tags"><!-- 태그 없애서 얘도 없는거로 --></div>
+							</li>
 
 						</ul>
 					</div>
@@ -507,7 +525,8 @@
 		<div class="footer-inner">
 			<div class="footer-wrap">
 				<div class="footer-quotation">
-					<span class="site-logo"></span>
+				
+					<img class="site-logo" src="/images/glowriters.png">
 					<p class="site-slogan">
 						You can make anything
 						<br>
@@ -517,8 +536,8 @@
 				</div>
 				<ul class="footer-service">
 					<li><a href="#" target="_blank" class="footer-service-link">글로우라이터스 이용안내</a></li>
-					<li><a href="#" target="_blank" class="footer-service-link">작가신청</a></li>
-					<li><a href="#" target="_blank" class="footer-service-link">작가 지원 프로젝트</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">블로거신청</a></li>
+					<li><a href="#" target="_blank" class="footer-service-link">블로거 지원 프로젝트</a></li>
 					<li><a href="#" target="_blank" class="footer-service-link">제휴제안</a></li>
 					<li><a href="#" target="_blank" class="footer-service-link">고객센터</a></li>
 				</ul>
@@ -575,7 +594,7 @@
 											alt="일러스트영역" width="315" height="208">
 									</div>
 									<div class="cont-item">
-										<strong class="tit-info">글로우라이터스 작가로 데뷔하세요</strong>
+										<strong class="tit-info">글로우라이터스 블로거로 데뷔하세요</strong>
 										<span class="txt-info">
 											진솔한 에세이부터 업계 전문 지식까지,<br>당신의 이야기를 세상에 선보이세요.
 										</span>
@@ -591,7 +610,7 @@
 									<div class="cont-item">
 										<strong class="tit-info">글로우라이터스로 제안받는 새로운 기회</strong>
 										<span class="txt-info">
-											다양한 프로젝트와 파트너를 통해<br>작가님의 작품이 책·강연 등으로 확장됩니다.
+											다양한 프로젝트와 파트너를 통해<br>블로거님의 작품이 책·강연 등으로 확장됩니다.
 										</span>
 									</div>
 								</a>
@@ -603,9 +622,9 @@
 											alt="일러스트영역" width="315" height="208">
 									</div>
 									<div class="cont-item">
-										<strong class="tit-info">글로 만나는 작가의 경험</strong>
+										<strong class="tit-info">글로 만나는 블로거의 경험</strong>
 										<span class="txt-info">
-											작가를 구독하고, 새 글을 받아보세요.<br>당신에게 영감을 주는 작품을 추천합니다.
+											블로거를 구독하고, 새 글을 받아보세요.<br>당신에게 영감을 주는 작품을 추천합니다.
 										</span>
 									</div>
 								</a>
