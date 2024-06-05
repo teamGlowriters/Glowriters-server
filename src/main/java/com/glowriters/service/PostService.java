@@ -47,4 +47,9 @@ public class PostService {
 	public List<Post> findAll(){
 		return postRepository.findAll();
 	}
+	
+	@Transactional
+  public List<Post> findByCategory(String category) {
+      return postRepository.findByCategory(category);
+  }
 }

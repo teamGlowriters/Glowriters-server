@@ -57,6 +57,7 @@ public class MypageController {
 		updateMember.setMember_comment(member.getMember_comment());
 		// save 해주면 업데이트 완료!!
 		memberService.save(updateMember);
+		
 		return "redirect:/mypage/mypage/{member_id}";
 	}
 	

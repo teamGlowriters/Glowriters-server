@@ -27,6 +27,13 @@ public class PostFileSerivce {
 		return postFileRepository.save(postFile);
 	}
 	
+	// Postfile 테이블에서 post_id를 가지고 매개변수로 입력받은 post_id와 값이 같은 Postfile 객체만 리스트로 가지고옴
+	// 리스트로 가지고 온 이유는 1개 ~ 3개(몇개를 가지고 올 지 모름) 따라서 List로 가지고 옴
+	@Transactional
+	public List<Postfile> findAllByPost(long post_id) {
+		return postFileRepository.findByPostId(post_id);
+	}
+	
 	@Transactional
 	public List<Postfile> findAll(){
 		return postFileRepository.findAll();

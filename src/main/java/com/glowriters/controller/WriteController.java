@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.glowriters.domain.Member;
 import com.glowriters.domain.Post;
@@ -89,7 +90,7 @@ public class WriteController {
 	}
 
 	@PostMapping("write/write")
-	public String writePost(HttpServletRequest request, @RequestParam("files") MultipartFile[] files, Post post) {
+	public String writePost(HttpServletRequest request, @RequestParam("files") MultipartFile[] files, Post post, RedirectAttributes redirectAttributes) {
 
 		// 현재 로그인한 사용자의 정보가 세션에 담겨있음
 		// 따라서 현재 로그인한 사용자가 현재 게시물을 작성하였으므로 가져와야함
@@ -119,7 +120,6 @@ public class WriteController {
 				postfile.setFilepath("/upload/" + now + "/" + uuid + "_" + filename);
 				postFileSerivce.save(post, postfile);
 				
-
 				// 2. 실제 프로젝트 폴더내에 파일 저장
 				File saveFile = new File(savename);
 				try {
@@ -129,8 +129,10 @@ public class WriteController {
 				}
 			}
 		}
-		
-		return null;
+		long post_id = post.getPost_id();
+		log.info("asdasdasdasdasdasdasdas" + post_id);
+		redirectAttributes.addAttribute("post_id", post_id);
+		return "redirect:/post-details/post-details/{post_id}";
 	}
 
 	

@@ -2,33 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<style data-emotion="css-global" data-s="">
-		@font-face {
-			font-family: "Nanum Myeongjo";
-			font-weight: normal;
-			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
-		}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style data-emotion="css-global" data-s="">
+@font-face {
+	font-family: "Nanum Myeongjo";
+	font-weight: normal;
+	src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+}
 
-		@font-face {
-			font-family: "Noto Sans Light";
-			font-style: normal;
-			font-weight: 300;
-			src: url("/fonts/NotoSansCJKkr-Light.otf");
-		}
+@font-face {
+	font-family: "Noto Sans Light";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-Light.otf");
+}
 
-		@font-face {
-			font-family: "Noto Sans DemiLight";
-			font-style: normal;
-			font-weight: 300;
-			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
-		}
-	</style>
-	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
-	<link rel="stylesheet" href="/css/category/category.css" />
-	<link rel="stylesheet" href="/css/main/header.css" data-whatIsThis="헤더CSS임포트" />
-	<title>브런치 키워드: 지구한바퀴 세계여행</title>
+@font-face {
+	font-family: "Noto Sans DemiLight";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+}
+</style>
+<link rel="shortcut icon" href="/images/glowritersFavicon.png"
+	type="image/x-icon" />
+<link rel="stylesheet" href="/css/category/category.css" />
+<link rel="stylesheet" href="/css/main/header.css"
+	data-whatIsThis="헤더CSS임포트" />
+<title>브런치 키워드: 여행</title>
 </head>
 
 <body>
@@ -39,7 +41,7 @@
 			<div class="category-main-title-wrap">
 				<div class="category-main-title-wrapWrap">
 					<h2 class="category-main-what">글 키워드</h2>
-					<div class="category-main-title">지구한바퀴 세계여행</div>
+					<div class="category-main-title" th:text="${category}">카테고리명</div>
 				</div>
 			</div>
 		</div>
@@ -49,391 +51,122 @@
 					<h4 class="category-realmain-what">글 목록</h4>
 					<div class="category-realmain-contentWrap">
 						<ul class="category-realmain-contentUl">
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
+							<th:block th:each="pvd: ${pvds}">
+								<li class="category-realmain-contentli"><a href="#"
+									class="category-realmain-contentA">
+										<div class="category-realmain-letterWrap">
+											<strong class="category-realmain-strong" th:text="${pvd.getTitle()}">제목</strong>
+											<div class="category-realmain-subtitleWrap">
+												<em class="category-realmain-subtitleEm" th:text="${#temporals.format(pvd.getCreate_date(), 'yyyy.MM.dd EEEE')}">날짜</em> 
+												<span class="category-realmain-subtitleBar"></span> 
+												<span class="category-realmain-realsubWrap">내용</span>
+											</div>
+											<span class="category-realmain-explanWrap"> <span
+												class="category-realmain-firstSpan">댓글</span> <span
+												class="category-realmain-firstSpan">0</span> <span
+												class="category-realmain-dot"></span> <span
+												class="category-realmain-by">by</span> <span
+												class="category-realmain-time">시골할머니</span>
 											</span>
 										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
+										<div class="category-realmain-imgWrap">
+											<img src="/images/blank-image.png" width="120" height="120"
+												class="category-realmain-img" />
 										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
-										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
-										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
-										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
-										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
-										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
-										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
-							<li class="category-realmain-contentli">
-								<a href="#" class="category-realmain-contentA">
-									<div class="category-realmain-letterWrap">
-										<strong class="category-realmain-strong">프라하에서 무료로 트램타기</strong>
-										<div class="category-realmain-subtitleWrap">
-											<em class="category-realmain-subtitleEm">2024. 04. 17 수요일</em>
-											<span class="category-realmain-subtitleBar"></span>
-											<span class="category-realmain-realsubWrap">아침 일찍 잠이 깨어 언니와 같이 10분 거리에 있는
-												빵집으로 아침빵을 사러 나갔다. 상당히 추워서 옷을
-												있는대로 껴입었다. 동네 빵집치고 상당히 잘 꾸며놓은
-												브런치카페 다. 크로아상이 전문인지 여러 종류의
-												크로아상이 있고, 피스타치오 크로아상이 특히 맛있었다.
-												프라하는 65세 이상 시니어는 트램, 버스등 대중교통을
-												무료로 이용할 수 있다고 한다.
-											</span>
-										</div>
-										<span class="category-realmain-explanWrap">
-											<span class="category-realmain-firstSpan">댓글</span>
-											<span class="category-realmain-firstSpan">0</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-time">34분전</span>
-											<span class="category-realmain-dot"></span>
-											<span class="category-realmain-by">by</span>
-											<span class="category-realmain-time">시골할머니</span>
-										</span>
-									</div>
-									<div class="category-realmain-imgWrap">
-										<img src="/images/blank-image.png" width="120" height="120"
-											class="category-realmain-img" />
-									</div>
-								</a>
-							</li>
+								</a></li>
+							</th:block>
 						</ul>
 					</div>
 					<div class="category-realmain-popularBlogWrap">
 						<strong class="category-realmain-popularTitle">인기블로거</strong>
 						<div class="category-realmain-blogerWrap">
-							<a href="#" class="category-realmain-blogerA">
-								<span class="category-realmain-profileWrap">
-									<img src="/images/blank-image.png" width="36" height="36"
-										class="category-realmain-profile" />
-								</span>
+							<a href="#" class="category-realmain-blogerA"> <span
+								class="category-realmain-profileWrap"> <img
+									src="/images/blank-image.png" width="36" height="36"
+									class="category-realmain-profile" />
+							</span>
 								<div class="category-realmain-profileLetterWrap">
 									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span>
-										<span class="category-realmain-profileUnderWrap">
-											<span class="category-realmain-blogerWiter">글 68</span>
-											<span class="category-realmain-blogerdot"></span>
-											<span class="category-realmain-blogerWiter">구독자 602</span>
+										<span class="category-realmain-profileName">이솔</span> <span
+											class="category-realmain-profileUnderWrap"> <span
+											class="category-realmain-blogerWiter">글 68</span> <span
+											class="category-realmain-blogerdot"></span> <span
+											class="category-realmain-blogerWiter">구독자 602</span>
 										</span>
 									</div>
 								</div>
-							</a>
-							<a href="#" class="category-realmain-blogerA">
-								<span class="category-realmain-profileWrap">
-									<img src="/images/blank-image.png" width="36" height="36"
-										class="category-realmain-profile" />
-								</span>
+							</a> <a href="#" class="category-realmain-blogerA"> <span
+								class="category-realmain-profileWrap"> <img
+									src="/images/blank-image.png" width="36" height="36"
+									class="category-realmain-profile" />
+							</span>
 								<div class="category-realmain-profileLetterWrap">
 									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span>
-										<span class="category-realmain-profileUnderWrap">
-											<span class="category-realmain-blogerWiter">글 68</span>
-											<span class="category-realmain-blogerdot"></span>
-											<span class="category-realmain-blogerWiter">구독자 602</span>
+										<span class="category-realmain-profileName">이솔</span> <span
+											class="category-realmain-profileUnderWrap"> <span
+											class="category-realmain-blogerWiter">글 68</span> <span
+											class="category-realmain-blogerdot"></span> <span
+											class="category-realmain-blogerWiter">구독자 602</span>
 										</span>
 									</div>
 								</div>
-							</a>
-							<a href="#" class="category-realmain-blogerA">
-								<span class="category-realmain-profileWrap">
-									<img src="/images/blank-image.png" width="36" height="36"
-										class="category-realmain-profile" />
-								</span>
+							</a> <a href="#" class="category-realmain-blogerA"> <span
+								class="category-realmain-profileWrap"> <img
+									src="/images/blank-image.png" width="36" height="36"
+									class="category-realmain-profile" />
+							</span>
 								<div class="category-realmain-profileLetterWrap">
 									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span>
-										<span class="category-realmain-profileUnderWrap">
-											<span class="category-realmain-blogerWiter">글 68</span>
-											<span class="category-realmain-blogerdot"></span>
-											<span class="category-realmain-blogerWiter">구독자 602</span>
+										<span class="category-realmain-profileName">이솔</span> <span
+											class="category-realmain-profileUnderWrap"> <span
+											class="category-realmain-blogerWiter">글 68</span> <span
+											class="category-realmain-blogerdot"></span> <span
+											class="category-realmain-blogerWiter">구독자 602</span>
 										</span>
 									</div>
 								</div>
-							</a>
-							<a href="#" class="category-realmain-blogerA">
-								<span class="category-realmain-profileWrap">
-									<img src="/images/blank-image.png" width="36" height="36"
-										class="category-realmain-profile" />
-								</span>
+							</a> <a href="#" class="category-realmain-blogerA"> <span
+								class="category-realmain-profileWrap"> <img
+									src="/images/blank-image.png" width="36" height="36"
+									class="category-realmain-profile" />
+							</span>
 								<div class="category-realmain-profileLetterWrap">
 									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span>
-										<span class="category-realmain-profileUnderWrap">
-											<span class="category-realmain-blogerWiter">글 68</span>
-											<span class="category-realmain-blogerdot"></span>
-											<span class="category-realmain-blogerWiter">구독자 602</span>
+										<span class="category-realmain-profileName">이솔</span> <span
+											class="category-realmain-profileUnderWrap"> <span
+											class="category-realmain-blogerWiter">글 68</span> <span
+											class="category-realmain-blogerdot"></span> <span
+											class="category-realmain-blogerWiter">구독자 602</span>
 										</span>
 									</div>
 								</div>
-							</a>
-							<a href="#" class="category-realmain-blogerA">
-								<span class="category-realmain-profileWrap">
-									<img src="/images/blank-image.png" width="36" height="36"
-										class="category-realmain-profile" />
-								</span>
+							</a> <a href="#" class="category-realmain-blogerA"> <span
+								class="category-realmain-profileWrap"> <img
+									src="/images/blank-image.png" width="36" height="36"
+									class="category-realmain-profile" />
+							</span>
 								<div class="category-realmain-profileLetterWrap">
 									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span>
-										<span class="category-realmain-profileUnderWrap">
-											<span class="category-realmain-blogerWiter">글 68</span>
-											<span class="category-realmain-blogerdot"></span>
-											<span class="category-realmain-blogerWiter">구독자 602</span>
+										<span class="category-realmain-profileName">이솔</span> <span
+											class="category-realmain-profileUnderWrap"> <span
+											class="category-realmain-blogerWiter">글 68</span> <span
+											class="category-realmain-blogerdot"></span> <span
+											class="category-realmain-blogerWiter">구독자 602</span>
 										</span>
 									</div>
 								</div>
-							</a>
-							<a href="#" class="category-realmain-blogerA">
-								<span class="category-realmain-profileWrap">
-									<img src="/images/blank-image.png" width="36" height="36"
-										class="category-realmain-profile" />
-								</span>
+							</a> <a href="#" class="category-realmain-blogerA"> <span
+								class="category-realmain-profileWrap"> <img
+									src="/images/blank-image.png" width="36" height="36"
+									class="category-realmain-profile" />
+							</span>
 								<div class="category-realmain-profileLetterWrap">
 									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span>
-										<span class="category-realmain-profileUnderWrap">
-											<span class="category-realmain-blogerWiter">글 68</span>
-											<span class="category-realmain-blogerdot"></span>
-											<span class="category-realmain-blogerWiter">구독자 602</span>
+										<span class="category-realmain-profileName">이솔</span> <span
+											class="category-realmain-profileUnderWrap"> <span
+											class="category-realmain-blogerWiter">글 68</span> <span
+											class="category-realmain-blogerdot"></span> <span
+											class="category-realmain-blogerWiter">구독자 602</span>
 										</span>
 									</div>
 								</div>
