@@ -75,20 +75,18 @@ public class PostService {
 				.collect(Collectors.toList());
 	}
 
-	// 요일별로 게시물을 가져오는 함수
-	private boolean isSameDayOfWeek(LocalDateTime date, String week) {
-		DayOfWeek dayOfWeek = date.getDayOfWeek();
-		String dayOfWeekString = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault());
-		return dayOfWeekString.equalsIgnoreCase(week);
-	}
-	
+	// 요일별 게시물을 전부 가져오는 함수
+	//findByUpdateDateOfWeek(DayOfWeek.TUESDAY); 처럼 호출
 	@Transactional
 	public List<Post> findByUpdateDateOfWeek(String week) {
+		// 문자열로 표현된 요일을 DayOfWeek 열거형 상수로 변환
+    DayOfWeek dayOfWeek = DayOfWeek.valueOf(week.toUpperCase());
+    
 		List<Post> allPosts = postRepository.findAll();
 		
 		// 요청된 요일에 해당하는 게시물만 필터링하여 반환
     return allPosts.stream()
-            .filter(post -> isSameDayOfWeek(post.getUpdated_date(), week))
+            .filter(post -> post.getUpdated_date().getDayOfWeek() == dayOfWeek)
             .collect(Collectors.toList());
 	}
 }

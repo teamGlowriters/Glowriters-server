@@ -63,7 +63,7 @@ public class CategoryController {
 			pvd.setTitle(post.getTitle());
 			pvd.setContent(post.getContent());
 			pvd.setCategory(post.getCategory());
-			pvd.setCreate_date(post.getCreated_date());
+			pvd.setCreated_date(post.getCreated_date());
 
 			// postfile
 			List<Postfile> postfiles = postFileSerivce.findAllByPost(post.getPost_id());
@@ -108,6 +108,6 @@ public class CategoryController {
 		model.addAttribute("pvds", pvds);
 		model.addAttribute("mvds", mvds);
 		model.addAttribute("category", category);
-		return "/category/category";
+		return "category/category";
 	}
 }

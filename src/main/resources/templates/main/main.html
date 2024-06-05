@@ -27,6 +27,8 @@
 	</style>
 	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/main/main.css" />
+	<!-- 비동기 사용할때 코드단축을위한 JQuery 사용 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>메인 페이지</title>
 </head>
 
@@ -74,8 +76,8 @@
 					<!-- 읽지 않은 알람이 있을때 분홍색 -->
 					<span class="alarm-notify">NEW</span>
 				</div>
-				
-				
+
+
 			</div>
 			<div class="sidemenu-service this">
 				<ul>
@@ -110,7 +112,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="glowWrite" href="#" th:href="@{/write/write}"  th:if="${isLogin == 'yes'}">
+						<a class="glowWrite" href="#" th:href="@{/write/write}" th:if="${isLogin == 'yes'}">
 							<span class="bar-left"></span>
 							글쓰기
 							<span class="bar-right"></span>
@@ -122,9 +124,7 @@
 				<div class="sidemenu-setting this" style="position: absolute"> <!--클래스 2개 사용-->
 					<div class="sidemenu-banner" style="padding-bottom:40px;">
 						<a class="sidemenu-project" href="#">
-							<img style="width:168px; display:none;"
-								src=""
-								alt="광고">
+							<img style="width:168px; display:none;" src="" alt="광고">
 						</a>
 					</div>
 
@@ -169,13 +169,12 @@
 				<div class="top-inner-second">
 					<div class="inner-second-search">
 						<form action="#" method="get">
-							<input name="q" class="second-search-input" type="text" title="검색어입력"
-								placeholder="검색어를 입력해 주세요" autocomplete="off" value>
+							<input name="q" class="second-search-input" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
+								autocomplete="off" value>
 							<input name="profiled" type="hidden" value>
 						</form>
 						<!-- 이 버튼을 누르면 검색 페이지(search)로 이동 -->
-						<button onclick="location.href='/search/search'" class="second-search-btn"
-							type="button">검색</button>
+						<button onclick="location.href='/search/search'" class="second-search-btn" type="button">검색</button>
 					</div>
 				</div>
 			</div>
@@ -192,8 +191,8 @@
 				<div class="content-intro">
 					<h3 class="intro-firstword">
 						작품이 되는 이야기, 글로우라이터스
-<!-- 						<span class="glow-logo"> -->
-<!-- 						</span> -->
+						<!-- 						<span class="glow-logo"> -->
+						<!-- 						</span> -->
 						<img class="glow-logo" src="/images/glowriters.png">
 					</h3>
 					<p class="intro-desc">
@@ -221,18 +220,15 @@
 									<div class="slide-pic1 this">
 										<div class="pic1-item this">
 											<!-- 1. 클릭시 상세페이지이동 2. 이미지 -->
-											<a href="#"
-												th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}"
+											<a href="#" th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}"
 												class="pic1-link" target="_blank" style="background-color: #90735B;">
-												<img th:src="${item.getFilepath()}"
-													style="position:relative; margin-bottom:-175px;">
+												<img th:src="${item.getFilepath()}" style="position:relative; margin-bottom:-175px;">
 												<span class="pic1-fade this"></span>
 												<div class="pic1-append">
 													<div class="pic1-info">
 														<div class="pic1-inner">
 															<!-- 3. 제목 -->
-															<strong class="pic1-title"
-																th:text="${item.getTitle()}">제목</strong>
+															<strong class="pic1-title" th:text="${item.getTitle()}">제목</strong>
 															<!-- 4. 본문내용 -->
 															<p class="pic1-desc" th:text="${item.getContent()}">
 																본문내용
@@ -240,8 +236,7 @@
 															<span class="pic1-by this">
 																<span class="pic1-by-logo">by</span>
 																<!-- 5. 닉네임 -->
-																<span class="pic1-by-writer"
-																	th:text="${item.getMember_nickname()}">작성자</span>
+																<span class="pic1-by-writer" th:text="${item.getMember_nickname()}">작성자</span>
 															</span>
 														</div>
 													</div>
@@ -250,8 +245,7 @@
 													<span class="pic1-end">
 														<span class="pic1-cnt">???</span>
 														<!-- 6. 구독자수 -->
-														<span class="pic1-power"
-															th:text="|${item.getSubscriberCount()}명의 구독자|">구독자수 </span>
+														<span class="pic1-power" th:text="|${item.getSubscriberCount()}명의 구독자|">구독자수 </span>
 													</span>
 												</span>
 											</a>
@@ -274,7 +268,7 @@
 					</div>
 				</div>
 				<div class="tags">
-					<h3 class="tags-title">BRUNCH TAGS</h3>
+					<h3 class="tags-title">Glowriters Category</h3>
 					<p class="tags-desc">
 						<span class="desc-txt">태그로 분류된 다양한 글 모음</span>
 					</p>
@@ -336,46 +330,46 @@
 				</div>
 				<div class="weekends">
 					<div class="section">
-						<h3 class="weekends-title">요일별 연재</h3>
+						<h3 class="weekends-title">Weekend Serialization</h3>
 						<p class="weekends-desc">오리지널 연재를 만나요</p>
 						<div class="tab-basic">
 							<strong class="tab-screen">요일별 연재 목록</strong>
-							<ul class="list-tab" role="tablist">
+							<ul class="list-tab">
 
 								<!-- 선택된 요일은 li태그의 class가 on으로 바뀜. -->
 								<li>
 									<!-- href="#" 있ㅇㅓ야함 -->
-									<a class="link-tab" aria-controls="pannelDay0" role="tab">
+									<a class="link-tab" onclick="selectWeek('Monday'); dataSend(); ">
 										월
 									</a>
 								</li>
 								<li>
-									<a class="link-tab" aria-controls="pannelDay1" role="tab">
+									<a class="link-tab" onclick="selectWeek('Tuesday'); dataSend();">
 										화
 									</a>
 								</li>
 								<li>
-									<a class="link-tab" aria-controls="pannelDay2" role="tab">
+									<a class="link-tab" onclick="selectWeek('Wednesday'); dataSend();">
 										수
 									</a>
 								</li>
 								<li>
-									<a class="link-tab" aria-controls="pannelDay3" role="tab">
+									<a class="link-tab" onclick="selectWeek('Thursday'); dataSend();">
 										목
 									</a>
 								</li>
 								<li>
-									<a class="link-tab" aria-controls="pannelDay4" role="tab">
+									<a class="link-tab" onclick="selectWeek('Friday'); dataSend();">
 										금
 									</a>
 								</li>
 								<li>
-									<a class="link-tab" aria-controls="pannelDay5" role="tab">
+									<a class="link-tab" onclick="selectWeek('Saturday'); dataSend();">
 										토
 									</a>
 								</li>
 								<li>
-									<a class="link-tab" aria-controls="pannelDay6" role="tab">
+									<a class="link-tab" onclick="selectWeek('Sunday'); dataSend();">
 										일
 									</a>
 								</li>
@@ -386,44 +380,53 @@
 							<div class="rel-serial">
 								<div class="post-filter">
 									<strong class="filter-screen">요일별 연재 목록 필터</strong>
-									<!-- 최신순, 라이킷순만 작성    응원순은 제외 -->
 									<!-- 선택된 버튼은 class명 뒤에 on 이 추가됨 -->
-									<!-- 예로들면 filter-btn on  -->
 									<!-- href는 제거한 상태 -->
-									<a class="filter-btn on" aria-selected="true" type="button">
+									<a class="filter-btn on" type="button" onclick="">
 										최신순
 									</a>
-									<a class="filter-btn" aria-selected="false" type="button">
+									<a class="filter-btn" type="button">
 										라이킷순
 									</a>
 								</div>
 							</div>
 							<strong class="pannel-screen">요일별 연재 목록</strong>
-							<ul class="pannel-serial">
 
+							<ul class="pannel-serial" id="weekends">
 								<!-- 게시글들 -->
 								<!-- 총 8개 보여줄것 -->
-								<li class="pannel-item">
-									<a class="item-link" href="#" rel="noreferrer" target="_blank">
-										<div class="item-txt">
-											<span class="item-cate">가슴 시린 러브 레터6</span>
-											<span class="item-title">
-												<strong class="item-info">와 합격!</strong>
-												<span class="item-new">새로운 연재 아이콘</span>
-											</span>
-											<div class="item-explain">
-												<span class="item-by">
-													<span class="item-ico">by</span>
-													작성자
+								<th:block th:each="item : ${weekendItems}">
+									<li class="pannel-item">
+										<!-- 1.링크 -->
+										<a class="item-link" href="#"
+											th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}" rel="noreferrer"
+											target="_blank">
+											<div class="item-txt">
+												<!-- 2. 카테고리 -->
+												<span class="item-cate" th:text="${item.getCategory()}">카테고리</span>
+												<span class="item-title">
+													<!-- 3. 제목 -->
+													<strong class="item-info" th:text="${item.getTitle()}">제목</strong>
+													<!-- 4. 새로운 연재인지? -->
+													<span class="item-new" th:if="${item.NEW == 'yes'}">새로운 연재
+														아이콘</span>
 												</span>
+												<div class="item-explain">
+													<!-- 5. 작성자 -->
+													<span class="item-by" th:text="${item.getMember_nickname()}">
+														<span class="item-ico">by</span>
+														작성자
+													</span>
+												</div>
 											</div>
-										</div>
-										<div class="item-img">
-											<img alt="제목 썸네일" height="80" src="/images/blank-image.png" width="80"
-												loading="lazy">
-										</div>
-									</a>
-								</li>
+											<div class="item-img">
+												<!-- 6. 타이틀 이미지 -->
+												<img alt="제목 썸네일" height="80" src="/images/blank-image.png" width="80"
+													th:src="${item.getFilepath()}" loading="lazy">
+											</div>
+										</a>
+									</li>
+								</th:block>
 
 							</ul>
 							<div class="pannel-layer this">
@@ -434,7 +437,7 @@
 								</div>
 							</div>
 						</div>
-						<a class="pannel-link" href="#" rel="noreferrer">
+						<a class="pannel-link" href="/now/now" rel="noreferrer">
 							전체 작품 보기
 							<span class="pannel-link-ico"></span>
 						</a>
@@ -442,9 +445,10 @@
 				</div>
 
 				<div class="writers">
-					<h3 class="writers-title">G L O W &nbsp; W R I T E R S</h3>
+					<!-- 					<h3 class="writers-title">G L O W &nbsp;  W R I T E R S</h3> -->
+					<img class="writers-title" src="/images/glowritersLogo.png">
 					<p class="writers-desc">
-						<span class="writers-info">글로우라이터스 추천 블로거</span>
+						<span class="writers-info">글로우라이터스 추천 블로거들</span>
 					</p>
 					<!-- 태그(writer_keyword_wrap)는 제외 -->
 					<div class="writers-wrap">
@@ -454,8 +458,7 @@
 							<!-- 총 6개 보여줄것 -->
 							<li>
 								<a href="#" target="_blank" class="writers-who">
-									<img src="/images/blank-image.png" width="80" height="80" class="writers-img"
-										alt="writers-name과 동일">
+									<img src="/images/blank-image.png" width="80" height="80" class="writers-img" alt="writers-name과 동일">
 									<strong class="writers-name">귀리밥</strong>
 									<span class="writers-team">크리에이터</span>
 									<span class="writer-txt" style="height:60px;">
@@ -473,7 +476,7 @@
 				<div class="recommend">
 					<h3 class="recommend-title">RECOMMENDED ARTCICLES</h3>
 					<p class="recommend-desc">
-						<span class="recommend-txt">갓 구워낸 신작들을 만나봐라</span>
+						<span class="recommend-txt">갓 구워낸 신작들을 만나보세요.</span>
 					</p>
 					<div class="fslide">
 						<!-- DB에 있는 모든 게시글을 가져오면서 width를 늘려나감.-->
@@ -525,7 +528,7 @@
 		<div class="footer-inner">
 			<div class="footer-wrap">
 				<div class="footer-quotation">
-				
+
 					<img class="site-logo" src="/images/glowriters.png">
 					<p class="site-slogan">
 						You can make anything
@@ -590,8 +593,8 @@
 							<li class="slide-item slide1">
 								<a href="#" target="_blank" class="link-item">
 									<div class="thum-item">
-										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-01.png"
-											alt="일러스트영역" width="315" height="208">
+										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-01.png" alt="일러스트영역"
+											width="315" height="208">
 									</div>
 									<div class="cont-item">
 										<strong class="tit-info">글로우라이터스 블로거로 데뷔하세요</strong>
@@ -604,8 +607,8 @@
 							<li class="slide-item slide2">
 								<a href="#" target="_blank" class="link-item">
 									<div class="thum-item">
-										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-02.png"
-											alt="일러스트영역" width="315" height="208">
+										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-02.png" alt="일러스트영역"
+											width="315" height="208">
 									</div>
 									<div class="cont-item">
 										<strong class="tit-info">글로우라이터스로 제안받는 새로운 기회</strong>
@@ -618,8 +621,8 @@
 							<li class="slide-item slide3">
 								<a href="#" target="_blank" class="link-item">
 									<div class="thum-item">
-										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-03.png"
-											alt="일러스트영역" width="315" height="208">
+										<img src="https://t1.daumcdn.net/brunch9/static/images/pc/pc-img-start-03.png" alt="일러스트영역"
+											width="315" height="208">
 									</div>
 									<div class="cont-item">
 										<strong class="tit-info">글로 만나는 블로거의 경험</strong>

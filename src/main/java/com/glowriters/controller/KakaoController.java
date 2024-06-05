@@ -67,7 +67,7 @@ public class KakaoController {
 		session.setAttribute("member_profile", member.getMember_profile());
 		session.setAttribute("accessToken", kakaoInfo.getAccessToken());
 		session.setAttribute("refreshToken", kakaoInfo.getRefreshToken());
-		return "redirect:/"; // main으로 리다이렉트
+		return "redirect:"; // main으로 리다이렉트
 	}
 
 	@GetMapping("/logout")
@@ -94,6 +94,6 @@ public class KakaoController {
 			log.warn("엑세스 토큰이 비었습니다.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		}
 		
-		return "redirect:/";
+		return "redirect:";
 	}
 }

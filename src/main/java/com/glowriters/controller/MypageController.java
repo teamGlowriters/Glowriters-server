@@ -58,7 +58,7 @@ public class MypageController {
 		// save 해주면 업데이트 완료!!
 		memberService.save(updateMember);
 		
-		return "redirect:/mypage/mypage/{member_id}";
+		return "redirect:mypage/mypage/{member_id}";
 	}
 	
 }

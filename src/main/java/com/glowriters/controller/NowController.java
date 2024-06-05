@@ -55,7 +55,7 @@ public class NowController extends BaseController{
 			pvd.setTitle(post.getTitle());
 			pvd.setContent(post.getContent());
 			pvd.setCategory(post.getCategory());
-			pvd.setCreate_date(post.getCreated_date());
+			pvd.setCreated_date(post.getCreated_date());
 			
 			// postfile
 			List<Postfile> postfiles = postFileSerivce.findAllByPost(post.getPost_id());
