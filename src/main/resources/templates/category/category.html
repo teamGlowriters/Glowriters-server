@@ -52,25 +52,25 @@
 					<div class="category-realmain-contentWrap">
 						<ul class="category-realmain-contentUl">
 							<th:block th:each="pvd: ${pvds}">
-								<li class="category-realmain-contentli"><a href="#"
+								<li class="category-realmain-contentli"><a th:href="@{/post-details/post-details/{post_id}(post_id = ${pvd.getPost_id()})}"
 									class="category-realmain-contentA">
 										<div class="category-realmain-letterWrap">
 											<strong class="category-realmain-strong" th:text="${pvd.getTitle()}">제목</strong>
 											<div class="category-realmain-subtitleWrap">
 												<em class="category-realmain-subtitleEm" th:text="${#temporals.format(pvd.getCreate_date(), 'yyyy.MM.dd EEEE')}">날짜</em> 
 												<span class="category-realmain-subtitleBar"></span> 
-												<span class="category-realmain-realsubWrap">내용</span>
+												<span class="category-realmain-realsubWrap" th:text="${pvd.getContent()}">내용</span>
 											</div>
 											<span class="category-realmain-explanWrap"> <span
 												class="category-realmain-firstSpan">댓글</span> <span
 												class="category-realmain-firstSpan">0</span> <span
 												class="category-realmain-dot"></span> <span
 												class="category-realmain-by">by</span> <span
-												class="category-realmain-time">시골할머니</span>
+												class="category-realmain-time" th:text="${pvd.getMember_nickname()}">작성자</span>
 											</span>
 										</div>
 										<div class="category-realmain-imgWrap">
-											<img src="/images/blank-image.png" width="120" height="120"
+											<img th:src="${pvd.getFilepath()}" width="120" height="120"
 												class="category-realmain-img" />
 										</div>
 								</a></li>
