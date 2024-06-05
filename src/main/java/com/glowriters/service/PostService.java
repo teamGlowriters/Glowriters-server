@@ -1,8 +1,12 @@
 package com.glowriters.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,5 +55,15 @@ public class PostService {
 	@Transactional
   public List<Post> findByCategory(String category) {
       return postRepository.findByCategory(category);
+  }
+	
+	//업데이트날짜기준 최근 cnt개의 게시물을 가져오는 함수
+	@Transactional
+  public List<Post> findByRecentCnt(long cnt) {
+		List<Post> posts = postRepository.findAll();
+    return posts.stream()
+                .sorted((p1, p2) -> p2.getUpdated_date().compareTo(p1.getUpdated_date()))
+                .limit(cnt)
+                .collect(Collectors.toList());
   }
 }
