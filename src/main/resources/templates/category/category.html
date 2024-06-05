@@ -52,21 +52,26 @@
 					<div class="category-realmain-contentWrap">
 						<ul class="category-realmain-contentUl">
 							<th:block th:each="pvd: ${pvds}">
-								<li class="category-realmain-contentli"><a th:href="@{/post-details/post-details/{post_id}(post_id = ${pvd.getPost_id()})}"
+								<li class="category-realmain-contentli"><a
+									th:href="@{/post-details/post-details/{post_id}(post_id = ${pvd.getPost_id()})}"
 									class="category-realmain-contentA">
 										<div class="category-realmain-letterWrap">
-											<strong class="category-realmain-strong" th:text="${pvd.getTitle()}">제목</strong>
+											<strong class="category-realmain-strong"
+												th:text="${pvd.getTitle()}">제목</strong>
 											<div class="category-realmain-subtitleWrap">
-												<em class="category-realmain-subtitleEm" th:text="${#temporals.format(pvd.getCreate_date(), 'yyyy.MM.dd EEEE')}">날짜</em> 
-												<span class="category-realmain-subtitleBar"></span> 
-												<span class="category-realmain-realsubWrap" th:text="${pvd.getContent()}">내용</span>
+												<em class="category-realmain-subtitleEm"
+													th:text="${#temporals.format(pvd.getCreate_date(), 'yyyy.MM.dd EEEE')}">날짜</em>
+												<span class="category-realmain-subtitleBar"></span> <span
+													class="category-realmain-realsubWrap"
+													th:text="${pvd.getContent()}">내용</span>
 											</div>
 											<span class="category-realmain-explanWrap"> <span
 												class="category-realmain-firstSpan">댓글</span> <span
 												class="category-realmain-firstSpan">0</span> <span
 												class="category-realmain-dot"></span> <span
 												class="category-realmain-by">by</span> <span
-												class="category-realmain-time" th:text="${pvd.getMember_nickname()}">작성자</span>
+												class="category-realmain-time"
+												th:text="${pvd.getMember_nickname()}">작성자</span>
 											</span>
 										</div>
 										<div class="category-realmain-imgWrap">
@@ -80,97 +85,24 @@
 					<div class="category-realmain-popularBlogWrap">
 						<strong class="category-realmain-popularTitle">인기블로거</strong>
 						<div class="category-realmain-blogerWrap">
-							<a href="#" class="category-realmain-blogerA"> <span
-								class="category-realmain-profileWrap"> <img
-									src="/images/blank-image.png" width="36" height="36"
-									class="category-realmain-profile" />
-							</span>
-								<div class="category-realmain-profileLetterWrap">
-									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span> <span
-											class="category-realmain-profileUnderWrap"> <span
-											class="category-realmain-blogerWiter">글 68</span> <span
-											class="category-realmain-blogerdot"></span> <span
-											class="category-realmain-blogerWiter">구독자 602</span>
-										</span>
+							<th:block th:each="mvd: ${mvds}">
+								<a href="#" class="category-realmain-blogerA"> <span
+									class="category-realmain-profileWrap"> <img
+										th:src="${mvd.getMember_profile()}" width="36" height="36"
+										class="category-realmain-profile" />
+								</span>
+									<div class="category-realmain-profileLetterWrap">
+										<div class="category-realmain-inner">
+											<span class="category-realmain-profileName" th:text="${mvd.getMember_nickname()}">이름</span> <span
+												class="category-realmain-profileUnderWrap"> <span
+												class="category-realmain-blogerWiter"th:text="|글 개수 ${mvd.getPostCount()}|"></span> <span
+												class="category-realmain-blogerdot"></span> <span
+												class="category-realmain-blogerWiter" th:text="|구독자 수 ${mvd.getSubscriberCount()}|">구독자 개수</span>
+											</span>
+										</div>
 									</div>
-								</div>
-							</a> <a href="#" class="category-realmain-blogerA"> <span
-								class="category-realmain-profileWrap"> <img
-									src="/images/blank-image.png" width="36" height="36"
-									class="category-realmain-profile" />
-							</span>
-								<div class="category-realmain-profileLetterWrap">
-									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span> <span
-											class="category-realmain-profileUnderWrap"> <span
-											class="category-realmain-blogerWiter">글 68</span> <span
-											class="category-realmain-blogerdot"></span> <span
-											class="category-realmain-blogerWiter">구독자 602</span>
-										</span>
-									</div>
-								</div>
-							</a> <a href="#" class="category-realmain-blogerA"> <span
-								class="category-realmain-profileWrap"> <img
-									src="/images/blank-image.png" width="36" height="36"
-									class="category-realmain-profile" />
-							</span>
-								<div class="category-realmain-profileLetterWrap">
-									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span> <span
-											class="category-realmain-profileUnderWrap"> <span
-											class="category-realmain-blogerWiter">글 68</span> <span
-											class="category-realmain-blogerdot"></span> <span
-											class="category-realmain-blogerWiter">구독자 602</span>
-										</span>
-									</div>
-								</div>
-							</a> <a href="#" class="category-realmain-blogerA"> <span
-								class="category-realmain-profileWrap"> <img
-									src="/images/blank-image.png" width="36" height="36"
-									class="category-realmain-profile" />
-							</span>
-								<div class="category-realmain-profileLetterWrap">
-									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span> <span
-											class="category-realmain-profileUnderWrap"> <span
-											class="category-realmain-blogerWiter">글 68</span> <span
-											class="category-realmain-blogerdot"></span> <span
-											class="category-realmain-blogerWiter">구독자 602</span>
-										</span>
-									</div>
-								</div>
-							</a> <a href="#" class="category-realmain-blogerA"> <span
-								class="category-realmain-profileWrap"> <img
-									src="/images/blank-image.png" width="36" height="36"
-									class="category-realmain-profile" />
-							</span>
-								<div class="category-realmain-profileLetterWrap">
-									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span> <span
-											class="category-realmain-profileUnderWrap"> <span
-											class="category-realmain-blogerWiter">글 68</span> <span
-											class="category-realmain-blogerdot"></span> <span
-											class="category-realmain-blogerWiter">구독자 602</span>
-										</span>
-									</div>
-								</div>
-							</a> <a href="#" class="category-realmain-blogerA"> <span
-								class="category-realmain-profileWrap"> <img
-									src="/images/blank-image.png" width="36" height="36"
-									class="category-realmain-profile" />
-							</span>
-								<div class="category-realmain-profileLetterWrap">
-									<div class="category-realmain-inner">
-										<span class="category-realmain-profileName">이솔</span> <span
-											class="category-realmain-profileUnderWrap"> <span
-											class="category-realmain-blogerWiter">글 68</span> <span
-											class="category-realmain-blogerdot"></span> <span
-											class="category-realmain-blogerWiter">구독자 602</span>
-										</span>
-									</div>
-								</div>
-							</a>
+								</a>
+							</th:block>
 						</div>
 					</div>
 				</div>
