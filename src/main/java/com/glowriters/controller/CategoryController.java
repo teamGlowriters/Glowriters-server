@@ -2,6 +2,8 @@ package com.glowriters.controller;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.glowriters.DTO.MemberViewDTO;
 import com.glowriters.DTO.PostViewDTO;
 import com.glowriters.domain.Member;
 import com.glowriters.domain.Post;
@@ -73,8 +76,37 @@ public class CategoryController {
 			pvd.setSubscriberCount(subscriberService.countSubscribersByBloggerId(member.getMember_id()));
 			pvds.add(pvd);
 		}
-	
+		
+		// 인기블로거
+		List<Member> members = memberService.findAll();
+		List<MemberViewDTO> mvds = new ArrayList<MemberViewDTO>();
+		
+		for (Member member : members) {
+			MemberViewDTO mvd = new MemberViewDTO();
+			// 인기 블로거 이름
+			mvd.setMember_nickname(member.getMember_nickname());
+			// 인기 블로거 프로필
+			mvd.setMember_profile(member.getMember_profile());
+			// 인기 블로거 구독자 수
+			long subscriberCnt = subscriberService.countSubscribersByBloggerId(member.getMember_id());
+			mvd.setSubscriberCount(subscriberCnt);
+			// 블로거가 작성한 게시물 개수
+			long postCnt = postService.countPostBymemberId(member.getMember_id());
+			mvd.setPostCount(postCnt);
+			mvds.add(mvd);
+		}
+		
+		Collections.sort(mvds, new Comparator<MemberViewDTO>() {
+			@Override
+			public int compare(MemberViewDTO o1, MemberViewDTO o2) {
+				return Long.compare(o2.getSubscriberCount(), o1.getSubscriberCount()); // 내림차순 정렬
+			}
+		});
+		
+		mvds = mvds.size() > 6 ? new ArrayList<>(mvds.subList(0, 6)) : mvds;
+		
 		model.addAttribute("pvds", pvds);
+		model.addAttribute("mvds", mvds);
 		model.addAttribute("category", category);
 		return "/category/category";
 	}
