@@ -1,5 +1,4 @@
-
-//2. 사이드 메뉴바를 눌렀을때 켜지고 꺼지는것
+//1. 사이드 메뉴바를 눌렀을때 켜지고 꺼지는것
 const menuBtn = document.querySelector(".inner-first-btn")
 const sideMenu = document.querySelector(".header-sidemenu.open")
 const allSide = document.querySelector(".header-sidemenu")
@@ -11,15 +10,9 @@ document.addEventListener("click", (e)=>{
         sideMenu.style.marginLeft = '-261px';
     }
 })
+//여기 까지 헤더
 
-//여기 까지 헤더 부분
-
-
-
-
-
-
-//3. 메인 슬라이드의 다음/이전 버튼
+//2. 메인 슬라이드의 다음/이전 버튼
 const nextbtn = document.querySelector(".slide-next")
 const prevbtn = document.querySelector(".slide-prev")
 const slideUl = document.querySelector(".slide-area")
@@ -46,7 +39,7 @@ prevbtn.addEventListener("click", () => {
 });
 
 
-//4. 요일별 연재의 요일을 눌렀을때 
+//3. 요일별 연재의 요일을 눌렀을때 
 const weeksBtns = document.querySelectorAll(".link-tab"); 
 weeksBtns.forEach(w => {
     w.addEventListener("click", (currentBtn) => {
@@ -61,7 +54,7 @@ weeksBtns.forEach(w => {
 });
 
 
-//5. 요일별 연재의 정렬순서를 눌렀을때
+//4. 요일별 연재의 정렬순서를 눌렀을때
 const recentBtns = document.querySelectorAll(".filter-btn");
 recentBtns.forEach(list => {
     list.addEventListener("click", (e) => {
@@ -73,7 +66,7 @@ recentBtns.forEach(list => {
 })
 
 
-//6. 스크롤 내리다가 추천작가를 만나면 top버튼 활성화
+//5. 스크롤 내리다가 추천작가를 만나면 top버튼 활성화
 const topBtn = document.querySelector('.goto-top');
 const writersSection = document.querySelector('.writers');
 const footer = document.querySelector('.footer');
@@ -102,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//7. fslide - 추천작가 슬라이드의 버튼
+//6. fslide - 추천작가 슬라이드의 버튼
 //나중에
 const fnextbtn = document.querySelector(".fslide-next")
 const fprevbtn = document.querySelector(".fslide-prev")
@@ -145,7 +138,7 @@ fprevbtn.addEventListener("click", () => {
 });
 
 
-//8. 로그인창 on off
+//7. 로그인창 on off
 const modalOn = document.querySelector(".inner-third-login.logoutservice")
 const modalOff = document.querySelector(".ico-close")
 const modal = document.querySelector(".layer-login")
@@ -157,7 +150,7 @@ modalOff.addEventListener("click", () => {
 })
 
 
-//9. 로그인창 왼쪽 슬라이드
+//8. 로그인창 왼쪽 슬라이드
 const slides = document.querySelectorAll(".slide-item")
 const slidesdots = document.querySelectorAll(".btn-paging")
 var slideIdx = 0;
@@ -187,7 +180,7 @@ slideshow(slideIdx) //맨처음 동작
 setInterval(nextslide, 3000)
 
 
-//11. 로그인창 슬라이드의 버튼을 누를떄 움직임
+//9. 로그인창 슬라이드의 버튼을 누를떄 움직임
 const lprevbtn = document.querySelector(".btn-prev-ico")
 const lnextbtn = document.querySelector(".btn-next-ico")
 //한장 뒤로 넘기는 동작
