@@ -814,6 +814,8 @@ only screen and (min-resolution: 1.5dppx) {
 .header-sidemenu .sidemenu-service .glowCategory,
 .header-sidemenu .sidemenu-service .glowWrite {
 	z-index: 10000;
+	color: inherit;
+	text-decoration: none;
 }
 
 /* 3. 가로선 길이 */
@@ -2163,18 +2165,18 @@ only screen and (min-resolution: 1.5dppx) {
 	width: 100%;
 }
 
-.category{
+.category {
 	display: inline-block;
-    overflow: hidden;
-    padding: 7px 16px 6px;
-    border: 1px solid #eee;
-    border-radius: 25px;
-    margin: 0 2px;
-    background-color: #fff;
-    color: #959595;
-    font-family: Noto Sans Light, Malgun Gothic;
-    font-size: 15px;
-    line-height: 18px;
+	overflow: hidden;
+	padding: 7px 16px 6px;
+	border: 1px solid #eee;
+	border-radius: 25px;
+	margin: 0 2px;
+	background-color: #fff;
+	color: #959595;
+	font-family: Noto Sans Light, Malgun Gothic;
+	font-size: 15px;
+	line-height: 18px;
 }
 
 .category {

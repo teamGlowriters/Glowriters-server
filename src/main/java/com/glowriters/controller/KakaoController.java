@@ -26,6 +26,7 @@ public class KakaoController {
 	private final MemberService memberService;
 
 	// 메인뷰에서 로그인 버튼을 눌렀을때
+	// 로그인후 무조건 호출되는 컨트롤러
 	@GetMapping("/oauth")
 	public String callback(HttpServletRequest request) throws Exception {
 		// 카카오로부터 받은 인증코드를 통해 사용자정보를담은 domain객체를 생성(서비스호출)
