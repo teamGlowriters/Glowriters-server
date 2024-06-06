@@ -4,9 +4,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import jakarta.servlet.http.HttpSession;
 
-//모델에 자동으로 주입할 속성들. : 상속만 받으면 사용가능
-//상속받을시 모델에 "isLogin"키에  "yes" "no"로 저장해줌
-//상속받을시 모델에 member_id값을 넣어줌.
+//모든 컨트롤러가 상속받는 컨트롤러
+//세션을 바탕으로 모델에 주입
 public class BaseController {
 	
 	@ModelAttribute("isLogin")
