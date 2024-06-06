@@ -63,6 +63,8 @@ public class KakaoController {
 		long member_id = memberService.findByHashCode(member.getMember_hashcode()).getMember_id();
 		session.setAttribute("member_hashcode", member.getMember_hashcode());
 		session.setAttribute("member_id", member_id);
+		session.setAttribute("member_nickname", member.getMember_nickname());
+		session.setAttribute("member_profile", member.getMember_profile());
 		session.setAttribute("accessToken", kakaoInfo.getAccessToken());
 		session.setAttribute("refreshToken", kakaoInfo.getRefreshToken());
 		return "redirect:/"; // main으로 리다이렉트
@@ -83,6 +85,8 @@ public class KakaoController {
 			//로그아웃 진행 : 세션에서 관련된 모든 정보 지움
 			session.removeAttribute("member_hashcode");
 			session.removeAttribute("member_id");
+			session.removeAttribute("member_nickname");
+			session.removeAttribute("member_profile");
 			session.removeAttribute("accessToken");
 			session.removeAttribute("refreshToken");
 			session.removeAttribute("isLogin"); //로그인했다는 정보도 지움

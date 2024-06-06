@@ -26,8 +26,8 @@ public class MemberService {
 			return memberRepository.save(member);
 		}
 		
-		public Member findById(Long id) {
-			Member member = memberRepository.findById(id).orElse(null);
+		public Member findById(Long member_id) {
+			Member member = memberRepository.findById(member_id).orElse(null);
 			return member;
 		}
 		
@@ -46,8 +46,8 @@ public class MemberService {
 		}
 		
 		@Transactional
-    public void delete(Long id) {
-      Member member = memberRepository.findById(id).get();
+    public void delete(Long member_id) {
+      Member member = memberRepository.findById(member_id).get();
       member.setMember_status(0);;
       memberRepository.save(member);
     }

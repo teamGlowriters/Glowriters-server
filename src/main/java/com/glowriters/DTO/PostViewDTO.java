@@ -1,28 +1,44 @@
 package com.glowriters.DTO;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.glowriters.domain.Post;
+import com.glowriters.domain.Postfile;
 
 import lombok.Getter;
 import lombok.Setter;
 
+//게시물에 대한 정보
 @Getter
 @Setter
 public class PostViewDTO {
 	
-	// Member
+	// Member (게시물을 작성한 사람에대한 정보)
 	private String member_nickname;
 	private String member_profile;
+	private String member_comment;
 	
-	// Post
+	// Post (게시물 자체에 대한 정보)
 	private long post_id;
 	private String title;
 	private String content;
 	private String category;
-	private LocalDateTime create_date;
+	private LocalDateTime created_date;
+	private LocalDateTime updated_date;
 	
-	// PostFile
+	
+	// PostFile (게시물에 첨부됬던 이미지중 첫번째하나)
 	private String filepath;
 	
-	// Subscriber
+	// Subscriber cnt (게시물을 작성한 사람의 구독자 수)
 	private long subscriberCount;
+	
+	// 게시물이 새로운 게시물인가?
+	//"yes", "no"값이 들어감
+	// getCreated.equals(getUpdated)를 비교해서 넣을것
+	private String NEW;
+	
+	// 게시글의 좋아요 갯수. 나중에 구현
+	private long likeCount;
 }

@@ -36,7 +36,7 @@ public class NowController extends BaseController{
 	@Autowired
 	private final SubscriberService subscriberService;
 	
-	@GetMapping("now/now")
+	@GetMapping("/now/now")
 	public String viewNow(Model model) {
 		// Post 테이블의 모든 행 가져오기
 		List<Post> posts = postService.findAll();
@@ -55,7 +55,7 @@ public class NowController extends BaseController{
 			pvd.setTitle(post.getTitle());
 			pvd.setContent(post.getContent());
 			pvd.setCategory(post.getCategory());
-			pvd.setCreate_date(post.getCreated_date());
+			pvd.setCreated_date(post.getCreated_date());
 			
 			// postfile
 			List<Postfile> postfiles = postFileSerivce.findAllByPost(post.getPost_id());
@@ -70,7 +70,10 @@ public class NowController extends BaseController{
 		}
 		model.addAttribute("pvds", pvds);
 		
-		return "now/now";
+		//사이드메뉴에서 현재 페이지가 어디인지 하이라이트 표시
+		model.addAttribute("sidemenu", "now");
+		
+		return "/now/now";
 	}
 
 }
