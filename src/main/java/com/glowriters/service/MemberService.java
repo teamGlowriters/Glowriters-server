@@ -51,4 +51,9 @@ public class MemberService {
       member.setMember_status(0);;
       memberRepository.save(member);
     }
+		
+		@Transactional
+		public List<Member> findByMemberNicknameByKeyword(String keyString){
+			return memberRepository.findByMemberNicknameContaining(keyString);
+		}
 }

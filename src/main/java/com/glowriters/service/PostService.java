@@ -89,4 +89,9 @@ public class PostService {
 	public long countPostByMemberId(long member_id) {
 		return postRepository.countBymemberId(member_id);
 	}
+	
+	@Transactional
+	public List<Post> findByTitleByKeyword(String keyword){
+		return postRepository.findByTitleContaining(keyword);
+	}
 }

@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/search/search.css" />
 	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>검색페이지</title>
 </head>
 
@@ -70,7 +71,7 @@
 						</a>
 					</li>
 
-					<li class="selected">
+					<li>
 						<a class="glowHome" href="/" th:href="@{/}">
 							<span class="bar-left"></span>
 							글로우라이터스 홈
@@ -133,11 +134,9 @@
 		</main>
 	</div>
 
-
 	<!-- 검색아이콘 누르면 생기는 레이어 -->
 	<div class="searchLayer layer-guide">
 		<div class="service-header search">
-
 
 			<!-- 상단 이미지, 메뉴바 -->
 			<div class="header-top-inner">
@@ -151,12 +150,9 @@
 
 				</div>
 				<div class="f-r">
-					<!-- 필요없음 -->
 				</div>
 			</div>
 
-
-			<!-- <div class="wrap-inner"></div> -->
 			<div class="box-suggest">
 				<div class=" box-suggest-inner">
 					<div class="wrap-search-header">
@@ -165,11 +161,12 @@
 							<div class="search-form">
 								<div>
 									<span class="placeholder-container" style="position: relative;">
-										<input type="text" value name="q" class="txt-search this" placeholder=""
-											maxlength="20" autocomplete="off"
+										<!-- 0. 검색어입력 란 -->
+										<input type="text" value th:value="${keyword}" id="searchInput" name="q" class="txt-search this" placeholder=""
+											maxlength="20" autocomplete="off" 
 											style="position: absolute; z-index: 10; background-color: transparent; border-color: transparent;">
-										<input type="text" value name="q" class="txt-search placeholder" placeholder=""
-											maxlength="20" autocomplete="off">
+										<input type="text" value name="q" class="txt-search placeholder" placeholder="" maxlength="20"
+											autocomplete="off">
 									</span>
 									<input type="hidden" value="article" name="type" class="hdn-search-type">
 								</div>
@@ -179,27 +176,30 @@
 							</div>
 						</div>
 					</div>
+					<!-- 메인화면에서 작성한 추천 블로거 기능 그대로 구현하면됨 -->
 					<div class="suggestGuide">
 						<div class=" suggest-guide animation-up-late">
 							<p class="desc-g">
-								<b>책</b>을 사랑하는 블로거들을 만나보세요.
+								<b>인기</b> 블로거들을 만나보세요.
 							</p>
 						</div>
 						<div class="wrap-list">
 							<ul class="recmd-list">
 
-								<!-- 블로거들 5개 보여줄것 -->
-								<li class="animation-up-late">
-									<a href="#" class="link-g" target="_blank">
-										<img src="/images/blank-image.png" width="120" height="120" class="thumb-img"
-											alt>
-										<strong class="tit-writer">책밤</strong>
-										<span class="txt-writer">글에는 신묘한 힘이 있습니다.
-											생각을 담아 전하는 그 마음이 당신께 닿기를 기원합니다.
-											<너랑 걷는 이 길이 참 좋아> 출간 블로거
-										</span>
-									</a>
-								</li>
+								<!-- 1. 추천 블로거 5명만 보여줌 -->
+								<th:block th:each="item : ${recommendedBlogger}">
+									<li class="animation-up-late">
+										<a href="#"
+											th:href="@{/blogger-details/blogger-details/{blogger_id}(blogger_id = ${item.getMember_id()})}"
+											class="link-g" target="_blank">
+											<img src="/images/blank-image.png" th:src="${item.getMember_profile()}" width="120" height="120"
+												class="thumb-img">
+											<strong class="tit-writer" th:text="${item.getMember_nickname()}">블로거 이름</strong>
+											<span class="txt-writer" th:text="${item.getMember_comment()}">
+												블로거 소개글
+											</span>
+										</a>
+									</li>
 
 							</ul>
 						</div>
@@ -220,65 +220,80 @@
 								</div>
 
 								<!-- 검색 결과가 있는 경우 -->
-								<ul class="list-article list-common">
-									<li class="animation-up-late">
-										<a href="#" class="link-post">
-											<div class="post-title">
-												<strong class="tit-subject item-recommend-title">
-													<!-- 검색결과와 일치하는것은 b태그로 감싼다. -->
-													<b>D</b>
-													-6
-												</strong>
-											</div>
-										</a>
-									</li>
+								<ul class="list-article list-common" id="resultPost">
+
+									<!-- 2. 글 검색 10개만 보여줌 -->
+									<th:block th:each="item : ${posts}">
+										<li class="animation-up-late">
+											<a href="#" th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}"
+												class="link-post">
+												<div class="post-title">
+													<!-- <strong class="tit-subject item-recommend-title" th:text="${item.getTitle()}"> -->
+													<strong class="tit-subject item-recommend-title"
+														th:utext="${#strings.isEmpty(keyword) ? item.getTitle() : #strings.replace(item.getTitle(), keyword, '<b>' + keyword + '</b>')}">
+														<!-- 검색결과와 일치하는것은 b태그로 감싼다. -->
+														<b>D</b>
+														-6
+													</strong>
+												</div>
+											</a>
+										</li>
+									</th:block>
+
 								</ul>
-
-
 
 							</div>
 						</div>
 						<div class="aside-suggest">
-							<!-- 작품 검색 -->
+							<!-- 블로거 검색 -->
 							<div class="cont-suggest">
 								<h3 class="tit-suggest">
 									<a href="#">
 										블로거 검색 <span class="ico-glow ico-arrow"></span>
 									</a>
 								</h3>
-								<!-- 검색어 입력시 DB에서 블로거검색을 가져오는 부분 -->
-								<div class="wrap-article-list intro-magazine-item">
-									<!-- 검색결과가 없을때 --><!-- 임시로 안보이게 해뒀음 -->
+
+								<!-- 검색어 입력시 DB에서 블로거검색을 가져오는 부분 마치 ul태그처럼. -->
+								<div class="wrap-article-list intro-magazine-item" id="resultBlogger">
+									<!-- 검색결과가 없을때 뷰 -->
 									<div class="search-recommend" style="display: none;">
 										<span class="txt-nodata">검색 결과가 없습니다. </span>
 									</div>
 
 									<!-- 검색결과가 있을때 -->
-									<!-- 검색된갯수만큼 -->
-									<div class="search-recommend animation-up-late">
-										<div class="item-recommend">
-											<a href="#" class="thumb-g thumb-type1">
-												<img src="/images/blank-image.png" width="36" height="36"
-													class="img-thumb" alt="txt-recommend 클래스와 같은내용">
-											</a>
-											<div class="detail-recommend">
-												<div class="inner-recommend">
-													<!-- 검색어와 일치하는 부분만 b태그를 붙여서 강조함 -->
-													<a href="#" class="txt-recommend item_recommend_title">
-														기자 <b>D</b>의 하루 끝 끄적임
-													</a>
+									<!-- 3. 블로거 검색 10개만 보여줌 -->
+									<th:block th:each="item : ${bloggers}">
+										<div class="search-recommend animation-up-late">
+											<div class="item-recommend">
+												<a href="#"
+													th:href="@{/blogger-details/blogger-details/{blogger_id}(blogger_id = ${item.getMember_id()})}"
+													class="thumb-g thumb-type1">
+													<img src="/images/blank-image.png" th:src="${item.getMember_profile()}" width="36" height="36"
+														class="img-thumb">
+												</a>
+												<div class="detail-recommend">
+													<div class="inner-recommend">
+														<!-- 검색어와 일치하는 부분만 b태그를 붙여서 강조함 -->
+														<a href="#"
+															th:href="@{/blogger-details/blogger-details/{blogger_id}(blogger_id = ${item.getMember_id()})}"
+															class="txt-recommend item_recommend_title" th:text="${item.getMember_nickname()}">
+															기자 <b>D</b>의 하루 끝 끄적임
+														</a>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
+									</th:block>
+
+
+
 
 								</div>
 							</div>
-							<!-- 작가검색은 제외 -->
-							<div class="cont-suggest"></div>
 						</div>
 					</div>
 				</div>
+
 				<!-- 누르면 메인페이지로 이동 -->
 				<button onclick="location.href='/'" class="btn-close">
 					<span class="img-ico ico-close">닫기</span>
@@ -286,11 +301,7 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
+	<script src="/js/search/search.js"></script>
 </body>
-<script src="/js/search/search.js"></script>
 
 </html>
