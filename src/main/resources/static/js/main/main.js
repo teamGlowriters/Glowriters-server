@@ -218,8 +218,8 @@ function dataSend() {
 		//		console.log(frag);
 
 	}).fail(function(jqXHR) {
-		//		console.log("실패");
-		//		console.log(jqXHR);
+				console.log("실패");
+				console.log(jqXHR);
 
 	});
 }

@@ -1,6 +1,5 @@
 package com.glowriters.controller;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,19 +20,10 @@ import com.glowriters.service.SubscriberService;
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequiredArgsConstructor
+@RequiredArgsConstructor //@Autowired를 안써도됨
 public class NowController extends BaseController{
-	
-	@Autowired
-	private final MemberService memberService;
-	
-	@Autowired
 	private final PostService postService;
-	
-	@Autowired
 	private final PostFileSerivce postFileSerivce;
-	
-	@Autowired
 	private final SubscriberService subscriberService;
 	
 	@GetMapping("/now/now")

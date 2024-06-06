@@ -12,10 +12,8 @@ import com.glowriters.service.PostService;
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequiredArgsConstructor
+@RequiredArgsConstructor //@Autowired를 안써도됨
 public class PostDetailsController {
-	
-	@Autowired
 	private final PostService postService;
 	
 	@GetMapping("/post-details/post-details/{post_id}")

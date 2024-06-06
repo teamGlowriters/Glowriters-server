@@ -3,7 +3,6 @@ package com.glowriters.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.glowriters.domain.Member;
 import com.glowriters.domain.Post;
 import com.glowriters.domain.Postfile;
 import com.glowriters.service.MemberService;
@@ -26,25 +24,16 @@ import com.glowriters.service.PostService;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@RequiredArgsConstructor //@Autowired를 안써도됨
 @Slf4j
 public class WriteController extends BaseController {
-	@Autowired
 	private final PostService postService;
-
-	@Autowired
 	private final MemberService memberService;
-
-	@Autowired
 	private final PostFileSerivce postFileSerivce;
-
-	public WriteController(PostService postService, MemberService memberService, PostFileSerivce postFileSerivce) {
-		this.postService = postService;
-		this.memberService = memberService;
-		this.postFileSerivce = postFileSerivce;
-	}
 
 	@GetMapping("/write/write")
 	public String viewWrite(Model model) {

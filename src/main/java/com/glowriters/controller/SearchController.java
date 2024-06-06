@@ -1,17 +1,15 @@
 package com.glowriters.controller;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.glowriters.DTO.MemberViewDTO;
@@ -25,21 +23,19 @@ import com.glowriters.service.PostFileSerivce;
 import com.glowriters.service.PostService;
 import com.glowriters.service.SubscriberService;
 
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequiredArgsConstructor //@Autowired를 안써도됨
+@RequiredArgsConstructor
 @Slf4j
-public class MainController extends BaseController {
-	private final KakaoService kakaoService;
+public class SearchController extends BaseController {
 	private final PostService postService;
 	private final PostFileSerivce postFileSerivce;
 	private final SubscriberService subscriberService;
 	private final MemberService memberService;
 
-	// 게시물DTO를 생성하는 공통 함수
+	// PostViewDTO를 생성해주는 함수. 게시물리스트를 전달하면 생성해줌
 	public List<PostViewDTO> getPostViewDTO(List<Post> posts) {
 		List<PostViewDTO> pvds = new ArrayList<>();
 
@@ -72,14 +68,13 @@ public class MainController extends BaseController {
 			String NEW = pvd.getCreated_date().isEqual(pvd.getUpdated_date()) ? "yes" : "no";
 			pvd.setNEW(NEW);
 
-//			pvd.setLikeCount(0); //아직 구현안함
+			// pvd.setLikeCount(0); //아직 구현안함
 			pvds.add(pvd);
 		}
-
 		return pvds;
 	}
 
-	// 블로거DTO를 생성하는 공통 함수
+	// MemberViewDTO를 생성하는 함수
 	public List<MemberViewDTO> getMemberViewDTO(List<Member> members) {
 		List<MemberViewDTO> mvds = new ArrayList<>();
 
@@ -118,69 +113,52 @@ public class MainController extends BaseController {
 			Allcategorys.put("문화 예술", false);
 			Allcategorys.put("사랑 이별", false);
 			Allcategorys.put("반려동물", false);
-			for (Post post : posts) { //블로거가 작성한 모든 게시글에 사용된 카테고리를 체크
+			for (Post post : posts) { // 블로거가 작성한 모든 게시글에 사용된 카테고리를 체크
 				Allcategorys.put(post.getCategory(), true);
 			}
-			for(Map.Entry<String, Boolean> item : Allcategorys.entrySet()) {
-				if(item.getValue()) categorys.add(item.getKey());
+			for (Map.Entry<String, Boolean> item : Allcategorys.entrySet()) {
+				if (item.getValue())
+					categorys.add(item.getKey());
 			}
-			
+
 			mvd.setCategorys(categorys);
-			
+
 			mvds.add(mvd);
 		}
-
 		return mvds;
 	}
 
-	// 웰컴페이지 담당 컨트롤러
-	@RequestMapping("/")
-	public String viewMain(Model model, HttpSession session) {
-		// 1. 카카오 접속 url을 페이지에 주입
-		model.addAttribute("kakaoUrl", kakaoService.getKakaoLogin());
-
-		// 2. 메인 슬라이드(전체 게시물)
-		// 최근 cnt개의 게시물을 가져와서 뷰에 모델로 전달
-		List<Post> recents = postService.findByRecentCnt(8);
-		List<PostViewDTO> mainSlideItems = getPostViewDTO(recents);
-		model.addAttribute("mainSlideItems", mainSlideItems);
-
-		// 3. 추천블로거란
+	// 화면을 보여줌
+	@GetMapping("/search/search")
+	public String viewSearch(Model model) {
 		List<Member> bloggers = memberService.findAll();
-		List<MemberViewDTO> recommendedBloggers = getMemberViewDTO(bloggers);
-		model.addAttribute("recommendedBloggers", recommendedBloggers);
-		
-		// 4. 푸터 슬라이드 (전체 게시물 보여줌)
-		List<Post> allPosts = postService.findAll();
-		List<PostViewDTO> footerSlideItems = getPostViewDTO(allPosts);
-		model.addAttribute("footerSlideItems", footerSlideItems);
-		model.addAttribute("footerSlideItemsCount", allPosts.size());
-		
-		return "/main/main";
+		List<MemberViewDTO> mvds = getMemberViewDTO(bloggers);
+		// 5개 만 보냄
+		mvds = mvds.size() > 5 ? new ArrayList<>(mvds.subList(0, 5)) : mvds;
+		model.addAttribute("recommendedBlogger", mvds);
+		return "/search/search";
 	}
 
-	// 요일별 게시물을 비동기로 보여주는 컨트롤러
-	@GetMapping("/weekends/{sort}")
-	public String viewWeekend(Model model, @PathVariable("sort") String sort, @RequestParam("week") String week) {
-//		log.warn("/weekends/" + sort);
-//		log.warn("컨트롤러 호출");
-		// 게시물에 대한 정보를 가져옴
-		List<Post> posts = postService.findByUpdateDateOfWeek(week);
+	// 게시글 검색
+	@GetMapping("/search/search/resultPost")
+	public String searchPost(@RequestParam("keyword") String keyword, Model model) {
+		List<Post> posts = postService.findByTitleByKeyword(keyword);
 		List<PostViewDTO> pvds = getPostViewDTO(posts);
+		// 10개 만 보냄
+		pvds = pvds.size() > 10 ? new ArrayList<>(pvds.subList(0, 10)) : pvds;
+		model.addAttribute("posts", pvds);
+		return "/search/search :: #resultPost";
+	}
 
-		// 가져온 게시물들을 정렬 방법에 따라 정렬
-		if (sort.equals("recent"))
-			pvds = pvds.stream().sorted(Comparator.comparing(PostViewDTO::getUpdated_date).reversed())
-					.collect(Collectors.toList());
-		else if (sort.equals("like"))
-			pvds = pvds.stream().sorted(Comparator.comparing(PostViewDTO::getLikeCount).reversed())
-					.collect(Collectors.toList());
-
-		// 정렬하고나서 8개만 전달
-		pvds = pvds.size() > 8 ? new ArrayList<>(pvds.subList(0, 8)) : pvds;
-
-		model.addAttribute("weekendItems", pvds);
-		return "/main/main :: #weekends";
+	// 블로거 검색
+	@GetMapping("/search/search/resultBlogger")
+	public String searchBlogger(@RequestParam("keyword") String keyword, Model model) {
+		List<Member> members = memberService.findByMemberNicknameByKeyword(keyword);
+		List<MemberViewDTO> mvds = getMemberViewDTO(members);
+		// 10개 만 보냄
+		mvds = mvds.size() > 10 ? new ArrayList<>(mvds.subList(0, 10)) : mvds;
+		model.addAttribute("bloggers", mvds);
+		return "/search/search :: #resultBlogger";
 	}
 
 }

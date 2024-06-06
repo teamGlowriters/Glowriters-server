@@ -3,15 +3,12 @@ package com.glowriters.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.glowriters.domain.KakaoDTO;
+import com.glowriters.DTO.KakaoDTO;
 import com.glowriters.domain.Member;
 import com.glowriters.service.KakaoService;
 import com.glowriters.service.MemberService;
@@ -19,20 +16,17 @@ import com.glowriters.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequiredArgsConstructor
+@RequiredArgsConstructor //@Autowired를 안써도됨
 @Slf4j
 public class KakaoController {
 	private final KakaoService kakaoService;
-	private final ObjectMapper objectMapper;
-
-	@Autowired
 	private final MemberService memberService;
 
 	// 메인뷰에서 로그인 버튼을 눌렀을때
+	// 로그인후 무조건 호출되는 컨트롤러
 	@GetMapping("/oauth")
 	public String callback(HttpServletRequest request) throws Exception {
 		// 카카오로부터 받은 인증코드를 통해 사용자정보를담은 domain객체를 생성(서비스호출)
