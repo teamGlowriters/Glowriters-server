@@ -1,4 +1,4 @@
-package com.glowriters.domain;
+package com.glowriters.DTO;
 
 import lombok.Builder;
 import lombok.Data;

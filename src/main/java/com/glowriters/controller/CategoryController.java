@@ -1,6 +1,5 @@
 package com.glowriters.controller;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,24 +22,15 @@ import com.glowriters.service.PostService;
 import com.glowriters.service.SubscriberService;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@RequiredArgsConstructor //@Autowired를 안써도됨
 @Slf4j
-@RequiredArgsConstructor
 public class CategoryController {
-
-	@Autowired
 	private final MemberService memberService;
-
-	@Autowired
 	private final PostService postService;
-
-	@Autowired
 	private final PostFileSerivce postFileSerivce;
-
-	@Autowired
 	private final SubscriberService subscriberService;
 
 	@GetMapping("/category/category/{category}")

@@ -1,7 +1,5 @@
 package com.glowriters.service;
 
-//import org.json.simple.parser.JSONParser;
-import org.h2.util.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.glowriters.domain.KakaoDTO;
+import com.glowriters.DTO.KakaoDTO;
 
 import lombok.extern.slf4j.Slf4j;
 

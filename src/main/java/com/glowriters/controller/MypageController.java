@@ -14,13 +14,9 @@ import com.glowriters.service.SubscriberService;
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequiredArgsConstructor
+@RequiredArgsConstructor //@Autowired를 안써도됨
 public class MypageController extends BaseController {
-
-	@Autowired
 	private final MemberService memberService;
-
-	@Autowired
 	private final SubscriberService subscriberService;
 
 	// 메인페이지에서 현재로그인한 사용자의 member_id 값을 보내줄 것이므로 url에 member_id을 받음

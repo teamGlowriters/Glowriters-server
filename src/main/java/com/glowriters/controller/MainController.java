@@ -7,12 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,22 +30,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequiredArgsConstructor
+@RequiredArgsConstructor //@Autowired를 안써도됨
 @Slf4j
 public class MainController extends BaseController {
-	@Autowired
 	private final KakaoService kakaoService;
-
-	@Autowired
 	private final PostService postService;
-
-	@Autowired
 	private final PostFileSerivce postFileSerivce;
-
-	@Autowired
 	private final SubscriberService subscriberService;
-	
-	@Autowired
 	private final MemberService memberService;
 
 	// 게시물DTO를 생성하는 공통 함수
