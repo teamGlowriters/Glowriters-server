@@ -45,7 +45,7 @@ public class CategoryController {
 
 	@GetMapping("/category/category/{category}")
 	public String viewCategory(@PathVariable("category") String category, Model model) {
-		
+
 		// Post 테이블의 category 컬럼과 url로 받은 카테고리이 같은 행만 가져오기
 		List<Post> posts = postService.findByCategory(category);
 		// 정보전달이 목적인 PostViewDTO 객체 생성!
@@ -71,16 +71,16 @@ public class CategoryController {
 				pvd.setFilepath(postfile.getFilepath());
 				break;
 			}
-			
+
 			// subscriber
 			pvd.setSubscriberCount(subscriberService.countSubscribersByBloggerId(member.getMember_id()));
 			pvds.add(pvd);
 		}
-		
+
 		// 인기블로거
 		List<Member> members = memberService.findAll();
 		List<MemberViewDTO> mvds = new ArrayList<MemberViewDTO>();
-		
+
 		for (Member member : members) {
 			MemberViewDTO mvd = new MemberViewDTO();
 			// 인기 블로거 이름
@@ -91,23 +91,26 @@ public class CategoryController {
 			long subscriberCnt = subscriberService.countSubscribersByBloggerId(member.getMember_id());
 			mvd.setSubscriberCount(subscriberCnt);
 			// 블로거가 작성한 게시물 개수
-			long postCnt = postService.countPostBymemberId(member.getMember_id());
+			long postCnt = postService.countPostByMemberId(member.getMember_id());
 			mvd.setPostCount(postCnt);
 			mvds.add(mvd);
 		}
-		
+
 		Collections.sort(mvds, new Comparator<MemberViewDTO>() {
 			@Override
 			public int compare(MemberViewDTO o1, MemberViewDTO o2) {
 				return Long.compare(o2.getSubscriberCount(), o1.getSubscriberCount()); // 내림차순 정렬
 			}
 		});
-		
+
 		mvds = mvds.size() > 6 ? new ArrayList<>(mvds.subList(0, 6)) : mvds;
-		
+
 		model.addAttribute("pvds", pvds);
 		model.addAttribute("mvds", mvds);
 		model.addAttribute("category", category);
-		return "category/category";
+
+		// 사이드메뉴에서 현재 페이지가 어디인지 하이라이트 표시
+		model.addAttribute("sidemenu", "category");
+		return "/category/category";
 	}
 }

@@ -72,42 +72,57 @@ document.addEventListener('DOMContentLoaded', function() {
 const fnextbtn = document.querySelector(".fslide-next")
 const fprevbtn = document.querySelector(".fslide-prev")
 const fslideUl = document.querySelector(".fslide")
-var xdegree = 0;
+const fslideArea = document.querySelector(".fslide-wrap")
+//var slideWidth = window.getComputedStyle(fslideArea).getPropertyValue('width');
+//var contentCnt = slideWidth / 300;
+//console.log("slideWidth / 300 => " + slideWidth / 300);
 
-var contentCnt = 6;  // 슬라이드 한번 넘길때 3.7개의 게시물이 지나감
-const slideContentCnt = 3.7;  // 게시물 하나의 크기 240px + 패딩20px
-var deg = slideContentCnt * 260; // 결론 한번에 넘어가는 x축각 962
+//var contentCnt = [[${footerSlideItemsCount}]];
+console.log("contentCnt => " + contentCnt);
+
+var index = 0;
+var xdegree = 0;
+const slideContentCnt = 3;  // 슬라이드 한번 넘길때 3개의 게시물이 지나감
+var deg = slideContentCnt * 300; // 결론 한번에 넘어가는 x축각
+
+//버튼이 보이는지 안보이는지 컨트롤
+function btnController(){
+	console.log("index = " + index);
+	console.log("xdegree = " + xdegree);
+	if (index == 0) //처음 위치로 왔을때
+		fprevbtn.style.display = "none"; //이전버튼 안보임
+	else	//한번이라도 오른쪽으로 넘겼을때
+		fprevbtn.style.display = "block"; //이전버튼 보임
+	//보여줄 수 있는 게시물을 전부다 보여주면
+	if (index >= contentCnt - slideContentCnt)
+		fnextbtn.style.display = "none";
+	else	//아직 보여지지않은 게시물이 남으면
+		fnextbtn.style.display = "block";
+}
+
 // DB에서 게시물을 다 가져왔으면 next버튼을 지우도록 수정해야함
 fnextbtn.addEventListener("click", () => {
+	index += slideContentCnt;
 	xdegree -= deg;
 
 	with (fslideUl.style) {
-		transform = `translateX(${xdegree}px)`;
+		transform = `translateX(${xdegree}px)`; // 결론 한번에 넘어가는 x축각 962
 		transition = "transform 0.3s ease 0s";
 	}
-	if (xdegree === -deg) fprevbtn.style.display = "block"; //이전버튼 보임
-	// 마지막 화면이 되면 next 버튼을 숨김
-	if (-(contentCnt - 2) * 260 >= xdegree) {
-		fnextbtn.style.display = "none";
-	}
-	console.log(-(contentCnt - 1) * 260);
-	console.log(xdegree);
+	btnController();
 });
 
 fprevbtn.addEventListener("click", () => {
+	index -= slideContentCnt;
 	xdegree += deg;
-	console.log(xdegree);
+
 	with (fslideUl.style) {
 		transform = `translateX(${xdegree}px)`;
 		transition = "transform 0.3s ease 0s";
 	}
-	// 첫화면으로 돌아오면
-	if (xdegree === 0) {
-		fprevbtn.style.display = "none"; //이전버튼 숨김
-		fnextbtn.style.display = "block"; //다음버튼 보임
-	}
-
+	btnController();
 });
+
 
 
 //5. 로그인창 on off
@@ -190,20 +205,29 @@ function selectWeek(data) {
 //10. 요일별 탭을 눌렀을때 ajax요청 전송
 //ajax를 쓰면 비동기(멀티쓰레드식)로 컨트롤러가 작동하여 필요한 부분만 현재 페이지로 제공
 function dataSend() {
+	console.log(link + "dataSend호출중");
 	$.ajax({
 		url: link, //기록 한 url로 요청을전송
-		type: "POST",
+		type: "GET",
 		data: { week: weekend }, //기록한 요일로 요청에 데이터까지 전송
-		//실패할 때만 호출되는 done함수
-	}).done(function(f) { //비동기로가져온 데이터를 화면에 그린다. 여기서는 요일별게시글의 타임리프 뷰
-		$("#weekends").replaceWith(f); //그리고 싶은곳
+		cache: false,
+		async: false,
+	}).done(function(frag) { //비동기로가져온 데이터를 화면에 그린다. 여기서는 요일별게시글의 타임리프 뷰
+		$("#weekends").replaceWith(frag); //그리고 싶은곳
+		//		console.log("성공");
+		//		console.log(frag);
+
+	}).fail(function(jqXHR) {
+		//		console.log("실패");
+		//		console.log(jqXHR);
+
 	});
 }
 
 //11. 요일별 연재의 정렬순서를 눌렀을때
 const recentBtns = document.querySelectorAll(".filter-btn");
 var weekStatus;
-var link = "/weekends/recent";
+var link = "weekends/recent";
 recentBtns.forEach(list => {
 	list.addEventListener("click", (e) => {
 		recentBtns.forEach(btn => { //먼저 모든 on클래스를 제거
@@ -213,10 +237,11 @@ recentBtns.forEach(list => {
 
 		weekStatus = e.target.textContent.trim();
 		if (weekStatus === "최신순")
-			link = "/weekends/recent";
+			link = "weekends/recent";
 		else if (weekStatus === "라이킷순")
-			link = "/weekends/like";
-			
+			link = "weekends/like";
+
+		console.log(link + "dataSend호출전");
 		dataSend(); //정렬 순서를 누를때도 ajax요청을 보냄
 	})
 })

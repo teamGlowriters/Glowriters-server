@@ -31,126 +31,157 @@
 </head>
 
 <body>
-<div class="header-sidemenu open" th:fragment="fragment-header1">
-			<main>
-				<button class="sidemenu-closebtn" type="button">닫기</button>
-				<div class="loginprofile">
-					<div class="logoutservice">
-						<div class="sidemenu-profile-logo logoutservice"></div>
-						<p class="sidemenu-profile-slogan logoutservice">
-							You can make anything
-							<br>
-							by writing
-						</p>
-<!-- 						<p class="sidemenu-profile-sloganwriter logoutservice">C.S.Lewis</p> -->
-					</div>
-					<a href="#" class="myprofilelink loginservice">
-						<div class="profile-img">
-							<img class="picture" alt="프로필이미지" src="/images/blank-image.png">
-						</div>
-						<div class="profile-info">
-							<strong class="profile-name">냠냠냠</strong>
-							<p class="profile-id">glowriters.co.kr/해쉬주소</p>
-						</div>
-					</a>
-					<div class="logoutservice">
-						<a href="#" class="profile-logout-a">
-							<button class="profile-logout-btn">글로우라이터스 시작하기</button>
-						</a>
-					</div>
-					<div class="loginservice">
-						<a href="#" class="profile-write">
-							<button class="profile-write-btn">글쓰기</button>
-						</a>
-						<a class="profile-alarm" href="#">
-							알림
-						</a>
-						<span class="alarm-notify">NEW</span>
-					</div>
+	<div class="header-sidemenu open" th:fragment="fragment-header1">
+		<main style="width:260px;">
+			<button class="sidemenu-closebtn" type="button">닫기</button>
+			<div class="loginprofile">
+
+				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
+					<img class="sidemenu-profile-logo logoutservice" src="/images/glowriters.png" style="display:block">
+					<p class="sidemenu-profile-slogan logoutservice">
+						You can make anything
+						<br>
+						by writing
+					</p>
+					<!-- 						<p class="sidemenu-profile-sloganwriter logoutservice">C.S.Lewis</p> -->
 				</div>
-				<div class="sidemenu-service this"> 
-        <ul>
-          <li class="sidemenu-service-now">
-					<a class="now-word" href="#">
-						<span class="bar-left"></span>
-						글로우라이터스 홈
-						<span class="bar-right"></span>
+
+				<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/mypage/mypage"
+					class="myprofilelink loginservice">
+					<div class="profile-img">
+						<img class="picture" alt="프로필이미지" src="/images/blank-image.png" th:src="${member_profile}">
+					</div>
+					<div class="profile-info">
+						<strong class="profile-name" th:text="${member_nickname}">사용자 닉네임</strong>
+						<p th:text="|glowriters.co.kr/${member_id}|" class="profile-id">glowriters.co.kr/멤버아이디값</p>
+					</div>
+				</a>
+
+				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
+					<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
+						class="profile-logout-a">
+						<button class="profile-logout-btn">글로우라이터스 시작하기</button>
 					</a>
+				</div>
+
+				<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="loginservice">
+					<a href="/write/write" class="profile-write">
+						<button class="profile-write-btn">글쓰기</button>
+					</a>
+					<a class="profile-alarm" href="/alarm/alarm">
+						알림
+					</a>
+					<!-- 읽지 않은 알람이 있을때 분홍색 -->
+					<span class="alarm-notify">NEW</span>
+				</div>
+
+			</div>
+			<div class="sidemenu-service this">
+				<ul>
+
+					<li th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}"
+						th:classappend="${sidemenu == 'mypage' ? 'selected' : ''}">
+						<a class="glowMypage" href="/" th:href="@{/mypage/mypage}">
+							<span class="bar-left"></span>
+							마이 페이지
+							<span class="bar-right"></span>
+						</a>
 					</li>
+
 					<li>
-						<a class="glowNow" href="#">
+						<a class="glowHome" href="/" th:href="@{/}">
+							<span class="bar-left"></span>
+							글로우라이터스 홈
+							<span class="bar-right"></span>
+						</a>
+					</li>
+					<li th:classappend="${sidemenu == 'now' ? 'selected' : ''}">
+						<a class="glowNow" href="/" th:href="@{/now/now}">
 							<span class="bar-left"></span>
 							글로우라이터스 나우
 							<span class="bar-right"></span>
 						</a>
 					</li>
-					<li>
-						<a class="glowAnother" href="#">
+					<li th:classappend="${sidemenu == 'category' ? 'selected' : ''}">
+						<a class="glowCategory" href="#" th:href="@{/category/category}">
 							<span class="bar-left"></span>
-							아무거나
+							카테고리
 							<span class="bar-right"></span>
 						</a>
 					</li>
-					</ul>
-					<div class="sidemenu-setting this" style="position: absolute"> <!--클래스 2개 사용-->
-						<div class="sidemenu-banner" style="padding-bottom:40px;">
-							<a class="sidemenu-project" href="#">
-								<img style="width:168px"
-									src="//i1.daumcdn.net/thumb/R336x0/?fname=http://t1.daumcdn.net/brunch/static/img/help/pc/top/side_banner_20221221.png"
-									alt="프로젝트 리스트 바로가기">
-							</a>
-						</div>
-						<div class="logoutservice">
-							<a href="#" class="sidemenu-findAccount">
-								계정을 잊어버리셨나요?
-							</a>
-						</div>
-						<div class="bottom-setting-container">
-							<a class="sidemenu-bottom-setting loginservice" href="#">
-								<button type="button">설정</button>
-							</a>
-							<a class="sidemenu-bottom-logoutbtn loginservice" href="#">
-								<button type="button">로그아웃</button>
-							</a>
-						</div>
+					<!-- 					write는 사실 따로 관리해서 여기에는 th:classappend를 할 필요없음 -->
+					<li th:classappend="${sidemenu == 'write' ? 'selected' : ''}">
+						<a class="glowWrite" href="#" th:href="@{/write/write}"
+							th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}">
+							<span class="bar-left"></span>
+							글쓰기
+							<span class="bar-right"></span>
+						</a>
+					</li>
 
-						<div class="donation_intro loginservice">
-							<span>응원하기를 켤 수 있어요!</span>
-							<i class="mint_rectangle"></i>
-						</div>
+				</ul>
+				<div class="sidemenu-setting this" style="position: absolute"> <!--클래스 2개 사용-->
+					<div class="sidemenu-banner" style="padding-bottom:40px;">
+						<a class="sidemenu-project" href="#">
+							<img style="width:168px; display:none;" src="" alt="광고">
+						</a>
+					</div>
+
+					<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
+						<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
+							class="sidemenu-findAccount">
+							계정을 잊어버리셨나요?
+						</a>
+					</div>
+
+					<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="bottom-setting-container">
+						<a class="sidemenu-bottom-setting loginservice" href="/" th:href="@{/mypage/mypage}">
+							<button type="button">설정</button>
+						</a>
+						<a class="sidemenu-bottom-logoutbtn loginservice" href="/logout">
+							<button type="button">로그아웃</button>
+						</a>
+					</div>
+
+					<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="donation_intro loginservice">
+						<span>화이팅!</span>
+						<i class="mint_rectangle"></i>
+					</div>
+
+				</div>
+			</div>
+		</main>
+	</div>
+	<header class="header" th:fragment="fragment-header2">
+		<div class="header-top this">
+			<div class="header-top-inner">
+				<div class="top-inner-first">
+					<button class="inner-first-btn" type="button">메뉴</button>
+					<h1 class="inner-first-logo">
+						<a href="/" class="first-logo-img">glow</a>
+					</h1>
+				</div>
+				<div class="top-inner-third" style="display:none;">
+					<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/write/write"
+						class="inner-third-login loginservice">글쓰기</a>
+					<a th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}"
+						href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
+						class="inner-third-login logoutservice">로그인</a>
+				</div>
+				<div class="top-inner-second">
+					<div class="inner-second-search" style="display:none;">
+						<form action="#" method="get">
+							<input name="q" class="second-search-input" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
+								autocomplete="off" value>
+							<input name="profiled" type="hidden" value>
+						</form>
+						<!-- 이 버튼을 누르면 검색 페이지(search)로 이동 -->
+						<button onclick="location.href='/search/search'" class="second-search-btn" type="button">검색</button>
 					</div>
 				</div>
-			</main>
-		</div>
-		<header class="header" th:fragment="fragment-header2">
-			<div class="header-top this">
-				<div class="header-top-inner">
-					<div class="top-inner-first">
-						<button class="inner-first-btn" type="button">메뉴</button>
-						<h1 class="inner-first-logo">
-							<a href="#" class="first-logo-img">glow</a>
-						</h1>
-					</div>
-					<div class="top-inner-third">
-<!-- 						<a href="#" class="inner-third-login loginservice">저장</a>글쓰기 -->
-<!-- 						<a href="#" class="inner-third-login logoutservice">저장</a>로그인 -->
-					</div>
-					
-<!-- 					<div class="top-inner-second"> -->
-<!-- 						<div class="inner-second-search"> -->
-<!-- 							<form action="#" method="get"> -->
-<!-- 								<input name="q" class="second-search-input" type="text" title="검색어입력" -->
-<!-- 									placeholder="검색어를 입력해 주세요" autocomplete="off" value> -->
-<!-- 								<input name="profiled" type="hidden" value> -->
-<!-- 							</form> -->
-<!-- 							이 버튼을 누르면 검색 페이지(search)로 이동 -->
-<!-- 							<button class="second-search-btn" type="button">검색</button> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-				
 			</div>
-		</header>
+		</div>
+	</header>
 
 </body>
 <script src="/js/main/header.js"></script>
