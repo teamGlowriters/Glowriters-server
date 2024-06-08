@@ -1,96 +1,82 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style data-emotion="css-global" data-s="">
-      @font-face {
-        font-family: "Nanum Myeongjo";
-        font-weight: normal;
-        src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style data-emotion="css-global" data-s="">
+@font-face {
+	font-family: "Nanum Myeongjo";
+	font-weight: normal;
+	src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+}
 
-      @font-face {
-        font-family: "Noto Sans Light";
-        font-style: normal;
-        font-weight: 300;
-        src: url("/fonts/NotoSansCJKkr-Light.otf");
-      }
+@font-face {
+	font-family: "Noto Sans Light";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-Light.otf");
+}
 
-      @font-face {
-        font-family: "Noto Sans DemiLight";
-        font-style: normal;
-        font-weight: 300;
-        src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
-      }
-    </style>
-    <link
-    rel="shortcut icon"
-    href="/images/glowritersFavicon.png"
-    type="image/x-icon"
-  />
-    <link
-      rel="stylesheet"
-      href="/css/subscriber/subscriber.css"
-    />
-    <title>브런치스토리</title>
-  </head>
-  <body>
-    <div class="subscriber-header-wrap">
-      <div class="subscriber-header-wrapDiv">
-        <div class="subscriber-header-xbuttonWrap">
-          <div class="subscriber-header-xbuttonWrapDiv">
-            <button class="subscriber-header-xbutton">
-              이전 페이지로 이동
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <main>
-      <div class="subscriber-main-wrap">
-        <div class="subscriber-sum-wrap">
-          <strong class="subscriber-sum-strong"
-            >이 블로거를 구독하는
-            <span class="subscriber-sum">897</span>
-            명
-          </strong>
-        </div>
-        <div class="subscriber-realmain-wrap">
-          <ul class="subscriber-realmain-ul">
-            <li class="subscriber-realmain-li">
-              <a href="#" class="subscriber-realmain-a">
-                <img
-                  src=""
-                  width="42"
-                  height="42"
-                  class="subscriber-realmain-blogerimg"
-                />
-              </a>
-              <a href="#" class="subscriber-realmain-secondA">
-                <span class="subscriber-realmain-letterWrap">
-                  <strong class="subscriber-realmain-blogerName">김수빈</strong>
-                  <span class="subscriber-realmain-blogerExplantion">김수빈의 블로그입니다.</strong>
-                </span>
-              </a>
-              <!-- <button type="button" class="subscribe-button">
+@font-face {
+	font-family: "Noto Sans DemiLight";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+}
+</style>
+<link rel="shortcut icon" href="/images/glowritersFavicon.png"
+	type="image/x-icon" />
+<link rel="stylesheet" href="/css/subscriber/subscriber.css" />
+<title>브런치스토리</title>
+</head>
+<body>
+	<div class="subscriber-header-wrap">
+		<div class="subscriber-header-wrapDiv">
+			<div class="subscriber-header-xbuttonWrap">
+				<div class="subscriber-header-xbuttonWrapDiv">
+					<a th:href="@{/blogger-details/blogger-details/{member_id}(member_id = ${member_id})}"><button class="subscriber-header-xbutton">이전 페이지로 이동</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<main>
+		<div class="subscriber-main-wrap">
+			<div class="subscriber-sum-wrap">
+				<strong class="subscriber-sum-strong">이 블로거를
+					구독하는 <span class="subscriber-sum" th:text="${subCount}">구독자
+						수</span> 명
+				</strong>
+			</div>
+			<div class="subscriber-realmain-wrap">
+				<ul class="subscriber-realmain-ul">
+					<th:block th:each="sud: ${suds}">
+						<li class="subscriber-realmain-li"><a th:href="@{/blogger-details/blogger-details/{member_id}(member_id = ${sud.getMember_id()})}"
+							class="subscriber-realmain-a"> <img th:src="${sud.getMember_profile()}" width="42"
+								height="42" class="subscriber-realmain-blogerimg" />
+						</a> <a th:href="@{/blogger-details/blogger-details/{member_id}(member_id = ${sud.getMember_id()})}" class="subscriber-realmain-secondA"> <span
+								class="subscriber-realmain-letterWrap"> <strong
+									class="subscriber-realmain-blogerName" th:text="${sud.getMember_nickname()}">구독자 이름</strong> <span
+									class="subscriber-realmain-blogerExplantion" th:text="${sud.getMember_comment()}">구독자 한줄 소개</strong>
+								</span></a> <!-- <button type="button" class="subscribe-button">
                 <span class="subscribe-button-letter">구독하기</span>
-              </button> -->
-            </li>
-          </ul>
-        </div>
-      </div>
-    </main>
-    <div class="subscriber-realmain-modalWrap">
-        <div class="modal-title">블로거 구독을 취소하시겠습니까?</div>
-        <div class="modal-content">블로거의 글을 더 이상 구독하지 않고<br>새 글 알림도 받아볼 수 없습니다.</div>
-        <div class="modal-button-wrap">
-            <button class="continue-button">계속 구독하기</button>
-            <button class="continue-button">구독 취소하기</button>
-        </div>
-    </div>
-    <div class="modal-black"></div>
-  </body>
-  <script src="/js/subscriber/subscriber.js"></script>
+              </button> --></li>
+					</th:block>
+				</ul>
+			</div>
+		</div>
+	</main>
+	<div class="subscriber-realmain-modalWrap">
+		<div class="modal-title">블로거 구독을 취소하시겠습니까?</div>
+		<div class="modal-content">
+			블로거의 글을 더 이상 구독하지 않고<br>새 글 알림도 받아볼 수 없습니다.
+		</div>
+		<div class="modal-button-wrap">
+			<button class="continue-button">계속 구독하기</button>
+			<button class="continue-button">구독 취소하기</button>
+		</div>
+	</div>
+	<div class="modal-black"></div>
+</body>
+<script src="/js/subscriber/subscriber.js"></script>
 </html>

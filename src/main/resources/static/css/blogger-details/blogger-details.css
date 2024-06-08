@@ -398,7 +398,7 @@ ul.list-tab{
 
 li.list-tab{
     float: left;
-    width: 50%;
+    width: 100%;
 }
 
 a.list-tab{
@@ -501,6 +501,7 @@ li.list-tag{
 a.link-tag{
     display: inline-block;
     padding: 4px 10px;
+    margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 20px;
     font-size: 12px;

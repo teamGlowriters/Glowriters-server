@@ -59,9 +59,8 @@ public class PostService {
 	// 블로거가 작성한 게시글을 가져오는 함수
 	@Transactional
 	public List<Post> findByMemberId(long member_id) {
-		return postRepository.findAll().stream()
-        .filter(post -> post.getMember().getMember_id() == member_id)
-        .collect(Collectors.toList());
+		return postRepository.findAll().stream().filter(post -> post.getMember().getMember_id() == member_id)
+				.collect(Collectors.toList());
 	}
 
 	// 업데이트날짜 기준 최근 cnt개의 게시물을 가져오는 함수
@@ -89,9 +88,19 @@ public class PostService {
 	public long countPostByMemberId(long member_id) {
 		return postRepository.countBymemberId(member_id);
 	}
-	
+
 	@Transactional
-	public List<Post> findByTitleByKeyword(String keyword){
+	public List<Post> findByTitleByKeyword(String keyword) {
 		return postRepository.findByTitleContaining(keyword);
+	}
+
+	@Transactional
+	public List<String> getCategoriesByMemberIdAndPostStatus(Long memberId) {
+		return postRepository.findCategoriesByMemberIdAndPostStatus(memberId);
+	}
+
+	@Transactional
+	public List<Post> getPostsByMemberIdAndPostStatusOrderByCreatedDateDesc(Long memberId) {
+		return postRepository.findByMemberIdAndPostStatus(memberId);
 	}
 }
