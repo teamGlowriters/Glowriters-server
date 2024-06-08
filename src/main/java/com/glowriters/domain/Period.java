@@ -8,8 +8,7 @@ import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 /* @MappedSuperclass : 엔티티가아니고 오로지 상속을위한 클래스임을 선언.
  * DB와 매핑되지 않고 오로지 상속받은 자식클래스의 필드로만 주입시킴.
  * 
@@ -18,6 +17,8 @@ import lombok.Setter;
  * 즉 두 필드가 자식클래스 필드로 넣어지기만함.
  * */
 @MappedSuperclass
+@Getter
+@Setter
 public class Period {
 	private LocalDateTime created_date;
 	private LocalDateTime updated_date;

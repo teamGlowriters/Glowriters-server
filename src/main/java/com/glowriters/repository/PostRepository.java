@@ -17,6 +17,13 @@ public interface PostRepository extends JpaRepository<Post, Long>{
 	@Query("SELECT COUNT(p) FROM Post p WHERE p.member.id = :memberId AND p.post_status = 1")
 	long countBymemberId(@Param("memberId") Long memberId);
 	
-	//제목으로 입력값과 같은 게시글을 가져오는 JPA
+	// 제목으로 입력값과 같은 게시글을 가져오는 JPA
 	List<Post> findByTitleContaining(String keyword);
+	
+  // member_id가 같고 post_status가 1인 게시물들의 category를 뽑아주는 쿼리
+  @Query("SELECT p.category FROM Post p WHERE p.member.id = :memberId AND p.post_status = 1")
+  List<String> findCategoriesByMemberIdAndPostStatus(@Param("memberId") Long memberId);
+  
+  @Query("SELECT p FROM Post p WHERE p.member.id = :memberId AND p.post_status = 1 ORDER BY p.created_date DESC")
+  List<Post> findByMemberIdAndPostStatus(@Param("memberId") Long memberId);
 }

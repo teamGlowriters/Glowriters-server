@@ -60,14 +60,14 @@
 												th:text="${pvd.getTitle()}">제목</strong>
 											<div class="category-realmain-subtitleWrap">
 												<em class="category-realmain-subtitleEm"
-													th:text="${#temporals.format(pvd.getCreate_date(), 'yyyy.MM.dd EEEE')}">날짜</em>
+													th:text="${#temporals.format(pvd.getCreated_date(), 'yyyy.MM.dd EEEE')}">날짜</em>
 												<span class="category-realmain-subtitleBar"></span> <span
 													class="category-realmain-realsubWrap"
 													th:text="${pvd.getContent()}">내용</span>
 											</div>
 											<span class="category-realmain-explanWrap"> <span
 												class="category-realmain-firstSpan">댓글</span> <span
-												class="category-realmain-firstSpan">0</span> <span
+												class="category-realmain-firstSpan" th:text="${pvd.getReplyCount()}">댓글 수</span> <span
 												class="category-realmain-dot"></span> <span
 												class="category-realmain-by">by</span> <span
 												class="category-realmain-time"
@@ -86,7 +86,7 @@
 						<strong class="category-realmain-popularTitle">인기블로거</strong>
 						<div class="category-realmain-blogerWrap">
 							<th:block th:each="mvd: ${mvds}">
-								<a href="#" class="category-realmain-blogerA"> <span
+								<a th:href="@{/blogger-details/blogger-details/{member_id}(member_id=${mvd.getMember_id()})}" class="category-realmain-blogerA"> <span
 									class="category-realmain-profileWrap"> <img
 										th:src="${mvd.getMember_profile()}" width="36" height="36"
 										class="category-realmain-profile" />
