@@ -21,6 +21,8 @@ public class MemberViewDTO {
 	 
 	// Subscriber 블로거를 구독하는 사람들 수
 	private long subscriberCount;
+	// 로그인한 사용자가 해당 블로거를 구독했는지 알려줌
+	private int isSubscribe;
 	
 	// Categorys 블로거가 작성한 게시글의 카테고리 종류들
 	private List<String> categorys;

@@ -123,7 +123,6 @@ public class WriteController extends BaseController {
 			}
 		}
 		long post_id = post.getPost_id();
-		log.info("asdasdasdasdasdasdasdas" + post_id);
 		redirectAttributes.addAttribute("post_id", post_id);
 
 		return "redirect:/post-details/post-details/{post_id}";

@@ -55,8 +55,8 @@
 									<span class="content-letter-span"><span th:text="${pvd.getContent()}">본문</span></span>
 								</a>
 								<div class="content-subletter-wrap" style="white-space: nowrap">
-									<a href="#" class="content-subletter-firstA" th:text="${pvd.getCategory()}">카테고리</a><span
-										class="content-subletter-firstSpan">by</span> <a href="#"
+									<a th:href="@{/category/category/{category}(category=${pvd.getCategory()})}" class="content-subletter-firstA" th:text="${pvd.getCategory()}">카테고리</a><span
+										class="content-subletter-firstSpan">by</span> <a th:href="@{/blogger-details/blogger-details/{member_id}(member_id=${pvd.getMember_id()})}"
 										class="content-subletter-secondA"
 										th:text="${pvd.getMember_nickname()}">작성자</a> <span
 										class="content-subletter-secondSpan"></span> <span

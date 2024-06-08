@@ -39,6 +39,7 @@ public class NowController extends BaseController{
 			Member member = post.getMember();
 			pvd.setMember_nickname(member.getMember_nickname());
 			pvd.setMember_profile(member.getMember_profile());
+			pvd.setMember_id(member.getMember_id());
 			
 			// post
 			pvd.setPost_id(post.getPost_id());
