@@ -206,6 +206,8 @@ function selectWeek(data) {
 //ajax를 쓰면 비동기(멀티쓰레드식)로 컨트롤러가 작동하여 필요한 부분만 현재 페이지로 제공
 function dataSend() {
 	console.log(link + "dataSend호출중");
+	
+	
 	$.ajax({
 		url: link, //기록 한 url로 요청을전송
 		type: "GET",

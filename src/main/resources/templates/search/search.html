@@ -162,7 +162,7 @@
 								<div>
 									<span class="placeholder-container" style="position: relative;">
 										<!-- 0. 검색어입력 란 -->
-										<input type="text" value th:value="${keyword}" id="searchInput" name="q" class="txt-search this" placeholder=""
+										<input type="text" value id="searchInput" name="q" class="txt-search this" placeholder=""
 											maxlength="20" autocomplete="off" 
 											style="position: absolute; z-index: 10; background-color: transparent; border-color: transparent;">
 										<input type="text" value name="q" class="txt-search placeholder" placeholder="" maxlength="20"
@@ -228,9 +228,9 @@
 											<a href="#" th:href="@{/post-details/post-details/{post_id}(post_id = ${item.getPost_id()})}"
 												class="link-post">
 												<div class="post-title">
-													<!-- <strong class="tit-subject item-recommend-title" th:text="${item.getTitle()}"> -->
-													<strong class="tit-subject item-recommend-title"
-														th:utext="${#strings.isEmpty(keyword) ? item.getTitle() : #strings.replace(item.getTitle(), keyword, '<b>' + keyword + '</b>')}">
+													<strong class="tit-subject item-recommend-title" th:text="${item.getTitle()}">
+<!-- 													<strong class="tit-subject item-recommend-title" -->
+<!-- 														th:utext="${#strings.isEmpty(keyword) ? item.getTitle() : #strings.replace(item.getTitle(), keyword, '<b>' + keyword + '</b>')}"> -->
 														<!-- 검색결과와 일치하는것은 b태그로 감싼다. -->
 														<b>D</b>
 														-6
