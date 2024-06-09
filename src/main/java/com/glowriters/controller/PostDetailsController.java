@@ -18,12 +18,15 @@ import com.glowriters.domain.Post;
 import com.glowriters.domain.Postfile;
 import com.glowriters.domain.Postlike;
 import com.glowriters.domain.Reply;
+import com.glowriters.domain.Reportreply;
 import com.glowriters.repository.PostLikeRepository;
+import com.glowriters.service.AlarmService;
 import com.glowriters.service.MemberService;
 import com.glowriters.service.PostFileSerivce;
 import com.glowriters.service.PostLikeService;
 import com.glowriters.service.PostService;
 import com.glowriters.service.ReplyService;
+import com.glowriters.service.ReportReplyService;
 import com.glowriters.service.SubscriberService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -47,6 +50,10 @@ public class PostDetailsController extends BaseController {
 	private final PostLikeService postLikeService;
 	
 	private final ReplyService replyService;
+	
+	private final AlarmService alarmService;
+	
+	private final ReportReplyService reportReplyService;
 	
 	@GetMapping("/post-details/post-details/{post_id}")
 	public String viewPostDetails(HttpServletRequest request, @PathVariable("post_id") long post_id, Model model) {
@@ -84,7 +91,7 @@ public class PostDetailsController extends BaseController {
 		for (Postfile postfile : postfiles) {
 			pvd.filepaths.add(postfile.getFilepath());
 		}
-
+		
 		// subscriberCount
 		pvd.setSubscriberCount(subscriberService.countSubscribersByBloggerId(member.getMember_id()));
 		
@@ -109,6 +116,7 @@ public class PostDetailsController extends BaseController {
 		for (Reply reply : replyes) {
 			ReplyViewDTO rvd = new ReplyViewDTO();
 			Member memberReply = reply.getMember();
+			rvd.setReply_id(reply.getReply_id());
 			rvd.setMember_id(memberReply.getMember_id());
 			rvd.setReply_member_nickname(memberReply.getMember_nickname());
 			rvd.setReply_member_profile(memberReply.getMember_profile());
@@ -127,19 +135,25 @@ public class PostDetailsController extends BaseController {
 		model.addAttribute("rvds", rvds);
 		return "/post-details/post-details";
 	}
-
+	
+  // 좋아요 눌렀을때 오는 PostMapping
 	@PostMapping("/post-details/post-details/{post_id}")
 	public String postLike(HttpServletRequest request, @PathVariable("post_id") long post_id) {
 		// 현재 로그인한 사용자 즉 이 게시물을 보고 있는 사용자 정보 가져오기
 		HttpSession session = request.getSession();
 		long member_id = (Long) session.getAttribute("member_id");
 		Member loginMember = memberService.findById(member_id);
+		// 현재 보고있는 게시글
 		Post likePost = postService.findById(post_id);
+		// 게시글 작성자
+		Member postWirteMember = likePost.getMember();
+		
 		int isLike = postLikeService.checkIfPostlikeExists(loginMember.getMember_id(), likePost.getPost_id());
 		
 		// 좋아요를 한번도 누르지 않은 게시물이라면 테이블에 저장
 		if(isLike == 0) {
 		  postLikeService.save(loginMember, likePost);
+		  alarmService.save(loginMember, postWirteMember, 2);
 		}else {
 			// 좋아요를 눌렀고 한번 더 누르면 좋아요 취소 즉 테이블에서 삭제
 			Postlike postlike = postLikeService.getPostlike(loginMember.getMember_id(), likePost.getPost_id());
@@ -154,6 +168,7 @@ public class PostDetailsController extends BaseController {
 		return "redirect:/post-details/post-details/{post_id}";
 	}
 	
+	// 댓글 등록 눌렀을 때 오는 PostMapping
 	@PostMapping("/post-details/post-details/{member_id}/{post_id}")
 	public String replyEnter(@PathVariable("member_id") long member_id, @PathVariable("post_id") long post_id, Reply reply) {
 		
@@ -165,5 +180,17 @@ public class PostDetailsController extends BaseController {
 		replyService.save(replyMember, replyPost, reply);
 		
 		return "redirect:/post-details/post-details/{post_id}";
+	}
+	
+	// 댓글 신고 눌렀을때 오는 PostMapping
+	@PostMapping("/post-details/post-details/report/{post_id}/{reply_id}")
+	public String reportreply(@PathVariable("post_id") long post_id, @PathVariable("reply_id") long reply_id, Reportreply reportReply) {
+		// 신고할 댓글이 있는 게시물
+		Post replyInPost =  postService.findById(post_id);
+		// 신고할 댓글
+		Reply badReply = replyService.findbyId(reply_id);
+		// 댓글 신고
+		reportReplyService.save(replyInPost, badReply, reportReply);	
+		return "redirect:/";
 	}
 }
