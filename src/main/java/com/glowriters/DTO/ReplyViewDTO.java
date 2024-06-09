@@ -17,6 +17,7 @@ public class ReplyViewDTO {
 	private String reply_member_profile;
 	
 	// reply (댓글 내용, 댓글 생성 시간)
+	private long reply_id;
 	private String reply_content;
 	private LocalDateTime reply_created_date;
 }
