@@ -17,4 +17,5 @@ public interface ReplyRepository extends JpaRepository<Reply, Long>{
 	// 댓글 개수 
 	@Query("SELECT COUNT(r) FROM Reply r WHERE r.post.post_id = :postId")
   int countRepliesByPostId(@Param("postId") long postId);
+	
 }

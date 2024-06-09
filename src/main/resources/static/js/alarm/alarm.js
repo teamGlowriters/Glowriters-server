@@ -13,7 +13,6 @@ btns.forEach(function(btn) {
             success: function(frag) {
                 console.log(frag);
                 $("#notice").replaceWith(frag); //새로만들어진 알림으로 갱신
-                
             }
         });
         

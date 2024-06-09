@@ -9,10 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.glowriters.domain.Alarm;
 
 public interface AlarmRepository extends JpaRepository<Alarm, Long> {
-	//status=1인 알람만 가져온다.
-//	@Query("SELECT a FROM Alarm a WHERE a.alarm_status = 1")
-//	List<Alarm> findAllByStatus();
-	
+	//status=1인 알림만 가져온다.
 	@Query("SELECT a FROM Alarm a WHERE a.alarm_status = 1")
 	List<Alarm> findAll();
 	

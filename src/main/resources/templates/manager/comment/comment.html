@@ -1,82 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 여기서부터 -->
-    <style data-emotion="css-global" data-s="">
-      @import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
-      @import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
-      @font-face {
-        font-family: OhouseIcon;
-        src: url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
-        src: url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix)
-            format("embedded-opentype"),
-          url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2)
-            format("woff2"),
-          url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff)
-            format("woff"),
-          url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf)
-            format("truetype"),
-          url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon)
-            format("svg");
-      }
-      html {
-        font-family: "Pretendard Variable", sans-serif;
-        letter-spacing: -0.3px;
-        -webkit-font-smoothing: antialiased;
-      }
-    </style>
-    <link
-      rel="shortcut icon"
-      href="/images/glowritersFavicon.png"
-      type="image/x-icon"
-    />
-    <!-- 여기까지는 무조건 고정으로 모든 페이지에 복붙하세요 -->
-    <!-- 여기는 각자 css 파일 link하시면 됩니다 -->
-    <link
-      rel="stylesheet"
-      href="/css/manager/comment/comment.css"
-    />
-    <title>댓글 관리</title>
-  </head>
-  <body class="overflow-hidden">
-    <div class="next">
-      <div class="full-screen">
-        <nav class="benner-wrap">
-          <div>
-            <div class="items-center">
-              <div class="manager-center">
-                <span>Glowriters</span>
-              </div>
-              <div class="logo-between">|</div>
-              <div class="manager-center">
-                <span>Manager Center</span>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <div class="under-container">
-          <nav class="side-benner">
-            <div class="profile-wrap">
-              <div class="profile-container">
-                <div class="profile-inner">
-                  <button
-                    aria-label="profile image"
-                    class="profile-icon"
-                    type="button"
-                    style="width: 68px; height: 68px; outline: none"
-                  >
-                    <img
-                      src="/images/glowritersFavicon.png"
-                      alt="프로필 이미지"
-                      sizes="(max-width: 240px) 100vw, 240px"
-                      decoding="async"
-                      data-nimg="fill"
-                      class="profile-img"
-                      loading="lazy"
-                      style="
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- 여기서부터 -->
+	<style data-emotion="css-global" data-s="">
+		@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+		@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+
+		@font-face {
+			font-family: OhouseIcon;
+			src: url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+			src: url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) format("embedded-opentype"),
+				url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) format("woff2"),
+				url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) format("woff"),
+				url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) format("truetype"),
+				url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) format("svg");
+		}
+
+		html {
+			font-family: "Pretendard Variable", sans-serif;
+			letter-spacing: -0.3px;
+			-webkit-font-smoothing: antialiased;
+		}
+	</style>
+	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
+	<!-- 여기까지는 무조건 고정으로 모든 페이지에 복붙하세요 -->
+	<!-- 여기는 각자 css 파일 link하시면 됩니다 -->
+	<link rel="stylesheet" href="/css/manager/comment/comment.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<title>댓글 관리</title>
+</head>
+
+<body class="overflow-hidden">
+	<div class="next">
+		<div class="full-screen">
+			<nav class="benner-wrap">
+				<div>
+					<div class="items-center">
+						<div class="manager-center">
+							<span>Glowriters</span>
+						</div>
+						<div class="logo-between">|</div>
+						<div class="manager-center">
+							<span>Manager Center</span>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="under-container">
+				<nav class="side-benner">
+					<div class="profile-wrap">
+						<div class="profile-container">
+							<div class="profile-inner">
+								<button aria-label="profile image" class="profile-icon" type="button"
+									style="width: 68px; height: 68px; outline: none">
+									<img src="/images/glowritersFavicon.png" alt="프로필 이미지" sizes="(max-width: 240px) 100vw, 240px"
+										decoding="async" data-nimg="fill" class="profile-img" loading="lazy" style="
                         position: absolute;
                         height: 100%;
                         width: 100%;
@@ -84,385 +65,251 @@
                         object-fit: cover;
                         object-position: center center;
                         color: transparent;
-                      "
-                    />
-                    <div class="profile-under-cover"></div>
-                  </button>
-                </div>
-                <h2 class="profile-name">관리자</h2>
-                <a target="_blank" href="#">
-                  <button class="mypage" aria-label="button" type="button">
-                    <div class="mypage-name">
-                      <div>로그아웃</div>
-                      <svg
-                        viewBox="0 0 24 24"
-                        class="mypage-link"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="16px"
-                        width="16px"
-                      >
-                        <path
-                          d="M11 7a1 1 0 0 0-1-1H4v14h14v-6a1 1 0 1 0-2 0v4H6V8h4a1 1 0 0 0 1-1Z"
-                        ></path>
-                        <path
-                          d="M19.01 3.829H20v6.656a1 1 0 1 1-2 0V7.244l-5.293 5.293a1 1 0 0 1-1.414-1.415l5.293-5.292h-3.243a1 1 0 1 1 0-2H19.01Z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </button>
-                </a>
-              </div>
-            </div>
-            <ul class="side-function">
-              <li class="function-wrap-2">
-                <a href="#" class="function-2">
-                  <svg
-                    class="function-2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.5 11.7h2a6.057 6.057 0 0 1 1.769.265 6.51 6.51 0 0 0-.888 1.335H8.5a4.4 4.4 0 0 0-4.4 4.4v1c0 .22.18.4.4.4h6.881c.295.59.677 1.129 1.129 1.6H4.5a2 2 0 0 1-2-2v-1a6 6 0 0 1 6-6Z"
-                    ></path>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M10.5 10.2a3.502 3.502 0 0 1 0-7 3.5 3.5 0 1 1 0 7Zm1.9-3.5a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0ZM13.945 13.147a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.168c.287.08.486.339.488.636l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.735l.15-.617a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.644l.608-.179a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.278a1.283 1.283 0 1 0 0-2.566 1.283 1.283 0 0 0 0 2.566Z"
-                    ></path>
-                  </svg>
-                  <span class="function-2">유저 관리</span>
-                </a>
-              </li>
-              <li class="function-wrap-2">
-                <a href="#" class="function-2">
-                  <svg
-                    class="function-2"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2 5.111C2 4.498 2.45 4 3.007 4h15.099c.556 0 1.006.498 1.006 1.111 0 .614-.45 1.112-1.006 1.112h-15.1C2.452 6.223 2 5.725 2 5.11ZM2 10.668c0-.614.45-1.111 1.007-1.111h10.946a6.53 6.53 0 0 0-2.418 2.223H3.007C2.45 11.78 2 11.282 2 10.668ZM10.503 15.114H3.007C2.45 15.114 2 15.61 2 16.225s.45 1.111 1.007 1.111h7.818a6.496 6.496 0 0 1-.322-2.222Z"
-                      fill="#333334"
-                    ></path>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M13.945 12.347a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.169c.287.079.486.338.488.635l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.734l.15-.618a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.643l.608-.18a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.279a1.283 1.283 0 1 0 0-2.567 1.283 1.283 0 0 0 0 2.567Z"
-                      fill="#333334"
-                    ></path>
-                  </svg>
-                  <span class="function-2">게시물 관리</span>
-                </a>
-              </li>
-              <li class="function-wrap-1">
-                <a href="#" class="function-2">
-                  <svg
-                    class="function-1"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M6.6 4.4a4.4 4.4 0 0 0-4.4 4.4v6.8A4.4 4.4 0 0 0 6.6 20h10.7a4.4 4.4 0 0 0 4.4-4.4V8.8a4.4 4.4 0 0 0-4.4-4.4H6.6Zm2.292 5.13a.5.5 0 0 0-.862 0l-.576.977a.5.5 0 0 1-.33.236l-1.112.228a.5.5 0 0 0-.266.83l.748.805a.5.5 0 0 1 .13.395l-.12 1.092a.5.5 0 0 0 .697.513l1.06-.463a.5.5 0 0 1 .4 0l1.06.463a.5.5 0 0 0 .697-.513L10.298 13a.5.5 0 0 1 .13-.395l.748-.806a.5.5 0 0 0-.267-.83l-1.11-.227a.5.5 0 0 1-.33-.236l-.577-.977Zm9.216 1.169a.7.7 0 0 1-.7.7h-3.732a.7.7 0 1 1 0-1.4h3.732a.7.7 0 0 1 .7.7Zm-.7 3.701a.7.7 0 1 0 0-1.4h-3.732a.7.7 0 1 0 0 1.4h3.732Z"
-                    ></path>
-                  </svg>
-                  <span class="function-1">댓글 관리</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="content-wap">
-            <div class="content-container">
-              <div class="content-inner">
-                <div class="content-box">
-                  <div class="header">
-                    <h1 class="header-name">댓글 관리</h1>
-                    <div>
-                      <div class="compose-button">
-                        <button
-                          class="delete-button"
-                          aria-label="delete button"
-                          type="button"
-                        >
-                          <svg
-                            class="edit-button"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
-                            ></path>
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="header-function-container">
-                    <ul class="header-function-inner">
-                      <li class="header-relative">
-                        <button
-                          class="lecture-info"
-                          aria-label="tab button"
-                          type="button"
-                          id="btn"
-                        >
-                          <div class="flex">
-                            <p class="lecture-info">댓글정보</p>
-                            <div class="lecture-info-num">
-                              <p class="lecture-info-num">1</p>
-                            </div>
-                          </div>
-                        </button>
-                        <div class="lecture-underbar" id="under"></div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="all-list">
-                    <div>
-                      <span class="all-name">전체</span>
-                      <span class="all-num">1</span>
-                    </div>
-                    <div class="list-order">
-                      <!-- 여기에 검색 창 추가 -->
-                      <div class="search-bar">
-                        <label class="search-bar">
-                          <input
-                            class="search-bar"
-                            placeholder="댓글 검색"
-                            type="text"
-                            value
-                          />
-                          <button
-                            aria-label="search button"
-                            class="search-bar"
-                            type="button"
-                          >
-                            <img
-                              class="search-logo"
-                              src="/images/search_icon.png"
-                            />
-                            <img
-                              class="cancel-logo"
-                              src="/images/cancel.png"
-                            />
-                          </button>
-                        </label>
-                      </div>
-                      <div class="list-relative">
-                        <button
-                          class="list-order"
-                          aria-label="filter"
-                          type="button"
-                        >
-                          <span class="list-order order-1">최신순</span>
-                          <svg
-                            class="list-order"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"
-                            ></path>
-                          </svg>
-                        </button>
+                      " />
+									<div class="profile-under-cover"></div>
+								</button>
+							</div>
+							<h2 class="profile-name">관리자</h2>
+							<a target="_blank" href="#">
+								<button class="mypage" aria-label="button" type="button">
+									<div class="mypage-name">
+										<div>로그아웃</div>
+										<svg viewBox="0 0 24 24" class="mypage-link" xmlns="http://www.w3.org/2000/svg" height="16px"
+											width="16px">
+											<path d="M11 7a1 1 0 0 0-1-1H4v14h14v-6a1 1 0 1 0-2 0v4H6V8h4a1 1 0 0 0 1-1Z"></path>
+											<path
+												d="M19.01 3.829H20v6.656a1 1 0 1 1-2 0V7.244l-5.293 5.293a1 1 0 0 1-1.414-1.415l5.293-5.292h-3.243a1 1 0 1 1 0-2H19.01Z">
+											</path>
+										</svg>
+									</div>
+								</button>
+							</a>
+						</div>
+					</div>
+					<ul class="side-function">
+						<li class="function-wrap-2">
+							<a th:href="@{/manager/user}" class="function-2">
+								<svg class="function-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M8.5 11.7h2a6.057 6.057 0 0 1 1.769.265 6.51 6.51 0 0 0-.888 1.335H8.5a4.4 4.4 0 0 0-4.4 4.4v1c0 .22.18.4.4.4h6.881c.295.59.677 1.129 1.129 1.6H4.5a2 2 0 0 1-2-2v-1a6 6 0 0 1 6-6Z">
+									</path>
+									<path fill-rule="evenodd" clip-rule="evenodd"
+										d="M10.5 10.2a3.502 3.502 0 0 1 0-7 3.5 3.5 0 1 1 0 7Zm1.9-3.5a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0ZM13.945 13.147a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.168c.287.08.486.339.488.636l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.735l.15-.617a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.644l.608-.179a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.278a1.283 1.283 0 1 0 0-2.566 1.283 1.283 0 0 0 0 2.566Z">
+									</path>
+								</svg>
+								<span class="function-2">유저 관리</span>
+							</a>
+						</li>
+						<!-- 						<li class="function-wrap-2"> -->
+						<!-- 							<a href="#" class="function-2"> -->
+						<!-- 								<svg class="function-2" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+						<!-- 									<path -->
+						<!-- 										d="M2 5.111C2 4.498 2.45 4 3.007 4h15.099c.556 0 1.006.498 1.006 1.111 0 .614-.45 1.112-1.006 1.112h-15.1C2.452 6.223 2 5.725 2 5.11ZM2 10.668c0-.614.45-1.111 1.007-1.111h10.946a6.53 6.53 0 0 0-2.418 2.223H3.007C2.45 11.78 2 11.282 2 10.668ZM10.503 15.114H3.007C2.45 15.114 2 15.61 2 16.225s.45 1.111 1.007 1.111h7.818a6.496 6.496 0 0 1-.322-2.222Z" -->
+						<!-- 										fill="#333334"></path> -->
+						<!-- 									<path fill-rule="evenodd" clip-rule="evenodd" -->
+						<!-- 										d="M13.945 12.347a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.169c.287.079.486.338.488.635l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.734l.15-.618a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.643l.608-.18a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.279a1.283 1.283 0 1 0 0-2.567 1.283 1.283 0 0 0 0 2.567Z" -->
+						<!-- 										fill="#333334"></path> -->
+						<!-- 								</svg> -->
+						<!-- 								<span class="function-2">게시물 관리</span> -->
+						<!-- 							</a> -->
+						<!-- 						</li> -->
+						<li class="function-wrap-1">
+							<a href="#" class="function-2">
+								<svg class="function-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd"
+										d="M6.6 4.4a4.4 4.4 0 0 0-4.4 4.4v6.8A4.4 4.4 0 0 0 6.6 20h10.7a4.4 4.4 0 0 0 4.4-4.4V8.8a4.4 4.4 0 0 0-4.4-4.4H6.6Zm2.292 5.13a.5.5 0 0 0-.862 0l-.576.977a.5.5 0 0 1-.33.236l-1.112.228a.5.5 0 0 0-.266.83l.748.805a.5.5 0 0 1 .13.395l-.12 1.092a.5.5 0 0 0 .697.513l1.06-.463a.5.5 0 0 1 .4 0l1.06.463a.5.5 0 0 0 .697-.513L10.298 13a.5.5 0 0 1 .13-.395l.748-.806a.5.5 0 0 0-.267-.83l-1.11-.227a.5.5 0 0 1-.33-.236l-.577-.977Zm9.216 1.169a.7.7 0 0 1-.7.7h-3.732a.7.7 0 1 1 0-1.4h3.732a.7.7 0 0 1 .7.7Zm-.7 3.701a.7.7 0 1 0 0-1.4h-3.732a.7.7 0 1 0 0 1.4h3.732Z">
+									</path>
+								</svg>
+								<span class="function-1">댓글 관리</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="content-wap">
+					<div class="content-container">
+						<div class="content-inner">
+							<div class="content-box">
+								<div class="header">
+									<h1 class="header-name">댓글 관리</h1>
+									<div>
+										<div class="compose-button">
+											<button class="delete-button" aria-label="delete button" type="button">
+												<svg class="edit-button" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd"
+														d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z">
+													</path>
+													<path fill-rule="evenodd" clip-rule="evenodd"
+														d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z">
+													</path>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="header-function-container">
+									<ul class="header-function-inner">
+										<li class="header-relative">
+											<button class="lecture-info" aria-label="tab button" type="button" id="btn">
+												<div class="flex">
+													<p class="lecture-info">댓글정보</p>
+													<div class="lecture-info-num">
+														<p class="lecture-info-num">1</p>
+													</div>
+												</div>
+											</button>
+											<div class="lecture-underbar" id="under"></div>
+										</li>
+									</ul>
+								</div>
+								<div class="all-list">
+									<div>
+										<span class="all-name">전체</span>
+										<span class="all-num">1</span>
+									</div>
+									<div class="list-order">
+										<!-- 여기에 검색 창 추가 -->
+										<div class="search-bar">
+											<label class="search-bar">
+												<input class="search-bar this" placeholder="댓글 검색" type="text" value onkeydown="handleEnterKey(event)" />
+												<button aria-label="search button" class="search-bar" type="button">
+													<img class="search-logo" src="/images/search_icon.png" />
+													<img class="cancel-logo" src="/images/cancel.png" />
+												</button>
+											</label>
+										</div>
+										<div class="list-relative">
+											<button class="list-order" aria-label="filter" type="button">
+												<span class="list-order order-1">최신순</span>
+												<svg class="list-order" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd"
+														d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z">
+													</path>
+												</svg>
+											</button>
 
-                        <!-- 최신순 눌렀을때 나오는 모달 -->
-                        <div class="list-order-function">
-                          <ul class="list-order-function">
-                            <li
-                              class="list-order-function"
-                              data-option-value="publishedAt"
-                              tabindex="-1"
-                            >
-                              <button
-                                class="function-latest"
-                                aria-label="dropdown option"
-                                data-option-value="publishedAt"
-                                type="button"
-                              >
-                                <span class="function-btn-text">최신순</span>
-                              </button>
-                            </li>
+											<!-- 최신순 눌렀을때 나오는 모달 -->
+											<div class="list-order-function">
+												<ul class="list-order-function">
+													<li class="list-order-function" data-option-value="publishedAt" tabindex="-1">
+														<button class="function-latest" aria-label="dropdown option" data-option-value="publishedAt"
+															type="button">
+															<span class="function-btn-text">최신순</span>
+														</button>
+													</li>
 
-                            <li
-                              class="list-order-function"
-                              data-option-value="likes"
-                              tabindex="-1"
-                            >
-                              <button
-                                class="function-latest"
-                                aria-label="dropdown option"
-                                data-option-value="likes"
-                                type="button"
-                              >
-                                <span class="function-btn-text">좋아요순</span>
-                              </button>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="category-benner">
-                  <input type="checkbox" class="all-check" />
-                  <div class="category-inner" style="width: 730px">정보</div>
-                  <div class="category-inner" style="width: 80px">신고</div>
-                  <div class="category-inner">게시일</div>
-                </div>
-                <ul class="list-content">
-                  <li class="list-content">
-                    <input type="checkbox" class="checkbox-input" />
-                    <button class="text-left">
-                      <div class="list-content-wrap">
-                        <div class="list-content-container">
-                          <div class="list-content-inner">
-                            <div class="content-name">
-                              <p class="content-name">댓글 내용 1</p>
-                            </div>
-                            <p class="content-name-detail">
-                              댓글 컨텐츠 제목 1
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </button>
-                    <div class="content-open-wrap"></div>
-                    <div class="content-detail">
-                      <div class="content-detail-a">
-                        <p class="content-detail-num">0</p>
-                      </div>
-                      <div class="content-detail-b">
-                        <p class="content-detail-num">2024.02.05</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-content">
-                    <input type="checkbox" class="checkbox-input" />
-                    <button class="text-left">
-                      <div class="list-content-wrap">
-                        <div class="list-content-container">
-                          <div class="list-content-inner">
-                            <div class="content-name">
-                              <p class="content-name">댓글 내용 2</p>
-                            </div>
-                            <p class="content-name-detail">
-                              댓글 컨텐츠 제목 2
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </button>
-                    <div class="content-open-wrap"></div>
-                    <div class="content-detail">
-                      <div class="content-detail-a">
-                        <p class="content-detail-num">0</p>
-                      </div>
-                      <div class="content-detail-b">
-                        <p class="content-detail-num">2024.02.05</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <div class="page-count-wrap">
-                  <ul class="page flex">
-                    <li>
-                      <button
-                        class="page-count"
-                        aria-label="page turning button"
-                        disabled
-                        type="button"
-                      >
-                        <svg
-                          class="page-count"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M15.58 3.27c.504.405.563 1.115.13 1.587L9.168 12l6.543 7.143a1.076 1.076 0 0 1-.13 1.586 1.26 1.26 0 0 1-1.695-.122L6 12l7.885-8.607a1.26 1.26 0 0 1 1.695-.122Z"
-                          ></path>
-                        </svg>
-                      </button>
-                    </li>
-                    <li class="page-count">
-                      <button
-                        class="page-count-num page-count-num-choice"
-                        aria-label="page number button"
-                        type="button"
-                      >
-                        <span class="page-count-num">1</span>
-                      </button>
-                    </li>
-                    <li class="page-count">
-                      <button
-                        class="page-count-num"
-                        aria-label="page number button"
-                        type="button"
-                      >
-                        <span class="page-count-num">2</span>
-                      </button>
-                    </li>
-                    <li class="page-count">
-                      <button
-                        class="page-count"
-                        aria-label="page turning button"
-                        disabled
-                        type="button"
-                      >
-                        <svg
-                          class="page-count"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"
-                          ></path>
-                        </svg>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="delete-modal-wrap">
-        <div class="delete-modal-container">
-          <h4 class="delete-modal">댓글 삭제</h4>
-          <div class="delete-modal-inner">해당 댓글을 삭제하시겠습니까?</div>
-          <div class="delete-modal-box">
-            <div class="modal-cancel">
-              <button class="modal-cancel" aria-label="button" type="button">
-                취소
-              </button>
-            </div>
-            <div class="modal-confirm">
-              <button class="modal-confirm" aria-label="button" type="button">
-                확인
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="delete-modal-bgcolor"></div>
-      </div>
-    </div>
-  </body>
-  <script src="/js/manager/comment/comment.js"></script>
+													<li class="list-order-function" data-option-value="likes" tabindex="-1">
+														<button class="function-latest" aria-label="dropdown option" data-option-value="likes"
+															type="button">
+															<span class="function-btn-text">누적신고 순</span>
+														</button>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="category-benner">
+								<input type="checkbox" class="all-check" />
+								<div class="category-inner" style="width: 730px">정보</div>
+								<div class="category-inner" style="width: 80px">신고</div>
+								<div class="category-inner">게시일</div>
+							</div>
+							<ul class="list-content" id="commentList">
+
+
+								<th:block th:each="item : ${mcds}">
+									<li class="list-content" th:report_id="${item.getReportReply_id()}">
+										<input type="checkbox" class="checkbox-input" />
+										<button class="text-left">
+											<div class="list-content-wrap">
+												<div class="list-content-container">
+													<div class="list-content-inner">
+														<div class="content-name">
+															<p class="content-name" th:text="${item.getReply_content()}">댓글 내용</p>
+														</div>
+														<div class="content-name" style="color:#8a8787;">
+															<p class="content-name" th:text="${item.getReport_content()}">신고내용</p>
+														</div>
+														<p class="content-name-detail" th:text="${item.getTitle()}">댓글 컨텐츠 제목</p>
+													</div>
+												</div>
+											</div>
+										</button>
+										<div class="content-open-wrap"></div>
+										<div class="content-detail">
+											<div class="content-detail-a">
+												<p class="content-detail-num" th:text="${item.getReportCount()}">신고 수</p>
+											</div>
+											<div class="content-detail-b">
+												<p class="content-detail-num" th:text="${#temporals.format(item.getUpdated_date(), 'yyyy.MM.dd')}">최근 신고 날짜</p>
+											</div>
+										</div>
+									</li>
+								</th:block>
+
+
+							</ul>
+<!-- 							<div class="page-count-wrap"> -->
+<!-- 								<ul class="page flex"> -->
+<!-- 									<li> -->
+<!-- 										<button class="page-count" aria-label="page turning button" disabled type="button"> -->
+<!-- 											<svg class="page-count" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+<!-- 												<path fill-rule="evenodd" clip-rule="evenodd" -->
+<!-- 													d="M15.58 3.27c.504.405.563 1.115.13 1.587L9.168 12l6.543 7.143a1.076 1.076 0 0 1-.13 1.586 1.26 1.26 0 0 1-1.695-.122L6 12l7.885-8.607a1.26 1.26 0 0 1 1.695-.122Z"> -->
+<!-- 												</path> -->
+<!-- 											</svg> -->
+<!-- 										</button> -->
+<!-- 									</li> -->
+<!-- 									<li class="page-count"> -->
+<!-- 										<button class="page-count-num page-count-num-choice" aria-label="page number button" type="button"> -->
+<!-- 											<span class="page-count-num">1</span> -->
+<!-- 										</button> -->
+<!-- 									</li> -->
+<!-- 									<li class="page-count"> -->
+<!-- 										<button class="page-count-num" aria-label="page number button" type="button"> -->
+<!-- 											<span class="page-count-num">2</span> -->
+<!-- 										</button> -->
+<!-- 									</li> -->
+<!-- 									<li class="page-count"> -->
+<!-- 										<button class="page-count" aria-label="page turning button" disabled type="button"> -->
+<!-- 											<svg class="page-count" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+<!-- 												<path fill-rule="evenodd" clip-rule="evenodd" -->
+<!-- 													d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"> -->
+<!-- 												</path> -->
+<!-- 											</svg> -->
+<!-- 										</button> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+<!-- 							</div> -->
+						
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="delete-modal-wrap">
+			<div class="delete-modal-container">
+				<h4 class="delete-modal">댓글 삭제</h4>
+				<div class="delete-modal-inner">해당 댓글을 삭제하시겠습니까?</div>
+				<div class="delete-modal-box">
+					<div class="modal-cancel">
+						<button class="modal-cancel" aria-label="button" type="button">
+							취소
+						</button>
+					</div>
+					<div class="modal-confirm">
+						<button class="modal-confirm" aria-label="button" type="button">
+							확인
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="delete-modal-bgcolor"></div>
+		</div>
+	</div>
+</body>
+<script src="/js/manager/comment/comment.js"></script>
+
 </html>

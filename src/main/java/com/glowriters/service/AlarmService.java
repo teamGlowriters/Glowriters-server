@@ -34,7 +34,6 @@ public class AlarmService {
 
 	@Transactional
 	public List<Alarm> findAll() {
-//		return alarmRepository.findAllByStatus();
 		return alarmRepository.findAll();
 	}
 
