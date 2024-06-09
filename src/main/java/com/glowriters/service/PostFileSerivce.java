@@ -38,4 +38,11 @@ public class PostFileSerivce {
 	public List<Postfile> findAll(){
 		return postFileRepository.findAll();
 	}
+	
+	@Transactional
+	public void delete(List<Postfile> postfiles) {
+		for (Postfile postfile : postfiles) {
+			postFileRepository.delete(postfile);
+		}
+	}
 }

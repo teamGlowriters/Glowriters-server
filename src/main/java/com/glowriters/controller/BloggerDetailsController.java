@@ -33,7 +33,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class BloggerDetailsController {
+public class BloggerDetailsController extends BaseController{
 
 	private final MemberService memberService;
 
@@ -56,6 +56,9 @@ public class BloggerDetailsController {
 		int memberEqualBlogger = 0;
 		// 현재 로그인한 사용자의 정보
 		HttpSession session = request.getSession();
+		if(model.getAttribute("isLogin") == "no") {
+			return "redirect:/";
+		}
 		long memberId = (long) session.getAttribute("member_id");
 		Member loginMember = memberService.findById(memberId);
 

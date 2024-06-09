@@ -48,7 +48,7 @@ public class PostService {
 
 	@Transactional
 	public List<Post> findAll() {
-		return postRepository.findAll();
+		return postRepository.findAllByStatus();
 	}
 
 	@Transactional
@@ -66,7 +66,7 @@ public class PostService {
 	// 업데이트날짜 기준 최근 cnt개의 게시물을 가져오는 함수
 	@Transactional
 	public List<Post> findByRecentCnt(long cnt) {
-		return postRepository.findAll().stream().sorted(Comparator.comparing(Post::getUpdated_date).reversed()).limit(cnt)
+		return postRepository.findAllByStatus().stream().sorted(Comparator.comparing(Post::getUpdated_date).reversed()).limit(cnt)
 				.collect(Collectors.toList());
 	}
 
@@ -102,5 +102,19 @@ public class PostService {
 	@Transactional
 	public List<Post> getPostsByMemberIdAndPostStatusOrderByCreatedDateDesc(Long memberId) {
 		return postRepository.findByMemberIdAndPostStatus(memberId);
+	}
+	
+	@Transactional
+	public Post updatePost(Post updatePost, Post post) {
+		updatePost.setTitle(post.getTitle());
+		updatePost.setCategory(post.getCategory());
+		updatePost.setContent(post.getContent());
+		return postRepository.save(updatePost);
+	}
+	
+	@Transactional
+	public void deletePost(Post deletePost) {
+		deletePost.setPost_status(0);
+		postRepository.save(deletePost);
 	}
 }

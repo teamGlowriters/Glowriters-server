@@ -26,13 +26,13 @@
 		}
 	</style>
 	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
-	<link rel="stylesheet" href="/css/post-details/header.css" />
-	<title>post-details전용 헤더</title>
+	<link rel="stylesheet" href="/css/main/header.css" />
+	<title>write전용 헤더</title>
 </head>
 
 <body>
 	<div class="header-sidemenu open" th:fragment="fragment-header1">
-		<main>
+		<main style="width:260px;">
 			<button class="sidemenu-closebtn" type="button">닫기</button>
 			<div class="loginprofile">
 
@@ -81,7 +81,7 @@
 
 					<li th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}"
 						th:classappend="${sidemenu == 'mypage' ? 'selected' : ''}">
-						<a class="glowMypage" href="/" th:href="@{/mypage/mypage/{member_id}(member_id=${member_id})}">
+						<a class="glowMypage" href="/" th:href="@{/mypage/mypage}">
 							<span class="bar-left"></span>
 							마이 페이지
 							<span class="bar-right"></span>
@@ -161,17 +161,15 @@
 						<a href="/" class="first-logo-img">glow</a>
 					</h1>
 				</div>
-				<div class="top-inner-third">
-					<a th:if="${canEdit}" th:href="@{/update/update/delete/{post_id}(post_id=${pvd.getPost_id()})}" class="inner-third-login loginservice">삭제</a>
-					<a th:if="${canEdit}" th:href="@{/update/update/{post_id}(post_id=${pvd.getPost_id()})}" class="inner-third-login loginservice">수정</a>
-					<a th:if="${!canEdit}" href="/write/write" class="inner-third-login loginservice">글쓰기</a>
-
-					<!-- 					<a th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" -->
-					<!-- 						href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code" -->
-					<!-- 						class="inner-third-login logoutservice">로그인</a> -->
+				<div class="top-inner-third" style="display:none;">
+					<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/write/write"
+						class="inner-third-login loginservice">글쓰기</a>
+					<a th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}"
+						href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
+						class="inner-third-login logoutservice">로그인</a>
 				</div>
 				<div class="top-inner-second">
-					<div class="inner-second-search">
+					<div class="inner-second-search" style="display:none;">
 						<form action="#" method="get">
 							<input name="q" class="second-search-input" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
 								autocomplete="off" value>
@@ -186,10 +184,6 @@
 	</header>
 
 </body>
-<script th:inline="javascript">
-	var memberId = /*[[${member_id}]]*/0;
-	var bloggerId = /*[[${blogger_id}]]*/0;
-</script>
-<script src="/js/post-details/header.js"></script>
+<script src="/js/main/header.js"></script>
 
 </html>
