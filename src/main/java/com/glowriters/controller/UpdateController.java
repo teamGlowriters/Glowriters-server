@@ -2,46 +2,39 @@ package com.glowriters.controller;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.glowriters.DTO.PostViewDTO;
 import com.glowriters.domain.Post;
 import com.glowriters.domain.Postfile;
-import com.glowriters.service.MemberService;
 import com.glowriters.service.PostFileSerivce;
 import com.glowriters.service.PostService;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequiredArgsConstructor //@Autowired를 안써도됨
+@RequiredArgsConstructor
 @Slf4j
-public class WriteController extends BaseController {
+public class UpdateController extends BaseController {
+
 	private final PostService postService;
-	private final MemberService memberService;
+
 	private final PostFileSerivce postFileSerivce;
-
-	@GetMapping("/write/write")
-	public String viewWrite(Model model) {
-		// 사이드메뉴에서 현재 페이지가 어디인지 하이라이트 표시
-		model.addAttribute("sidemenu", "write");
-
-		return "/write/write";
-	}
 
 	@Value("${project.uploadpath}")
 	private String uploadpath = "static/upload";
@@ -81,19 +74,47 @@ public class WriteController extends BaseController {
 		return path; // 생성된 경로 반환
 	}
 
-	@PostMapping("/write/write")
-	public String writePost(HttpServletRequest request, @RequestParam("files") MultipartFile[] files, Post post,
-			RedirectAttributes redirectAttributes, Model model) {
+	@GetMapping("update/update/{post_id}")
+	public String viewWriteUpdate(@PathVariable("post_id") long post_id, Model model) {
 
-		// 현재 로그인한 사용자의 정보가 세션에 담겨있음
-		// 따라서 현재 로그인한 사용자가 현재 게시물을 작성하였으므로 가져와야함
-		HttpSession session = request.getSession();
-		// 현재 로그인한 사용자의 정보를 가져온 후 그 안에 member_id를 통해 member_id 가져오기
-		long member_id = (long) session.getAttribute("member_id");
-		// 가져온후 postService.save 통해 member_id와 post 객체를 넣어준 후
-		postService.save(member_id, post);
+		PostViewDTO pvd = new PostViewDTO();
 
-		// post 테이블에 save 되었으면 postfile이 있을땐 postfile 테이블에 값이 잘 들어가야함
+		// 수정할 게시물
+		Post updatePost = postService.findById(post_id);
+		pvd.setPost_id(updatePost.getPost_id());
+		pvd.setTitle(updatePost.getTitle());
+		pvd.setContent(updatePost.getContent());
+
+		// 수정할 게시물 사진
+		List<Postfile> postfiles = postFileSerivce.findAllByPost(updatePost.getPost_id());
+		List<String> imgs = new ArrayList<String>(3);
+		for (Postfile postfile : postfiles) {
+			imgs.add(postfile.getFilepath());
+		}
+		while (imgs.size() < 3)
+			imgs.add("");
+		pvd.setFilepaths(imgs);
+
+		model.addAttribute("pvd", pvd);
+		return "update/update";
+	}
+	
+	@GetMapping("/update/update/delete/{post_id}")
+	public String deletePost(@PathVariable("post_id") long post_id) {
+		// 삭제할 게시물
+		Post deletePost = postService.findById(post_id);
+		postService.deletePost(deletePost);
+		return "redirect:/";
+	}
+	
+	@PostMapping("/update/update/{post_id}")
+	public String updateWrite(RedirectAttributes redirectAttributes, @PathVariable("post_id") long post_id, @RequestParam("files") MultipartFile[] files,
+			Post post) {
+		// 수정할 게시물
+		Post updatePost = postService.findById(post_id);
+		List<Postfile> updatePostfiles = postFileSerivce.findAllByPost(updatePost.getPost_id());
+		postService.updatePost(updatePost, post);
+		postFileSerivce.delete(updatePostfiles);
 		for (MultipartFile multipartFile : files) {
 			if (!multipartFile.isEmpty()) {
 				// 실제파일명추출:image.jpg
@@ -122,10 +143,9 @@ public class WriteController extends BaseController {
 				}
 			}
 		}
-		long post_id = post.getPost_id();
 		redirectAttributes.addAttribute("post_id", post_id);
-
 		return "redirect:/post-details/post-details/{post_id}";
 	}
+	
 	
 }

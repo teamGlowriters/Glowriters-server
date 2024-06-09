@@ -60,10 +60,12 @@ public class PostDetailsController extends BaseController {
 
 		// 현재 로그인한 사용자 즉 이 게시물을 보고 있는 사용자 정보 가져오기
 		HttpSession session = request.getSession();
+		if(model.getAttribute("isLogin") == "no") {
+			return "redirect:/";
+		}
 		long member_id = (long) session.getAttribute("member_id");
 		Member loginMember = memberService.findById(member_id);
 		model.addAttribute("member", loginMember);
-		
 		PostViewDTO pvd = new PostViewDTO();
 		List<ReplyViewDTO> rvds = new ArrayList<ReplyViewDTO>();
 		
@@ -86,7 +88,7 @@ public class PostDetailsController extends BaseController {
 		pvd.setContent(post.getContent());
 		pvd.setCategory(post.getCategory());
 		pvd.setCreated_date(post.getCreated_date());
-
+		
 		// postfile
 		for (Postfile postfile : postfiles) {
 			pvd.filepaths.add(postfile.getFilepath());

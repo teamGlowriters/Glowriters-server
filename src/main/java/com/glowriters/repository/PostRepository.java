@@ -26,4 +26,8 @@ public interface PostRepository extends JpaRepository<Post, Long>{
   
   @Query("SELECT p FROM Post p WHERE p.member.id = :memberId AND p.post_status = 1 ORDER BY p.created_date DESC")
   List<Post> findByMemberIdAndPostStatus(@Param("memberId") Long memberId);
+  
+  // 전체를 가져오되 status=1인 것만
+  @Query("SELECT p FROM Post p WHERE p.post_status = 1")
+  List<Post> findAllByStatus();
 }
