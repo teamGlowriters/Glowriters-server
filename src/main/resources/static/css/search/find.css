@@ -1061,13 +1061,13 @@ only screen and (min-resolution: 1.5dppx) {
 .search-result {
   margin: 0 auto;
   overflow: hidden;
-  width: 940px;
+  width: 1000px;
 }
 
 .result-search {
   overflow: hidden;
   padding: 26px 0 33px;
-  width: 940px;
+  width: 1000px;
 }
 
 .result-search .result-article {
@@ -1445,7 +1445,7 @@ only screen and (min-resolution: 1.5dppx) {
 .list-search {
   margin: 0 auto;
   padding-top: 0;
-  width: 940px;
+  width: 1000px;
 }
 .search-writer {
   overflow: hidden;
@@ -1455,11 +1455,12 @@ only screen and (min-resolution: 1.5dppx) {
   box-shadow: 0 1px 0 0 #eee;
   box-sizing: border-box;
   float: left;
-  height: 206px;
-  margin: 0 0 20px 20px;
+  height: 160px;
+  margin: 0 10px 20px 20px;
   padding: 24px 20px;
   position: relative;
   width: 460px;
+  overflow: hidden;
 }
 .list-search .search-writer .search-writer-item:nth-child(odd) {
   margin-left: 0;

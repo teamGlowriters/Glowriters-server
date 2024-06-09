@@ -1,4 +1,3 @@
-
 //2. 사이드 메뉴바를 눌렀을때 켜지고 꺼지는것
 const menuBtn = document.querySelector(".inner-first-btn")
 const sideMenu = document.querySelector(".header-sidemenu.open")

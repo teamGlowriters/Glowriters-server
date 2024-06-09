@@ -6,28 +6,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/search/find.css" />
+	<link rel="stylesheet" href="/css/main/header.css" data-whatIsThis="헤더CSS임포트" />
 	<title>검색결과 페이지</title>
 </head>
 
 <body>
 	<!-- 헤더 시작 부분 -->
-	<div class="header-sidemenu open">
+	<div class="header-sidemenu open" th:fragment="fragment-header1">
 		<main>
 			<button class="sidemenu-closebtn" type="button">닫기</button>
 			<div class="loginprofile">
 
-				<div th:if="${isLogin == 'no'}" class="logoutservice">
-					<img class="sidemenu-profile-logo logoutservice" src="/images/glowriters.png">
-					<p class="sidemenu-profile-slogan logoutservice" data-info="소개글">
+				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
+					<img class="sidemenu-profile-logo logoutservice" src="/images/glowriters.png" style="display:block">
+					<p class="sidemenu-profile-slogan logoutservice">
 						You can make anything
 						<br>
 						by writing
 					</p>
-					<!--           <p class="sidemenu-profile-sloganwriter logoutservice">C.S.Lewis</p> -->
+					<!-- 						<p class="sidemenu-profile-sloganwriter logoutservice">C.S.Lewis</p> -->
 				</div>
 
-
-				<a th:if="${isLogin == 'yes'}" href="/mypage/mypage" class="myprofilelink loginservice">
+				<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/mypage/mypage"
+					class="myprofilelink loginservice">
 					<div class="profile-img">
 						<img class="picture" alt="프로필이미지" src="/images/blank-image.png" th:src="${member_profile}">
 					</div>
@@ -37,15 +38,14 @@
 					</div>
 				</a>
 
-				<div th:if="${isLogin == 'no'}" class="logoutservice">
+				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
 					<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
 						class="profile-logout-a">
 						<button class="profile-logout-btn">글로우라이터스 시작하기</button>
 					</a>
 				</div>
 
-
-				<div th:if="${isLogin == 'yes'}" class="loginservice">
+				<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="loginservice">
 					<a href="/write/write" class="profile-write">
 						<button class="profile-write-btn">글쓰기</button>
 					</a>
@@ -60,37 +60,40 @@
 			<div class="sidemenu-service this">
 				<ul>
 
-					<li th:if="${isLogin == 'yes'}">
-						<a class="glowMypage" href="/" th:href="@{/mypage/mypage}">
+					<li th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}"
+						th:classappend="${sidemenu == 'mypage' ? 'selected' : ''}">
+						<a class="glowMypage" href="/" th:href="@{/mypage/mypage/{member_id}(member_id=${member_id})}">
 							<span class="bar-left"></span>
 							마이 페이지
 							<span class="bar-right"></span>
 						</a>
 					</li>
 
-					<li class="selected">
+					<li>
 						<a class="glowHome" href="/" th:href="@{/}">
 							<span class="bar-left"></span>
 							글로우라이터스 홈
 							<span class="bar-right"></span>
 						</a>
 					</li>
-					<li>
+					<li th:classappend="${sidemenu == 'now' ? 'selected' : ''}">
 						<a class="glowNow" href="/" th:href="@{/now/now}">
 							<span class="bar-left"></span>
 							글로우라이터스 나우
 							<span class="bar-right"></span>
 						</a>
 					</li>
-					<li>
+					<li th:classappend="${sidemenu == 'category' ? 'selected' : ''}">
 						<a class="glowCategory" href="#" th:href="@{/category/category}">
 							<span class="bar-left"></span>
 							카테고리
 							<span class="bar-right"></span>
 						</a>
 					</li>
-					<li>
-						<a class="glowWrite" href="#" th:href="@{/write/write}" th:if="${isLogin == 'yes'}">
+					<!-- 					write는 사실 따로 관리해서 여기에는 th:classappend를 할 필요없음 -->
+					<li th:classappend="${sidemenu == 'write' ? 'selected' : ''}">
+						<a class="glowWrite" href="#" th:href="@{/write/write}"
+							th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}">
 							<span class="bar-left"></span>
 							글쓰기
 							<span class="bar-right"></span>
@@ -105,14 +108,14 @@
 						</a>
 					</div>
 
-					<div th:if="${isLogin == 'no'}" class="logoutservice">
+					<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
 						<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
 							class="sidemenu-findAccount">
 							계정을 잊어버리셨나요?
 						</a>
 					</div>
 
-					<div th:if="${isLogin == 'yes'}" class="bottom-setting-container">
+					<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="bottom-setting-container">
 						<a class="sidemenu-bottom-setting loginservice" href="/" th:href="@{/mypage/mypage}">
 							<button type="button">설정</button>
 						</a>
@@ -121,7 +124,7 @@
 						</a>
 					</div>
 
-					<div th:if="${isLogin == 'yes'}" class="donation_intro loginservice">
+					<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="donation_intro loginservice">
 						<span>화이팅!</span>
 						<i class="mint_rectangle"></i>
 					</div>
@@ -130,29 +133,31 @@
 			</div>
 		</main>
 	</div>
-	<header class="header">
+	<header class="header" th:fragment="fragment-header2">
 		<div class="header-top this">
 			<div class="header-top-inner">
 				<div class="top-inner-first">
 					<button class="inner-first-btn" type="button">메뉴</button>
 					<h1 class="inner-first-logo">
-						<a href="#" class="first-logo-img">glow</a>
+						<a href="/" class="first-logo-img">glow</a>
 					</h1>
 				</div>
 				<div class="top-inner-third">
-
+					<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/write/write"
+						class="inner-third-login loginservice">글쓰기</a>
+					<a th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}"
+						href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
+						class="inner-third-login logoutservice">로그인</a>
 				</div>
 				<div class="top-inner-second">
-					<!-- 검색아이콘을 누르면 show 클래스가 추가됨 -->
 					<div class="inner-second-search">
 						<form action="#" method="get">
-							<!--  아래 태그에는 opacity: 1; margin-left: 37px; 추가   -->
 							<input name="q" class="second-search-input" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
-								autocomplete="off" value="" style="opacity: 1; margin-left: 37px;">
-							<input name="profiled" type="hidden" value="">
+								autocomplete="off" value>
+							<input name="profiled" type="hidden" value>
 						</form>
-						<!-- 버튼이 왼쪽으로 이동후 누르면 페이지이동하도록 수정, 아니면 엔터 누르면 -->
-						<button onclick="" class="second-search-btn" type="button">검색</button>
+						<!-- 이 버튼을 누르면 검색 페이지(search)로 이동 -->
+<!-- 						<button onclick="location.href='/search/search'" class="second-search-btn" type="button">검색</button> -->
 					</div>
 				</div>
 			</div>
@@ -181,8 +186,12 @@
 				<div class="tab-search">
 					<ul class="inner-tab">
 						<!-- 선택한것은 on클래스가 붙음 -->
-						<li class="on"><a href="#" class="articleTab link-tab">글</a></li>
-						<li><a href="#" class="userTab link-tab">블로거</a></li>
+						<li class="on">
+							<a href="#" class="articleTab link-tab">글</a>
+						</li>
+						<li>
+							<a href="#" class="userTab link-tab">블로거</a>
+						</li>
 						<!-- <li><a href="#" class="articleTab link-tab">글</a></li> -->
 					</ul>
 				</div>
@@ -198,23 +207,21 @@
 			<div class="cont-search" role="main">
 				<div class="mArticle" style="display: block;">
 
-					<!-- 글 검색결과 -->
-					<div class="search-result" style="display: none; margin-top: 0px;">
+					<!-- 1. 글 검색  -->
+					<div class="search-result post" style="margin-top: 0px;">
 						<div class="result-search">
 							<div class="result-article">
 								<div class="search-category sub-title" style="display: block;">
 									<h3 class="tit-search">
 										글 검색 결과
-										<span class="tit-search-cnt">800건</span>
+										<!-- 0. 글검색결과 갯수 -->
+										<span class="tit-search-cnt" th:text="|${postCnt}건|">건수</span>
 									</h3>
-									<span class="search-option">
-										<a href="#" class="link-option on" data-type="accu">정확도</a>
-										<a href="#" class="link-option" data-type="recency">최신</a>
-									</span>
 								</div>
 								<div class="wrap-article-list">
 									<ul class="list-article list-animation">
 
+										<!-- 1-1. 실제 글 검색 내용 출력하는 부분 -->
 										<th:block th:each="item : ${pvds}">
 											<li class="list-has-image animation-up-late">
 												<a href="#" th:href="@{/post-details/post-details/{post_id}(post_it = ${item.getPost_id()})}"
@@ -227,27 +234,29 @@
 														</div>
 														<span class="mobile-d-n post-append">
 															<span>댓글</span>
-															<span class="num-txt" th:text="${}">댓글수</span>
+															<span class="num-txt" th:text="${item.getReplyCount()}">댓글수</span>
 															<span class="ico-dot"></span>
-															<span class="publish-time">Mar 29. 2024</span>
+															<span class="publish-time"
+																th:text="${#temporals.format(pvd.getCreated_date(), 'yyyy.MM.dd EEEE')}">날짜</span>
 															<span class="ico-dot"></span>
 															<span class="txt-by">by</span>
-															<span>문득</span>
+															<span th:text="${item.getMember_nickname()}">작성자</span>
 														</span>
 													</div>
 													<div class="post-thumb">
-														<img class="mobile-d-n img-thumb" src="/images/blank-image.png" alt="이미지정보">
-														<img class="pc-d-n img-thumb" src="/images/blank-image.png" alt="이미지정보">
+														<img class="mobile-d-n img-thumb" src="/images/blank-image.png"
+															th:src="${item.getFilepath()}" alt="이미지정보" style="width:120px; height:120px;">
+														<!-- 														<img class="pc-d-n img-thumb" src="/images/blank-image.png" alt="이미지정보"> -->
 													</div>
-													<span class="pc-d-n post-append">
-														<span>댓글</span>
-														<span class="num-txt">0</span>
-														<span class="ico-dot"></span>
-														<span class="publish-time">Mar 29. 2024</span>
-														<span class="ico-dot"></span>
-														<span class="ico-brunch txt-by">by</span>
-														<span>문득</span>
-													</span>
+													<!-- 													<span class="pc-d-n post-append"> -->
+													<!-- 														<span>댓글</span> -->
+													<!-- 														<span class="num-txt">0</span> -->
+													<!-- 														<span class="ico-dot"></span> -->
+													<!-- 														<span class="publish-time">Mar 29. 2024</span> -->
+													<!-- 														<span class="ico-dot"></span> -->
+													<!-- 														<span class="ico-brunch txt-by">by</span> -->
+													<!-- 														<span>문득</span> -->
+													<!-- 													</span> -->
 												</a>
 											</li>
 										</th:block>
@@ -256,7 +265,7 @@
 								</div>
 							</div>
 
-							<!-- 추천 블로거란 -->
+							<!-- 2. 추천 블로거 (글검색과 함께 보이는것) -->
 							<div class="result-recommend animation-up-late">
 								<div class="writerContainer">
 									<strong class="tit-recommend dd">추천 블로거</strong>
@@ -290,13 +299,14 @@
 					</div>
 
 
-					<!-- 블로거 카테고리 클릭해야 block -->
-					<div class="search-result" style="display: none;">
+					<!-- 3. 블로거 검색 결과 -->
+					<div class="search-result blogger">
 						<div class="result-search">
 							<!-- 블로거 카테고리 클릭해야 block -->
 							<div class="search-category sub-title" style="display: block;">
 								<h3 class="tit-search">
 									블로거 검색 결과
+									<!-- 3-1. 검색갯수 -->
 									<span class="tit-search-cnt" th:text="${bloggerCnt}">검색결과 갯수</span>
 									건
 								</h3>
@@ -304,36 +314,33 @@
 							<div class="list-search">
 								<ul class="list-follow search-writer">
 
-									<th:block th:each="item : ${}">
+									<!-- 3-2. 실제 블로거 정보를 출력하는곳 -->
+									<th:block th:each="item : ${bloggers}">
 										<li>
 											<div class="search-writer-item animation-up-late">
 												<div class="search-writer-info">
-													<a href="#" target="_blank" class="ico-brunch blogger-thumb">
-														<img src="/images/blank-image.png" width="80" height="80" class="img-thumb" alt="">
+													<a href="#" th:href="@{/blogger-details/blogger-details/{id}(id = ${item.getMember_id()})}"
+														target="_blank" class="ico-brunch blogger-thumb">
+														<img src="/images/blank-image.png" th:src="${item.getMember_profile()}" width="80"
+															height="80" class="img-thumb" alt="">
 														<span class="frame-g"></span>
 													</a>
-													<a href="#" target="_blank" class="link-follow">
+													<a href="#" th:href="@{/blogger-details/blogger-details/{id}(id = ${item.getMember_id()})}"
+														target="_blank" class="link-follow">
 														<span class="cont-follow">
-															<strong class="tit-subject">
-																<!-- 검색어일치하는것은 b태그로 하이라이트 -->
-																<b>가나다</b>
-																이군
-															</strong>
-															<span class="desc-follow">
-																한국에서 대기업 때려치우고 캐나다 온타리오주의 작은 가구 공장에서 해외 노동자로 일하고 있습니다.
-															</span>
+															<strong class="tit-subject" th:text="${item.getMember_nickname()}">블로거 이름</strong>
+															<span class="desc-follow" th:text="${item.getMember_comment()}">블로거 소개</span>
 														</span>
 													</a>
 													<div class="info-append">
 														<em>글 수</em>
-														105
+														<span th:text="${item.getPostCount()}">글수</span>
 														<span class="ico-dot"></span>
 														<em>구독자 수</em>
-														74
+														<span th:text="${item.getSubscriberCount()}">구독자수</span>
 													</div>
 												</div>
-												<div class="wrap-keywords">
-												</div>
+												<!-- 	<div class="wrap-keywords"></div> -->
 											</div>
 										</li>
 									</th:block>
@@ -358,10 +365,8 @@
 		</div>
 	</div>
 
-
-
-
 </body>
 <script src="/js/search/find.js"></script>
+<script src="/js/main/header.js" data-whatIsThis="헤더js임포트"></script>
 
 </html>
