@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.glowriters.DTO.MemberViewDTO;
 import com.glowriters.DTO.PostViewDTO;
@@ -21,6 +20,7 @@ import com.glowriters.domain.Postfile;
 import com.glowriters.service.MemberService;
 import com.glowriters.service.PostFileSerivce;
 import com.glowriters.service.PostService;
+import com.glowriters.service.ReplyService;
 import com.glowriters.service.SubscriberService;
 
 import lombok.RequiredArgsConstructor;
@@ -29,13 +29,14 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
-public class SearchController extends BaseController {
+public class FindController extends BaseController {
 	private final PostService postService;
+	private final MemberService memberService;
 	private final PostFileSerivce postFileSerivce;
 	private final SubscriberService subscriberService;
-	private final MemberService memberService;
-
-	// PostViewDTO를 생성해주는 함수. 게시물리스트를 전달하면 생성해줌
+	private final ReplyService replyService;
+	
+//PostViewDTO를 생성해주는 함수. 게시물리스트를 전달하면 생성해줌
 	public List<PostViewDTO> getPostViewDTO(List<Post> posts) {
 		List<PostViewDTO> pvds = new ArrayList<>();
 
@@ -67,6 +68,11 @@ public class SearchController extends BaseController {
 
 			String NEW = pvd.getCreated_date().isEqual(pvd.getUpdated_date()) ? "yes" : "no";
 			pvd.setNEW(NEW);
+			
+			long replyCount = replyService.getCommentCountByPostId(post.getPost_id());
+			pvd.setReplyCount(replyCount);
+			
+			
 
 			// pvd.setLikeCount(0); //아직 구현안함
 			pvds.add(pvd);
@@ -128,38 +134,21 @@ public class SearchController extends BaseController {
 		return mvds;
 	}
 
-	// 화면을 보여줌
-	@GetMapping("/search/search")
-	public String viewSearch(Model model) {
-		List<Member> bloggers = memberService.findAll();
-		List<MemberViewDTO> mvds = getMemberViewDTO(bloggers);
-		// 5개 만 보냄
-		mvds = mvds.size() > 5 ? new ArrayList<>(mvds.subList(0, 5)) : mvds;
-		model.addAttribute("recommendedBlogger", mvds);
-		return "/search/search";
-	}
-
-	// 게시글 검색
-	@GetMapping("/search/search/resultPost")
-	public String searchPost(@RequestParam("keyword") String keyword, Model model) {
-		List<Post> posts = postService.findByTitleByKeyword(keyword);
+	// 검색후 엔터누르면 이 컨트롤러가 호출됨
+	@PostMapping("/search/find")
+	public String viewFind(String searchInput, Model model) {
+		List<Post> posts = postService.findByTitleByKeyword(searchInput);
 		List<PostViewDTO> pvds = getPostViewDTO(posts);
-		// 10개 만 보냄
-		pvds = pvds.size() > 10 ? new ArrayList<>(pvds.subList(0, 10)) : pvds;
+		
+		List<Member> bloggers = memberService.findByMemberNicknameByKeyword(searchInput);
+		List<MemberViewDTO> mvds = getMemberViewDTO(bloggers);
+
+		model.addAttribute("postCnt", posts.size());
+		model.addAttribute("bloggerCnt", bloggers.size());
+
 		model.addAttribute("posts", pvds);
-		return "/search/search :: #resultPost";
-	}
-
-	// 블로거 검색
-	@GetMapping("/search/search/resultBlogger")
-	public String searchBlogger(@RequestParam("keyword") String keyword, Model model) {
-		List<Member> members = memberService.findByMemberNicknameByKeyword(keyword);
-		List<MemberViewDTO> mvds = getMemberViewDTO(members);
-		// 10개 만 보냄
-		mvds = mvds.size() > 10 ? new ArrayList<>(mvds.subList(0, 10)) : mvds;
 		model.addAttribute("bloggers", mvds);
-		return "/search/search :: #resultBlogger";
+		return "/search/find";
 	}
-
 
 }

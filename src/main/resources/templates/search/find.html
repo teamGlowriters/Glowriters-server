@@ -125,7 +125,7 @@
 						<span>화이팅!</span>
 						<i class="mint_rectangle"></i>
 					</div>
-					
+
 				</div>
 			</div>
 		</main>
@@ -147,9 +147,8 @@
 					<div class="inner-second-search">
 						<form action="#" method="get">
 							<!--  아래 태그에는 opacity: 1; margin-left: 37px; 추가   -->
-							<input name="q" class="second-search-input" type="text" title="검색어입력"
-								placeholder="검색어를 입력해 주세요" autocomplete="off" value=""
-								style="opacity: 1; margin-left: 37px;">
+							<input name="q" class="second-search-input" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
+								autocomplete="off" value="" style="opacity: 1; margin-left: 37px;">
 							<input name="profiled" type="hidden" value="">
 						</form>
 						<!-- 버튼이 왼쪽으로 이동후 누르면 페이지이동하도록 수정, 아니면 엔터 누르면 -->
@@ -170,9 +169,8 @@
 					<!-- 웹주소에 검색값을 q로 전달한 방식인듯 -->
 					<!-- search?q=한&type=user -->
 					<form method="get" action accept-charset="utf-8">
-						<input type="text" value="" name="q" class="txt-search" title="검색어입력"
-							placeholder="검색어를 입력해 주세요." maxlength="20" onfocus="this.value = this.value;"
-							autocomplete="off">
+						<input type="text" value="" name="q" class="txt-search" title="검색어입력" placeholder="검색어를 입력해 주세요."
+							maxlength="20" onfocus="this.value = this.value;" autocomplete="off">
 						<input type="hidden" value="article" name="type">
 					</form>
 				</div>
@@ -199,6 +197,7 @@
 			<hr class="hide">
 			<div class="cont-search" role="main">
 				<div class="mArticle" style="display: block;">
+
 					<!-- 글 검색결과 -->
 					<div class="search-result" style="display: none; margin-top: 0px;">
 						<div class="result-search">
@@ -216,115 +215,56 @@
 								<div class="wrap-article-list">
 									<ul class="list-article list-animation">
 
-
-										<!-- 이미지를 가진 게시글이면 list-has-image가 추가됨 -->
-										<li class="list-has-image animation-up-late">
-											<a href="#" target="_blank" class="link-post">
-												<!-- 이미지를 가진경우 has-image가 추가됨 -->
-												<div class="post-title has-image">
-													<!-- 검색어와 일치하는 부분은 b태그로 하이라이트 -->
-													<strong class="tit-subject">
-														정주행 - -
-														<b>123</b>
-													</strong>
-													<div class="wrap-sub-content">
-														<em class="tit-sub"></em>
-														<span class="article-content">
-															브런치에 쓴 글이 어느덧 600편을 넘었다. 물론 그 600편의 글을 내가 전부 다 기억하고 있느냐 하면
-															유감스럽게도 별로 그렇지는 못하다. 요즘 부쩍 구독자 수가 늘었고, 그래서 처음 이 브런치에 오신 분들이
-															여기는 도대체 뭘 하는 브런치인가를...
+										<th:block th:each="item : ${pvds}">
+											<li class="list-has-image animation-up-late">
+												<a href="#" th:href="@{/post-details/post-details/{post_id}(post_it = ${item.getPost_id()})}"
+													target="_blank" class="link-post">
+													<div class="post-title has-image">
+														<strong class="tit-subject" th:text="${item.getTitle()}">제목</strong>
+														<div class="wrap-sub-content">
+															<em class="tit-sub"></em>
+															<span class="article-content" th:text="${item.getContent()}">내용</span>
+														</div>
+														<span class="mobile-d-n post-append">
+															<span>댓글</span>
+															<span class="num-txt" th:text="${}">댓글수</span>
+															<span class="ico-dot"></span>
+															<span class="publish-time">Mar 29. 2024</span>
+															<span class="ico-dot"></span>
+															<span class="txt-by">by</span>
+															<span>문득</span>
 														</span>
 													</div>
-													<span class="mobile-d-n post-append">
+													<div class="post-thumb">
+														<img class="mobile-d-n img-thumb" src="/images/blank-image.png" alt="이미지정보">
+														<img class="pc-d-n img-thumb" src="/images/blank-image.png" alt="이미지정보">
+													</div>
+													<span class="pc-d-n post-append">
 														<span>댓글</span>
 														<span class="num-txt">0</span>
 														<span class="ico-dot"></span>
 														<span class="publish-time">Mar 29. 2024</span>
 														<span class="ico-dot"></span>
-														<span class="txt-by">by</span>
+														<span class="ico-brunch txt-by">by</span>
 														<span>문득</span>
 													</span>
-												</div>
-												<div class="post-thumb">
-													<img class="mobile-d-n img-thumb" src="/images/blank-image.png"
-														alt="이미지정보">
-													<img class="pc-d-n img-thumb" src="/images/blank-image.png"
-														alt="이미지정보">
-												</div>
-												<span class="pc-d-n post-append">
-													<span>댓글</span>
-													<span class="num-txt">0</span>
-													<span class="ico-dot"></span>
-													<span class="publish-time">Mar 29. 2024</span>
-													<span class="ico-dot"></span>
-													<span class="ico-brunch txt-by">by</span>
-													<span>문득</span>
-												</span>
-											</a>
-										</li>
-
-										<li class="animation-up-late">
-											<a href="#" target="_blank" class="link-post">
-												<!-- 이미지가없어서  has-image 없음 -->
-												<div class="post-title">
-													<!-- 검색어와 일치하는 부분은 b태그로 하이라이트 -->
-													<strong class="tit-subject">
-														정주행 - -
-														<b>123</b>
-													</strong>
-													<div class="wrap-sub-content">
-														<em class="tit-sub"></em>
-														<span class="article-content">
-															그렇게도 오매불망하던 포핸드 드라이브가 하나 둘 제법 잘 들어가기 시작했습니다. 입이 찢어지다 못해 귀에
-															걸려 무언가 되어가고 있다는 느낌에 뿌듯한 나날입니다. 원래 하나만 들입다 파는 성격이라 요즘 포핸드
-															드라이브 연습에 꽂혀 있습니다. 탁구...
-														</span>
-													</div>
-													<span class="mobile-d-n post-append">
-														<span>댓글</span>
-														<span class="num-txt">0</span>
-														<span class="ico-dot"></span>
-														<span class="publish-time">Mar 29. 2024</span>
-														<span class="ico-dot"></span>
-														<span class="txt-by">by</span>
-														<span>문득</span>
-													</span>
-												</div>
-												<div class="post-thumb">
-													<!-- 이미지가없어서 비어있다. -->
-												</div>
-												<span class="pc-d-n post-append">
-													<span>댓글</span>
-													<span class="num-txt">4</span>
-													<span class="ico-dot"></span>
-													<span class="publish-time">Mar 13. 2024</span>
-													<span class="ico-dot"></span>
-													<span class="ico-brunch txt-by">by</span>
-													<span>By 하늘</span>
-												</span>
-											</a>
-										</li>
+												</a>
+											</li>
+										</th:block>
 
 									</ul>
 								</div>
-								<div class="layer-more-loading" style="display: none;">
-									<div class="loader">
-										<div class="dot dot1"></div>
-										<div class="dot dot2"></div>
-										<div class="dot dot3"></div>
-									</div>
-								</div>
 							</div>
+
+							<!-- 추천 블로거란 -->
 							<div class="result-recommend animation-up-late">
 								<div class="writerContainer">
 									<strong class="tit-recommend dd">추천 블로거</strong>
 									<div class="search-recommend">
-										<!-- 추천작가 -->
 
 										<a class="item-recommend" href="#" target="_blank">
 											<span class="thumb-g">
-												<img src="/images/blank-image.png" width="36" height="36"
-													class="img-thumb" alt="작가이름">
+												<img src="/images/blank-image.png" width="36" height="36" class="img-thumb" alt="작가이름">
 											</span>
 											<div class="detail-recommend">
 												<div class="inner-recommend">
@@ -338,96 +278,67 @@
 											</div>
 										</a>
 
-
 									</div>
 								</div>
-								<!-- 추천작가 키워드 제외 -->
-								<div class="keywordContainer"></div>
 							</div>
+
+
+
 						</div>
+
+
 					</div>
-					<!-- 작가 검색결과 -->
-					<!-- 작가 카테고리 클릭해야 block -->
-					<div class="search-result" style="display: block;">
+
+
+					<!-- 블로거 카테고리 클릭해야 block -->
+					<div class="search-result" style="display: none;">
 						<div class="result-search">
-							<!-- 작가 카테고리 클릭해야 block -->
+							<!-- 블로거 카테고리 클릭해야 block -->
 							<div class="search-category sub-title" style="display: block;">
 								<h3 class="tit-search">
 									블로거 검색 결과
-									<span class="tit-search-cnt">3</span>
+									<span class="tit-search-cnt" th:text="${bloggerCnt}">검색결과 갯수</span>
 									건
 								</h3>
 							</div>
 							<div class="list-search">
 								<ul class="list-follow search-writer">
-									<!-- li에 작가소개 2개씩 -->
-									<!-- 즉 li가 한줄 이고 한줄에 가로로 2명의 작가를 소개 -->
-									<li>
-										<!-- 첫번째 -->
-										<div class="search-writer-item animation-up-late">
-											<div class="search-writer-info">
-												<a href="#" target="_blank" class="ico-brunch blogger-thumb">
-													<img src="/images/blank-image.png" width="80" height="80"
-														class="img-thumb" alt="">
-													<span class="frame-g"></span>
-												</a>
-												<a href="#" target="_blank" class="link-follow">
-													<span class="cont-follow">
-														<strong class="tit-subject">
-															<!-- 검색어일치하는것은 b태그로 하이라이트 -->
-															<b>가나다</b>
-															이군
-														</strong>
-														<span class="desc-follow">
-															한국에서 대기업 때려치우고 캐나다 온타리오주의 작은 가구 공장에서 해외 노동자로 일하고 있습니다.
-														</span>
-													</span>
-												</a>
-												<div class="info-append">
-													<em>글 수</em>
-													105
-													<span class="ico-dot"></span>
-													<em>구독자 수</em>
-													74
-												</div>
-											</div>
-											<div class="wrap-keywords">
-											</div>
-										</div>
-										<!-- 두번째  -->
-										<div class="search-writer-item animation-up-late">
-											<div class="search-writer-info">
-												<a href="#" target="_blank" class="ico-brunch blogger-thumb">
-													<img src="/images/blank-image.png" width="80" height="80"
-														class="img-thumb" alt="">
-													<span class="frame-g"></span>
-												</a>
-												<a href="#" target="_blank" class="link-follow">
-													<span class="cont-follow">
-														<strong class="tit-subject">
-															<!-- 검색어일치하는것은 b태그로 하이라이트 -->
-															<b>가나다</b>
-															이군
-														</strong>
-														<span class="desc-follow">
-															한국에서 대기업 때려치우고 캐나다 온타리오주의 작은 가구 공장에서 해외 노동자로 일하고 있습니다.
-														</span>
-													</span>
-												</a>
-												<div class="info-append">
-													<em>글 수</em>
-													105
-													<span class="ico-dot"></span>
-													<em>구독자 수</em>
-													74
-												</div>
-											</div>
-											<div class="wrap-keywords">
-											</div>
-										</div>
-									</li>
 
-									<li></li>
+									<th:block th:each="item : ${}">
+										<li>
+											<div class="search-writer-item animation-up-late">
+												<div class="search-writer-info">
+													<a href="#" target="_blank" class="ico-brunch blogger-thumb">
+														<img src="/images/blank-image.png" width="80" height="80" class="img-thumb" alt="">
+														<span class="frame-g"></span>
+													</a>
+													<a href="#" target="_blank" class="link-follow">
+														<span class="cont-follow">
+															<strong class="tit-subject">
+																<!-- 검색어일치하는것은 b태그로 하이라이트 -->
+																<b>가나다</b>
+																이군
+															</strong>
+															<span class="desc-follow">
+																한국에서 대기업 때려치우고 캐나다 온타리오주의 작은 가구 공장에서 해외 노동자로 일하고 있습니다.
+															</span>
+														</span>
+													</a>
+													<div class="info-append">
+														<em>글 수</em>
+														105
+														<span class="ico-dot"></span>
+														<em>구독자 수</em>
+														74
+													</div>
+												</div>
+												<div class="wrap-keywords">
+												</div>
+											</div>
+										</li>
+									</th:block>
+
+
 								</ul>
 							</div>
 							<div class="layer-more-loading" style="display: none;">
@@ -440,8 +351,7 @@
 						</div>
 					</div>
 
-					<!-- 작품은 제외 -->
-					<div class="search-result" style="display: none;"></div>
+
 				</div>
 			</div>
 			<input type="hidden" value="123">

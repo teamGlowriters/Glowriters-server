@@ -158,13 +158,16 @@
 					<div class="wrap-search-header">
 						<div class="wrap-search">
 							<h2 class="screen-out">검색 키워드 입력 창</h2>
-							<div class="search-form">
+
+
+							<form class="search-form" id="searchForm" th:action="@{/search/find}" method="POST">
 								<div>
 									<span class="placeholder-container" style="position: relative;">
 										<!-- 0. 검색어입력 란 -->
-										<input type="text" value id="searchInput" name="q" class="txt-search this" placeholder=""
-											maxlength="20" autocomplete="off" 
-											style="position: absolute; z-index: 10; background-color: transparent; border-color: transparent;">
+										<input type="text" id="searchInput" name="searchInput" class="txt-search this" placeholder="" maxlength="20"
+											autocomplete="off"
+											style="position: absolute; z-index: 10; background-color: transparent; border-color: transparent;"
+											onkeydown="handleEnterKey(event)">
 										<input type="text" value name="q" class="txt-search placeholder" placeholder="" maxlength="20"
 											autocomplete="off">
 									</span>
@@ -173,7 +176,9 @@
 								<button class="btn-search" type="button">
 									<span class="img-ico ico-search">검색</span>
 								</button>
-							</div>
+							</form>
+
+
 						</div>
 					</div>
 					<!-- 메인화면에서 작성한 추천 블로거 기능 그대로 구현하면됨 -->
@@ -229,8 +234,8 @@
 												class="link-post">
 												<div class="post-title">
 													<strong class="tit-subject item-recommend-title" th:text="${item.getTitle()}">
-<!-- 													<strong class="tit-subject item-recommend-title" -->
-<!-- 														th:utext="${#strings.isEmpty(keyword) ? item.getTitle() : #strings.replace(item.getTitle(), keyword, '<b>' + keyword + '</b>')}"> -->
+														<!-- 													<strong class="tit-subject item-recommend-title" -->
+														<!-- 														th:utext="${#strings.isEmpty(keyword) ? item.getTitle() : #strings.replace(item.getTitle(), keyword, '<b>' + keyword + '</b>')}"> -->
 														<!-- 검색결과와 일치하는것은 b태그로 감싼다. -->
 														<b>D</b>
 														-6

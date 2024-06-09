@@ -1305,6 +1305,7 @@ only screen and (min-resolution: 1.5dppx) {
   right: 0;
   top: 25px;
   width: 120px;
+  height: 120px;
 }
 .wrap-article-list .list-article .post-thumb {
   margin: 0;
@@ -1568,3 +1569,130 @@ only screen and (min-resolution: 1.5dppx) {
 .second-search-btn.active {
   margin-right: 172px;
 }
+
+
+
+/*작가검색 css*/
+.main-content-wrap {
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 700px;
+}
+
+.main-content-wrap li {
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    padding: 25px 0 30px;
+    width: 100%;
+}
+
+.main-content-wrap .content-photo-wrap {
+    background-position: 0 -280px;
+    float: right;
+    height: 120px;
+    margin-left: 40px;
+    margin-top: 5px;
+    position: relative;
+    width: 120px;
+}
+
+.content-photo {
+    display: block;
+}
+
+.main-content-wrap .content-letter-wrap {
+    overflow: hidden;
+}
+
+.main-content-wrap .content-letter-wrapA {
+    display: block;
+}
+
+.main-content-wrap .content-letter-strong {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.main-content-wrap .content-letter-span {
+    color: #666;
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    max-height: 43px;
+    overflow: hidden;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+}
+
+.main-content-wrap .content-letter-span {
+    color: #666;
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    max-height: 43px;
+    overflow: hidden;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+}
+
+.main-content-wrap .content-subletter-wrap {
+    color: #959595;
+    font-family: "Noto Sans Light";
+    font-size: 12px;
+    overflow: hidden;
+    padding-top: 18px;
+    width: 100%;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-firstA {
+    color: #804674;
+    float: left;
+    padding-right: 5px;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-firstSpan {
+    color: #bfbfbf;
+    float: left;
+    font-family: "Georgia";
+    font-size: 12px;
+    font-style: italic;
+    height: 15px;
+    margin-right: 2px;
+    width: 15px;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-secondA {
+    color: #959595;
+    float: left;
+    font-family: "Noto Sans Light";
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-secondSpan {
+    background-color: #bfbfbf;
+    float: left;
+    height: 2px;
+    margin: 8px 6px 11px;
+    vertical-align: top;
+    width: 2px;
+}
+
+.main-content-wrap .content-subletter-wrap .content-subletter-thirdSpan, .main-content-wrap .content-subletter-wrap span {
+    white-space: nowrap;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+

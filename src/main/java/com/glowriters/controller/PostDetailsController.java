@@ -121,6 +121,8 @@ public class PostDetailsController extends BaseController {
 		long replyCount = replyService.getCommentCountByPostId(post.getPost_id());
 		pvd.setReplyCount(replyCount);
 		
+		model.addAttribute("blogger_id", member.getMember_id()); //게시글작성자의 id를 보냄
+		model.addAttribute("canEdit", String.valueOf(model.getAttribute("member_id")).equals(String.valueOf(model.getAttribute("blogger_id"))));
 		model.addAttribute("pvd", pvd);
 		model.addAttribute("rvds", rvds);
 		return "/post-details/post-details";

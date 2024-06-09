@@ -9,7 +9,6 @@ document.querySelector(".btn-comment").addEventListener("click", function() {
 });
 
 
-
 //2. 댓글 좋아요 버튼 눌렀을때 색깔 바뀌고 좋아요 갯수 카운트
 var like_toggle = true;
 // 1이면 현재 좋아요 누른 상태 0이면 좋아요 안누른 상태
@@ -27,8 +26,6 @@ if (isLikeJs == 1) {
 	like.style.display = "none";
 	dislike.style.display = "block";
 }
-
-
 like_btn.addEventListener("click", function() {
 	console.log("클릭 됨");
 	if (isLikeJs == 1) {
@@ -45,65 +42,69 @@ like_btn.addEventListener("click", function() {
 
 
 //3. 댓글이 있고 없을때의 뷰 설정
-const comment_nothing1 = document.querySelector(".comment-none .ico-brunch.ico-brunch-cheer")
-const comment_nothing2 = document.querySelector(".comment-none .tit-none")
-const comment_nothing3 = document.querySelector(".comment-none .txt-none")
-// 댓글이 존재하는지 
-var comment_view_toggle = false;  //현재는 있다고 가정
-if (comment_view_toggle) {
-	comment_nothing1.style.display = "none" //작성된 댓글이 없습니다.와 관련된 모든게 안보임
-	comment_nothing2.style.display = "none"
-	comment_nothing3.style.display = "none"
-}
-else {
-	comment_nothing1.style.display = "block"
-	comment_nothing2.style.display = "block"
-	comment_nothing3.style.display = "block"
-}
-
-
-
-
-
-
-
-
-
-
-//4. 댓글 설정( : )눌렀을때 작은 신고창 등장
-const comment_setting = document.querySelector(".comment-setting");
-var comment_setting_toggle = false;
-comment_setting.addEventListener("click", function() {
-	comment_setting_toggle = !comment_setting_toggle; //false <-> true
-	if (comment_setting_toggle)
-		comment_setting.classList.add("setting-on")
-	else
-		comment_setting.classList.remove("setting-on")
-})
-
-//5. 작은 신고창이 있는상태에서 아무대나 클릭하면 작은신고창이 사라짐
-document.addEventListener('click', function(event) {
-	var isClickInside = event.target.closest('.comment-setting');
-
-	if (!isClickInside) {
-		var commentSettingElements = document.querySelectorAll('.comment-setting');
-		commentSettingElements.forEach(function(element) {
-			element.classList.remove('setting-on');
-		});
+if (isA <= 0) {
+	const comment_nothing1 = document.querySelector(".comment-none .ico-brunch.ico-brunch-cheer")
+	const comment_nothing2 = document.querySelector(".comment-none .tit-none")
+	const comment_nothing3 = document.querySelector(".comment-none .txt-none")
+	// 댓글이 존재하는지 
+	var comment_view_toggle = false;  //현재는 있다고 가정
+	if (comment_view_toggle) {
+		comment_nothing1.style.display = "none" //작성된 댓글이 없습니다.와 관련된 모든게 안보임
+		comment_nothing2.style.display = "none"
+		comment_nothing3.style.display = "none"
 	}
+	else {
+		comment_nothing1.style.display = "block"
+		comment_nothing2.style.display = "block"
+		comment_nothing3.style.display = "block"
+	}
+}
+
+
+
+
+
+// 4. 댓글 설정(...)을 클릭했을 때 작은 신고창 등장
+const commentSettings = document.querySelectorAll('.comment-setting');
+commentSettings.forEach(function(commentSetting) {
+  let commentSettingToggle = false;
+  commentSetting.addEventListener("click", function() {
+    commentSettingToggle = !commentSettingToggle;
+    if (commentSettingToggle) {
+      this.classList.add("setting-on");
+    } else {
+      this.classList.remove("setting-on");
+    }
+  });
+
+  // 5. 작은 신고창이 있는 상태에서 아무 곳이나 클릭하면 작은 신고창이 사라짐
+  document.addEventListener('click', function(event) {
+    const isClickInside = event.target.closest('.comment-setting');
+    if (!isClickInside) {
+      commentSetting.classList.remove('setting-on');
+    }
+  });
+
+  // 6. 작은 신고창의 신고버튼을 누르면 신고 모달창이 나타남
+  const commentSettingButton = commentSetting.querySelector(".btn-set");
+  const modal = document.querySelector(".brunch-layer.here");
+  commentSettingButton.addEventListener("click", function() {
+    modal.style.display = "block";
+  });
+});
+
+const modalCancel = document.querySelector(".btn-close");
+modalCancel.addEventListener("click", function() {
+  const modal = document.querySelector(".brunch-layer.here");
+  modal.style.display = "none";
 });
 
 
-//6. 작은 신고창의 신고버튼을 누르면 신고 모달창이 나타남
-const comment_setting_dec = document.querySelector(".btn-set")
-const modal = document.querySelector(".brunch-layer.here");
-comment_setting_dec.addEventListener("click", function() {
-	modal.style.display = "block";
-})
-const modal_cancel = document.querySelector(".btn-close");
-modal_cancel.addEventListener("click", function() {
-	modal.style.display = "none";
-})
+
+
+
+
+
 
 //8.조은종 코드 신고모달창에서 작동하는것
 // 신고 모달에서 체크한 항목에 스타일 적용하기
@@ -231,6 +232,7 @@ followBtn.addEventListener("mouseout", (e) => {
 	}
 });
 // 조은종코드끝
+
 
 
 

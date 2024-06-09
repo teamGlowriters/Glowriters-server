@@ -32,7 +32,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class BloggerDetailsController extends BaseController {
+public class BloggerDetailsController {
 
 	private final MemberService memberService;
 
