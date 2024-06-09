@@ -80,7 +80,7 @@ searchInput.addEventListener("input", function() {
 			url: "/search/search/resultBlogger",
 			type: "GET",
 			data: { "keyword": keyword },
-			success: function(frag){
+			success: function(frag) {
 				$("#resultBlogger").replaceWith(frag);
 			}
 		});
@@ -90,11 +90,20 @@ searchInput.addEventListener("input", function() {
 	}
 });
 
-
 $(document).ready(function() {
 	$("#searchInput").on()
-
-
 });
+
+
+//4. 검색어입력창에서 엔터가 눌렸을때 폼을 제출한다.
+function handleEnterKey(event) {
+	if (event.keyCode === 13) { // 엔터키 코드는 13
+		event.preventDefault(); // 기본 동작 방지 (새로고침 방지)
+		document.getElementById("searchForm").submit(); // 폼 제출
+	}
+}
+
+
+
 
 

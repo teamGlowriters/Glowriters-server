@@ -26,8 +26,8 @@
 		}
 	</style>
 	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
-	<link rel="stylesheet" href="/css/main/header.css" />
-	<title>헤더</title>
+	<link rel="stylesheet" href="/css/post-details/header.css" />
+	<title>post-details전용 헤더</title>
 </head>
 
 <body>
@@ -35,8 +35,8 @@
 		<main>
 			<button class="sidemenu-closebtn" type="button">닫기</button>
 			<div class="loginprofile">
-			
-				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice" >
+
+				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
 					<img class="sidemenu-profile-logo logoutservice" src="/images/glowriters.png" style="display:block">
 					<p class="sidemenu-profile-slogan logoutservice">
 						You can make anything
@@ -45,8 +45,9 @@
 					</p>
 					<!-- 						<p class="sidemenu-profile-sloganwriter logoutservice">C.S.Lewis</p> -->
 				</div>
-				
-				<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/mypage/mypage" class="myprofilelink loginservice">
+
+				<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/mypage/mypage"
+					class="myprofilelink loginservice">
 					<div class="profile-img">
 						<img class="picture" alt="프로필이미지" src="/images/blank-image.png" th:src="${member_profile}">
 					</div>
@@ -55,13 +56,14 @@
 						<p th:text="|glowriters.co.kr/${member_id}|" class="profile-id">glowriters.co.kr/멤버아이디값</p>
 					</div>
 				</a>
-				
-				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice" >
-					<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code" class="profile-logout-a">
+
+				<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
+					<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
+						class="profile-logout-a">
 						<button class="profile-logout-btn">글로우라이터스 시작하기</button>
 					</a>
 				</div>
-				
+
 				<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="loginservice">
 					<a href="/write/write" class="profile-write">
 						<button class="profile-write-btn">글쓰기</button>
@@ -72,13 +74,13 @@
 					<!-- 읽지 않은 알람이 있을때 분홍색 -->
 					<span class="alarm-notify">NEW</span>
 				</div>
-				
+
 			</div>
 			<div class="sidemenu-service this">
 				<ul>
-				
-					<li th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" 
-					th:classappend="${sidemenu == 'mypage' ? 'selected' : ''}">
+
+					<li th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}"
+						th:classappend="${sidemenu == 'mypage' ? 'selected' : ''}">
 						<a class="glowMypage" href="/" th:href="@{/mypage/mypage/{member_id}(member_id=${member_id})}">
 							<span class="bar-left"></span>
 							마이 페이지
@@ -107,31 +109,31 @@
 							<span class="bar-right"></span>
 						</a>
 					</li>
-<!-- 					write는 사실 따로 관리해서 여기에는 th:classappend를 할 필요없음 -->
+					<!-- 					write는 사실 따로 관리해서 여기에는 th:classappend를 할 필요없음 -->
 					<li th:classappend="${sidemenu == 'write' ? 'selected' : ''}">
-						<a class="glowWrite" href="#" th:href="@{/write/write}"  th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}">
+						<a class="glowWrite" href="#" th:href="@{/write/write}"
+							th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}">
 							<span class="bar-left"></span>
 							글쓰기
 							<span class="bar-right"></span>
 						</a>
 					</li>
-					
+
 				</ul>
 				<div class="sidemenu-setting this" style="position: absolute"> <!--클래스 2개 사용-->
 					<div class="sidemenu-banner" style="padding-bottom:40px;">
 						<a class="sidemenu-project" href="#">
-							<img style="width:168px; display:none;"
-								src=""
-								alt="광고">
+							<img style="width:168px; display:none;" src="" alt="광고">
 						</a>
 					</div>
-					
-					<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice" >
-						<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code" class="sidemenu-findAccount">
+
+					<div th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" class="logoutservice">
+						<a href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code"
+							class="sidemenu-findAccount">
 							계정을 잊어버리셨나요?
 						</a>
 					</div>
-					
+
 					<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="bottom-setting-container">
 						<a class="sidemenu-bottom-setting loginservice" href="/" th:href="@{/mypage/mypage}">
 							<button type="button">설정</button>
@@ -140,12 +142,12 @@
 							<button type="button">로그아웃</button>
 						</a>
 					</div>
-					
+
 					<div th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" class="donation_intro loginservice">
 						<span>화이팅!</span>
 						<i class="mint_rectangle"></i>
 					</div>
-					
+
 				</div>
 			</div>
 		</main>
@@ -160,14 +162,19 @@
 					</h1>
 				</div>
 				<div class="top-inner-third">
-					<a th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}" href="/write/write" class="inner-third-login loginservice" >글쓰기</a>
-					<a th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code" class="inner-third-login logoutservice" >로그인</a>
+					<a th:if="${canEdit}" href="/delete/delete" class="inner-third-login loginservice">삭제</a>
+					<a th:if="${canEdit}" href="/update/update" class="inner-third-login loginservice">수정</a>
+					<a th:if="${!canEdit}" href="/write/write" class="inner-third-login loginservice">글쓰기</a>
+
+					<!-- 					<a th:style="${isLogin == 'no' ? 'display:block' : 'display:none'}" -->
+					<!-- 						href="https://kauth.kakao.com/oauth/authorize?client_id=1ae31e5e059633d68596177b606c844c&redirect_uri=http://localhost:8080/oauth&response_type=code" -->
+					<!-- 						class="inner-third-login logoutservice">로그인</a> -->
 				</div>
 				<div class="top-inner-second">
 					<div class="inner-second-search">
 						<form action="#" method="get">
-							<input name="q" class="second-search-input" type="text" title="검색어입력"
-								placeholder="검색어를 입력해 주세요" autocomplete="off" value>
+							<input name="q" class="second-search-input" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
+								autocomplete="off" value>
 							<input name="profiled" type="hidden" value>
 						</form>
 						<!-- 이 버튼을 누르면 검색 페이지(search)로 이동 -->
@@ -179,6 +186,10 @@
 	</header>
 
 </body>
-<script src="/js/main/header.js"></script>
+<script th:inline="javascript">
+	var memberId = /*[[${member_id}]]*/0;
+	var bloggerId = /*[[${blogger_id}]]*/0;
+</script>
+<script src="/js/post-details/header.js"></script>
 
 </html>
