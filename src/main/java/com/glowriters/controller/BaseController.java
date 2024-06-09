@@ -28,5 +28,9 @@ public class BaseController {
 	public String setMember_nickname(HttpSession session) {
 		return String.valueOf(session.getAttribute("member_nickname"));
 	}
-
+	
+	@ModelAttribute("member_comment")
+	public String setMember_comment(HttpSession session) {
+		return String.valueOf(session.getAttribute("member_comment"));
+	}
 }

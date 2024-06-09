@@ -2649,9 +2649,9 @@ only screen and (min-resolution: 1.5dppx) {
 	vertical-align: top;
 }
 
-.ico-glow {
-	background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v1_221221.png) no-repeat;
-}
+/* .ico-glow { */
+/* 	background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v1_221221.png) no-repeat; */
+/* } */
 
 .layer-login .top-logo .ico-glow {
 	background-position: 0 -820px;

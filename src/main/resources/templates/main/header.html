@@ -53,7 +53,7 @@
 					</div>
 					<div class="profile-info">
 						<strong class="profile-name" th:text="${member_nickname}">사용자 닉네임</strong>
-						<p th:text="|glowriters.co.kr/${member_id}|" class="profile-id">glowriters.co.kr/멤버아이디값</p>
+						<p th:text="${member_comment}" class="profile-id">사용자 소개글</p>
 					</div>
 				</a>
 				
@@ -101,13 +101,13 @@
 							<span class="bar-right"></span>
 						</a>
 					</li>
-					<li th:classappend="${sidemenu == 'category' ? 'selected' : ''}">
-						<a class="glowCategory" href="#" th:href="@{/category/category}">
-							<span class="bar-left"></span>
-							카테고리
-							<span class="bar-right"></span>
-						</a>
-					</li>
+<!-- 					<li th:classappend="${sidemenu == 'category' ? 'selected' : ''}"> -->
+<!-- 						<a class="glowCategory" href="#" th:href="@{/category/category}"> -->
+<!-- 							<span class="bar-left"></span> -->
+<!-- 							카테고리 -->
+<!-- 							<span class="bar-right"></span> -->
+<!-- 						</a> -->
+<!-- 					</li> -->
 <!-- 					write는 사실 따로 관리해서 여기에는 th:classappend를 할 필요없음 -->
 					<li th:classappend="${sidemenu == 'write' ? 'selected' : ''}">
 						<a class="glowWrite" href="#" th:href="@{/write/write}"  th:style="${isLogin == 'yes' ? 'display:block' : 'display:none'}">
