@@ -2,39 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<style data-emotion="css-global" data-s="">
-		@font-face {
-			font-family: "Nanum Myeongjo";
-			font-weight: normal;
-			src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
-		}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style data-emotion="css-global" data-s="">
+@font-face {
+	font-family: "Nanum Myeongjo";
+	font-weight: normal;
+	src: url("/fonts/NanumMyeongjo.ttf") format("truetype");
+}
 
-		@font-face {
-			font-family: "Noto Sans Light";
-			font-style: normal;
-			font-weight: 300;
-			src: url("/fonts/NotoSansCJKkr-Light.otf");
-		}
+@font-face {
+	font-family: "Noto Sans Light";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-Light.otf");
+}
 
-		@font-face {
-			font-family: "Noto Sans DemiLight";
-			font-style: normal;
-			font-weight: 300;
-			src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
-		}
-	</style>
-	<link rel="shortcut icon" href="/images/glowritersFavicon.png" type="image/x-icon" />
-	<link rel="stylesheet" href="/css/post-details/post-details.css" />
-	<link rel="stylesheet" href="/css/post-details/header.css" data-whatIsThis="헤더CSS임포트" />
-	<title>게시물 상세페이지</title>
+@font-face {
+	font-family: "Noto Sans DemiLight";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/NotoSansCJKkr-DemiLight.otf");
+}
+</style>
+<link rel="shortcut icon" href="/images/glowritersFavicon.png"
+	type="image/x-icon" />
+<link rel="stylesheet" href="/css/post-details/post-details.css" />
+<link rel="stylesheet" href="/css/post-details/header.css"
+	data-whatIsThis="헤더CSS임포트" />
+<title>게시물 상세페이지</title>
 </head>
 
 <body>
 	<div th:object="${pvd}">
-		<div th:replace="~{/post-details/header :: fragment-header1}">헤더파일 가져오는곳</div>
-		<div th:replace="~{/post-details/header :: fragment-header2}">헤더파일 가져오는곳</div>
+		<div th:replace="~{/post-details/header :: fragment-header1}">헤더파일
+			가져오는곳</div>
+		<div th:replace="~{/post-details/header :: fragment-header2}">헤더파일
+			가져오는곳</div>
 		<div class="wrap-view-article">
 
 			<div class="wrap-cover">
@@ -45,10 +49,12 @@
 						<h1 class="cover-title" th:text="*{getTitle()}">제목</h1>
 					</div>
 					<div class="wrap-article-info" t-area="Writer">
-						<span class="ico-by">by</span> <span class="text-author"> <a class="text-author"
-								th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
-								data-tiara-action-name="글뷰 > 커버 > 작가명 클릭" data-tiara-layer="cover profile"
-								th:text="*{getMember_nickname()}">작성자</a>
+						<span class="ico-by">by</span> <span class="text-author"> <a
+							class="text-author"
+							th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
+							data-tiara-action-name="글뷰 > 커버 > 작가명 클릭"
+							data-tiara-layer="cover profile"
+							th:text="*{getMember_nickname()}">작성자</a>
 						</span> <span class="ico-dot"></span> <span class="date"
 							th:text="*{#temporals.format(getCreated_date(), 'yyyy.MM.dd EEEE')}">작성일</span>
 					</div>
@@ -56,14 +62,19 @@
 			</div>
 			<div class="body-frame">
 				<div class="wrap-body">
-					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="1" data-shown="true">
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"br"}]}'
+						data-block-index="1" data-shown="true">
 						<br />
 					</p>
-					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="2" data-shown="true">
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"br"}]}'
+						data-block-index="2" data-shown="true">
 						<br />
 					</p>
-					<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="14"
-						data-shown="true">
+					<p class="wrap-item"
+						data-app='{"type":"text","data":[{"type":"br"}]}'
+						data-block-index="14" data-shown="true">
 						<br />
 					</p>
 					<div class="item-img"
@@ -73,8 +84,9 @@
 							<div class="wrap-img-float">
 								<th:block th:each="filepath: *{getFilepaths()}">
 									<img th:src="${filepath}" alt="" />
-									<p class="wrap-item" data-app='{"type":"text","data":[{"type":"br"}]}' data-block-index="14"
-										data-shown="true">
+									<p class="wrap-item"
+										data-app='{"type":"text","data":[{"type":"br"}]}'
+										data-block-index="14" data-shown="true">
 										<br />
 									</p>
 								</th:block>
@@ -92,19 +104,26 @@
 						<div class="wrap-keyword" data-ctr-referrer="true">
 							<strong class="screen-out">keyword</strong>
 							<ul class="list-keyword">
-								<li class="keyword"><a class="link-keyword" href="#" data-ctr-click="keyword_click"
-										data-ctr-referrer="true" data-tiara-action-name="글뷰 > 본문 하단 > 키워드 클릭"
-										data-tiara-layer="bottom more_contents keyword" th:text="*{getCategory()}">카테고리</a></li>
+								<li class="keyword"><a class="link-keyword" href="#"
+									data-ctr-click="keyword_click" data-ctr-referrer="true"
+									data-tiara-action-name="글뷰 > 본문 하단 > 키워드 클릭"
+									data-tiara-layer="bottom more_contents keyword"
+									th:text="*{getCategory()}">카테고리</a></li>
 							</ul>
 						</div>
 					</div>
 					<div>
-						<form th:action="@{/post-details/post-details/{post_id}(post_id=*{getPost_id()})}" method="post">
+						<form
+							th:action="@{/post-details/post-details/{post_id}(post_id=*{getPost_id()})}"
+							method="post">
 							<div class="info-state">
 								<span class="wrap-comment-btn">
-									<button class="btn-like" data-tiara-action-kind="Like" data-tiara-action-name="글뷰 > 본문 하단 > 라이킷 버튼 클릭"
-										data-tiara-custom="liketype=like" data-tiara-layer="bottom article_likeit" type="submit">
-										<svg class="like-icon" fill="none" height="22" viewBox="0 0 22 22" width="22"
+									<button class="btn-like" data-tiara-action-kind="Like"
+										data-tiara-action-name="글뷰 > 본문 하단 > 라이킷 버튼 클릭"
+										data-tiara-custom="liketype=like"
+										data-tiara-layer="bottom article_likeit" type="submit">
+										<svg class="like-icon" fill="none" height="22"
+											viewBox="0 0 22 22" width="22"
 											xmlns="http://www.w3.org/2000/svg">
 											<path clip-rule="evenodd" class="dislike"
 												d="M12.9397 4.06506C14.7712 2.25761 17.7183 2.26734 19.5378 4.08686C21.3658 5.91492 21.3658 8.87878 19.5378 10.7068L11.3233 18.9213L10.9711 19.2735L10.6175 18.9227L7.42892 15.7588L8.13327 15.049L8.16621 15.0817L14.4742 8.77364L15.1813 9.48075L8.87607 15.786L10.9683 17.8621L18.8307 9.99973C20.2682 8.5622 20.2682 6.2315 18.8307 4.79397C17.3998 3.36315 15.0824 3.35549 13.6422 4.77683L11.6756 6.71759L11.6758 6.71781L11.3223 7.07136L5.39602 12.9976L5.04247 13.3511L4.68892 12.9976L2.46658 10.7753C0.634838 8.94351 0.634836 5.97366 2.46658 4.14192C4.29833 2.31017 7.26817 2.31017 9.09992 4.14192L10.9685 6.01046L12.9397 4.06506ZM3.17369 4.84903C1.73247 6.29025 1.73247 8.62693 3.17369 10.0681L5.04247 11.9369L10.2616 6.71781L8.39281 4.84903C6.95159 3.4078 4.61491 3.40781 3.17369 4.84903Z"
@@ -117,11 +136,14 @@
 										<span class="num-like" th:text="*{getLikeCount()}">좋아요
 											개수</span>
 									</button>
-									<button class="btn-comment" data-tiara-action-name="글뷰 > 본문 하단 > 댓글 리스트 버튼 클릭"
-										data-tiara-click_url="https://brunch.co.kr/@kohong/25" data-tiara-copy="댓글"
-										data-tiara-layer="bottom comment" type="button">
-										<span class="brunch icon-cheer"></span> <span class="comment-txt">댓글<span class="num-comment"
-												th:text="*{getReplyCount()}">댓글수</span></span>
+									<button class="btn-comment"
+										data-tiara-action-name="글뷰 > 본문 하단 > 댓글 리스트 버튼 클릭"
+										data-tiara-click_url="https://brunch.co.kr/@kohong/25"
+										data-tiara-copy="댓글" data-tiara-layer="bottom comment"
+										type="button">
+										<span class="brunch icon-cheer"></span> <span
+											class="comment-txt">댓글<span class="num-comment"
+											th:text="*{getReplyCount()}">댓글수</span></span>
 									</button>
 								</span>
 							</div>
@@ -129,15 +151,15 @@
 						<!-- 여기서 부터 작업 -->
 						<div class="info-comment" style="display: block">
 							<div class="comment-head">
-								<strong class="tit-comment">댓글 <span class="txt-num" th:text="*{getReplyCount()}">댓글수</span>
+								<strong class="tit-comment">댓글 <span class="txt-num"
+									th:text="*{getReplyCount()}">댓글수</span>
 								</strong>
 							</div>
 							<div class="comment-content">
 								<!-- 댓글이 없을때 보이는 화면 -->
 								<div class="comment-none" th:if="*{getReplyCount() == 0}">
-									<span class="ico-brunch ico-brunch-cheer"></span> 
-									<strong class="tit-none">작성된 댓글이 없습니다.</strong>
-									<span class="txt-none">블로거에게
+									<span class="ico-brunch ico-brunch-cheer"></span> <strong
+										class="tit-none">작성된 댓글이 없습니다.</strong> <span class="txt-none">블로거에게
 										첫 번째 댓글을 남겨주세요!</span>
 								</div>
 
@@ -150,8 +172,8 @@
 												<!-- href는 블로거페이지 -->
 												<a class="link-profile"
 													th:href="@{/blogger-details/blogger-details/{member_id}(member_id=${rvd.getMember_id()})}">
-													<img class="img-thumb" alt="명랑한 JM이미지" height="32px" th:src="${rvd.getReply_member_profile()}"
-														width="32px">
+													<img class="img-thumb" alt="명랑한 JM이미지" height="32px"
+													th:src="${rvd.getReply_member_profile()}" width="32px">
 												</a>
 												<div class="cont-info">
 													<div class="info-append">
@@ -162,12 +184,11 @@
 																th:text="${rvd.getReply_member_nickname()}">댓글 작성자</a>
 														</div>
 														<span class="txt-time"
-															th:text="${#temporals.format(rvd.getReply_created_date(), 'yyyy.MM.dd EEEE')}">May 30.
-															2024</span>
+															th:text="${#temporals.format(rvd.getReply_created_date(), 'yyyy.MM.dd EEEE')}">May
+															30. 2024</span>
 													</div>
 													<p class="desc-comment" th:text="${rvd.getReply_content()}">
-														댓글 내용
-													</p>
+														댓글 내용</p>
 													<div class="comment-setting">
 														<button class="btn-setting" type="button">
 															<span class="ico-brunch-pc ico-more-cheer">설정</span>
@@ -179,6 +200,101 @@
 												</div>
 											</div>
 										</li>
+										<div class="brunch-layer here"
+											style="background-color: rgb(248, 248, 248); display: none;">
+											<div class="brunchLayerWrapper">
+
+												<div class="dimmed-layer"></div>
+												<div class="brunch-layer report-background">
+													<div class="inner-brunch-layer inner-brunch-layer4">
+														<form th:action="@{/post-details/post-details/report/{post_id}/{reply_id}(post_id=*{getPost_id()}, reply_id=${rvd.getReply_id()})}" method="post">
+															<fieldset>
+																<legend class="ir-pm">신고하기 폼</legend>
+																<div class="report-body">
+																	<strong class="tit-report">신고하기</strong>
+																	<div class="report-choice-1">
+																		<input class="radio-input" type="radio" id="check1"
+																			name="report_content" value="욕설, 비방, 차별, 혐오" /> <label for="check1"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 욕설, 비방, 차별, 혐오
+																		</label>
+																	</div>
+																	<div class="report-choice-2">
+																		<input class="radio-input" type="radio" id="check2"
+																			name="report_content" value="홍보, 영리목적" /> <label for="check2"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 홍보, 영리목적
+																		</label>
+																	</div>
+																	<div class="report-choice-2">
+																		<input class="radio-input" type="radio" id="check3"
+																			name="report_content" value="불법 정보" /> <label for="check3"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 불법 정보
+																		</label>
+																	</div>
+																	<div class="report-choice-2">
+																		<input class="radio-input" type="radio" id="check4"
+																			name="report_content" value="음란, 청소년 유해" /> <label for="check4"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 음란, 청소년 유해
+																		</label>
+																	</div>
+																	<div class="report-choice-2">
+																		<input class="radio-input" type="radio" id="check5"
+																			name="report_content" value="개인 정보 노출, 유포, 거래" /> <label for="check5"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 개인 정보 노출, 유포, 거래
+																		</label>
+																	</div>
+																	<div class="report-choice-2">
+																		<input class="radio-input" type="radio" id="check6"
+																			name="report_content" value="도배, 스팸" /> <label for="check6"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 도배, 스팸
+																		</label>
+																	</div>
+																	<div class="report-choice-3">
+																		<input class="radio-input" type="radio" id="check8"
+																			name="report_content" value="불법찰영물등 유통 신고" /> <label for="check8"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 불법찰영물등 유통 신고
+																		</label>
+																	</div>
+																	<p class="against">
+																		불법촬영물등 유통 신고는 전기통신사업법 시행령에 따라, 신고인의 개인정보 수집·이용 동의와 신고
+																		사유 등 신고서 제출이 필요합니다. <br /> 음란, 청소년 유해 사유로 신고하시면, 신고서
+																		제출 없이 더 빠르게 조치됩니다.
+																	</p>
+																	<div class="report-choice-3">
+																		<input class="radio-input" type="radio" id="check9"
+																			name="report_content" value="권리침해신고" /> <label for="check9"
+																			class="lab-comm">
+																			<div class="ico-radio"></div> 권리침해신고
+																		</label>
+																	</div>
+																	<p class="against">
+																		권리침해 신고는 먼저 침해한 게시물을 신고 후 ‘카카오 권리침해 신고 사이트’ 에서 침해 증빙
+																		서류를 다운 받아 내용을 작성하여 고객센터로 온라인 접수하면 처리됩니다. <br /> <a
+																			href="http://www.kakao.com/policy/right"
+																			target="_blank" class="link-against">권리침해 절차 안내보기</a>
+																	</p>
+																	<div class="wrap-btn">
+																		<button type="reset" class="btn-close">취소</button>
+																		<button type="submit" class="btn-report">신고</button>
+																	</div>
+																</div>
+															</fieldset>
+
+
+														</form>
+													</div>
+													<button class="btn-close-2 btnLayerClose">
+														<div class="ico-brunch">닫기</div>
+													</button>
+												</div>
+											</div>
+										</div>
 									</th:block>
 								</ul>
 
@@ -195,20 +311,19 @@
 									<div class="comment-write">
 										<div class="box-area">
 											<div class="link-profile">
-												<img th:src="${member.getMember_profile()}" alt="내 프로필 이미지" class="img-thumb" height="32px"
-													width="32px" /> <strong class="txt-profile" th:text="${member.getMember_nickname()}">댓글
+												<img th:src="${member.getMember_profile()}" alt="내 프로필 이미지"
+													class="img-thumb" height="32px" width="32px" /> <strong
+													class="txt-profile"
+													th:text="${member.getMember_nickname()}">댓글
 													작성자(로그인한 회원)</strong>
 											</div>
 											<div class="editor-wrap">
-												<textarea class="editor" placeholder="댓글을 입력하세요." spellcheck="false"
-													name="reply_content"></textarea>
+												<textarea class="editor" placeholder="댓글을 입력하세요."
+													spellcheck="false" name="reply_content"></textarea>
 												<ul class="mention-layer" style="left: 20px"></ul>
 											</div>
 											<div class="editor-footer">
 												<div class="wrap-util">
-													<button class="btn-sticker">
-														<svg></svg>
-													</button>
 												</div>
 												<div class="wrap-btn">
 													<button class="btn-submit">등록</button>
@@ -227,130 +342,39 @@
 			<div class="inner-author">
 				<div class="author-profile">
 					<strong class="author-name"> <a class="link-author-name"
-							th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
-							data-tiara-layer="writer_info writer profile" data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭"
-							data-tiara-copy="고홍" data-ctr-click="profile_click" data-ctr-referrer="true"
-							th:text="*{getMember_nickname()}">작성자</a>
-					</strong><a th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
-						class="link-author-image" data-ctr-click="profile_click" data-ctr-referrer="true"
-						data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭" data-tiara-layer="writer_info writer profile"
-						data-tiara-copy="고홍">
-						<img th:src="*{getMember_profile()}" class="img-author" width="100" height="100" />
+						th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
+						data-tiara-layer="writer_info writer profile"
+						data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭"
+						data-tiara-copy="고홍" data-ctr-click="profile_click"
+						data-ctr-referrer="true" th:text="*{getMember_nickname()}">작성자</a>
+					</strong><a
+						th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
+						class="link-author-image" data-ctr-click="profile_click"
+						data-ctr-referrer="true"
+						data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭"
+						data-tiara-layer="writer_info writer profile" data-tiara-copy="고홍">
+						<img th:src="*{getMember_profile()}" class="img-author"
+						width="100" height="100" />
 					</a>
 				</div>
 				<div class="author-desc">
-					<a th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
-						data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭" data-tiara-layer="writer_info writer profile"
-						data-tiara-copy="고홍" th:text="*{getMember_comment()}">
-						<p class="txt-desc">소개
-						</p>
+					<a
+						th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"
+						data-tiara-action-name="글뷰 > 작가 소개 영역 > 작가 프로필 클릭"
+						data-tiara-layer="writer_info writer profile" data-tiara-copy="고홍"
+						th:text="*{getMember_comment()}">
+						<p class="txt-desc">소개</p>
 					</a>
 				</div>
 				<div class="wrap-subscription">
-					<a th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}"> <span
-							class="info-subscription"> <span>구독자</span>
-							<span class="num-subscription" th:text="*{getSubscriberCount()}">구독자 수</span>
-						</span>
-					</a> <span class="wrap-subscription-btn">
+					<a
+						th:href="@{/blogger-details/blogger-details/{member_id}(member_id=*{getMember_id()})}">
+						<span class="info-subscription"> <span>구독자</span> <span
+							class="num-subscription" th:text="*{getSubscriberCount()}">구독자
+								수</span>
 					</span>
+					</a> <span class="wrap-subscription-btn"> </span>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="brunch-layer here" style="background-color: rgb(248, 248, 248); display: none;">
-		<div class="brunchLayerWrapper">
-
-			<div class="dimmed-layer"></div>
-			<div class="brunch-layer report-background">
-				<div class="inner-brunch-layer inner-brunch-layer4">
-					<form>
-						<input type="hidden" name="userId" value=""> <input type="hidden" name="contentNo" value="">
-
-						<fieldset>
-							<legend class="ir-pm">신고하기 폼</legend>
-							<div class="report-body">
-								<strong class="tit-report">신고하기</strong>
-								<div class="report-choice-1">
-									<input class="radio-input" type="radio" id="check1" name="reasonCode" value="" /> <label for="check1"
-										class="lab-comm">
-										<div class="ico-radio"></div> 욕설, 비방, 차별, 혐오
-									</label>
-								</div>
-								<div class="report-choice-2">
-									<input class="radio-input" type="radio" id="check2" name="reasonCode" value="" /> <label for="check2"
-										class="lab-comm">
-										<div class="ico-radio"></div> 홍보, 영리목적
-									</label>
-								</div>
-								<div class="report-choice-2">
-									<input class="radio-input" type="radio" id="check3" name="reasonCode" value="" /> <label for="check3"
-										class="lab-comm">
-										<div class="ico-radio"></div> 불법 정보
-									</label>
-								</div>
-								<div class="report-choice-2">
-									<input class="radio-input" type="radio" id="check4" name="reasonCode" value="" /> <label for="check4"
-										class="lab-comm">
-										<div class="ico-radio"></div> 음란, 청소년 유해
-									</label>
-								</div>
-								<div class="report-choice-2">
-									<input class="radio-input" type="radio" id="check5" name="reasonCode" value="" /> <label for="check5"
-										class="lab-comm">
-										<div class="ico-radio"></div> 개인 정보 노출, 유포, 거래
-									</label>
-								</div>
-								<div class="report-choice-2">
-									<input class="radio-input" type="radio" id="check6" name="reasonCode" value="" /> <label for="check6"
-										class="lab-comm">
-										<div class="ico-radio"></div> 도배, 스팸
-									</label>
-								</div>
-								<div class="report-choice-3">
-									<input class="radio-input" type="radio" id="check7" name="reasonCode" value="" /> <label for="check7"
-										class="lab-comm">
-										<div class="ico-radio"></div> 기타
-									</label>
-								</div>
-								<div class="box-txtarea">
-									<label for="fillReason" class="tf-reason">기타 사유를 입력해
-										주세요 (최대 500자)</label>
-									<textarea class="tf_reason" name="reasonMention" id="fillReason"></textarea>
-								</div>
-								<div class="report-choice-3">
-									<input class="radio-input" type="radio" id="check8" name="reasonCode" value="" /> <label for="check8"
-										class="lab-comm">
-										<div class="ico-radio"></div> 불법찰영물등 유통 신고
-									</label>
-								</div>
-								<p class="against">
-									불법촬영물등 유통 신고는 전기통신사업법 시행령에 따라, 신고인의 개인정보 수집·이용 동의와 신고 사유 등 신고서
-									제출이 필요합니다. <br /> 음란, 청소년 유해 사유로 신고하시면, 신고서 제출 없이 더 빠르게 조치됩니다.
-								</p>
-								<div class="report-choice-3">
-									<input class="radio-input" type="radio" id="check9" name="reasonCode" value="" /> <label for="check9"
-										class="lab-comm">
-										<div class="ico-radio"></div> 권리침해신고
-									</label>
-								</div>
-								<p class="against">
-									권리침해 신고는 먼저 침해한 게시물을 신고 후 ‘카카오 권리침해 신고 사이트’ 에서 침해 증빙 서류를 다운 받아
-									내용을 작성하여 고객센터로 온라인 접수하면 처리됩니다. <br /> <a href="http://www.kakao.com/policy/right" target="_blank"
-										class="link-against">권리침해 절차 안내보기</a>
-								</p>
-								<div class="wrap-btn">
-									<button type="reset" class="btn-close">취소</button>
-									<button type="submit" class="btn-report">신고</button>
-								</div>
-							</div>
-						</fieldset>
-
-
-					</form>
-				</div>
-				<button class="btn-close-2 btnLayerClose">
-					<div class="ico-brunch">닫기</div>
-				</button>
 			</div>
 		</div>
 	</div>

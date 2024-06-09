@@ -27,6 +27,11 @@ public class ReplyService {
 		return replyRepository.save(reply);
 	}
 	
+	@Transactional
+	public Reply findbyId(long reply_id) {
+		return replyRepository.findById(reply_id).orElse(null);
+	}
+	
 	// 해당 게시물의 총 댓글
 	@Transactional
   public List<Reply> getRepliesByPostIdSortedByDate(long postId) {

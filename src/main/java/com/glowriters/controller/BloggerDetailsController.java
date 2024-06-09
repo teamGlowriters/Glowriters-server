@@ -19,6 +19,7 @@ import com.glowriters.domain.Post;
 import com.glowriters.domain.Postfile;
 import com.glowriters.domain.Reportmember;
 import com.glowriters.domain.Subscriber;
+import com.glowriters.service.AlarmService;
 import com.glowriters.service.MemberService;
 import com.glowriters.service.PostFileSerivce;
 import com.glowriters.service.PostService;
@@ -45,6 +46,8 @@ public class BloggerDetailsController {
 	private final ReplyService replyService;
 	
 	private final ReportMemberService reportMemberService;
+	
+	private final AlarmService alarmService;
 	
 	@GetMapping("/blogger-details/blogger-details/{member_id}")
 	public String viewBlogger(HttpServletRequest request, @PathVariable("member_id") long member_id, Model model) {
@@ -130,6 +133,7 @@ public class BloggerDetailsController {
 		if(isSubscribe == 0) {
 			// 행 생성
 			subscriberService.save(blogger, loginMember);
+			alarmService.save(loginMember, blogger, 1);
 		}else {
 			// 해당 행의 정보가 있으면 해당 행 가져오기
 			Subscriber subsc = subscriberService.getSubscriber(blogger.getMember_id(), loginMember.getMember_id());
