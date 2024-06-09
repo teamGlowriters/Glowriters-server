@@ -182,6 +182,12 @@ lnextbtn.addEventListener("click", () => {
 	nextslide()
 })
 
+
+
+
+
+
+
 //8. 요일별 연재의 요일탭을 눌렀을때 
 const weeksBtns = document.querySelectorAll(".link-tab");
 weeksBtns.forEach(w => {

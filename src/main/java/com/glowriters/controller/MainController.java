@@ -159,7 +159,7 @@ public class MainController extends BaseController {
 		return "/main/main";
 	}
 
-	// 요일별 게시물을 비동기로 보여주는 컨트롤러
+	// 요일별 게시물을 비동기통신으로 보여주는 컨트롤러
 	@GetMapping("/weekends/{sort}")
 	public String viewWeekend(Model model, @PathVariable("sort") String sort, @RequestParam("week") String week) {
 //		log.warn("/weekends/" + sort);
