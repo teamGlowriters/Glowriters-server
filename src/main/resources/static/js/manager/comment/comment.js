@@ -151,7 +151,7 @@ checkboxes.forEach(function(checkbox) {
 
 
 
-//7. 검색어 입력창에서 엔터가 눌렸을때 폼을 제출한다.
+//7. 검색어 입력창에서 엔터가 눌렸을때 비동기 통신시작
 function handleEnterKey(event) {
 	if (event.keyCode === 13) { // 엔터키 코드는 13
 		event.preventDefault(); // 기본 동작 방지 (새로고침 방지)
@@ -209,28 +209,28 @@ function search(text) {
 	});
 }
 
-//10. 체크박스 선택하고 삭제 - 확인눌렀을때
+//10. 삭제기능 : 체크박스 선택하고 삭제버튼 누르고 확인눌렀을때 작동
 // modal-confirm 버튼 클릭 이벤트 리스너 추가
 const modalConfirmButton = document.querySelector(".modal-confirm button");
 modalConfirmButton.addEventListener("click", sendCheckedReportIds);
-
-// 체크된 li 태그의 th:report_id 값을 서버로 전송하는 함수
+// 체크정보들
 function sendCheckedReportIds() {
-	const checkedLis = document.querySelectorAll(".list-content.checked");
+	const checkedLis = document.querySelectorAll(".list-content.checked"); //체크된것들만
+	//가져와서 그값을 배열로 묶는다.
 	const reportIds = Array.from(checkedLis).map(li => li.getAttribute("report_id"));
-	console.log("reportIds = " + reportIds);
-	
-	
+
 	if (reportIds.length === 0) {
 		alert("선택된 댓글이 없습니다.");
 		return;
 	}
-
+	
+	//삭제 ajax통신
 	$.ajax({
 		url: "/manager/comment/delete/delete", // 서버 엔드포인트 URL
 		type: "POST",
 		contentType: "application/json",
-		data: JSON.stringify({ reportIds: reportIds }),
+		data: JSON.stringify({ reportIds: reportIds }), //키값은 "reportIds"로 고정인 json데이터 전송
+		//서버에서는  @RequestBody Map<String, Object> data 로 매개변수로 받는다.
 		success: function(frag) {
 			$("#commentList").replaceWith(frag);
 			console.log("ajax 성공");
@@ -239,7 +239,6 @@ function sendCheckedReportIds() {
 		},
 		error: function(xhr, status, error) {
 			console.error("실패:", error);
-			// 실패 시 처리
 			alert("댓글 삭제 중 오류가 발생했습니다.");
 		}
 	});
