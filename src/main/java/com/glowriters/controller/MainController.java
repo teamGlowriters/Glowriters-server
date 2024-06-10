@@ -3,8 +3,10 @@ package com.glowriters.controller;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
@@ -101,31 +103,12 @@ public class MainController extends BaseController {
 			long subscriberCount = subscriberService.countSubscribersByBloggerId(member_id);
 			mvd.setSubscriberCount(subscriberCount);
 
-			// 현재 블로거가 작성한 모든 게시글을가져와서 카테고리를 찾는다.
-			List<Post> posts = postService.findByMemberId(member_id);
-			List<String> categorys = new ArrayList<>();
-
-			Map<String, Boolean> Allcategorys = new HashMap<>();
-			Allcategorys.put("여행", false);
-			Allcategorys.put("그림 웹툰", false);
-			Allcategorys.put("사진 촬영", false);
-			Allcategorys.put("IT 트랜드", false);
-			Allcategorys.put("경제", false);
-			Allcategorys.put("영화 리뷰", false);
-			Allcategorys.put("뮤직(음악)", false);
-			Allcategorys.put("요리 레시피", false);
-			Allcategorys.put("건강 운동", false);
-			Allcategorys.put("문화 예술", false);
-			Allcategorys.put("사랑 이별", false);
-			Allcategorys.put("반려동물", false);
-			for (Post post : posts) { //블로거가 작성한 모든 게시글에 사용된 카테고리를 체크
-				Allcategorys.put(post.getCategory(), true);
-			}
-			for(Map.Entry<String, Boolean> item : Allcategorys.entrySet()) {
-				if(item.getValue()) categorys.add(item.getKey());
-			}
-			
-			mvd.setCategorys(categorys);
+			// 현재 블로거가 작성한 모든 게시글을가져온다.
+			List<String> categorys = postService.getCategoriesByMemberIdAndPostStatus(member_id);
+		// 카테고리 안에 중복된 값들이 있으므로 중복된 값을 제거해서 보내줘야함
+			Set<String> categorySet = new HashSet<>(categorys);
+			List<String> uniqueCategorys = new ArrayList<>(categorySet);
+			mvd.setCategorys(uniqueCategorys);
 			
 			mvds.add(mvd);
 		}
@@ -159,7 +142,7 @@ public class MainController extends BaseController {
 		return "/main/main";
 	}
 
-	// 요일별 게시물을 비동기로 보여주는 컨트롤러
+	// 요일별 게시물을 비동기통신으로 보여주는 컨트롤러
 	@GetMapping("/weekends/{sort}")
 	public String viewWeekend(Model model, @PathVariable("sort") String sort, @RequestParam("week") String week) {
 //		log.warn("/weekends/" + sort);

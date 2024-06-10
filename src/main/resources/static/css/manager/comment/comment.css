@@ -833,6 +833,7 @@ div.list-content-inner{
 div.content-name{
     gap: 2px;
     display: flex;
+    margin: 4px 0;
 }
 
 p.content-name{

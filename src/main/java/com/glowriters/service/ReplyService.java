@@ -43,4 +43,5 @@ public class ReplyService {
 	public long getCommentCountByPostId(long postId) {
 		return replyRepository.countRepliesByPostId(postId);
 	}
+	
 }
