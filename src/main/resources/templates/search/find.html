@@ -83,13 +83,13 @@
 							<span class="bar-right"></span>
 						</a>
 					</li>
-<!-- 					<li th:classappend="${sidemenu == 'category' ? 'selected' : ''}"> -->
-<!-- 						<a class="glowCategory" href="#" th:href="@{/category/category}"> -->
-<!-- 							<span class="bar-left"></span> -->
-<!-- 							카테고리 -->
-<!-- 							<span class="bar-right"></span> -->
-<!-- 						</a> -->
-<!-- 					</li> -->
+					<!-- 					<li th:classappend="${sidemenu == 'category' ? 'selected' : ''}"> -->
+					<!-- 						<a class="glowCategory" href="#" th:href="@{/category/category}"> -->
+					<!-- 							<span class="bar-left"></span> -->
+					<!-- 							카테고리 -->
+					<!-- 							<span class="bar-right"></span> -->
+					<!-- 						</a> -->
+					<!-- 					</li> -->
 					<!-- 					write는 사실 따로 관리해서 여기에는 th:classappend를 할 필요없음 -->
 					<li th:classappend="${sidemenu == 'write' ? 'selected' : ''}">
 						<a class="glowWrite" href="#" th:href="@{/write/write}"
@@ -156,12 +156,10 @@
 								autocomplete="off" value>
 							<input name="profiled" type="hidden" value>
 						</form>
-						<!-- 이 버튼을 누르면 검색 페이지(search)로 이동 -->
-<!-- 						<button onclick="location.href='/search/search'" class="second-search-btn" type="button">검색</button> -->
+
 					</div>
 				</div>
 			</div>
-		</div>
 	</header>
 	<!-- 헤더 끝 부분 -->
 
@@ -171,13 +169,17 @@
 			<div class="wrap-search">
 				<h2 class="screen-out">검색 키워드 입력 창</h2>
 				<div class=" search-form">
-					<!-- 웹주소에 검색값을 q로 전달한 방식인듯 -->
-					<!-- search?q=한&type=user -->
-					<form method="get" action accept-charset="utf-8">
-						<input type="text" value="" name="q" class="txt-search" title="검색어입력" placeholder="검색어를 입력해 주세요."
-							maxlength="20" onfocus="this.value = this.value;" autocomplete="off">
+
+
+
+					<form method="POST" action="" th:action="@{/search/find}" accept-charset="utf-8">
+						<input type="text" th:value="${searchInput}" name="searchInput" class="txt-search" title="검색어입력"
+							placeholder="검색어를 입력해 주세요." maxlength="20" onfocus="this.value = this.value;" autocomplete="off">
 						<input type="hidden" value="article" name="type">
 					</form>
+
+
+
 				</div>
 			</div>
 		</div>
@@ -185,14 +187,17 @@
 			<div class="search-header">
 				<div class="tab-search">
 					<ul class="inner-tab">
+
 						<!-- 선택한것은 on클래스가 붙음 -->
-						<li class="on">
+						<li class="list1 on">
 							<a href="#" class="articleTab link-tab">글</a>
 						</li>
-						<li>
+						<li class="list2">
 							<a href="#" class="userTab link-tab">블로거</a>
 						</li>
-						<!-- <li><a href="#" class="articleTab link-tab">글</a></li> -->
+
+
+
 					</ul>
 				</div>
 				<div class="filter-search" style="display: none;">
@@ -222,7 +227,7 @@
 									<ul class="list-article list-animation">
 
 										<!-- 1-1. 실제 글 검색 내용 출력하는 부분 -->
-										<th:block th:each="item : ${pvds}">
+										<th:block th:each="item : ${posts}">
 											<li class="list-has-image animation-up-late">
 												<a href="#" th:href="@{/post-details/post-details/{post_id}(post_it = ${item.getPost_id()})}"
 													target="_blank" class="link-post">
@@ -236,9 +241,8 @@
 															<span>댓글</span>
 															<span class="num-txt" th:text="${item.getReplyCount()}">댓글수</span>
 															<span class="ico-dot"></span>
-															<span class="publish-time"
-																th:text="${#temporals.format(pvd.getCreated_date(), 'yyyy.MM.dd EEEE')}">날짜</span>
-															<span class="ico-dot"></span>
+<!-- 															<span class="publish-time" th:text="${#temporals.format(pvd.getCreated_date(), 'yyyy.MM.dd EEEE')}">날짜</span> -->
+<!-- 															<span class="ico-dot"></span> -->
 															<span class="txt-by">by</span>
 															<span th:text="${item.getMember_nickname()}">작성자</span>
 														</span>
@@ -265,31 +269,33 @@
 								</div>
 							</div>
 
+
+
 							<!-- 2. 추천 블로거 (글검색과 함께 보이는것) -->
-							<div class="result-recommend animation-up-late">
-								<div class="writerContainer">
-									<strong class="tit-recommend dd">추천 블로거</strong>
-									<div class="search-recommend">
+<!-- 							<div class="result-recommend animation-up-late"> -->
+<!-- 								<div class="writerContainer"> -->
+<!-- 									<strong class="tit-recommend dd">추천 블로거</strong> -->
+<!-- 									<div class="search-recommend"> -->
 
-										<a class="item-recommend" href="#" target="_blank">
-											<span class="thumb-g">
-												<img src="/images/blank-image.png" width="36" height="36" class="img-thumb" alt="작가이름">
-											</span>
-											<div class="detail-recommend">
-												<div class="inner-recommend">
-													<span class="txt-recommend">블로거이름</span>
-													<span class="txt-info">
-														<span class="txt-g">글 432</span>
-														<span class="ico-dot"></span>
-														<span class="txt-g">구독자 9,200</span>
-													</span>
-												</div>
-											</div>
-										</a>
+<!-- 										<a class="item-recommend" href="#" target="_blank"> -->
+<!-- 											<span class="thumb-g"> -->
+<!-- 												<img src="/images/blank-image.png" width="36" height="36" class="img-thumb" alt="작가이름"> -->
+<!-- 											</span> -->
+<!-- 											<div class="detail-recommend"> -->
+<!-- 												<div class="inner-recommend"> -->
+<!-- 													<span class="txt-recommend">블로거이름</span> -->
+<!-- 													<span class="txt-info"> -->
+<!-- 														<span class="txt-g">글 432</span> -->
+<!-- 														<span class="ico-dot"></span> -->
+<!-- 														<span class="txt-g">구독자 9,200</span> -->
+<!-- 													</span> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</a> -->
 
-									</div>
-								</div>
-							</div>
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 
 
 

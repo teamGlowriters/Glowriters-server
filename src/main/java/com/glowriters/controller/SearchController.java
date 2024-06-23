@@ -139,7 +139,7 @@ public class SearchController extends BaseController {
 		return "/search/search";
 	}
 
-	// 게시글 검색
+	// 게시글 검색결과를 보여줌(비동기처리)
 	@GetMapping("/search/search/resultPost")
 	public String searchPost(@RequestParam("keyword") String keyword, Model model) {
 		List<Post> posts = postService.findByTitleByKeyword(keyword);
@@ -150,7 +150,7 @@ public class SearchController extends BaseController {
 		return "/search/search :: #resultPost";
 	}
 
-	// 블로거 검색
+	// 블로거 검색결과를 보여줌(비동기처리)
 	@GetMapping("/search/search/resultBlogger")
 	public String searchBlogger(@RequestParam("keyword") String keyword, Model model) {
 		List<Member> members = memberService.findByMemberNicknameByKeyword(keyword);

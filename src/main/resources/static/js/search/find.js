@@ -15,40 +15,45 @@
 //})
 
 //탭을 누르면 글, 블로거 검색으로 바뀜
+const checkTabPost = document.querySelector(".inner-tab .list1");
+const checkTabBlog = document.querySelector(".inner-tab .list2");
+
 const postTab = document.querySelector(".articleTab.link-tab");
 const bloggerTab = document.querySelector(".userTab.link-tab");
 const postResult = document.querySelector(".search-result.post");
 const bloggerResult = document.querySelector(".search-result.blogger");
+function searchTabRemoveOnANDDisplayNone() {
+	// on 클래스 모두 제거
+	checkTabPost.classList.remove("on");
+	checkTabBlog.classList.remove("on");
+	// 전부 display: none 처리
+	postResult.style.display = "none";
+	bloggerResult.style.display = "none";
+}
+
 //처음에는 글 검색부터 보여줌
 document.addEventListener("DOMContentLoaded", function() {
     searchTabRemoveOnANDDisplayNone();
-    postTab.classList.add("on");
+    checkTabPost.classList.add("on");
     postResult.style.display = "block";  // 글 검색 결과 표시
     console.log("맨처음");
 });
 
 postTab.addEventListener("click", function() {
 	searchTabRemoveOnANDDisplayNone();
-	postTab.classList.add("on");
+	checkTabPost.classList.add("on");
 	postResult.style.display = "block";  // 글 검색 결과 표시
 	console.log("postTab");
 });
 
 bloggerTab.addEventListener("click", function() {
 	searchTabRemoveOnANDDisplayNone();
-	bloggerTab.classList.add("on");
+	checkTabBlog.classList.add("on");
 	bloggerResult.style.display = "block";  // 블로거 검색 결과 표시
 	console.log("bloggerTab");
 });
-function searchTabRemoveOnANDDisplayNone() {
-	// on 클래스 모두 제거
-	postTab.classList.remove("on");
-	bloggerTab.classList.remove("on");
 
-	// 전부 display: none 처리
-	postResult.style.display = "none";
-	bloggerResult.style.display = "none";
-}
+
 
 
 

@@ -63,14 +63,14 @@ public class FindController extends BaseController {
 
 			pvd.setSubscriberCount(subscriberService.countSubscribersByBloggerId(member_id));
 
-			String NEW = pvd.getCreated_date().isEqual(pvd.getUpdated_date()) ? "yes" : "no";
+//			String NEW = pvd.getCreated_date().isEqual(pvd.getUpdated_date()) ? "yes" : "no";
+			String NEW = post.getCreated_date().isEqual(post.getUpdated_date()) ? "yes" : "no"; 
 			pvd.setNEW(NEW);
 			
 			long replyCount = replyService.getCommentCountByPostId(post.getPost_id());
 			pvd.setReplyCount(replyCount);
 			
 			
-
 			// pvd.setLikeCount(0); //아직 구현안함
 			pvds.add(pvd);
 		}
@@ -131,7 +131,7 @@ public class FindController extends BaseController {
 		return mvds;
 	}
 
-	// 검색후 엔터누르면 이 컨트롤러가 호출됨
+	// 이전페이지에서 검색창에 엔터누르면 이 컨트롤러가 호출됨
 	@PostMapping("/search/find")
 	public String viewFind(String searchInput, Model model) {
 		List<Post> posts = postService.findByTitleByKeyword(searchInput);
@@ -139,12 +139,16 @@ public class FindController extends BaseController {
 		
 		List<Member> bloggers = memberService.findByMemberNicknameByKeyword(searchInput);
 		List<MemberViewDTO> mvds = getMemberViewDTO(bloggers);
-
+		
+		
+		model.addAttribute("searchInput", searchInput);//검색한결과를 보여줌
 		model.addAttribute("postCnt", posts.size());
 		model.addAttribute("bloggerCnt", bloggers.size());
 
 		model.addAttribute("posts", pvds);
 		model.addAttribute("bloggers", mvds);
+		
+
 		return "/search/find";
 	}
 
