@@ -1,3 +1,8 @@
+body {
+  overflow-x: hidden; /*페이지 좌우 스크롤바 생김을 차단*/
+}
+
+
 /* 헤더 시작 부분 */
 div {
 	display: block;
@@ -1269,7 +1274,7 @@ only screen and (min-resolution: 1.5dppx) {
 }
 
 .pic1-item .pic1-title {
-	max-width: 280px;
+	max-width: 390px;
 	margin: 0;
 	font-size: 32px;
 	line-height: 40px;
@@ -1279,14 +1284,12 @@ only screen and (min-resolution: 1.5dppx) {
 .pic1-item .pic1-title {
 	display: block;
 	display: -webkit-box;
-	overflow: hidden;
-	/* max-width: 262px; */
 	padding-top: 0;
-	/* margin-right: auto; */
-	/* margin-left: auto; */
 	-webkit-box-orient: vertical;
 	color: #fff;
 	-webkit-line-clamp: 2;
+	white-space: nowrap; 
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
@@ -1322,7 +1325,7 @@ only screen and (min-resolution: 1.5dppx) {
 .pic1-item .pic1-by {
 	display: flex;
 	justify-content: start;
-	padding-top: 29px;
+	padding-top: 0px;
 	margin: 0;
 	font-size: 0;
 	line-height: 0;
