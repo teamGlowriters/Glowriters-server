@@ -131,6 +131,8 @@ public class MainController extends BaseController {
 		// 3. 추천블로거란
 		List<Member> bloggers = memberService.findAll();
 		List<MemberViewDTO> recommendedBloggers = getMemberViewDTO(bloggers);
+		// 6개만 전달
+		recommendedBloggers = recommendedBloggers.size() > 6 ? new ArrayList<>(recommendedBloggers.subList(0, 6)) : recommendedBloggers;
 		model.addAttribute("recommendedBloggers", recommendedBloggers);
 		
 		// 4. 푸터 슬라이드 (전체 게시물 보여줌)
