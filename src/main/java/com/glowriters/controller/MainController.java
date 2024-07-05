@@ -32,7 +32,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequiredArgsConstructor //@Autowired를 안써도됨
+@RequiredArgsConstructor // @Autowired를 안써도됨
 @Slf4j
 public class MainController extends BaseController {
 	private final KakaoService kakaoService;
@@ -105,11 +105,11 @@ public class MainController extends BaseController {
 
 			// 현재 블로거가 작성한 모든 게시글을가져온다.
 			List<String> categorys = postService.getCategoriesByMemberIdAndPostStatus(member_id);
-		// 카테고리 안에 중복된 값들이 있으므로 중복된 값을 제거해서 보내줘야함
+			// 카테고리 안에 중복된 값들이 있으므로 중복된 값을 제거해서 보내줘야함
 			Set<String> categorySet = new HashSet<>(categorys);
 			List<String> uniqueCategorys = new ArrayList<>(categorySet);
 			mvd.setCategorys(uniqueCategorys);
-			
+
 			mvds.add(mvd);
 		}
 
@@ -132,15 +132,16 @@ public class MainController extends BaseController {
 		List<Member> bloggers = memberService.findAll();
 		List<MemberViewDTO> recommendedBloggers = getMemberViewDTO(bloggers);
 		// 6개만 전달
-		recommendedBloggers = recommendedBloggers.size() > 6 ? new ArrayList<>(recommendedBloggers.subList(0, 6)) : recommendedBloggers;
+		recommendedBloggers = recommendedBloggers.size() > 6 ? new ArrayList<>(recommendedBloggers.subList(0, 6))
+				: recommendedBloggers;
 		model.addAttribute("recommendedBloggers", recommendedBloggers);
-		
+
 		// 4. 푸터 슬라이드 (전체 게시물 보여줌)
 		List<Post> allPosts = postService.findAll();
 		List<PostViewDTO> footerSlideItems = getPostViewDTO(allPosts);
 		model.addAttribute("footerSlideItems", footerSlideItems);
 		model.addAttribute("footerSlideItemsCount", allPosts.size());
-		
+
 		return "/main/main";
 	}
 
